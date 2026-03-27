@@ -1,0 +1,24 @@
+# ──────────────────────────────────────────────
+# DenseLess — Python Dependencies
+# Install: pip install -r requirements.txt
+# ──────────────────────────────────────────────
+
+# --- Web Framework ---
+fastapi==0.115.12
+uvicorn[standard]==0.34.2
+jinja2==3.1.6
+python-multipart==0.0.20
+
+# --- Environment Variables ---
+python-dotenv==1.1.0
+
+# --- Database (Supabase) ---
+supabase==2.13.0
+
+# --- AI / LLM Orchestration ---
+langchain==0.3.23
+langchain-community==0.3.21
+langchain-google-genai==2.1.4
+
+# --- Data Validation ---
+pydantic==2.11.1
