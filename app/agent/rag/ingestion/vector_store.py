@@ -150,6 +150,7 @@ def query_chroma(
     store: Chroma,
     query: str,
     top_k: int = 5,
+    score_threshold: float = 0.5,
 ) -> List[Document]:
     """
     Run a semantic similarity search scoped to one student's Chroma store.
@@ -159,25 +160,49 @@ def query_chroma(
     belonging to any other student.
 
     The query string is embedded at runtime using the same model used
-    during ingestion, then ranked by cosine similarity against all
-    stored vectors in this collection.
+    during ingestion, then ranked by cosine similarity. Only chunks
+    that meet or exceed ``score_threshold`` are returned.
 
     Args:
-        store:  A student-scoped, populated Chroma store.
-        query:  The question or topic string to search for.
-        top_k:  Number of most relevant chunks to return (default 5).
+        store:            A student-scoped, populated Chroma store.
+        query:            The question or topic string to search for.
+        top_k:            Number of most relevant chunks to return (default 5).
+        score_threshold:  The minimum confidence level (0.0–1.0) for a chunk
+                          to be considered relevant to the query.
+                          Think of it as a cut-off grade — chunks that score
+                          below it are discarded, chunks above it are returned.
+                          A passing chunk must be both mathematically similar
+                          (vector distance) and contextually relevant to the query.
+
+                          0.5 → balanced, recommended starting point
+                          0.1 → too lenient, returns irrelevant chunks
+                          0.9 → too strict, may return nothing at all
 
     Returns:
         A list of up to ``top_k`` Document objects, most relevant first,
         each retaining its full metadata from ingestion.
     """
-    print(f"Querying Chroma (top_k={top_k}): '{query[:60]}...'")
+    print(
+        f"Querying Chroma (top_k={top_k}, threshold={score_threshold}): '{query[:60]}...'"
+    )
 
     try:
-        results = store.similarity_search(query=query, k=top_k)
+        # similarity_search_with_score returns (Document, score) tuples
+        # Chroma uses L2 distance — lower score = more similar
+        # We convert to a 0.0–1.0 relevance scale for a consistent interface
+        results_with_scores = store.similarity_search_with_score(query=query, k=top_k)
 
-        print(f"  → Retrieved {len(results)} chunk(s).")
-        return results
+        # Filter out chunks that fall below the score threshold
+        filtered = [
+            doc
+            for doc, score in results_with_scores
+            if (1 - score) >= score_threshold  # convert distance → similarity
+        ]
+
+        print(
+            f"  → Retrieved {len(results_with_scores)} chunk(s), {len(filtered)} passed threshold."
+        )
+        return filtered
     except Exception as e:
         print(f"Error querying vector store: {e}")
         raise
@@ -257,6 +282,61 @@ def query_supabase(
 # ─────────────────────────────────────────────────────────────────────────────
 # SECTION 3 — FACTORY
 # ─────────────────────────────────────────────────────────────────────────────
+
+
+def query_store(
+    store: Chroma,
+    query: str,
+    top_k: int = 5,
+    score_threshold: float = 0.5,
+    backend: str | None = None,
+) -> List[Document]:
+    """
+    Factory — routes a similarity search to the correct backend.
+
+    This is the single query entry point retriever.py uses.
+    It means retriever.py never imports query_chroma() or
+    query_supabase() directly — only this function. When the
+    backend switches to Supabase, only this function changes
+    internally. retriever.py touches nothing.
+
+    Args:
+        store:            An initialised, student-scoped vector store.
+        query:            The question or topic string to search for.
+        top_k:            Number of most relevant chunks to return.
+        score_threshold:  Minimum relevance score for a chunk to pass.
+                          See query_chroma() for full definition.
+        backend:          Override the env variable programmatically.
+                          Useful in tests. Defaults to None (reads from env).
+
+    Returns:
+        A list of relevant Document objects with full metadata intact.
+
+    Raises:
+        ValueError:          If backend is not "chroma" or "supabase".
+        NotImplementedError: If "supabase" is requested before implemented.
+    """
+    resolved_backend = (backend or os.getenv("VECTOR_STORE", "chroma")).lower().strip()
+
+    if resolved_backend == "chroma":
+        return query_chroma(
+            store=store,
+            query=query,
+            top_k=top_k,
+            score_threshold=score_threshold,
+        )
+
+    elif resolved_backend == "supabase":
+        raise NotImplementedError(
+            "Supabase query backend is not yet implemented. "
+            "Set VECTOR_STORE=chroma for local development."
+        )
+
+    else:
+        raise ValueError(
+            f"Unrecognised vector store backend: '{resolved_backend}'. "
+            f"Valid options are: 'chroma', 'supabase'."
+        )
 
 
 def get_vector_store(
