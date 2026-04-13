@@ -1,0 +1,59 @@
+erDiagram
+    USERS {
+        uuid id PK
+        text email
+        text full_name
+        text cgpa_bracket
+        timestamp created_at
+    }
+
+    LEARNER_PROFILES {
+        uuid id PK
+        uuid user_id FK
+        text learning_pace
+        text[] weak_topics
+        text[] strong_topics
+        date[] revision_dates
+        jsonb topics
+        timestamp updated_at
+    }
+
+    DOCUMENTS {
+        uuid id PK
+        uuid user_id FK
+        text filename
+        text file_type
+        timestamp uploaded_at
+    }
+
+    DOCUMENT_CHUNKS {
+        uuid id PK
+        uuid document_id FK
+        uuid user_id FK
+        text page_content
+        text section
+        text category
+        int page_number
+        text element_id
+        vector embedding
+        timestamp created_at
+    }
+
+    QUIZ_SESSIONS {
+        uuid id PK
+        uuid user_id FK
+        text topic
+        text quiz_type
+        jsonb questions
+        jsonb answers
+        float score
+        text[] weak_areas
+        text[] strong_areas
+        timestamp taken_at
+    }
+
+    USERS ||--|| LEARNER_PROFILES : "has one"
+    USERS ||--o{ DOCUMENTS : "uploads"
+    USERS ||--o{ QUIZ_SESSIONS : "attempts"
+    DOCUMENTS ||--o{ DOCUMENT_CHUNKS : "split into"
+    USERS ||--o{ DOCUMENT_CHUNKS : "owns"
