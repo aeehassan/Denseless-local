@@ -33,7 +33,7 @@ from typing import List
 import numpy as np
 from tqdm import tqdm
 
-from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_core.documents import Document
 
 
@@ -41,16 +41,19 @@ from langchain_core.documents import Document
 # TEXT EMBEDDINGS
 # ─────────────────────────────────────────────────────────────────
 
+# module-level cache — survives the lifetime of the Python process
+_model_cache: dict[str, HuggingFaceEmbeddings] = {}
+
 
 def get_embedding_model(
-    model_name: str = "BAAI/bge-base-en-v1.5",  # The model performed well on academic and technical retrieval benchmarks
+    model_name: str = "BAAI/bge-small-en-v1.5",  # The model performed well on academic and technical retrieval benchmarks -- Dim = 384
     device: str = "cpu",
 ) -> HuggingFaceEmbeddings:
     """
     Initialize and return the sentence-transformers embedding model.
 
-    By default, it uses 'all-MiniLM-L6-v2', which is a fast and
-    lightweight model excellent for general-purpose semantic search.
+    By default, it uses 'bge-small-en-v1.5.', which performs well
+    on academic and technical retrieval benchmarks.
 
     Args:
         model_name: The HuggingFace model repo ID to download/use.
@@ -60,6 +63,11 @@ def get_embedding_model(
         An instance of ``HuggingFaceEmbeddings`` ready to be passed
         to a vector store or LangChain pipeline.
     """
+    # Return cached instance if already loaded
+    if model_name in _model_cache:
+        print(f"  → Using cached embedding model: {model_name}")
+        return _model_cache[model_name]
+
     print(f"Loading embedding model: {model_name} (device={device})")
 
     # model_kwargs configures underlying torch settings
@@ -74,8 +82,9 @@ def get_embedding_model(
             model_kwargs=model_kwargs,
             encode_kwargs=encode_kwargs,
         )
+        embed_dim = len(embeddings.embed_query("hello"))
         print(
-            f"  → Embedding model loaded successfully. Embedding dimension: {embeddings.client.get_sentence_embedding_dimension()}"
+            f"  → Embedding model loaded successfully. Embedding dimension: {embed_dim}"
         )
         return embeddings
 
