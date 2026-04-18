@@ -9,19 +9,28 @@
 {
   "user_id": "...",
   "learning_pace": "average",
+  "tokens_remaining": 1000000,
+  "tokens_used": 0,
+  "token_history": [
+    {
+      "input_tokens": 312,
+      "output_tokens": 688,
+      "total_tokens": 1000,
+      "chain": "run_qa_chain",
+      "timestamp": "2026-04-14T10:23:01"
+    },
+    {
+      "input_tokens": 890,
+      "output_tokens": 1240,
+      "total_tokens": 2130,
+      "chain": "run_notes_chain",
+      "timestamp": "2026-04-14T11:45:22"
+    }
+  ],
   "weak_topics": [],
   "strong_topics": [],
   "revision_dates": [],
-  "topics": {
-    "Interconnection Structures": {
-      "weak_areas": [],
-      "strong_areas": [],
-      "scores": {
-        "comprehension": [],
-        "retention": []
-      }
-    }
-  }
+  "topics": { ... }
 }
 ```
 
@@ -32,6 +41,18 @@
 ---
 
 # Learner Profile
+
+Don't store token_history as a JSON column on Learner_Profiles.
+Give it its own table instead:
+
+Token_History
+├── id              UUID    PRIMARY KEY
+├── student_id      UUID    FOREIGN KEY → Learner_Profiles
+├── chain           VARCHAR
+├── input_tokens    INTEGER
+├── output_tokens   INTEGER
+├── total_tokens    INTEGER
+├── timestamp       TIMESTAMPTZ
 
 ## Overview
 The Learner Profile is a per-user JSON data structure that persists across sessions in Supabase. It is the central data structure driving CogniLearn's personalization engine — every adaptive decision made by the system, from how notes are generated to how quizzes are weighted, is derived from the state of this structure.
