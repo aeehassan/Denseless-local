@@ -122,6 +122,23 @@ Entries are appended after each revision session. Used to drive the spaced repet
 
 **Updated by:** The quiz evaluation function after each retention test submission — appends a new entry and, on the first attempt, triggers revision date generation.
 
+### Token Economy:
+    tokens_remaining    Tracks how many LLM tokens the student has left.
+                        Initialised at 1,000,000 on signup. Decremented
+                        after every chain call by the exact token count
+                        returned in the model's response metadata.
+                        Requests are blocked when this reaches 0.
+
+    tokens_used         Cumulative total of tokens consumed by the student
+                        across all chain calls (notes, quiz, eval, Q&A).
+                        Used for cost tracking and research evaluation.
+
+    Invariant:          tokens_remaining + tokens_used = 1,000,000 always.
+
+### Important note
+#### Supabase
+token_service.py — the Supabase RPC note. When you implement deduct_tokens(), use a stored procedure rather than two separate UPDATE queries. Two separate queries can create a race condition if a student somehow triggers two chain calls simultaneously — the atomic RPC prevents that.
+
 ---
 
 ## Update Flow Summary

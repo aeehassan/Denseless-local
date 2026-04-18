@@ -98,7 +98,11 @@ def generate_embeddings(
     documents: List[Document], embedder: HuggingFaceEmbeddings, batch_size: int = 32
 ) -> np.ndarray:
     """
-    Generate vector embeddings for a list of LangChain Document objects.
+    Generate vector embeddings for a list of LangChain Document objects with
+    metadata-aware text representation.  Combines semantic metadata (e.g., section,
+    title) with page_content so that embedding space captures document structure
+    and meaning. The goal is to embed in such a way that retrieval returns the
+    relevant chunks to the query.
 
     Iterates over the provided chunks in batches to display a progress bar,
     extracts their text content, and generates vectors using the given embedding model.
@@ -115,10 +119,30 @@ def generate_embeddings(
         print("No documents provided to embed.")
         return np.array([])
 
+    def normalize_category(category: str) -> str:
+        mapping = {
+            "NarrativeText": "explanatory text",
+            "Title": "section heading",
+            "ListItem": "key point",
+            "Table": "tabular data",
+        }
+        return mapping.get(category, category)
+
+    def build_text(doc: Document) -> str:
+        section = doc.metadata.get("section", "")
+        category = normalize_category(doc.metadata.get("category", ""))
+
+        return f"""
+        Section: {section}
+        Type: {category}
+
+        {doc.page_content}
+        """.strip()
+
     print(f"Generating embeddings for {len(documents)} document chunk(s)...")
 
     # Extract only the textual content from each Document object to embed
-    texts = [doc.page_content for doc in documents]
+    texts = [build_text(doc) for doc in documents]
     all_embeddings = []
 
     # Process with a progress bar

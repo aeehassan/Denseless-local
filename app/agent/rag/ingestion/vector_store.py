@@ -20,12 +20,15 @@
 #   VECTOR_STORE=supabase   (when ready for production)
 #
 # Usage:
-#   from app.agent.rag.ingestion.vector_store import get_vector_store
+#   from app.agent.rag.ingestion.vector_store import get_vector_store, add_documents_to_chroma
 #
 #   store = get_vector_store(student_id="abc123", embedder=embedder)
+#   add_documents_to_chroma(store, embeddings, documents, course, topic, file_name)
 # ══════════════════════════════════════════════════════════════════════════════
 
 import os
+import numpy as np
+import uuid
 from typing import List
 
 from langchain_chroma import Chroma
@@ -113,37 +116,136 @@ def get_chroma_store(
 
 def add_documents_to_chroma(
     store: Chroma,
+    embeddings: np.ndarray,
     documents: List[Document],
+    course: str,
+    topic: str,
+    file_name: str,
 ) -> None:
     """
     Add a list of LangChain Document objects to a student's Chroma store.
 
-    Each Document's ``page_content`` is embedded using the store's
-    embedding function and persisted alongside its full ``metadata`` dict.
-    This preserves section, category, page_number, and all other fields
-    attached during the ingestion step.
+    Before inserting, checks the existing collection for duplicate content.
+    Documents whose page_content already exists in the store are silently
+    skipped — only genuinely new documents are inserted. This prevents
+    duplicate chunks from accumulating across notebook reruns or repeated
+    ingestion calls on the same PDF.
 
-    Skips silently if ``documents`` is empty to avoid unnecessary
-    model calls.
+    Deduplication is performed by hashing each document's page_content.
+    Two documents with identical content are considered the same chunk
+    regardless of their metadata or element_id.
+
+    Documents and embeddings are filtered in sync — the final lists
+    passed to Chroma are always guaranteed to be the same length.
 
     Args:
         store:      A student-scoped Chroma store (from get_chroma_store).
+        embeddings: Corresponding embeddings for the documents as a
+                    numpy array. Must be the same length as documents.
         documents:  List of chunked Document objects from ingestion.
+        course:     The course these documents belong to.
+        topic:      The topic these documents belong to.
+        file_name:  The name of the source PDF file.
 
     Returns:
         None
-    """
-    try:
-        if not documents:
-            print("  ⚠ No documents provided — skipping Chroma insertion.")
-            return
 
-        print(f"Adding {len(documents)} document chunk(s) to Chroma store...")
-        store.add_documents(documents)
-        print(f"  → Successfully added {len(documents)} chunk(s).")
+    Raises:
+        ValueError:   If documents and embeddings lengths do not match.
+        RuntimeError: If fetching existing documents or inserting new
+                      ones fails unexpectedly.
+    """
+    if not documents:
+        print("  ⚠ No documents provided — skipping Chroma insertion.")
+        return
+
+    if len(documents) != len(embeddings):
+        raise ValueError(
+            f"Number of documents ({len(documents)}) must match "
+            f"number of embeddings ({len(embeddings)})."
+        )
+
+    # ── Step 1: Fetch existing content hashes from the collection ────────────
+    try:
+        existing = store.get()
+        existing_contents = existing.get("documents", [])
+
+        existing_hashes: set[int] = {
+            hash(content.strip())
+            for content in existing_contents
+            if content
+        }
+
+        print(f"  [vector_store] {len(existing_hashes)} existing chunk(s) found in collection.")
+
     except Exception as e:
-        print(f"Error adding documents to vector store: {e}")
-        raise
+        raise RuntimeError(
+            f"Failed to fetch existing documents from Chroma store "
+            f"during deduplication check. | Error: {e}"
+        ) from e
+
+    # ── Step 2: Filter documents AND embeddings in sync ───────────────────────
+    # Zip together so both lists stay aligned after filtering.
+    new_pairs = [
+        (doc, emb)
+        for doc, emb in zip(documents, embeddings)
+        if hash(doc.page_content.strip()) not in existing_hashes
+    ]
+
+    skipped = len(documents) - len(new_pairs)
+
+    if skipped > 0:
+        print(f"  [vector_store] {skipped} duplicate chunk(s) skipped.")
+
+    if not new_pairs:
+        print("  [vector_store] ✓ All documents already exist in store — nothing to add.")
+        return
+
+    # Unzip back into separate lists for Chroma insertion
+    new_documents, new_embeddings = zip(*new_pairs)
+
+    # ── Step 3: Build Chroma insertion payload ────────────────────────────────
+    try:
+        print(f"  [vector_store] Adding {len(new_documents)} new chunk(s) to Chroma store...")
+
+        ids = []
+        metadatas = []
+        documents_text = []
+        embedding_list = []
+
+        # Standardised source naming
+        source = f"{course}_{topic}_{file_name}"
+
+        for i, (doc, embedding) in enumerate(zip(new_documents, new_embeddings)):
+            doc_id = f"doc_{uuid.uuid4().hex[:8]}_{i}"
+            ids.append(doc_id)
+
+            metadatum = dict(doc.metadata)
+            metadatum["course"] = course
+            metadatum["topic"] = topic
+            metadatum["source"] = source
+            metadatum["doc_index"] = i
+            metadatum["content_length"] = len(doc.page_content)
+            metadatas.append(metadatum)
+
+            documents_text.append(doc.page_content)
+            embedding_list.append(embedding.tolist())
+
+        store._collection.add(
+            ids=ids,
+            documents=documents_text,
+            metadatas=metadatas,
+            embeddings=embedding_list,
+        )
+
+        print(f"  [vector_store] ✓ Successfully added {len(new_documents)} chunk(s).")
+        print(f"  [vector_store] Total documents in collection: {store._collection.count()}")
+
+    except Exception as e:
+        raise RuntimeError(
+            f"Failed to add documents to Chroma store. "
+            f"Attempted to insert {len(new_documents)} chunk(s). | Error: {e}"
+        ) from e
 
 
 def query_chroma(
@@ -151,9 +253,13 @@ def query_chroma(
     query: str,
     top_k: int = 5,
     score_threshold: float = 0.5,
-) -> List[Document]:
+    course: str | None = None,
+    topic: str | None = None,
+) -> List[tuple[Document, float]]:
     """
     Run a semantic similarity search scoped to one student's Chroma store.
+    It is also designed to perform filtering such that only the course and
+    topic in question are returned.
 
     Because the store was initialised with the student's collection,
     this search is physically isolated — it cannot surface documents
@@ -177,6 +283,8 @@ def query_chroma(
                           0.5 → balanced, recommended starting point
                           0.1 → too lenient, returns irrelevant chunks
                           0.9 → too strict, may return nothing at all
+        course:           The course to filter by.
+        topic:            The topic to filter by.
 
     Returns:
         A list of up to ``top_k`` Document objects, most relevant first,
@@ -187,10 +295,39 @@ def query_chroma(
     )
 
     try:
+        # To enable filter search as well as full search
+        filters = {}
+
+        if course is not None:
+            filters["course"] = course
+
+        if topic is not None:
+            filters["topic"] = topic
+
         # similarity_search_with_score returns (Document, score) tuples
         # Chroma uses L2 distance — lower score = more similar
         # We convert to a 0.0–1.0 relevance scale for a consistent interface
-        results_with_scores = store.similarity_search_with_score(query=query, k=top_k)
+        results_with_scores = store.similarity_search_with_score(
+            query=query,
+            k=top_k,
+            filter=filters if filters else None,   # ← only pass filter when non-empty
+        )
+
+        # Remove duplicate chunks by content
+        # Chroma sometimes returns identical or near-identical chunks
+        # This block ensures each unique chunk appears only once
+        seen_contents = set()
+        unique_results = []
+
+        for doc, score in results_with_scores:
+            content = doc.page_content.strip()
+
+            if content not in seen_contents:
+                seen_contents.add(content)
+                unique_results.append((doc, score))
+
+        # Replace original results with deduplicated version
+        results_with_scores = unique_results
 
         # Filter out chunks that fall below the score threshold
         filtered = [
@@ -289,6 +426,8 @@ def query_store(
     query: str,
     top_k: int = 5,
     score_threshold: float = 0.5,
+    course: str | None = None,
+    topic: str | None = None,
     backend: str | None = None,
 ) -> List[Document]:
     """
@@ -306,6 +445,8 @@ def query_store(
         top_k:            Number of most relevant chunks to return.
         score_threshold:  Minimum relevance score for a chunk to pass.
                           See query_chroma() for full definition.
+        course:           The course to filter by.
+        topic:            The topic to filter by.
         backend:          Override the env variable programmatically.
                           Useful in tests. Defaults to None (reads from env).
 
@@ -324,6 +465,8 @@ def query_store(
             query=query,
             top_k=top_k,
             score_threshold=score_threshold,
+            course=course,
+            topic=topic,
         )
 
     elif resolved_backend == "supabase":

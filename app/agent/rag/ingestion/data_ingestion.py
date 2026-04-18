@@ -9,6 +9,8 @@ Uses ``langchain_unstructured.UnstructuredLoader`` with the
 the PDF naturally define chunk boundaries — ideal for a study
 app where preserving topic semantic structure.
 
+The accuracy of this step depends on how well structured the PDF is.
+
 Pipeline stages handled here:
     1. PDF loading  — extract text + structural metadata.
     2. Chunking     — split by document sections (titles/headings).
@@ -22,6 +24,7 @@ Usage:
 import os
 from pathlib import Path
 from typing import List
+from pypdf import PdfReader
 
 from dotenv import load_dotenv
 from unstructured.partition.api import partition_via_api
@@ -34,6 +37,31 @@ load_dotenv()
 # ─────────────────────────────────────────────────────────────────
 # PDF LOADING + SECTION-AWARE CHUNKING
 # ─────────────────────────────────────────────────────────────────
+
+
+def validate_pdf_page_count(pdf, max_pages: int = 50) -> None:
+    """
+    Raises an exception if the PDF exceeds the allowed page limit.
+
+    Args:
+        pdf: File-like object or file path
+        max_pages: Maximum allowed number of pages
+
+    Raises:
+        ValueError: If PDF exceeds max_pages
+    """
+    try:
+        reader = PdfReader(pdf)
+        num_pages = len(reader.pages)
+        print(f"PDF page count: {num_pages}")
+
+        if num_pages > max_pages:
+            raise ValueError(
+                f"PDF has {num_pages} pages, which exceeds the limit of {max_pages} pages."
+            )
+
+    except Exception as e:
+        raise ValueError(f"Failed to read PDF for page validation: {e}")
 
 
 def process_and_load_file(
@@ -102,6 +130,7 @@ def process_and_load_file(
     """
 
     pdf = Path(file_path)
+    validate_pdf_page_count(pdf)
 
     # 1. Validate inputs
     if not pdf.exists():
@@ -123,7 +152,7 @@ def process_and_load_file(
     # 2. Partition into raw elements — no chunking_strategy so categories are preserved
     elements = partition_via_api(
         filename=str(pdf),
-        strategy="fast",  # extract text only, no ocr
+        strategy="hi_res",  # advanced model for complex pdfs, research papers and includes images
         api_key=api_key,
         api_url=api_url,
     )
@@ -143,7 +172,7 @@ def process_and_load_file(
             current_section = element.text
 
         text = element.text.strip()
-        if not text or len(text) < 30:  # discard very short elements
+        if not text or len(text) < 15:  # discard very short elements
             continue
 
         # 5. Split element text if it exceeds max_characters, with overlap
