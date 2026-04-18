@@ -60,6 +60,7 @@
 import functools
 import json
 import os
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Callable
 
@@ -87,6 +88,7 @@ _DEFAULT_PROFILE = {
     "learning_pace": "average",
     "tokens_remaining": 1_000_000,
     "tokens_used": 0,
+    "token_history": [],  # append-only log of every LLM call
     "weak_topics": [],
     "strong_topics": [],
     "revision_dates": [],
@@ -188,6 +190,7 @@ class InsufficientTokensError(Exception):
         except InsufficientTokensError:
             return templates.TemplateResponse("errors/tokens_exhausted.html", ...)
     """
+
     pass
 
 
@@ -235,80 +238,109 @@ def get_tokens_remaining(student_id: str) -> int:
     except RuntimeError:
         raise  # Re-raise with original context intact
     except Exception as e:
-        print(f"  [token_service] ✗ Unexpected error reading profile for '{student_id}': {e}")
+        print(
+            f"  [token_service] ✗ Unexpected error reading profile for '{student_id}': {e}"
+        )
         return 0  # Fail safely — deny access rather than grant it
 
 
-def deduct_tokens(student_id: str, tokens_consumed: int) -> dict:
+def deduct_tokens(
+    student_id: str,
+    input_tokens: int,
+    output_tokens: int,
+    total_tokens: int,
+    chain_name: str,
+) -> dict:
     """
-    Deduct consumed tokens from a student's balance.
+    Deduct consumed tokens from a student's balance and log the call.
 
     Decrements ``tokens_remaining`` and increments ``tokens_used``
-    by ``tokens_consumed``, preserving the invariant:
+    by ``total_tokens``, preserving the invariant:
         tokens_remaining + tokens_used = 1,000,000
+
+    Appends a full record to ``token_history`` capturing the input/output
+    breakdown, the chain that triggered the call, and a UTC timestamp.
+    This provides a complete audit trail of every LLM call per student.
 
     DEV: Reads and writes the student's JSON profile file in data/profiles/.
     TODO: Replace body with a Supabase atomic RPC when database layer is ready:
               from app.services.supabase_client import supabase
               supabase.rpc("deduct_student_tokens", {
-                  "p_student_id": student_id,
-                  "p_tokens_consumed": tokens_consumed,
+                  "p_student_id":   student_id,
+                  "p_input_tokens": input_tokens,
+                  "p_output_tokens": output_tokens,
+                  "p_total_tokens": total_tokens,
+                  "p_chain_name":   chain_name,
               }).execute()
-          Note: Use a Supabase RPC (stored procedure) for the atomic
-          decrement/increment to prevent race conditions on concurrent calls.
+          Note: In Supabase, token_history becomes a dedicated Token_History
+          table (not a JSON column) so it can be queried efficiently at scale.
+          See project documentation for the full schema.
 
     Args:
-        student_id:       Unique identifier for the student.
-        tokens_consumed:  Exact token count from model response metadata.
-                          Retrieved via response.usage_metadata["total_tokens"].
-                          Must be a non-negative integer.
+        student_id:    Unique identifier for the student.
+        input_tokens:  Tokens consumed by the prompt sent to the model.
+        output_tokens: Tokens consumed by the model's response.
+        total_tokens:  input_tokens + output_tokens. This is the amount
+                       deducted from tokens_remaining.
+        chain_name:    Name of the chain function that triggered this call.
+                       Retrieved from chain_func.__name__ in token_guard.
 
     Returns:
         Dict with updated balances:
         {
-            "tokens_remaining":          int,
-            "tokens_used":               int,
-            "tokens_consumed_this_call": int,
+            "tokens_remaining": int,
+            "tokens_used":      int,
+            "tokens_this_call": int,
         }
 
     Raises:
-        ValueError:   If student_id is empty or tokens_consumed is negative.
+        ValueError:   If student_id is empty or any token count is negative.
         RuntimeError: If the profile file cannot be read or written.
     """
     if not student_id or not student_id.strip():
         raise ValueError("student_id cannot be empty or whitespace.")
 
-    if tokens_consumed < 0:
+    if input_tokens < 0 or output_tokens < 0 or total_tokens < 0:
         raise ValueError(
-            f"tokens_consumed must be a non-negative integer. "
-            f"Got: {tokens_consumed}"
+            f"Token counts must be non-negative. "
+            f"Got input={input_tokens}, output={output_tokens}, total={total_tokens}."
         )
 
     # ── DEV: JSON file update — replace with Supabase RPC ────────────────────
     try:
         profile = _load_profile(student_id)
 
-        # Update both fields in memory then write once — preserves invariant
-        profile["tokens_remaining"] = max(0, profile["tokens_remaining"] - tokens_consumed)
-        profile["tokens_used"] = profile.get("tokens_used", 0) + tokens_consumed
+        # Update flat balance fields in memory then write once
+        profile["tokens_remaining"] = max(0, profile["tokens_remaining"] - total_tokens)
+        profile["tokens_used"] = profile.get("tokens_used", 0) + total_tokens
+
+        # Append this call's full breakdown to the history list
+        history_entry = {
+            "input_tokens": input_tokens,
+            "output_tokens": output_tokens,
+            "total_tokens": total_tokens,
+            "chain": chain_name,
+            "timestamp": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S"),
+        }
+        profile.setdefault("token_history", []).append(history_entry)
 
         _save_profile(student_id, profile)
 
         print(
-            f"  [token_service] Deducted {tokens_consumed:,} tokens — "
-            f"student: '{student_id}' | "
-            f"remaining: {profile['tokens_remaining']:,} | "
-            f"used: {profile['tokens_used']:,}"
+            f"  [token_service] Deducted {total_tokens:,} tokens — "
+            f"student: '{student_id}' | chain: {chain_name} | "
+            f"in: {input_tokens:,} | out: {output_tokens:,} | "
+            f"remaining: {profile['tokens_remaining']:,}"
         )
 
         return {
             "tokens_remaining": profile["tokens_remaining"],
             "tokens_used": profile["tokens_used"],
-            "tokens_consumed_this_call": tokens_consumed,
+            "tokens_this_call": total_tokens,
         }
 
     except (ValueError, RuntimeError):
-        raise  # Re-raise typed errors with original context intact
+        raise
     except Exception as e:
         raise RuntimeError(
             f"Unexpected error deducting tokens for student '{student_id}': {e}"
@@ -387,13 +419,16 @@ def token_guard(chain_func: Callable) -> Callable:
                                  (indicates the chain is not returning
                                   a proper LangChain response object).
     """
+
     @functools.wraps(chain_func)
     def wrapper(student_id: str, *args: Any, **kwargs: Any) -> Any:
 
         # ── Step 1: Check balance ─────────────────────────────────────────────
         remaining = get_tokens_remaining(student_id)
 
-        print(f"  [token_guard] Checking tokens — student: {student_id} | remaining: {remaining} | chain: {chain_func.__name__}")
+        print(
+            f"  [token_guard] Checking tokens — student: {student_id} | remaining: {remaining} | chain: {chain_func.__name__}"
+        )
 
         if remaining <= 0:
             print(f"  [token_guard] ✗ Token balance exhausted — student: {student_id}")
@@ -418,9 +453,17 @@ def token_guard(chain_func: Callable) -> Callable:
         tokens_consumed = usage.get("total_tokens", 0)
 
         # ── Step 4: Deduct and print updated balance ──────────────────────────
-        updated_balance = deduct_tokens(student_id, tokens_consumed)
+        updated_balance = deduct_tokens(
+            student_id=student_id,
+            input_tokens=usage.get("input_tokens", 0),
+            output_tokens=usage.get("output_tokens", 0),
+            total_tokens=tokens_consumed,
+            chain_name=chain_func.__name__,
+        )
 
-        print(f"  [token_guard] ✓ Tokens deducted — student: {student_id} | consumed: {tokens_consumed} | remaining: {updated_balance['tokens_remaining']}")
+        print(
+            f"  [token_guard] ✓ Tokens deducted — student: {student_id} | consumed: {tokens_consumed} | remaining: {updated_balance['tokens_remaining']}"
+        )
 
         return response
 
