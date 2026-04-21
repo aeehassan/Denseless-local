@@ -118,6 +118,7 @@ def add_documents_to_chroma(
     store: Chroma,
     embeddings: np.ndarray,
     documents: List[Document],
+    condensed: bool,
     course: str,
     topic: str,
     file_name: str,
@@ -143,6 +144,7 @@ def add_documents_to_chroma(
         embeddings: Corresponding embeddings for the documents as a
                     numpy array. Must be the same length as documents.
         documents:  List of chunked Document objects from ingestion.
+        condensed:  Whether the documents are condensed or not.
         course:     The course these documents belong to.
         topic:      The topic these documents belong to.
         file_name:  The name of the source PDF file.
@@ -171,12 +173,12 @@ def add_documents_to_chroma(
         existing_contents = existing.get("documents", [])
 
         existing_hashes: set[int] = {
-            hash(content.strip())
-            for content in existing_contents
-            if content
+            hash(content.strip()) for content in existing_contents if content
         }
 
-        print(f"  [vector_store] {len(existing_hashes)} existing chunk(s) found in collection.")
+        print(
+            f"  [vector_store] {len(existing_hashes)} existing chunk(s) found in collection."
+        )
 
     except Exception as e:
         raise RuntimeError(
@@ -198,7 +200,9 @@ def add_documents_to_chroma(
         print(f"  [vector_store] {skipped} duplicate chunk(s) skipped.")
 
     if not new_pairs:
-        print("  [vector_store] ✓ All documents already exist in store — nothing to add.")
+        print(
+            "  [vector_store] ✓ All documents already exist in store — nothing to add."
+        )
         return
 
     # Unzip back into separate lists for Chroma insertion
@@ -206,7 +210,9 @@ def add_documents_to_chroma(
 
     # ── Step 3: Build Chroma insertion payload ────────────────────────────────
     try:
-        print(f"  [vector_store] Adding {len(new_documents)} new chunk(s) to Chroma store...")
+        print(
+            f"  [vector_store] Adding {len(new_documents)} new chunk(s) to Chroma store..."
+        )
 
         ids = []
         metadatas = []
@@ -223,6 +229,7 @@ def add_documents_to_chroma(
             metadatum = dict(doc.metadata)
             metadatum["course"] = course
             metadatum["topic"] = topic
+            metadatum["condensed"] = condensed
             metadatum["source"] = source
             metadatum["doc_index"] = i
             metadatum["content_length"] = len(doc.page_content)
@@ -239,7 +246,9 @@ def add_documents_to_chroma(
         )
 
         print(f"  [vector_store] ✓ Successfully added {len(new_documents)} chunk(s).")
-        print(f"  [vector_store] Total documents in collection: {store._collection.count()}")
+        print(
+            f"  [vector_store] Total documents in collection: {store._collection.count()}"
+        )
 
     except Exception as e:
         raise RuntimeError(
@@ -310,7 +319,7 @@ def query_chroma(
         results_with_scores = store.similarity_search_with_score(
             query=query,
             k=top_k,
-            filter=filters if filters else None,   # ← only pass filter when non-empty
+            filter=filters if filters else None,  # ← only pass filter when non-empty
         )
 
         # Remove duplicate chunks by content
