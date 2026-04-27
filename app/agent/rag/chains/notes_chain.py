@@ -51,6 +51,8 @@
 
 import json
 import tempfile
+import logging
+import re 
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, List, Any
@@ -85,6 +87,8 @@ from app.agent.rag.ingestion.embeddings import generate_embeddings
 from app.agent.rag.ingestion.vector_store import add_documents_to_chroma
 from app.services.token_service import token_guard
 
+# Enable httpx request logging so Ollama API calls are visible in output
+logging.basicConfig(level=logging.INFO)
 
 # ─────────────────────────────────────────────────────────────────────────────
 # CONSTANTS
@@ -92,6 +96,9 @@ from app.services.token_service import token_guard
 
 # Maximum heading length before flagging for LLM renaming
 _MAX_HEADING_LENGTH = 65
+
+# Maximum number of retries when LLM returns empty content
+_MAX_EMPTY_RETRIES = 2
 
 # Maximum number of retry attempts when LLM returns unparseable output
 _MAX_SECTION_RETRIES = 3
@@ -437,6 +444,51 @@ def _call_section_llm(
         f"Last error: {last_error}"
     )
 
+def _preprocess_md_line(line: str) -> tuple[str, bool]:
+    """
+    Convert a single markdown line to reportlab-compatible XML.
+
+    Returns:
+        (processed_line, is_bullet)
+
+    Example:
+        "**RISC** uses a *small* set of instructions"
+        → ("<b>RISC</b> uses a <i>small</i> set of instructions", False)
+
+        "- Fixed instruction length"
+        → ("Fixed instruction length", True)
+    """
+    # Must escape XML special chars BEFORE inserting tags
+    line = (
+        line.replace("&", "&amp;")
+            .replace("<", "&lt;")
+            .replace(">", "&gt;")
+    )
+
+    # Bold: **text** or __text__
+    line = re.sub(r'\*\*(.*?)\*\*', r'<b>\1</b>', line)
+    line = re.sub(r'__(.*?)__',     r'<b>\1</b>', line)
+
+    # Italic: *text* or _text_  (after bold to avoid overlap)
+    line = re.sub(r'\*(.*?)\*', r'<i>\1</i>', line)
+    line = re.sub(r'_(.*?)_',   r'<i>\1</i>', line)
+
+    # Inline code: `code`
+    line = re.sub(r'`(.*?)`', r'<font name="Courier">\1</font>', line)
+
+    # Strip stray heading markers (## / ###) that bleed into body
+    line = re.sub(r'^#{1,6}\s+', '', line)
+
+    # Horizontal rules → skip (caller renders as Spacer)
+    if re.match(r'^-{3,}$', line.strip()):
+        return "", False
+
+    # Detect bullet: leading -, *, or •
+    is_bullet = bool(re.match(r'^[-*•]\s+', line))
+    if is_bullet:
+        line = re.sub(r'^[-*•]\s+', '', line)
+
+    return line.strip(), is_bullet
 
 def _build_pdf(
     notes_json: Dict[str, str],
@@ -537,6 +589,13 @@ def _build_pdf(
             spaceAfter=6,
             alignment=TA_LEFT,
         )
+        bullet_style = ParagraphStyle(
+            "CogniBullet",
+            parent=body_style,
+            leftIndent=14,
+            bulletIndent=4,
+            spaceAfter=3,
+        )
 
         story = []
 
@@ -552,30 +611,28 @@ def _build_pdf(
         for section_heading, condensed_content in notes_json.items():
             story.append(Paragraph(section_heading, heading_style))
 
-            # Split on newlines and render each line as a paragraph
-            # to preserve bullet points and spacing from LLM output
             if isinstance(condensed_content, list):
-                # LLM returned a list of bullet points — join them
                 condensed_content = "\n".join(
                     item if isinstance(item, str) else str(item)
                     for item in condensed_content
                 )
 
-            lines = condensed_content.split("\n")
-            for line in lines:
-                line = line.strip()
-                if not line:
+            for raw_line in condensed_content.split("\n"):
+                raw_line = raw_line.strip()
+                if not raw_line:
                     story.append(Spacer(1, 6))
                     continue
 
-                # Escape reportlab XML special characters
-                line = (
-                    line.replace("&", "&amp;")
-                        .replace("<", "&lt;")
-                        .replace(">", "&gt;")
-                )
+                line, is_bullet = _preprocess_md_line(raw_line)
 
-                story.append(Paragraph(line, body_style))
+                if not line:          # was a horizontal rule — skip
+                    story.append(Spacer(1, 8))
+                    continue
+
+                if is_bullet:
+                    story.append(Paragraph(f"• {line}", bullet_style))
+                else:
+                    story.append(Paragraph(line, body_style))
 
             story.append(Spacer(1, 10))
 
@@ -805,45 +862,75 @@ def run_notes_chain(
         # Sanitise heading
         _, is_flagged = _sanitise_heading(heading)
 
-        try:
-            parsed, all_responses = _call_section_llm(
-                llm=llm,
-                heading=heading,
-                is_flagged=is_flagged,
-                chunks=chunks,
-                learning_pace=learning_pace,
-                elaboration_instruction=elaboration_instruction,
-                running_summary=running_summary,
-            )
+        parsed = None
+        all_responses = []
 
-            # Accumulate token usage from ALL attempts (including retries)
-            for resp in all_responses:
-                resp_usage = getattr(resp, "usage_metadata", None)
-                if resp_usage is None:
-                    # Ollama locally doesn't always report token usage.
-                    # In production against Gemini this will never be None.
+        # Retry loop — handles both hard failures (RuntimeError) and
+        # silent empty content returned by the LLM -- This handles one cause of hallucination
+        for attempt in range(1, _MAX_EMPTY_RETRIES + 1):  # +1 → attempts: 1, 2
+            try:
+                parsed, responses = _call_section_llm(
+                    llm=llm,
+                    heading=heading,
+                    is_flagged=is_flagged,
+                    chunks=chunks,
+                    learning_pace=learning_pace,
+                    elaboration_instruction=elaboration_instruction,
+                    running_summary=running_summary,
+                )
+                all_responses.extend(responses)
+
+                # Treat empty condensed_content as a retriable failure —
+                # LLM succeeded structurally but returned nothing useful
+                condensed_content = parsed.get("condensed_content", "")
+                if not condensed_content or not str(condensed_content).strip():
+                    print(
+                        f"[notes_chain] ⚠ Section '{heading[:50]}' returned empty "
+                        f"condensed_content (attempt {attempt}) — retrying."
+                    )
+                    parsed = None
                     continue
-                total_input_tokens  += resp_usage.get("input_tokens", 0)
-                total_output_tokens += resp_usage.get("output_tokens", 0)
 
-            # Extract fields from LLM response
-            clean_heading      = parsed.get("section_heading", heading)
-            condensed_content  = parsed.get("condensed_content", "")
-            section_summary    = parsed.get("section_summary", "")
+                break  # content is valid — exit retry loop
 
-            notes_json[clean_heading] = condensed_content
-            running_summary.append(section_summary)
+            except RuntimeError as e:
+                print(
+                    f"[notes_chain] ✗ Section '{heading[:50]}' RuntimeError "
+                    f"on attempt {attempt}: {e}"
+                )
+                if attempt == _MAX_EMPTY_RETRIES + 1:
+                    parsed = None
+                continue
 
-            print(f"[notes_chain] ✓ Section '{clean_heading[:50]}' condensed.")
+        # Accumulate token usage from ALL attempts (including retries)
+        for resp in all_responses:
+            resp_usage = getattr(resp, "usage_metadata", None)
+            if resp_usage is None:
+                # Ollama locally doesn't always report token usage.
+                # In production against Gemini this will never be None.
+                continue
+            total_input_tokens  += resp_usage.get("input_tokens", 0)
+            total_output_tokens += resp_usage.get("output_tokens", 0)
 
-        except RuntimeError as e:
-            # All retry attempts exhausted — last resort placeholder
+        # All retry attempts exhausted — last resort placeholder
+        if parsed is None:
             print(
                 f"[notes_chain] ✗ Section '{heading[:50]}' failed after "
-                f"{_MAX_SECTION_RETRIES} retries: {e}. Inserting placeholder."
+                f"{_MAX_EMPTY_RETRIES + 1} attempts. Inserting placeholder."
             )
             notes_json[heading] = "[Content could not be generated for this section.]"
             running_summary.append(f"Section '{heading}' could not be processed.")
+            continue
+
+        # Extract fields from LLM response
+        clean_heading     = parsed.get("section_heading", heading)
+        condensed_content = parsed.get("condensed_content", "")
+        section_summary   = parsed.get("section_summary", "")
+
+        notes_json[clean_heading] = condensed_content
+        running_summary.append(section_summary)
+
+        print(f"[notes_chain] ✓ Section '{clean_heading[:50]}' condensed.")
 
     # ── Step 3: Build PDF ─────────────────────────────────────────────────────
     pdf_path = _build_pdf(

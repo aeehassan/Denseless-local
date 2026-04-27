@@ -115,6 +115,12 @@ Raw content:
 
 {rename_instruction}
 
+Important Grounding Rules:
+1. Factual Strictness: Base your condensed notes and technical definitions strictly on the raw content provided above. Do not pad with external technical knowledge, contradict the text, or express a contrary opinion. If the source makes a claim, present it as-is.
+2. Creative Analogies (Exception): You have full creative freedom to invent highly effective, real-world analogies to explain the concepts, even if those analogies are not present in the source text. Ensure your invented analogy perfectly maps to the technical truth of the raw content.
+
+If the raw content for this section is sparse or unclear, reflect that honestly in the generation.
+
 Return ONLY a valid JSON object with no preamble or markdown fences:
 {{
   "section_heading": "<original or renamed heading — rename only if instructed>",
@@ -123,15 +129,10 @@ Return ONLY a valid JSON object with no preamble or markdown fences:
 }}
 
 Example of condensed_content format:
-"Think of a CPU (the brain of a computer) like a chef in a kitchen — it reads
-a recipe (instructions), gathers ingredients (data), and produces a dish
-(output), one step at a time.\\n\\nKey ideas:\\n- Instructions tell the CPU
-what to do\\n- Data is the raw material it works with\\n- The result is sent
-back to memory or displayed to the user"
+"Think of a CPU (the brain of a computer) like a chef in a kitchen — it reads a recipe (instructions), gathers ingredients (data), and produces a dish (output), one step at a time.\n\nKey ideas:\n- Instructions tell the CPU what to do\n- Data is the raw material it works with\n- The result is sent back to memory or displayed to the user"
 
 Example of section_summary:
-"This section introduced the CPU as the component that reads and executes
-instructions, using an analogy to a chef following a recipe."
+"This section introduced the CPU as the component that reads and executes instructions, using an analogy to a chef following a recipe."
 """.strip()
 
 
@@ -173,6 +174,12 @@ Raw content:
 
 {rename_instruction}
 
+Important Grounding Rules:
+1. Factual Strictness: Base your condensed notes and technical definitions strictly on the raw content provided above. Do not pad with external technical knowledge, contradict the text, or express a contrary opinion. If the source makes a claim, present it as-is.
+2. Creative Analogies (Exception): You have the creative freedom to invent helpful real-world analogies to clarify concepts, even if those analogies are not present in the source text. Ensure your invented analogy perfectly maps to the technical truth of the raw content.
+
+If the raw content for this section is sparse or unclear, reflect that honestly in the generation.
+
 Return ONLY a valid JSON object with no preamble or markdown fences:
 {{
   "section_heading": "<original or renamed heading — rename only if instructed>",
@@ -181,16 +188,10 @@ Return ONLY a valid JSON object with no preamble or markdown fences:
 }}
 
 Example of condensed_content format:
-"The CPU (Central Processing Unit) is the component responsible for executing
-instructions in a program. It operates in a repeating cycle: fetch an
-instruction from memory, decode what it means, then execute it.\\n\\nKey points:\\n
-- The fetch-decode-execute cycle is the heartbeat of every program\\n
-- Clock speed (measured in GHz) determines how many cycles happen per second\\n
-- A faster CPU does not always mean a faster system — memory and I/O matter too"
+"The CPU (Central Processing Unit) is the component responsible for executing instructions in a program. It operates in a repeating cycle: fetch an instruction from memory, decode what it means, then execute it.\n\nKey points:\n- The fetch-decode-execute cycle is the heartbeat of every program\n- Clock speed (measured in GHz) determines how many cycles happen per second\n- A faster CPU does not always mean a faster system — memory and I/O matter too"
 
 Example of section_summary:
-"This section introduced the CPU's fetch-decode-execute cycle as the
-fundamental mechanism by which programs are run."
+"This section introduced the CPU's fetch-decode-execute cycle as the fundamental mechanism by which programs are run."
 """.strip()
 
 
@@ -232,6 +233,12 @@ Raw content:
 
 {rename_instruction}
 
+Important Grounding Rules:
+1. Factual Strictness: Base your condensed notes and technical definitions strictly on the raw content provided above. Do not pad with external technical knowledge, contradict the text, or express a contrary opinion. If the source makes a claim, present it as-is.
+2. Creative Analogies (Exception): If an analogy would genuinely sharpen understanding without slowing down the pace, you have the creative freedom to invent a concise one, even if it is not in the source text. Ensure your invented analogy perfectly maps to the technical truth of the raw content.
+
+If the raw content for this section is sparse or unclear, reflect that honestly in the generation.
+
 Return ONLY a valid JSON object with no preamble or markdown fences:
 {{
   "section_heading": "<original or renamed heading — rename only if instructed>",
@@ -240,15 +247,10 @@ Return ONLY a valid JSON object with no preamble or markdown fences:
 }}
 
 Example of condensed_content format:
-"The CPU executes programs via the fetch-decode-execute cycle: retrieve an
-instruction from memory, interpret it, carry it out — then repeat.\\n\\nKey points:\\n
-- Clock speed (GHz) = cycles per second\\n
-- Faster clock ≠ faster system overall; bottlenecks shift to memory and I/O\\n
-- Multiple cores allow parallel execution of independent tasks"
+"The CPU executes programs via the fetch-decode-execute cycle: retrieve an instruction from memory, interpret it, carry it out — then repeat.\n\nKey points:\n- Clock speed (GHz) = cycles per second\n- Faster clock ≠ faster system overall; bottlenecks shift to memory and I/O\n- Multiple cores allow parallel execution of independent tasks"
 
 Example of section_summary:
-"Covered the CPU's fetch-decode-execute cycle, clock speed as a performance
-metric, and why system speed depends on more than the CPU alone."
+"Covered the CPU's fetch-decode-execute cycle, clock speed as a performance metric, and why system speed depends on more than the CPU alone."
 """.strip()
 
 

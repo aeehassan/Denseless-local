@@ -22,6 +22,7 @@ Usage:
 """
 
 import os
+import re
 from pathlib import Path
 from typing import List
 from pypdf import PdfReader
@@ -63,6 +64,16 @@ def validate_pdf_page_count(pdf, max_pages: int = 50) -> None:
     except Exception as e:
         raise ValueError(f"Failed to read PDF for page validation: {e}")
 
+def _clean_section_name(text: str) -> str:
+    """
+    Strip leading/trailing special characters from a section title.
+    Preserves alphanumeric characters and internal punctuation.
+
+    Example:
+        "; Introduction:"  → "Introduction"
+        "## Overview ;;"   → "Overview"
+    """
+    return re.sub(r'^[^a-zA-Z0-9]+|[^a-zA-Z0-9]+$', '', text).strip()
 
 def process_and_load_file(
     file_path: str,
@@ -169,7 +180,7 @@ def process_and_load_file(
             continue
 
         if category == "Title":
-            current_section = element.text
+            current_section = _clean_section_name(element.text)
 
         text = element.text.strip()
         if not text or len(text) < 15:  # discard very short elements
