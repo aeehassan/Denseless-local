@@ -34,6 +34,7 @@ Usage:
 """
 
 from typing import Dict, List
+import re
 
 from langchain_chroma import Chroma
 from langchain_core.documents import Document
@@ -166,6 +167,7 @@ def get_semantic_chunks(
     score_threshold: float = 0.5,
     course: str | None = None,
     topic: str | None = None,
+    condensed: bool = False
 ) -> List[Document]:
     """
     Retrieve semantically relevant chunks for a query, enriched with
@@ -289,6 +291,18 @@ def get_semantic_chunks(
 # STRATEGY 2 — TOPIC SWEEP RETRIEVAL
 # ─────────────────────────────────────────────────────────────────────────────
 
+def _normalise_section_key(text: str) -> str:
+    """
+    Normalise a section name for deduplication comparison.
+    Lowercases and collapses internal whitespace so variations
+    like "Interconnection Structures" and "interconnection structures"
+    are treated as the same section.
+
+    Example:
+        "Interconnection  Structures" → "interconnection structures"
+        "RISC Architecture"           → "risc architecture"
+    """
+    return re.sub(r'\s+', ' ', text).strip().lower()
 
 def get_topic_chunks(
     store: Chroma,
@@ -361,12 +375,28 @@ def get_topic_chunks(
             "via process_and_load_file() before calling get_topic_chunks()."
         )
 
-    # ── Group chunks by section ───────────────────────────────────────────────
+    # ── Group chunks by section, merging duplicate section names ──────────────
     raw_groups: Dict[str, List[Document]] = {}
+    key_to_canonical: Dict[str, str] = {}  # normalised key → first-seen original casing
+    merge_count = 0
 
     for chunk in all_chunks:
         section = chunk.metadata.get("section", "General")
-        raw_groups.setdefault(section, []).append(chunk)
+        norm_key = _normalise_section_key(section)
+
+        if norm_key in key_to_canonical:
+            # Seen this section before under a different casing — merge into
+            # the first-seen canonical name
+            canonical = key_to_canonical[norm_key]
+            raw_groups[canonical].append(chunk)
+            merge_count += 1
+        else:
+            # First time seeing this section — register original casing as canonical
+            key_to_canonical[norm_key] = section
+            raw_groups[section] = [chunk]
+
+    if merge_count:
+        print(f"[Retriever] → {merge_count} chunk(s) merged into existing sections (duplicate titles collapsed).")
 
     print(f"[Retriever] → {len(all_chunks)} chunk(s) across {len(raw_groups)} section(s).")
 

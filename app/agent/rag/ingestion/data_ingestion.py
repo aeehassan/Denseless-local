@@ -31,6 +31,21 @@ from dotenv import load_dotenv
 from unstructured.partition.api import partition_via_api
 from langchain_core.documents import Document
 
+_SKIP_SECTIONS = {"references", "bibliography", "works cited", "further reading"}
+
+def _normalise_section_key(text: str) -> str:
+    """
+    Normalise a section name for deduplication comparison.
+    Lowercases and collapses internal whitespace so variations
+    like "Interconnection Structures" and "interconnection structures"
+    are treated as the same section.
+
+    Example:
+        "Interconnection  Structures" → "interconnection structures"
+        "RISC Architecture"           → "risc architecture"
+    """
+    return re.sub(r'\s+', ' ', text).strip().lower()
+
 # ── Load environment variables from .env ─────────────────────────
 load_dotenv()
 
@@ -181,6 +196,10 @@ def process_and_load_file(
 
         if category == "Title":
             current_section = _clean_section_name(element.text)
+
+        # Skip chunks belonging to reference/bibliography sections
+        if _normalise_section_key(current_section) in _SKIP_SECTIONS:
+            continue
 
         text = element.text.strip()
         if not text or len(text) < 15:  # discard very short elements

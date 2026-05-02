@@ -53,6 +53,7 @@ import json
 import tempfile
 import logging
 import re 
+import time 
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, List, Any
@@ -94,6 +95,22 @@ logging.basicConfig(level=logging.INFO)
 # CONSTANTS
 # ─────────────────────────────────────────────────────────────────────────────
 
+# Set USE_GEMINI = True when hitting the Gemini API (rate limits apply).
+# Set USE_GEMINI = False for local Ollama (no delays, no rate-limit handling).
+USE_GEMINI: bool = True
+ 
+# Seconds to sleep between section LLM calls when USE_GEMINI is True.
+# 5 s gap → max 12 RPM, comfortably under the 15 RPM free-tier ceiling.
+_REQUEST_DELAY_SECONDS: int = 5
+ 
+# Backoff schedule (seconds) for RPM errors.
+# 60 s guarantees the per-minute window resets before the final retry.
+_RPM_BACKOFF_SECONDS: list[int] = [15, 30, 60]
+ 
+# Max outer (rate-limit) retries per section.
+# Mirrors len(_RPM_BACKOFF_SECONDS) — change both together.
+_MAX_RATE_LIMIT_RETRIES: int = 3
+
 # Maximum heading length before flagging for LLM renaming
 _MAX_HEADING_LENGTH = 65
 
@@ -113,6 +130,30 @@ _NOTES_PROMPT_MAP = {
 # Output directory for generated PDFs
 _OUTPUT_DIR = Path(__file__).parent.parent.parent.parent.parent / "data" / "notes"
 
+# ══════════════════════════════════════════════════════════════════════════════
+# NEW: Custom exception
+# ══════════════════════════════════════════════════════════════════════════════
+ 
+class RateLimitExhaustedError(RuntimeError):
+    """
+    Raised when API rate limiting cannot be recovered from.
+ 
+    kind:
+        "rpm" — per-minute limit hit but all backoff retries exhausted.
+                 Unlikely in practice (60 s backoff resets the window),
+                 but included for safety.
+        "rpd" — daily quota exhausted. No backoff can recover from this.
+                 Caller should terminate the section loop and build a
+                 partial PDF from whatever has been collected so far.
+ 
+    Example:
+        raise RateLimitExhaustedError(
+            "Daily Gemini quota exhausted after section 3.", kind="rpd"
+        )
+    """
+    def __init__(self, message: str, kind: str):
+        super().__init__(message)
+        self.kind = kind  # "rpm" | "rpd"
 
 # ─────────────────────────────────────────────────────────────────────────────
 # PRIVATE HELPERS
@@ -306,6 +347,57 @@ def _build_elaboration_instruction(relatedness: dict) -> str:
     else:
         return ELABORATION_NONE
 
+def _classify_rate_error(e: Exception) -> str:
+    """
+    Inspects an exception and classifies it as an RPM limit, RPD (daily)
+    limit, or an unrelated error.
+ 
+    Classification logic (checked in order):
+        1. HTTP 429 status code on the exception or its cause.
+        2. Message keywords for daily/quota exhaustion  → "rpd"
+        3. Message keywords for per-minute rate limits  → "rpm"
+        4. Anything else                                → "other"
+ 
+    The RPD keywords are checked before RPM keywords because an RPD error
+    from the Gemini API typically also contains "rate" in its message.
+ 
+    Args:
+        e: Any exception raised during an LLM call.
+ 
+    Returns:
+        "rpm"   — per-minute rate limit (recoverable with backoff + retry).
+        "rpd"   — daily quota exhausted (unrecoverable in this session).
+        "other" — unrelated error; existing retry logic handles it.
+ 
+    Examples:
+        >>> _classify_rate_error(Exception("429 Resource Exhausted"))
+        "rpm"
+        >>> _classify_rate_error(Exception("Quota exceeded for quota metric"))
+        "rpd"
+        >>> _classify_rate_error(Exception("Connection timeout"))
+        "other"
+    """
+    msg = str(e).lower()
+ 
+    # Check HTTP status on the exception itself or its __cause__
+    status = getattr(e, "status_code", None) or getattr(
+        getattr(e, "__cause__", None), "status_code", None
+    )
+    if status == 429:
+        # Still need to distinguish RPM vs RPD via message
+        if any(k in msg for k in ("quota exceeded", "daily limit", "per day")):
+            return "rpd"
+        return "rpm"
+ 
+    # Daily / project quota exhaustion signals (check before rpm)
+    if any(k in msg for k in ("quota exceeded", "daily limit", "per day", "billing")):
+        return "rpd"
+ 
+    # Per-minute rate limit signals
+    if any(k in msg for k in ("rate limit", "resource exhausted", "too many requests")):
+        return "rpm"
+ 
+    return "other"
 
 def _call_section_llm(
     llm: BaseChatModel,
@@ -319,11 +411,24 @@ def _call_section_llm(
     """
     Runs one LLM call for a single section, returning the condensed
     content, (optionally renamed) heading, and a brief section summary.
-
-    Retries up to _MAX_SECTION_RETRIES times if the LLM returns
-    unparseable output. Token usage is accumulated across all attempts
-    (including failed ones) so token_guard deducts correctly.
-
+ 
+    Retry architecture (two nested loops):
+ 
+        Outer loop — rate-limit retries (up to _MAX_RATE_LIMIT_RETRIES):
+            Only active when USE_GEMINI is True.
+            On RPM errors: backs off [15, 30, 60] s then retries the full
+            inner loop. The 60 s final backoff guarantees the per-minute
+            window resets before the last attempt.
+            On RPD errors: raises RateLimitExhaustedError(kind="rpd")
+            immediately — no backoff can recover a daily quota.
+ 
+        Inner loop — parse-failure retries (up to _MAX_SECTION_RETRIES):
+            Unchanged from previous version. Handles unparseable LLM output
+            via JsonOutputParser then json_repair fallback.
+ 
+    Token usage is accumulated across ALL attempts (outer + inner,
+    including failed ones) so @token_guard deducts correctly.
+ 
     Args:
         llm:                      Initialised LLM instance.
         heading:                  The section heading (may be renamed by LLM).
@@ -332,10 +437,10 @@ def _call_section_llm(
         learning_pace:            "slow" | "average" | "fast"
         elaboration_instruction:  Built from _build_elaboration_instruction().
         running_summary:          List of prior section summaries (strings).
-
+ 
     Returns:
         Tuple of (parsed_dict, all_responses):
-
+ 
         parsed_dict example:
         {
             "section_heading":   "RISC Architecture",
@@ -346,39 +451,43 @@ def _call_section_llm(
                                   simple fixed-length instructions with CISC
                                   complexity."
         }
-
+ 
         all_responses: list of all LangChain response objects from every
                        attempt (including failed ones), so token usage
                        from retries can be accumulated by the caller.
-
+ 
     Raises:
-        ValueError:   If learning_pace is not recognised.
-        RuntimeError: If LLM call fails after exhausting all retry attempts.
+        ValueError:               If learning_pace is not recognised.
+        RateLimitExhaustedError:  If daily (RPD) quota is hit, or if all
+                                  RPM backoff retries are exhausted without
+                                  a successful call.
+        RuntimeError:             If the inner parse-retry loop is exhausted
+                                  for a reason unrelated to rate limiting.
     """
     if learning_pace not in _NOTES_PROMPT_MAP:
         raise ValueError(
             f"Unrecognised learning_pace: '{learning_pace}'. "
             f"Valid values: {list(_NOTES_PROMPT_MAP.keys())}"
         )
-
+ 
     # Build rename instruction
     if is_flagged:
         rename_instruction = RENAME_INSTRUCTION.format(original_heading=heading)
     else:
         rename_instruction = RENAME_INSTRUCTION_NONE.format(section_heading=heading)
-
+ 
     # Format running summary
     if running_summary:
         summary_text = "\n".join(f"- {s}" for s in running_summary)
     else:
         summary_text = "This is the first section — no prior content yet."
-
+ 
     # Format chunks into context string
     context = _format_chunks(chunks)
-
+ 
     # Select prompt template based on learning pace
     prompt_template = _NOTES_PROMPT_MAP[learning_pace]
-
+ 
     prompt = prompt_template.format(
         elaboration_instruction=elaboration_instruction,
         running_summary=summary_text,
@@ -386,61 +495,131 @@ def _call_section_llm(
         context=context,
         rename_instruction=rename_instruction,
     )
-
-    parser = JsonOutputParser()
-    all_responses = []  # track every response for token accounting
-    last_error = None
-
-    for attempt in range(1, _MAX_SECTION_RETRIES + 1):
-        raw = ""  # initialise for error reporting in the except block
-
-        try:
-            response = llm.invoke(prompt)
-            all_responses.append(response)
-            raw = response.content.strip()
-
-            # Primary: JsonOutputParser handles fence stripping + json.loads()
+ 
+    parser      = JsonOutputParser()
+    all_responses = []   # accumulate across all attempts
+    last_error    = None
+ 
+    # ── Outer loop: rate-limit retries ───────────────────────────────────────
+    # When running locally (USE_GEMINI = False) this loop executes exactly
+    # once (rate_attempt = 1) and never enters the backoff branch.
+    max_rate_attempts = _MAX_RATE_LIMIT_RETRIES if USE_GEMINI else 1
+ 
+    for rate_attempt in range(1, max_rate_attempts + 1):
+ 
+        # ── Inner loop: parse-failure retries ────────────────────────────────
+        inner_succeeded = False
+ 
+        for attempt in range(1, _MAX_SECTION_RETRIES + 1):
+            raw = ""  # initialise for error reporting in the except block
+ 
             try:
-                parsed = parser.parse(raw)
-                if not isinstance(parsed, dict):
-                    raise ValueError(
-                        f"Expected a JSON object (dict) but got {type(parsed).__name__}: {str(parsed)[:200]}"
+                response = llm.invoke(prompt)
+                all_responses.append(response)
+                raw = response.content.strip()
+ 
+                # Primary: JsonOutputParser handles fence stripping + json.loads()
+                try:
+                    parsed = parser.parse(raw)
+                    if not isinstance(parsed, dict):
+                        raise ValueError(
+                            f"Expected a JSON object (dict) but got "
+                            f"{type(parsed).__name__}: {str(parsed)[:200]}"
+                        )
+                    if attempt > 1:
+                        print(f"[notes_chain] ✓ Retry {attempt} succeeded for '{heading[:50]}'.")
+                    return parsed, all_responses
+ 
+                # Fallback: json_repair patches malformed JSON (literal newlines,
+                # missing delimiters, truncated strings, etc.) before parsing
+                except Exception:
+                    print(
+                        f"[notes_chain] ⚠ JsonOutputParser failed for "
+                        f"'{heading[:50]}' — attempting json_repair."
                     )
-                if attempt > 1:
-                    print(f"[notes_chain] ✓ Retry {attempt} succeeded for '{heading[:50]}'.")
-                return parsed, all_responses
-
-            # Fallback: json_repair patches malformed JSON (literal newlines,
-            # missing delimiters, truncated strings, etc.) before parsing
-            except Exception:
-                print(f"[notes_chain] ⚠ JsonOutputParser failed for '{heading[:50]}' — attempting json_repair.")
-                repaired = repair_json(raw)
-                parsed = json.loads(repaired)
-                if not isinstance(parsed, dict):
-                    raise ValueError(
-                        f"json_repair produced {type(parsed).__name__} instead of dict: {str(parsed)[:200]}"
+                    repaired = repair_json(raw)
+                    parsed   = json.loads(repaired)
+                    if not isinstance(parsed, dict):
+                        raise ValueError(
+                            f"json_repair produced {type(parsed).__name__} "
+                            f"instead of dict: {str(parsed)[:200]}"
+                        )
+                    if attempt > 1:
+                        print(
+                            f"[notes_chain] ✓ Retry {attempt} succeeded "
+                            f"(via json_repair) for '{heading[:50]}'."
+                        )
+                    return parsed, all_responses
+ 
+            except Exception as e:
+                # ── Rate-limit detection (only meaningful when USE_GEMINI) ──
+                if USE_GEMINI:
+                    kind = _classify_rate_error(e)
+ 
+                    if kind == "rpd":
+                        # Daily quota — no point retrying at all
+                        print(
+                            f"[notes_chain] ✗ Daily quota exhausted on "
+                            f"'{heading[:50]}'. Terminating notes generation."
+                        )
+                        raise RateLimitExhaustedError(
+                            f"Daily Gemini quota exhausted during section "
+                            f"'{heading[:60]}'.",
+                            kind="rpd",
+                        )
+ 
+                    if kind == "rpm":
+                        # Per-minute limit — break inner loop, let outer
+                        # loop handle the backoff
+                        print(
+                            f"[notes_chain] ⚠ RPM limit hit on "
+                            f"'{heading[:50]}' (rate_attempt "
+                            f"{rate_attempt}/{max_rate_attempts})."
+                        )
+                        last_error = e
+                        inner_succeeded = False
+                        break   # exit inner loop → outer loop applies backoff
+ 
+                # Non-rate-limit parse failure — standard inner-loop retry
+                last_error = e
+                if attempt < _MAX_SECTION_RETRIES:
+                    print(
+                        f"[notes_chain] ⚠ Attempt {attempt}/{_MAX_SECTION_RETRIES} "
+                        f"failed for '{heading[:50]}': {e}. Retrying..."
                     )
-                if attempt > 1:
-                    print(f"[notes_chain] ✓ Retry {attempt} succeeded (via json_repair) for '{heading[:50]}'.")
-                return parsed, all_responses
-
-        except Exception as e:
-            last_error = e
-            if attempt < _MAX_SECTION_RETRIES:
-                print(
-                    f"[notes_chain] ⚠ Attempt {attempt}/{_MAX_SECTION_RETRIES} failed for "
-                    f"'{heading[:50]}': {e}. Retrying..."
-                )
+                else:
+                    print(
+                        f"[notes_chain] ✗ All {_MAX_SECTION_RETRIES} parse attempts "
+                        f"exhausted for '{heading[:50]}'. Last error: {e}"
+                    )
             else:
-                print(
-                    f"[notes_chain] ✗ All {_MAX_SECTION_RETRIES} attempts exhausted for "
-                    f"'{heading[:50]}'. Last error: {e}"
-                )
-
-    # All retries exhausted — raise so the caller can decide what to do
+                inner_succeeded = True  # set if no exception was raised
+ 
+        # Inner loop finished without returning — either RPM break or parse exhaustion.
+        # If not an RPM issue (inner exhausted parse retries), raise immediately.
+        if inner_succeeded or not USE_GEMINI:
+            break
+ 
+        # ── RPM backoff ───────────────────────────────────────────────────────
+        if rate_attempt < max_rate_attempts:
+            wait = _RPM_BACKOFF_SECONDS[rate_attempt - 1]
+            print(
+                f"[notes_chain] ⏳ Backing off {wait}s before rate-limit retry "
+                f"{rate_attempt + 1}/{max_rate_attempts} for '{heading[:50]}'."
+            )
+            time.sleep(wait)
+        else:
+            # All rate-limit retries exhausted (60 s backoff already tried)
+            raise RateLimitExhaustedError(
+                f"RPM rate limit retries exhausted after {max_rate_attempts} "
+                f"attempts for section '{heading[:60]}'. Last error: {last_error}",
+                kind="rpm",
+            )
+ 
+    # Reaching here means inner parse-retries exhausted (non-rate-limit path)
     raise RuntimeError(
-        f"Section LLM call failed after {_MAX_SECTION_RETRIES} attempts for "
-        f"heading '{heading[:60]}'. Last raw output: '{raw[:200]}' | "
+        f"Section LLM call failed after {_MAX_SECTION_RETRIES} parse attempts "
+        f"for heading '{heading[:60]}'. Last raw output: '{raw[:200]}' | "
         f"Last error: {last_error}"
     )
 
@@ -731,22 +910,44 @@ def run_notes_chain(
     """
     Generate personalised condensed study notes for a student's topic,
     construct a PDF, re-ingest it into Chroma, and return the PDF path.
-
+ 
     This function runs once per student request and handles the full
     lifecycle internally — from topic relatedness classification through
     to PDF delivery and Chroma re-ingestion.
-
+ 
+    Rate limiting:
+        Controlled by the module-level USE_GEMINI flag (set manually
+        before running):
+ 
+            USE_GEMINI = False  →  local Ollama. No inter-section delay.
+                                   Rate-limit handling is completely inactive.
+ 
+            USE_GEMINI = True   →  Gemini API (free tier). A
+                                   _REQUEST_DELAY_SECONDS sleep is inserted
+                                   between every section call to stay under
+                                   the RPM ceiling. RPM errors inside
+                                   _call_section_llm are retried with
+                                   exponential backoff [15, 30, 60] s.
+                                   The 60 s final wait guarantees the
+                                   per-minute window resets before the
+                                   last attempt.
+ 
+        If the daily (RPD) quota is hit mid-generation, the loop terminates
+        early and a partial PDF is built from the sections processed so far.
+        The partial PDF is valid and returned normally — the caller receives
+        whatever was completed before the quota ran out.
+ 
     Page limit:
         Designed for PDFs up to 40 pages (production).
         During testing, the limit is enforced at 20 pages.
         These limits are applied at ingestion time, not here.
-
+ 
     Token tracking:
         Each section LLM call + the pre-call consume tokens. This function
         accumulates total usage across all calls and returns a synthetic
         response object carrying usage_metadata so @token_guard can
         deduct correctly from the student's balance.
-
+ 
     Args:
         student_id:    Unique identifier for the student. Required first
                        by @token_guard — do not reorder.
@@ -761,25 +962,26 @@ def run_notes_chain(
         course:        The course name (e.g. "Computer Architecture").
         learning_pace: "slow" | "average" | "fast"
                        Derived from student's CGPA bracket.
-        llm:           Initialised LangChain LLM instance. Should support
-                       temperature configuration.
+        llm:           Initialised LangChain LLM instance.
         embedder:      Initialised HuggingFaceEmbeddings instance.
         store:         Student-scoped Chroma vector store.
-
+ 
     Returns:
         A synthetic response object with:
-            .content        → Path to the generated PDF (as string)
+            .content        → Path to the generated PDF (as string).
+                              May be a partial PDF if daily quota was hit.
             .usage_metadata → Accumulated token usage across all LLM calls:
                 {
                     "input_tokens":  1840,
                     "output_tokens": 3210,
                     "total_tokens":  5050
                 }
-
+ 
     Raises:
         ValueError:   If learning_pace is invalid or topic_map is empty.
-        RuntimeError: If any LLM call, PDF construction, or re-ingestion fails.
-
+        RuntimeError: If PDF construction fails, or if a non-rate-limit
+                      section failure propagates unexpectedly.
+ 
     Example call from a router:
         topic_map = get_topic_chunks(store=store)
         result = run_notes_chain(
@@ -795,10 +997,10 @@ def run_notes_chain(
             store         = store,
         )
         pdf_path = result.content
-
+ 
     Example result.content:
         "data/notes/abc123_Computer_Architecture_20260419_143022.pdf"
-
+ 
     Example result.usage_metadata:
         {
             "input_tokens":  1840,
@@ -812,27 +1014,28 @@ def run_notes_chain(
             "topic_map is empty. Ensure the PDF has been ingested and "
             "get_topic_chunks() returned results before calling run_notes_chain()."
         )
-
+ 
     if learning_pace not in _NOTES_PROMPT_MAP:
         raise ValueError(
             f"Invalid learning_pace: '{learning_pace}'. "
             f"Valid values: {list(_NOTES_PROMPT_MAP.keys())}"
         )
-
+ 
     if not current_topic or not current_topic.strip():
         raise ValueError("current_topic cannot be empty or whitespace.")
-
+ 
     print(f"\n[notes_chain] ═══ Starting notes generation ═══")
+    print(f"[notes_chain] Mode: {'Gemini API' if USE_GEMINI else 'Local Ollama'}")
     print(f"[notes_chain] Student: {student_id} | Topic: {current_topic} | Pace: {learning_pace}")
     print(f"[notes_chain] Sections to process: {len(topic_map)}")
-
+ 
     # Accumulate token usage across all LLM calls
     total_input_tokens  = 0
     total_output_tokens = 0
-
+ 
     # ── Step 0: Topic relatedness pre-call ───────────────────────────────────
     relatedness = {"is_buildup": False, "related_topic": "", "relation": "none"}  # safe default
-
+ 
     if weak_topics or strong_topics:
         try:
             relatedness, precall_response = _check_topic_relatedness(
@@ -844,30 +1047,39 @@ def run_notes_chain(
             precall_usage = getattr(precall_response, "usage_metadata", {})
             total_input_tokens  += precall_usage.get("input_tokens", 0)
             total_output_tokens += precall_usage.get("output_tokens", 0)
-
+ 
         except RuntimeError:
             # Non-fatal — default to neutral if pre-call fails
             print("[notes_chain] ⚠ Pre-call failed — defaulting to neutral elaboration mode.")
-            # relatedness already set to neutral default above
-
+ 
     elaboration_instruction = _build_elaboration_instruction(relatedness)
-
+ 
     # ── Step 1 + 2: Sanitise headings + section-by-section LLM calls ─────────
     notes_json: Dict[str, str] = {}
     running_summary: List[str] = []
-
+    total_sections    = len(topic_map)
+    sections_done     = 0
+ 
     for idx, (heading, chunks) in enumerate(topic_map.items(), start=1):
-        print(f"\n[notes_chain] Processing section {idx}/{len(topic_map)}: '{heading[:50]}'")
-
+ 
+        # Inter-section throttle — only when hitting the Gemini API.
+        # Applied before the call (except for the very first section)
+        # to stay under the free-tier RPM ceiling.
+        if USE_GEMINI and idx > 1:
+            print(f"[notes_chain] ⏳ Throttle: sleeping {_REQUEST_DELAY_SECONDS}s before next section.")
+            time.sleep(_REQUEST_DELAY_SECONDS)
+ 
+        print(f"\n[notes_chain] Processing section {idx}/{total_sections}: '{heading[:50]}'")
+ 
         # Sanitise heading
         _, is_flagged = _sanitise_heading(heading)
-
-        parsed = None
+ 
+        parsed        = None
         all_responses = []
-
+ 
         # Retry loop — handles both hard failures (RuntimeError) and
-        # silent empty content returned by the LLM -- This handles one cause of hallucination
-        for attempt in range(1, _MAX_EMPTY_RETRIES + 1):  # +1 → attempts: 1, 2
+        # silent empty content returned by the LLM
+        for attempt in range(1, _MAX_EMPTY_RETRIES + 1):
             try:
                 parsed, responses = _call_section_llm(
                     llm=llm,
@@ -879,7 +1091,7 @@ def run_notes_chain(
                     running_summary=running_summary,
                 )
                 all_responses.extend(responses)
-
+ 
                 # Treat empty condensed_content as a retriable failure —
                 # LLM succeeded structurally but returned nothing useful
                 condensed_content = parsed.get("condensed_content", "")
@@ -890,18 +1102,43 @@ def run_notes_chain(
                     )
                     parsed = None
                     continue
-
+ 
                 break  # content is valid — exit retry loop
-
+ 
+            except RateLimitExhaustedError as e:
+                # Accumulate tokens from any partial attempts before exiting
+                for resp in all_responses:
+                    resp_usage = getattr(resp, "usage_metadata", None)
+                    if resp_usage:
+                        total_input_tokens  += resp_usage.get("input_tokens", 0)
+                        total_output_tokens += resp_usage.get("output_tokens", 0)
+ 
+                if e.kind == "rpd":
+                    # Daily quota — cannot recover. Build partial PDF now.
+                    print(
+                        f"[notes_chain] ✗ Daily quota exhausted at section "
+                        f"{idx}/{total_sections}. Building partial PDF "
+                        f"({sections_done} section(s) completed)."
+                    )
+                else:
+                    # RPM retries exhausted despite backoff — treat as terminal
+                    print(
+                        f"[notes_chain] ✗ RPM retries exhausted at section "
+                        f"{idx}/{total_sections}. Building partial PDF "
+                        f"({sections_done} section(s) completed)."
+                    )
+ 
+                # Break out of both the empty-retry loop and the section loop
+                parsed = None
+                break   # exits empty-retry loop
+ 
             except RuntimeError as e:
                 print(
                     f"[notes_chain] ✗ Section '{heading[:50]}' RuntimeError "
                     f"on attempt {attempt}: {e}"
                 )
-                if attempt == _MAX_EMPTY_RETRIES + 1:
-                    parsed = None
                 continue
-
+ 
         # Accumulate token usage from ALL attempts (including retries)
         for resp in all_responses:
             resp_usage = getattr(resp, "usage_metadata", None)
@@ -911,62 +1148,62 @@ def run_notes_chain(
                 continue
             total_input_tokens  += resp_usage.get("input_tokens", 0)
             total_output_tokens += resp_usage.get("output_tokens", 0)
-
+ 
+        # Check if we broke out due to RateLimitExhaustedError
+        # (detected by no section appended AND quota signals already printed)
+        if parsed is None and isinstance(locals().get("e"), RateLimitExhaustedError):
+            break   # exit the outer section loop → build partial PDF
+ 
         # All retry attempts exhausted — last resort placeholder
         if parsed is None:
             print(
                 f"[notes_chain] ✗ Section '{heading[:50]}' failed after "
-                f"{_MAX_EMPTY_RETRIES + 1} attempts. Inserting placeholder."
+                f"{_MAX_EMPTY_RETRIES} attempts. Inserting placeholder."
             )
             notes_json[heading] = "[Content could not be generated for this section.]"
             running_summary.append(f"Section '{heading}' could not be processed.")
+            sections_done += 1
             continue
-
+ 
         # Extract fields from LLM response
         clean_heading     = parsed.get("section_heading", heading)
         condensed_content = parsed.get("condensed_content", "")
         section_summary   = parsed.get("section_summary", "")
-
+ 
         notes_json[clean_heading] = condensed_content
         running_summary.append(section_summary)
-
+        sections_done += 1
+ 
         print(f"[notes_chain] ✓ Section '{clean_heading[:50]}' condensed.")
-
+ 
     # ── Step 3: Build PDF ─────────────────────────────────────────────────────
+    # notes_json may be partial if quota was hit — _build_pdf handles any size.
     pdf_path = _build_pdf(
         notes_json=notes_json,
         student_id=student_id,
         current_topic=current_topic,
     )
-
+ 
     # ── Step 4: Re-ingest condensed PDF into Chroma ───────────────────────────
-
     # Keep this idle for now
-
-    # _reingest_pdf(
-    #     pdf_path=pdf_path,
-    #     student_id=student_id,
-    #     current_topic=current_topic,
-    #     course=course,
-    #     embedder=embedder,
-    #     store=store,
-    # )
-
+    # _reingest_pdf(...)
+ 
     # ── Step 5: Build synthetic response for token_guard ─────────────────────
-    # token_guard expects a response object with usage_metadata.
-    # Since this chain makes multiple LLM calls, we accumulate totals
-    # and return a lightweight wrapper so token_guard deducts correctly.
-
     total_tokens = total_input_tokens + total_output_tokens
-
+ 
     print(f"\n[notes_chain] ═══ Notes generation complete ═══")
     print(f"[notes_chain] PDF: {pdf_path}")
-    print(f"[notes_chain] Total tokens — in: {total_input_tokens:,} | out: {total_output_tokens:,} | total: {total_tokens:,}")
-
+    print(f"[notes_chain] Sections completed: {sections_done}/{total_sections}")
+    print(
+        f"[notes_chain] Total tokens — "
+        f"in: {total_input_tokens:,} | out: {total_output_tokens:,} | total: {total_tokens:,}"
+    )
+ 
     class _SyntheticResponse:
         """
         Lightweight response wrapper returned to token_guard.
         Carries the PDF path as content and accumulated token usage.
+        content may represent a partial PDF if quota was exhausted.
         """
         def __init__(self, pdf_path: Path, input_t: int, output_t: int, total_t: int):
             self.content = str(pdf_path)
@@ -975,11 +1212,12 @@ def run_notes_chain(
                 "output_tokens": output_t,
                 "total_tokens":  total_t,
             }
-
+ 
     return _SyntheticResponse(
         pdf_path=pdf_path,
         input_t=total_input_tokens,
         output_t=total_output_tokens,
         total_t=total_tokens,
     )
+ 
 

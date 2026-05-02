@@ -264,6 +264,7 @@ def query_chroma(
     score_threshold: float = 0.5,
     course: str | None = None,
     topic: str | None = None,
+    condensed: bool = False,
 ) -> List[tuple[Document, float]]:
     """
     Run a semantic similarity search scoped to one student's Chroma store.
@@ -306,6 +307,7 @@ def query_chroma(
     try:
         # To enable filter search as well as full search
         filters = {}
+        filters["condensed"] = condensed
 
         if course is not None:
             filters["course"] = course
@@ -438,6 +440,7 @@ def query_store(
     course: str | None = None,
     topic: str | None = None,
     backend: str | None = None,
+    condensed: bool = False
 ) -> List[Document]:
     """
     Factory — routes a similarity search to the correct backend.
@@ -476,6 +479,7 @@ def query_store(
             score_threshold=score_threshold,
             course=course,
             topic=topic,
+            condensed=condensed,
         )
 
     elif resolved_backend == "supabase":
