@@ -1,0 +1,133 @@
+{
+  "questions": [
+    {
+      "level": "surface",
+      "question": "What are the two primary components that constitute software?",
+      "model_answer": "Award 1 mark for any two of the following: Instructions (or computer programs), Data structures, Documents (or system manuals).",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "The Term Software"
+    },
+    {
+      "level": "surface",
+      "question": "Identify one type of document that is considered part of a software system.",
+      "model_answer": "Award 1 mark for any one of the following: software manual, user's guide, user manual, technical manual, complete system manual, design documents (such as input design, output design, UML, use case design, class diagrams, software architecture).",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "section": "The Term Software"
+    },
+    {
+      "level": "surface",
+      "question": "What is the term for compiled code that can run without the source code and be shared independently?",
+      "model_answer": "Award 1 mark for 'Executable' (or 'Executable codes').",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "Today’s software is comprised of"
+    },
+    {
+      "level": "conceptual",
+      "question": "Explain the role of 'platform' considerations in software development.",
+      "model_answer": "Award 1 mark for explaining that software is developed with specific hardware and operating system requirements in mind, which are known as the platform, and that these specifications are necessary for the software to run.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        5
+      ],
+      "section": "Today’s software is comprised of"
+    },
+    {
+      "level": "conceptual",
+      "question": "Describe the primary objective of software engineering as defined by its aim.",
+      "model_answer": "Award 1 mark for stating that the aim is the production of fault-free software that satisfies user needs and is delivered on time and within budget.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        3,
+        4
+      ],
+      "section": "The Term Software Engineering"
+    },
+    {
+      "level": "conceptual",
+      "question": "Contrast the core focus of Computer Science with that of Software Engineering.",
+      "model_answer": "Award 1 mark for stating that Computer Science focuses on the theoretical and mathematical perspective of how computers work, while Software Engineering focuses on the practical, hands-on approach of building and maintaining software systems throughout their life cycle.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        4,
+        5
+      ],
+      "section": "Computer Science VS Software Engineering"
+    },
+    {
+      "level": "conceptual",
+      "question": "What does the term 'engineering' signify in the context of problem-solving, beyond just a body of knowledge?",
+      "model_answer": "Award 1 mark for explaining that engineering is considered a verb, an action word, or a way of approaching problems, involving control through measurement, action, and process to achieve goals and produce products or services.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        2,
+        3
+      ],
+      "section": "The Term Engineering"
+    },
+    {
+      "level": "deep",
+      "question": "Imagine you are tasked with developing a critical system for a financial institution where reliability and accuracy are paramount. Based on the definition of software engineering, what fundamental principle would guide your development process?",
+      "model_answer": "Award 1 mark for referencing the application of a systematic, disciplined, and quantifiable approach (as per the IEEE definition) to development, operation, and maintenance, emphasizing fault-free production and user satisfaction.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        3,
+        4
+      ],
+      "section": "The Term Software Engineering"
+    },
+    {
+      "level": "deep",
+      "question": "A team is developing a large-scale enterprise resource planning (ERP) system. Considering the characteristics of software engineering, what specific aspects would differentiate their approach from developing a small utility program?",
+      "model_answer": "Award 1 mark for mentioning aspects like systematic methods, discipline, quantifiable approaches, project management, risk management, quality assurance, and potentially a broader application of engineering principles due to complexity and cost-effectiveness considerations.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        3,
+        4
+      ],
+      "section": "The Term Software Engineering"
+    },
+    {
+      "level": "deep",
+      "question": "If a software project has strict deadlines and budget constraints, which aspect of software engineering is most critical to address to ensure successful delivery?",
+      "model_answer": "Award 1 mark for identifying 'cost-effective solutions' (as per definitions like [26] and [37]) and/or 'delivered on time and within budget' (as per definition [38]) as the most critical aspect under these constraints.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": []
+    }
+  ]
+}

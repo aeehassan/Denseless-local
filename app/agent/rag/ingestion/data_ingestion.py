@@ -31,7 +31,7 @@ from dotenv import load_dotenv
 from unstructured.partition.api import partition_via_api
 from langchain_core.documents import Document
 
-_SKIP_SECTIONS = {"references", "bibliography", "works cited", "further reading"}
+_SKIP_SECTIONS = {"Course Contents", "references", "bibliography", "works cited", "further reading"}
 
 def _normalise_section_key(text: str) -> str:
     """

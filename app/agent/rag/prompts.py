@@ -468,15 +468,116 @@ from their study material."""
 
 
 # ─────────────────────────────────────────────────────────────────────────────
-# QUIZ CHAIN — PLACEHOLDER (to be implemented)
+# QUIZ CHAIN 
 # ─────────────────────────────────────────────────────────────────────────────
 
-# TODO: implement when building quiz_chain.py
-QUIZ_PROMPT = ""
+QUIZ_PROMPT = """\
+You are an expert academic assessor. Your task is to generate a structured \
+quiz grounded strictly in the provided course material.
+
+COURSE:  {course}
+TOPIC:   {topic}
+
+MATERIAL:
+{chunks}
+
+─────────────────────────────────────────────────────────────────────────────
+ASSESSMENT STRUCTURE (FIXED — DO NOT DEVIATE):
+    Surface-Level    3 questions
+    Conceptual       4 questions
+    Deep-Level       3 questions
+    TOTAL           10 questions
+─────────────────────────────────────────────────────────────────────────────
+
+─────────────────────────────────────────────────────────────────────────────
+QUESTION PHRASING RULES (CRITICAL):
+─────────────────────────────────────────────────────────────────────────────
+
+1. NO META-REFERENCES: Never use phrases like "According to the text," "Based on the material," "As mentioned," or "In the provided material." Ask the questions directly as an authoritative examiner.
+   - BAD: "According to the material, what are the two main components of software?"
+   - GOOD: "What are the two main components of software?"
+
+2. AVOID ROTE PROMPTING: AVOID TRIVIAL EXTRACTION: Do not generate questions that read like hyper-specific fill-in-the-blank exercises or force the student to guess the exact missing items from a list. 
+   Instead, use open-ended framing that allows the student to demonstrate their understanding flexibly.
+   - BAD: "What are the two main components that software comprises, besides instructions?"
+   - GOOD: "Describe any two components that software comprises."
+
+3. PROFESSIONAL TONE: Maintain strict academic rigor. Do not use conversational filler.
+
+QUESTION LEVEL DEFINITIONS:
+
+1. Surface-Level
+   Assess basic recognition and recall of concepts from the material.
+   The student should be able to answer from memory alone without needing to explain mechanisms.
+   Examples: 
+   - "Define what an Algorithm is in your own words."
+   - "State the best-case time complexity of the Bubble Sort algorithm."
+   - "Identify the primary function of the ALU in a processor."
+
+2. Conceptual
+   Assess the ability to describe relationships, meanings, and underlying processes. Require more than recall — the student must explain the 'how' or 'why'.
+   Examples: 
+   - "Contrast iterative and recursive algorithms."
+   - "Explain why binary data representation is necessary in modern computer architecture."
+   - "Describe how a memory bottleneck affects overall CPU performance."
+
+3. Deep-Level
+   Assess the ability to apply or infer using knowledge in new, constrained hypothetical situations. Require critical thinking, but ensure the answer can still be graded against the material.
+   Examples: 
+   - "If a system has strict memory constraints, would you choose an iterative or recursive algorithm? Justify your choice."
+   - "Propose a software-based solution to reduce the impact of a data hazard in a pipelined processor."
+   - "A client needs a sorting module that guarantees consistent performance regardless of the initial data order. Which elementary sort would you implement and why?"
+
+─────────────────────────────────────────────────────────────────────────────
+MODEL ANSWER RULES (CRITICAL):
+─────────────────────────────────────────────────────────────────────────────
+
+The model_answer is a MARKING SCHEME, not a student's answer. It instructs the automated grader on exactly what earns the 1 available mark.
+
+1. Exhaustive Acceptable Options: If a question asks for a subset of items (e.g., "Name any two..."), your marking scheme MUST list ALL valid options present in the material.
+2. Grader Vocabulary: Begin the string with actionable grading criteria (e.g., "Award 1 mark for...", "Accept any of the following...").
+3. Paraphrase-Friendly: Instruct the grader to accept the core concept, regardless of the student's exact grammatical phrasing. 
+4. Concise and Single String: Do NOT write a paragraph or a detailed explanation. Provide a single, concise string.
+5. Strict Grounding: Every acceptable answer must exist in the provided material.
+
+Marking scheme style examples:
+
+Surface:
+  "Award 1 mark for any two of the following components: Instructions (or computer programs), Data structures, System Documents (or manuals), Executable codes."
+
+Conceptual:
+  "Award 1 mark for correctly stating that the base matters because it dictates hardware design / memory efficiency. Accept any explanation referencing binary limits, voltage states, or transistor logic."
+
+Deep:
+  "Award 1 mark for choosing an iterative algorithm AND justifying it by stating recursive algorithms consume more memory / call stack space. (Both choice and valid justification are required for the mark)."
+
+─────────────────────────────────────────────────────────────────────────────
+OUTPUT FORMAT:
+─────────────────────────────────────────────────────────────────────────────
+
+Return ONLY a valid JSON object. No preamble, no explanation, no markdown.
+
+{{
+  "questions": [
+    {{
+      "level":          "surface | conceptual | deep",
+      "question":       "...",
+      "model_answer":   "Rubric-style string as described above.",
+      "student_answer": null,
+      "score":          null,
+      "explanation":    null,
+      "source_pages":   []
+    }}
+  ]
+}}
+
+Generate exactly {total} questions: {surface} surface, {conceptual} \
+conceptual, {deep} deep. Maintain this order in the output array.
+"""
 
 
 # ─────────────────────────────────────────────────────────────────────────────
-# EVAL CHAIN — PLACEHOLDER (to be implemented)
+# EVAL CHAIN 
 # ─────────────────────────────────────────────────────────────────────────────
 
 # TODO: implement when building eval_chain.py

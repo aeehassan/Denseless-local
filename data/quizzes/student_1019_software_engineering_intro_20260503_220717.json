@@ -1,0 +1,154 @@
+{
+  "questions": [
+    {
+      "level": "surface",
+      "question": "What are the two main components that software comprises, besides instructions?",
+      "model_answer": "Award 1 mark for any of the following pairs: [Data structures, Documents] or [Data structures, Manuals] or [Instructions (computer programs), Data structures] or [Instructions (computer programs), Documents] or [Instructions (computer programs), Manuals]. Accept paraphrased terms like 'program code' for instructions, 'information handling' for data structures, and 'user guides' for documents/manuals.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "level": "surface",
+      "question": "What is the term for compiled code that can be shared and run independently of the source code?",
+      "model_answer": "Award 1 mark for 'Executable' or 'Executable codes'.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "level": "surface",
+      "question": "What does 'platform' refer to in the context of software development?",
+      "model_answer": "Award 1 mark for 'hardware and operating system considerations' or 'the hardware and operating system specifications required to run the software'.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "level": "conceptual",
+      "question": "Describe the role of design documents in software development.",
+      "model_answer": "Award 1 mark for explaining that design documents specify various necessary designs for software development. Accept any of the following examples: input design, output design, UML, use case design, class diagrams, or software architecture.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "level": "conceptual",
+      "question": "Explain the fundamental difference between Computer Science and Software Engineering.",
+      "model_answer": "Award 1 mark for stating that Computer Science focuses on the theoretical and mathematical aspects of how computers work, while Software Engineering focuses on the practical, hands-on approach to building and maintaining software systems throughout their lifecycle. Accept answers that highlight CS's theoretical/mathematical nature versus SE's practical/lifecycle focus.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "level": "conceptual",
+      "question": "How does Adam et al. (2001) define engineering?",
+      "model_answer": "Award 1 mark for stating that engineering means the profession and activity of designing things like roads, bridges, machines, or machinery and equipment, developed as a result of knowledge. Accept paraphrases that capture the essence of designing and developing based on knowledge.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "level": "conceptual",
+      "question": "What is the significance of software manuals?",
+      "model_answer": "Award 1 mark for explaining that manuals are important for users to understand and operate the software. Accept mention of user guides, technical manuals, or complete system manuals as examples of their importance.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "level": "deep",
+      "question": "A project requires the development of a large, complex system intended for critical infrastructure. According to the provided material, what approach and key considerations would be paramount for its development?",
+      "model_answer": "Award 1 mark for mentioning the application of engineering principles to software development AND the need for a systematic, disciplined, and quantifiable approach. Accept references to cost-effective solutions, fault-free software, satisfying user needs, and delivery on time and within budget as supporting details.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "level": "deep",
+      "question": "Consider a scenario where an organization needs to integrate new software without disrupting its current operations. Based on the material, what would be the immediate next step after the software's development and before its full operational use?",
+      "model_answer": "Award 1 mark for stating 'Installation'. Accept further elaboration on the importance of the installation process not affecting the existing system, and mention of techniques like direct, pilot, phased, or parallel if provided as part of the justification for installation's importance.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "level": "deep",
+      "question": "Given that software is described along with its capabilities and platform specifications, how might a mismatch in platform specifications lead to issues during software implementation?",
+      "model_answer": "Award 1 mark for explaining that a mismatch in platform specifications (hardware/OS) could prevent the software from functioning correctly or at all during installation or implementation, potentially affecting the existing system. Accept explanations related to compatibility, resource requirements, or the inability to execute the compiled code.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  ]
+}

@@ -1,0 +1,154 @@
+{
+  "questions": [
+    {
+      "level": "surface",
+      "question": "What are the two primary components that comprise software, as defined in the material?",
+      "model_answer": "Award 1 mark for any two of the following: Instructions (or computer programs), Data structures, Documents (or system manuals).",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "level": "surface",
+      "question": "What is the term used to describe the hardware and operating system considerations that software is developed with?",
+      "model_answer": "Award 1 mark for 'platform'.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "level": "surface",
+      "question": "Identify one type of design document mentioned in the material that is necessary for software development.",
+      "model_answer": "Award 1 mark for any one of the following: input design, output design, UML, use case design, class diagrams, software architecture.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "level": "conceptual",
+      "question": "Explain the purpose of executable code in the context of software distribution.",
+      "model_answer": "Award 1 mark for stating that executable codes can be run without the source code and can be shared with other users to run independently.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "level": "conceptual",
+      "question": "Describe the core distinction between computer science and software engineering regarding their focus.",
+      "model_answer": "Award 1 mark for stating that computer science focuses on the theoretical and mathematical perspective of how computers work, while software engineering focuses on the practical application of engineering principles to build and maintain software systems.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "level": "conceptual",
+      "question": "According to the material, what does the term 'engineering' generally mean as an action word?",
+      "model_answer": "Award 1 mark for any of the following: to make, achieve, or get through contrivance or guile; a way of approaching a problem.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "level": "conceptual",
+      "question": "Explain the role of system manuals in the software lifecycle.",
+      "model_answer": "Award 1 mark for explaining that manuals are important for users to understand and operate the software, providing guidance such as user guides or technical documentation.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "level": "deep",
+      "question": "Imagine you are developing a critical system where reliability is paramount and budget is limited. Based on the definition of software engineering, what would be the primary aim of your development process?",
+      "model_answer": "Award 1 mark for stating the primary aim is the production of fault-free software that satisfies user needs and is delivered on time and within budget.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "level": "deep",
+      "question": "A software project requires the development of complex algorithms. If the team prioritizes a hands-on approach and wants to understand the entire process of creating and maintaining the software, which discipline would be more suitable to choose: Computer Science or Software Engineering? Justify your answer.",
+      "model_answer": "Award 1 mark for choosing Software Engineering AND justifying it by stating it focuses on the hands-on approach and the overall life cycle of software development and maintenance.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "level": "deep",
+      "question": "Consider the description of software's importance. If a business aims to improve decision-making, what aspect of software's role is most relevant to their objective?",
+      "model_answer": "Award 1 mark for identifying that software serves as the engine that drives business decision making.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  ]
+}

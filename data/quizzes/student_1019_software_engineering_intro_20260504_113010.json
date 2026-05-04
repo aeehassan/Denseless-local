@@ -1,0 +1,102 @@
+{
+  "questions": [
+    {
+      "level": "surface",
+      "question": "What are the two primary components that constitute software, besides instructions?",
+      "model_answer": "Award 1 mark for any one of the following: Data structures, Documents (or system manuals).",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": []
+    },
+    {
+      "level": "surface",
+      "question": "Identify one type of design document mentioned in the material.",
+      "model_answer": "Award 1 mark for any one of the following: Input design, Output design, UML, Use case design, Class diagrams, Software architecture.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [],
+      "section": "Today’s software is comprised of"
+    },
+    {
+      "level": "surface",
+      "question": "What is the term for compiled code that can run without the source code?",
+      "model_answer": "Award 1 mark for 'Executable' or 'Executable codes'.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [],
+      "section": "Today’s software is comprised of"
+    },
+    {
+      "level": "conceptual",
+      "question": "Explain the role of documentation as part of a software system.",
+      "model_answer": "Award 1 mark for explaining that documents help users understand the software system, or that they describe operation and use. Accept any mention of user guides, technical manuals, or system manuals.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": []
+    },
+    {
+      "level": "conceptual",
+      "question": "How does the concept of a 'platform' influence software development?",
+      "model_answer": "Award 1 mark for explaining that software is developed with specific hardware and operating system considerations (the platform) in mind, which are required for it to run. Accept any reference to hardware or OS specifications.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [],
+      "section": "Today’s software is comprised of"
+    },
+    {
+      "level": "conceptual",
+      "question": "Contrast the primary focus of Computer Science with that of Software Engineering.",
+      "model_answer": "Award 1 mark for stating that Computer Science focuses on the theoretical and mathematical perspective of how computers work, while Software Engineering focuses on the practical, hands-on approach to building and maintaining software systems throughout their lifecycle.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [],
+      "section": "Computer Science VS Software Engineering"
+    },
+    {
+      "level": "conceptual",
+      "question": "Describe the significance of software as a driving force in modern society.",
+      "model_answer": "Award 1 mark for explaining that software drives business decision-making, serves as a basis for scientific investigation and problem-solving, is embedded in various systems, and affects nearly every aspect of life, commerce, and culture.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [],
+      "section": "Importance of Software"
+    },
+    {
+      "level": "deep",
+      "question": "If an organization requires a software system to be implemented with minimal disruption to existing operations, which installation technique would be most appropriate and why?",
+      "model_answer": "Award 1 mark for choosing 'Phased' or 'Parallel' installation AND justifying it by explaining that these methods allow for gradual integration or running the new system alongside the old, thus minimizing disruption.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [],
+      "section": "Today’s software is comprised of"
+    },
+    {
+      "level": "deep",
+      "question": "A software project has strict budget and time constraints. How might the principles of Software Engineering help in managing these constraints to produce a cost-effective solution?",
+      "model_answer": "Award 1 mark for referencing the application of scientific knowledge, systematic and disciplined approaches, or engineering principles to build software artifacts cost-effectively, or by emphasizing practices that lead to fault-free software delivered on time and within budget.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [],
+      "section": "The Term Software Engineering"
+    },
+    {
+      "level": "deep",
+      "question": "Consider the definition of engineering provided, which includes 'contrivance' and 'guile'. How do these terms, beyond their literal meanings, relate to the practice of Software Engineering?",
+      "model_answer": "Award 1 mark for explaining that 'contrivance' relates to devising machines or specialized mechanical devices (analogous to designing software components or systems) and 'guile' relates to finding cunning solutions to complex, non-machine-related problems (analogous to problem-solving in software development, potentially involving clever algorithms or overcoming abstract challenges). Accept any interpretation that links 'contrivance' to creation/design and 'guile' to clever problem-solving in software.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [],
+      "section": "The Term Engineering"
+    }
+  ]
+}

@@ -306,6 +306,8 @@ def _normalise_section_key(text: str) -> str:
 
 def get_topic_chunks(
     store: Chroma,
+    topic: str,
+    course: str,
 ) -> Dict[str, List[Document]]:
     """
     Retrieve all chunks from the store grouped by section heading.
@@ -314,7 +316,7 @@ def get_topic_chunks(
     every chunk by its ``metadata["section"]`` field. All chunks
     per section are returned without any limit — this preserves the
     complete meaning of the student's material and ensures notes_chain
-    and quiz_chain have full coverage of every topic in the PDF.
+    and quiz_chain have full coverage of every section in the PDF.
 
     Context Window Safety:
         No per-section chunk limit is enforced here because the 50-page
@@ -330,6 +332,8 @@ def get_topic_chunks(
 
     Args:
         store: The student-scoped vector store. Must not be None.
+        topic: The specific topic chunks are being fetched for.
+        course: The specific course that topic resides in
 
     Returns:
         Dict mapping section heading → list of all Document objects
@@ -362,7 +366,7 @@ def get_topic_chunks(
     # Large top_k ensures nothing is missed. No score threshold —
     # we want every chunk, not just the most similar ones.
     try:
-        all_chunks = store.similarity_search(query=" ", k=10_000)
+        all_chunks = store.similarity_search(query=" ", k=10_000, filter={"$and": [{"course": course}, {"topic": topic}]})
     except Exception as e:
         raise RuntimeError(
             f"Vector store sweep failed in get_topic_chunks(). "

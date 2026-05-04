@@ -1,0 +1,154 @@
+{
+  "questions": [
+    {
+      "level": "surface",
+      "question": "According to the provided material, what are the two main components that software comprises, besides instructions?",
+      "model_answer": "Data structures and documents.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "level": "surface",
+      "question": "What is the term used to describe the hardware and operating system considerations that software is developed with?",
+      "model_answer": "Platform.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "level": "surface",
+      "question": "What does IEEE stand for in the context of Software Engineering Standards?",
+      "model_answer": "Institute of Electrical and Electronics Engineers.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "level": "conceptual",
+      "question": "Explain the primary difference between 'Source Code' and 'Executable' as described in the material.",
+      "model_answer": "Source code is written by programmers in a specific language (e.g., Java, Python), while executable code is compiled and can run independently without the source code.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "level": "conceptual",
+      "question": "Describe the role of 'Design Documents' in the software development process, citing at least two examples mentioned in the text.",
+      "model_answer": "Design documents outline the necessary designs for software development; examples include input design, output design, UML, use case design, class diagrams, or software architecture.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "level": "conceptual",
+      "question": "How does the material define 'Engineering' in a way that distinguishes it from simply a body of knowledge?",
+      "model_answer": "Engineering is described as a verb, an action word, or a way of approaching a problem, implying active contrivance and problem-solving.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "level": "conceptual",
+      "question": "What is the fundamental aim of Software Engineering as stated in one of the definitions?",
+      "model_answer": "To produce fault-free software that satisfies user needs and is delivered on time and within budget.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "level": "deep",
+      "question": "Given the definition of software as instructions to acquire inputs, manipulate them, and produce desired output, what might be a consequence of poorly designed 'data structures'?",
+      "model_answer": "Poorly designed data structures would hinder the software's ability to adequately manipulate information, potentially leading to incorrect outputs, performance issues, or an inability to process data effectively.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "level": "deep",
+      "question": "If software is described as being developed with 'platform' considerations, predict what might happen if software developed for one platform is attempted to be run on a completely different, incompatible platform.",
+      "model_answer": "The software would likely fail to install or execute, or it might exhibit significant functional errors and performance degradation due to the incompatibility of the operating system or hardware requirements.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "level": "deep",
+      "question": "Considering that Software Engineering aims for cost-effective solutions and applying scientific knowledge, what ethical considerations might arise if a software engineer chooses a less robust but cheaper method that could lead to future 'faults'?",
+      "model_answer": "An ethical issue would arise if the choice compromises user needs or long-term reliability, potentially leading to financial loss, data corruption, or safety risks for the user, despite initial cost savings. The emphasis on 'fault-free' and 'satisfies user needs' implies a responsibility beyond just budget.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  ]
+}
