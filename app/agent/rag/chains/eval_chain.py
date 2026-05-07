@@ -31,7 +31,7 @@ logging.basicConfig(level=logging.INFO)
 # MODULE-LEVEL CONFIG
 # ─────────────────────────────────────────────────────────────────────────────
 
-USE_GEMINI: bool = True  # False → local Ollama, no delays, retry loop runs once
+USE_GEMINI: bool = False  # False → local Ollama, no delays, retry loop runs once
                           # True  → Gemini API, inter-call delays + RPM backoff active
 
 _REQUEST_DELAY_SECONDS  = 5

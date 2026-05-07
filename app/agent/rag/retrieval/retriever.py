@@ -159,7 +159,7 @@ def _expand_with_section_context(
 # STRATEGY 1 — SEMANTIC RETRIEVAL
 # ─────────────────────────────────────────────────────────────────────────────
 
-
+#  Put student_id later
 def get_semantic_chunks(
     query: str,
     store: Chroma,
@@ -304,6 +304,7 @@ def _normalise_section_key(text: str) -> str:
     """
     return re.sub(r'\s+', ' ', text).strip().lower()
 
+# Put student_id later
 def get_topic_chunks(
     store: Chroma,
     topic: str,

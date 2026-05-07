@@ -349,8 +349,8 @@ This student understands best when:
 Retrieved study material:
 {context}
 
-Conversation so far:
-{history}
+Memory context:
+{memory_context}
 
 Student question:
 {question}
@@ -386,8 +386,8 @@ This student understands best when:
 Retrieved study material:
 {context}
 
-Conversation so far:
-{history}
+Memory context:
+{memory_context}
 
 Student question:
 {question}
@@ -424,8 +424,8 @@ This student understands best when:
 Retrieved study material:
 {context}
 
-Conversation so far:
-{history}
+Memory context:
+{memory_context}
 
 Student question:
 {question}
