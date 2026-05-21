@@ -1169,16 +1169,16 @@ def view_ltm(student_id: str) -> str:
     json_path = _ltm_path(student_id)
 
     if not json_path.exists():
-        return f"No long-term memories stored yet for student '{student_id}'."
+        return "No long-term memories stored yet for student."
 
     try:
         store  = _load_ltm_store(student_id)
         items  = store.search(("ltm", student_id))
 
         if not items:
-            return f"No long-term memories stored yet for student '{student_id}'."
+            return "No long-term memories stored yet for student."
 
-        lines = [f"Long-Term Memories for {student_id}:", "─" * 40]
+        lines = ["Long-Term Memories:", "─" * 40]
         for i, item in enumerate(items):
             content = item.value.get("content", str(item.value))
             lines.append(f"{i + 1}. {content}")

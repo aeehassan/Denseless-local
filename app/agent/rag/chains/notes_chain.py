@@ -86,6 +86,7 @@ from app.agent.rag.prompts import (
 from app.agent.rag.ingestion.data_ingestion import process_and_load_file
 from app.agent.rag.ingestion.embeddings import generate_embeddings
 from app.agent.rag.ingestion.vector_store import add_documents_to_chroma
+from app.agent.rag.chains.qa_chain import view_ltm
 from app.services.token_service import token_guard
 
 # Enable httpx request logging so Ollama API calls are visible in output
@@ -400,6 +401,7 @@ def _classify_rate_error(e: Exception) -> str:
     return "other"
 
 def _call_section_llm(
+    student_id: str,
     llm: BaseChatModel,
     heading: str,
     is_flagged: bool,
@@ -469,7 +471,10 @@ def _call_section_llm(
             f"Unrecognised learning_pace: '{learning_pace}'. "
             f"Valid values: {list(_NOTES_PROMPT_MAP.keys())}"
         )
- 
+    
+    # Extract LTM context
+    ltm_context = view_ltm(student_id)
+
     # Build rename instruction
     if is_flagged:
         rename_instruction = RENAME_INSTRUCTION.format(original_heading=heading)
@@ -490,6 +495,7 @@ def _call_section_llm(
  
     prompt = prompt_template.format(
         elaboration_instruction=elaboration_instruction,
+        ltm_context=ltm_context,
         running_summary=summary_text,
         section_heading=heading,
         context=context,
@@ -1082,6 +1088,7 @@ def run_notes_chain(
         for attempt in range(1, _MAX_EMPTY_RETRIES + 1):
             try:
                 parsed, responses = _call_section_llm(
+                    student_id=student_id,
                     llm=llm,
                     heading=heading,
                     is_flagged=is_flagged,

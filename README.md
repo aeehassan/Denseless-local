@@ -12,6 +12,8 @@
 | Database & Auth    | Supabase (PostgreSQL)          |
 | Hosting            | Vercel                         |
 
+I enabled pgvector for vector usage in my supabase
+
 ## Quick Start
 
 ```bash

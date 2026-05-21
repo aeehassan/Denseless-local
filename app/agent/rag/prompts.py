@@ -105,6 +105,9 @@ point of losing accuracy.
 
 {elaboration_instruction}
 
+What is known about this student from previous sessions:
+{ltm_context}
+
 Previously covered in this document (use this to connect ideas):
 {running_summary}
 
@@ -164,6 +167,9 @@ point of losing accuracy.
 
 {elaboration_instruction}
 
+What is known about this student from previous sessions:
+{ltm_context}
+
 Previously covered in this document (use this to connect ideas):
 {running_summary}
 
@@ -222,6 +228,9 @@ than the original — not to reproduce it, and not to oversimplify to the
 point of losing accuracy.
 
 {elaboration_instruction}
+
+What is known about this student from previous sessions:
+{ltm_context}
 
 Previously covered in this document (use this to connect ideas):
 {running_summary}
