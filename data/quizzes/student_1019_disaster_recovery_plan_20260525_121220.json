@@ -1,0 +1,132 @@
+{
+  "questions": [
+    {
+      "level": "surface",
+      "question": "Identify three distinct elements that an effective Disaster Recovery (DR) plan addresses for recovery.",
+      "model_answer": "Award 1 mark for any three of the following: Detective, Corrective, Preventive.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        4
+      ],
+      "section": "How disaster recovery works"
+    },
+    {
+      "level": "surface",
+      "question": "List any three types of disasters that can interrupt services and cause data loss.",
+      "model_answer": "Award 1 mark for any three of the following: Technological hazards (e.g., power outages, pipeline explosions, transportation accidents), Pandemics and epidemics, Cyber attacks (e.g., malware, DDoS, ransomware attacks), Machine and hardware failure, Intentional human-caused threats (e.g., terrorist or biochemical attacks), Natural disasters (e.g., earthquakes, floods, tornados, hurricanes, wildfires).",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1
+      ],
+      "section": "What is considered a disaster"
+    },
+    {
+      "level": "surface",
+      "question": "What is the Recovery Point Objective (RPO)?",
+      "model_answer": "Award 1 mark for stating that the RPO is the maximum age of data that needs to be recovered to resume operations after a major event.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        2,
+        3
+      ],
+      "section": "Here is the typical structure of a DR plan"
+    },
+    {
+      "level": "conceptual",
+      "question": "Explain the fundamental difference between a disaster recovery plan (DRP) and a business continuity plan (BCP).",
+      "model_answer": "Award 1 mark for explaining that a DRP is a documented, structured approach for resuming work after an unplanned incident and is an essential part of a BCP. Accept any explanation that highlights DR as a subset of BC, specifically focusing on IT infrastructure restoration.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1
+      ],
+      "section": "What is a Disaster Recovery Plan"
+    },
+    {
+      "level": "conceptual",
+      "question": "Describe the purpose of the 'Detective' element within a disaster recovery plan.",
+      "model_answer": "Award 1 mark for explaining that detective measures focus on detecting or discovering unwanted events as they happen in real time to enable rapid recovery.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "How disaster recovery works"
+    },
+    {
+      "level": "conceptual",
+      "question": "Contrast the characteristics of a cold computing site with a hot computing site.",
+      "model_answer": "Award 1 mark for describing that a cold site only provides basic infrastructure like power, networking, and cooling, requiring hardware and data to be brought in for recovery, whereas a hot site is fully functional with mirrored data and critical systems already in place, allowing for immediate switchover.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        3
+      ],
+      "section": "Types of Disaster Recovery Sites"
+    },
+    {
+      "level": "conceptual",
+      "question": "How does the Recovery Time Objective (RTO) influence the frequency of data backups?",
+      "model_answer": "Award 1 mark for explaining that the RTO, representing the maximum acceptable downtime, dictates how frequently backups need to occur to ensure that systems and applications can be restored within that specified timeframe.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        2,
+        3
+      ],
+      "section": "Here is the typical structure of a DR plan"
+    },
+    {
+      "level": "deep-level",
+      "question": "An organization experiences a sudden, widespread power outage affecting its primary data center. Based on the principles of disaster recovery, outline the immediate actions and considerations for restoring critical IT services, referencing relevant DR plan elements.",
+      "model_answer": "Award 1 mark for mentioning actions related to: 1. Activating the DR team (Personnel - [26]). 2. Initiating emergency response procedures to limit damages (Disaster recovery procedures - [23]). 3. Potentially switching operations to a hot disaster recovery site if available (Disaster recovery sites - [28], [44]). 4. Focusing on rapid restoration of critical systems and data based on RTO and RPO (Goals - [25]).",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "What is a Disaster Recovery Plan"
+    },
+    {
+      "level": "deep-level",
+      "question": "Imagine a scenario where a ransomware attack encrypts all critical business data. How would the 'Corrective' and 'Preventive' measures of a DR plan work in tandem to address this specific threat?",
+      "model_answer": "Award 1 mark for explaining that Preventive measures (e.g., robust security tools, continuous monitoring for configuration errors - [6]) aim to stop attacks like ransomware from occurring. Corrective measures then come into play by ensuring backup operations are in place and recovery procedures are ready to restore data and systems quickly after the attack is detected and eradicated (e.g., last-minute backups, mitigation and eradication for cybersecurity threats - [5], [23]).",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "How disaster recovery works"
+    },
+    {
+      "level": "deep-level",
+      "question": "A company operates a critical financial application that cannot tolerate any data loss and must be operational within 15 minutes of an incident. How would you define the RPO and RTO for this application, and what type of disaster recovery site would be most suitable?",
+      "model_answer": "Award 1 mark for stating: RPO = 0 (or near zero/minimal) because no data loss is acceptable. RTO = 15 minutes (or less) to meet the operational requirement. The most suitable DR site is a hot computing site ([44]) because it has mirrored data and is fully functional, allowing for immediate switchover to meet the strict RPO and RTO.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        2,
+        3
+      ],
+      "section": "Here is the typical structure of a DR plan"
+    }
+  ]
+}

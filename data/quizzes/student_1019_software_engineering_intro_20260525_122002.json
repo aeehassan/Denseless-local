@@ -1,0 +1,138 @@
+{
+  "questions": [
+    {
+      "level": "surface",
+      "question": "What are the two main components that software comprises, besides instructions?",
+      "model_answer": "Award 1 mark for any two of the following: Data structures, Documents (or system manuals).",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "The Term Software"
+    },
+    {
+      "level": "surface",
+      "question": "What is the term for compiled code that can run independently of the source program?",
+      "model_answer": "Award 1 mark for 'Executable' or 'Executable codes'.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "Today’s software is comprised of"
+    },
+    {
+      "level": "surface",
+      "question": "What are the programs or codes written by programmers in a specific language called?",
+      "model_answer": "Award 1 mark for 'Source Code'.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "Today’s software is comprised of"
+    },
+    {
+      "level": "conceptual",
+      "question": "Explain the purpose of system manuals in the context of software.",
+      "model_answer": "Award 1 mark for stating that manuals are important for users to understand and operate the software. Accept any mention of user guides, technical manuals, or complete system manuals.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        5
+      ],
+      "section": "Today’s software is comprised of"
+    },
+    {
+      "level": "conceptual",
+      "question": "Describe the relationship between software and its platform.",
+      "model_answer": "Award 1 mark for explaining that software is developed with specific hardware and operating system considerations in mind, known as the platform, which are required for it to run. Accept any mention of hardware/OS dependencies.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "Today’s software is comprised of"
+    },
+    {
+      "level": "conceptual",
+      "question": "How does Software Engineering apply engineering principles to software development?",
+      "model_answer": "Award 1 mark for explaining that Software Engineering applies systematic, disciplined, and quantifiable approaches (or engineering principles) to the development, operation, and maintenance of software to create cost-effective and practical solutions that satisfy user needs.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        3,
+        4
+      ],
+      "section": "The Term Software Engineering"
+    },
+    {
+      "level": "conceptual",
+      "question": "Distinguish between the core focus of Computer Science and Software Engineering.",
+      "model_answer": "Award 1 mark for stating that Computer Science focuses on the theoretical and mathematical perspective of how computers work (e.g., algorithms, data structures), while Software Engineering focuses on the practical, hands-on approach to building, maintaining, and managing the overall life cycle of software systems.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        4,
+        5
+      ],
+      "section": "Computer Science VS Software Engineering"
+    },
+    {
+      "level": "deep",
+      "question": "If an organization requires a software system that must be delivered quickly and with minimal budget, which aspect of software development might be prioritized, and why?",
+      "model_answer": "Award 1 mark for prioritizing cost-effectiveness and practical solutions (or similar concepts) AND justifying this by referencing the goal of Software Engineering to provide cost-effective solutions to practical problems within budget constraints.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        3,
+        4,
+        5
+      ],
+      "section": "The Term Software Engineering"
+    },
+    {
+      "level": "deep",
+      "question": "Consider a scenario where a user needs to understand how to operate a complex software system. What types of documentation, as described in the material, would be most crucial for this user?",
+      "model_answer": "Award 1 mark for identifying 'System Manuals' and specifically mentioning 'user's guide' or 'user manual'.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "section": "The Term Software"
+    },
+    {
+      "level": "deep",
+      "question": "A software project aims to develop a large, intricate system with a high degree of complexity. What approach, as defined in the material, is commonly employed for such systems?",
+      "model_answer": "Award 1 mark for 'Software Engineering' or 'Software Engineering principles'.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        3,
+        4
+      ],
+      "section": "The Term Software Engineering"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+{
+    "summary": "The student asked for a definition of RPO. The assistant explained that RPO stands for Recovery Point Objective and represents the maximum acceptable data age for recovery after an event, influencing backup frequency.",
+    "turn_count": 1
+}

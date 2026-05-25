@@ -1,0 +1,137 @@
+{
+  "questions": [
+    {
+      "level": "surface",
+      "question": "Identify three types of security incidents mentioned in the material.",
+      "model_answer": "Award 1 mark for any three of the following: Privilege escalation attacks, Man-in-the-middle attacks, Malware attacks, Unauthorized attempts to access systems or data, Advanced persistent threats, Web application attacks, Insider threats, Phishing attacks, Password attacks, Denial-of-service (DoS) attacks.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "Types of security incidents"
+    },
+    {
+      "level": "surface",
+      "question": "What is the primary function of playbooks within an incident response plan?",
+      "model_answer": "Award 1 mark for stating that playbooks outline standardized, step-by-step actions responders should take in specific scenarios.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "section": "How to create an incident response plan"
+    },
+    {
+      "level": "surface",
+      "question": "Name two of the three most common types of incident response teams.",
+      "model_answer": "Award 1 mark for any two of the following: Computer incident response team (CIRT), Computer security incident response team (CSIRT), Computer emergency response team (CERT).",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        4
+      ],
+      "section": "Types of incident response teams"
+    },
+    {
+      "level": "conceptual",
+      "question": "Explain the relationship between vulnerabilities, threats, and incidents.",
+      "model_answer": "Award 1 mark for explaining that a vulnerability is a weakness, a threat is an entity that exploits that weakness, and an incident occurs when the attack succeeds in accessing enterprise resources or putting them at risk.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "Types of security incidents"
+    },
+    {
+      "level": "conceptual",
+      "question": "Describe the purpose of an incident response policy.",
+      "model_answer": "Award 1 mark for stating that an incident response policy is an evergreen document describing general, high-level incident-handling priorities and empowering incident responders to make sound decisions.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        3
+      ],
+      "section": "Introduction"
+    },
+    {
+      "level": "conceptual",
+      "question": "How does a well-structured incident response plan contribute to an organization's resilience?",
+      "model_answer": "Award 1 mark for explaining that it promotes a culture of security awareness, making employees more knowledgeable about threats and proper steps, thereby making the organization more resilient to cyberattacks.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        4,
+        5
+      ],
+      "section": "Why is an Incident Response Plan Important"
+    },
+    {
+      "level": "conceptual",
+      "question": "What are the key components that an incident response plan details?",
+      "model_answer": "Award 1 mark for mentioning that it details who is responsible for tasks and how to contact them, which threats qualify as incidents and what to do, and how team members should complete tasks and when they should perform them.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        2
+      ],
+      "section": "What is an incident response plan"
+    },
+    {
+      "level": "deep",
+      "question": "Imagine an organization has detected unauthorized access to sensitive customer data. Based on the incident response framework, what would be the immediate next steps after detection and identification?",
+      "model_answer": "Award 1 mark for identifying 'Containment' as the next step and describing actions to stop the incident from worsening and regain control of IT resources.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        3,
+        4
+      ],
+      "section": "Incident response frameworks: Phases of incident response"
+    },
+    {
+      "level": "deep",
+      "question": "A company is developing its incident response plan. Why is it crucial to create a communication plan involving diverse stakeholders?",
+      "model_answer": "Award 1 mark for explaining that a solid communication plan ensures all stakeholders are on the same page during an incident, reducing confusion and enabling faster recovery.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "section": "How to create an incident response plan"
+    },
+    {
+      "level": "deep",
+      "question": "After an incident is resolved, what is the purpose of the 'Lessons Learned' phase in the incident response framework?",
+      "model_answer": "Award 1 mark for stating that the purpose is to review what happened, when, and how, to identify sub-optimal security controls, policies, and procedures and find ways to improve them, and to update the incident response plan accordingly.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        3,
+        4
+      ],
+      "section": "Incident response frameworks: Phases of incident response"
+    }
+  ]
+}

@@ -40,12 +40,12 @@ from langchain_core.messages import HumanMessage, AIMessage
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_community.vectorstores import Chroma
 from langchain_core.output_parsers import JsonOutputParser
-from langchain_classic.memory import ConversationSummaryBufferMemory    # STM
+from langchain_classic.memory import ConversationSummaryBufferMemory  # STM
 
 # ── [LANGMEM IMPORT] ──────────────────────────────────────────────────────────
 # Adjust these two lines if your langmem version exposes a different API.
 from langmem import create_memory_manager  # LTM manager
-from langgraph.store.memory import InMemoryStore   # LangGraph's store
+from langgraph.store.memory import InMemoryStore  # LangGraph's store
 # ─────────────────────────────────────────────────────────────────────────────
 
 from app.agent.rag.retrieval.retriever import get_semantic_chunks
@@ -75,7 +75,9 @@ _MAX_QA_RETRIES: int = 3
 # Max token buffer before ConversationSummaryBufferMemory starts summarising.
 _STM_MAX_TOKEN_LIMIT: int = 600
 
-CHAT_HISTORY_DIR = Path(__file__).parent.parent.parent.parent.parent / "data" / "chat_history"
+CHAT_HISTORY_DIR = (
+    Path(__file__).parent.parent.parent.parent.parent / "data" / "chat_history"
+)
 LTM_DIR = Path(__file__).parent.parent.parent.parent.parent / "data" / "ltm"
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -250,11 +252,12 @@ def _sanitise_convo_name(convo_name: str) -> str:
 # PRIVATE HELPERS — STM
 # ─────────────────────────────────────────────────────────────────────────────
 
+
 def _update_stm_summary(
     old_summary: str,
-    question:    str,
-    answer:      str,
-    llm:         BaseChatModel,
+    question: str,
+    answer: str,
+    llm: BaseChatModel,
 ) -> str:
     """
     Produces an updated running summary by folding the latest exchange
@@ -284,10 +287,11 @@ def _update_stm_summary(
         "Student asked about merge sort. They then asked about quicksort —
          the assistant explained pivot selection and average-case O(n log n) complexity."
     """
-    _UPDATE_SUMMARY_PROMPT = ChatPromptTemplate.from_messages([
-        (
-            "system",
-            """You are maintaining a running summary of a tutoring conversation between a student and an AI assistant.
+    _UPDATE_SUMMARY_PROMPT = ChatPromptTemplate.from_messages(
+        [
+            (
+                "system",
+                """You are maintaining a running summary of a tutoring conversation between a student and an AI assistant.
 
             You will receive:
             - The existing summary of the conversation so far (may be empty if this is the first turn)
@@ -301,27 +305,30 @@ def _update_stm_summary(
             - Do not lose important context from the old summary
             - Do not add information that wasn't in the conversation
 
-            Respond with ONLY the updated summary string. No preamble, no formatting."""
-                    ),
-                    (
-                        "human",
-                        """Existing Summary:
+            Respond with ONLY the updated summary string. No preamble, no formatting.""",
+            ),
+            (
+                "human",
+                """Existing Summary:
             {old_summary}
 
             Latest Exchange:
             Student: {question}
-            Assistant: {answer}"""
-        ),
-    ])
+            Assistant: {answer}""",
+            ),
+        ]
+    )
 
     chain = _UPDATE_SUMMARY_PROMPT | llm
 
     try:
-        response = chain.invoke({
-            "old_summary": old_summary or "No prior conversation.",
-            "question":    question,
-            "answer":      answer,
-        })
+        response = chain.invoke(
+            {
+                "old_summary": old_summary or "No prior conversation.",
+                "question": question,
+                "answer": answer,
+            }
+        )
         updated_summary = response.content.strip()
         print(f"[qa_chain] STM summary updated ({len(updated_summary)} chars).")
         return updated_summary
@@ -339,6 +346,7 @@ def _update_stm_summary(
 # ─────────────────────────────────────────────────────────────────────────────
 # PRIVATE HELPERS — LTM (corrected for langmem 0.0.30)
 # ─────────────────────────────────────────────────────────────────────────────
+
 
 def _ltm_path(student_id: str) -> Path:
     """Returns the JSON persistence path for a student's LTM store."""
@@ -367,24 +375,30 @@ def _load_ltm_store(student_id: str) -> InMemoryStore:
         >>> store = _load_ltm_store("student_42")
         [qa_chain] LTM store loaded for student 'student_42' (3 memories).
     """
-    store     = InMemoryStore()
+    store = InMemoryStore()
     json_path = _ltm_path(student_id)
 
     if not json_path.exists():
-        print(f"[qa_chain] No LTM file found — starting fresh for student '{student_id}'.")
+        print(
+            f"[qa_chain] No LTM file found — starting fresh for student '{student_id}'."
+        )
         return store
 
     try:
         with open(json_path, "r", encoding="utf-8") as f:
-            memories = json.load(f)  # list of {"namespace": [...], "key": str, "value": str}
+            memories = json.load(
+                f
+            )  # list of {"namespace": [...], "key": str, "value": str}
 
         for mem in memories:
             store.put(
-                namespace= tuple(mem["namespace"]),
-                key=       mem["key"],
-                value=     {"content": mem["value"]},
+                namespace=tuple(mem["namespace"]),
+                key=mem["key"],
+                value={"content": mem["value"]},
             )
-        print(f"[qa_chain] LTM store loaded for student '{student_id}' ({len(memories)} memories).")
+        print(
+            f"[qa_chain] LTM store loaded for student '{student_id}' ({len(memories)} memories)."
+        )
         return store
 
     except Exception as e:
@@ -409,13 +423,13 @@ def _save_ltm_store(student_id: str, store: InMemoryStore) -> None:
         [qa_chain] LTM store saved for student 'student_42' (4 memories).
     """
     namespace = ("ltm", student_id)
-    items     = store.search(namespace)  # returns list of Item objects
+    items = store.search(namespace)  # returns list of Item objects
 
     memories = [
         {
             "namespace": list(item.namespace),
-            "key":       item.key,
-            "value":     item.value.get("content", str(item.value)),
+            "key": item.key,
+            "value": item.value.get("content", str(item.value)),
         }
         for item in items
     ]
@@ -425,16 +439,16 @@ def _save_ltm_store(student_id: str, store: InMemoryStore) -> None:
     try:
         with open(json_path, "w", encoding="utf-8") as f:
             json.dump(memories, f, indent=4)
-        print(f"[qa_chain] LTM store saved for student '{student_id}' ({len(memories)} memories).")
+        print(
+            f"[qa_chain] LTM store saved for student '{student_id}' ({len(memories)} memories)."
+        )
     except OSError as e:
-        raise OSError(
-            f"Failed to save LTM store to {json_path}. OS error: {e}"
-        ) from e
+        raise OSError(f"Failed to save LTM store to {json_path}. OS error: {e}") from e
 
 
 def _query_ltm(
-    store:      InMemoryStore,
-    question:   str,
+    store: InMemoryStore,
+    question: str,
     student_id: str,
 ) -> str:
     """
@@ -466,7 +480,7 @@ def _query_ltm(
 
         # Basic relevance filter — check if any question keywords appear in memory content
         question_words = set(question.lower().split())
-        relevant       = []
+        relevant = []
 
         for item in items:
             content = item.value.get("content", "")
@@ -485,11 +499,12 @@ def _query_ltm(
         print(f"[qa_chain] LTM query failed (non-fatal). Error: {e}")
         return ""
 
+
 def _update_ltm(
-    store:      InMemoryStore,
-    llm:        BaseChatModel,
-    question:   str,
-    answer:     str,
+    store: InMemoryStore,
+    llm: BaseChatModel,
+    question: str,
+    answer: str,
     student_id: str,
 ) -> dict:
     """
@@ -528,11 +543,11 @@ def _update_ltm(
                 - Any information that is about the subject matter rather than the student
                 - Inferences or assumptions about the student not directly evidenced in their message
 
-                If the exchange contains nothing genuinely about the student's learning state, extract nothing."""
-            )
+                If the exchange contains nothing genuinely about the student's learning state, extract nothing.""",
+        )
 
         conversation = [
-            {"role": "user",      "content": question},
+            {"role": "user", "content": question},
             {"role": "assistant", "content": answer},
         ]
 
@@ -545,24 +560,27 @@ def _update_ltm(
             return {}
 
         import uuid
+
         new_count = 0
 
         for item in results:
             # ExtractedMemory(id=..., content=Memory(content='...'))
-            raw     = item.content if hasattr(item, "content") else item
-            content = raw.content  if hasattr(raw,  "content") else str(raw)
+            raw = item.content if hasattr(item, "content") else item
+            content = raw.content if hasattr(raw, "content") else str(raw)
 
             if content and content.strip():
                 store.put(
-                    namespace= namespace,
-                    key=       item.id if hasattr(item, "id") else str(uuid.uuid4()),
-                    value=     {"content": content},
+                    namespace=namespace,
+                    key=item.id if hasattr(item, "id") else str(uuid.uuid4()),
+                    value={"content": content},
                 )
                 new_count += 1
 
         if new_count > 0:
             _save_ltm_store(student_id, store)
-            print(f"[qa_chain] LTM: {new_count} new memory/memories extracted and saved.")
+            print(
+                f"[qa_chain] LTM: {new_count} new memory/memories extracted and saved."
+            )
         else:
             print(f"[qa_chain] LTM: manager ran but extracted nothing worth storing.")
 
@@ -571,6 +589,7 @@ def _update_ltm(
     except Exception as e:
         print(f"[qa_chain] LTM update failed (non-fatal). Error: {e}")
         return {}
+
 
 # ─────────────────────────────────────────────────────────────────────────────
 # PRIVATE HELPERS — question reformulation + QA LLM call
@@ -607,7 +626,7 @@ def _reformulate_question(
     """
     if not stm_summary:
         return question, {}
-    
+
     reformulation_template = ChatPromptTemplate.from_template(REFORMULATION_PROMPT)
     chain = reformulation_template | llm
     rpm_attempt = 0
@@ -724,6 +743,7 @@ def _call_qa_llm(
         GROUNDING_INSTRUCTION_CONTEXT if chunks else GROUNDING_INSTRUCTION_GENERAL
     )
     formatted_chunks = _format_chunks(chunks)
+    print(formatted_chunks)
 
     rpm_attempt = 0
 
@@ -817,6 +837,7 @@ def _call_qa_llm(
 # ─────────────────────────────────────────────────────────────────────────────
 # PRIVATE HELPERS — history I/O
 # ─────────────────────────────────────────────────────────────────────────────
+
 
 def _load_stm(student_id: str, convo_name: str) -> dict:
     """
@@ -968,7 +989,7 @@ def run_qa_chain(
         llm:                  Language model instance.
         learning_pace:        "slow" | "average" | "fast" — controls explanation depth.
         current_topic:        Topic label injected into the QA prompt.
-        course:               ... 
+        course:               ...
 
     Returns:
         _SyntheticResponse:
@@ -1040,7 +1061,7 @@ def run_qa_chain(
 
     # ── Step 2 — Load STM summary from disk
 
-    stm_state   = _load_stm(student_id, convo_name)
+    stm_state = _load_stm(student_id, convo_name)
     stm_summary = stm_state.get("summary", "")
 
     if stm_summary:
@@ -1050,7 +1071,7 @@ def run_qa_chain(
 
     # ── Step 3 — Query LTM for relevant memories ──────────────────────────────
 
-    ltm_store   = _load_ltm_store(student_id)
+    ltm_store = _load_ltm_store(student_id)
     ltm_context = _query_ltm(ltm_store, question, student_id)
 
     # ── Step 4 — Reformulate question ─────────────────────────────────────────
@@ -1108,10 +1129,14 @@ def run_qa_chain(
     # ── Step 7 — Update summary and save ────────────────────────────────────
 
     updated_summary = _update_stm_summary(stm_summary, question, answer, llm)
-    _save_stm(student_id, convo_name, {
-        "summary":    updated_summary,
-        "turn_count": stm_state.get("turn_count", 0) + 1,
-    })
+    _save_stm(
+        student_id,
+        convo_name,
+        {
+            "summary": updated_summary,
+            "turn_count": stm_state.get("turn_count", 0) + 1,
+        },
+    )
 
     # ── Step 8 — Update LTM (per-response, LangMem decides relevance) ─────────
 
@@ -1164,7 +1189,9 @@ def view_ltm(student_id: str) -> str:
         3. Student asked about quicksort pivot selection — showed curiosity about optimisation.
     """
     if not student_id or not isinstance(student_id, str):
-        raise ValueError(f"'student_id' must be a non-empty string. Got: {repr(student_id)}")
+        raise ValueError(
+            f"'student_id' must be a non-empty string. Got: {repr(student_id)}"
+        )
 
     json_path = _ltm_path(student_id)
 
@@ -1172,8 +1199,8 @@ def view_ltm(student_id: str) -> str:
         return "No long-term memories stored yet for student."
 
     try:
-        store  = _load_ltm_store(student_id)
-        items  = store.search(("ltm", student_id))
+        store = _load_ltm_store(student_id)
+        items = store.search(("ltm", student_id))
 
         if not items:
             return "No long-term memories stored yet for student."

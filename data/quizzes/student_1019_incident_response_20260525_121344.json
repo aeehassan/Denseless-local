@@ -1,0 +1,141 @@
+{
+  "questions": [
+    {
+      "level": "surface",
+      "question": "List any three types of security incidents mentioned.",
+      "model_answer": "Award 1 mark for any three of the following: Privilege escalation attacks, Man-in-the-middle attacks, Malware attacks, Unauthorized attempts to access systems or data, Advanced persistent threats, Web application attacks, Insider threats, Phishing attacks, Password attacks, Denial-of-service (DoS) attacks.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "Types of security incidents"
+    },
+    {
+      "level": "surface",
+      "question": "What is the primary function of playbooks within an incident response plan?",
+      "model_answer": "Award 1 mark for stating that playbooks outline standardized, step-by-step actions responders should take in specific scenarios.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "section": "How to create an incident response plan"
+    },
+    {
+      "level": "surface",
+      "question": "Identify two benefits of having a well-documented incident response plan.",
+      "model_answer": "Award 1 mark for any two of the following: Minimizing the impact of incidents, Streamlining communication, Improving incident detection, Building resilience, Legal and regulatory compliance.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        4,
+        5
+      ],
+      "section": "Why is an Incident Response Plan Important"
+    },
+    {
+      "level": "conceptual",
+      "question": "Explain the relationship between vulnerabilities, threats, and incidents.",
+      "model_answer": "Award 1 mark for explaining that a vulnerability is a weakness, a threat is an entity that exploits that weakness, and an incident occurs when an attack using a threat successfully exploits a vulnerability to access or risk enterprise resources. Accept explanations that define each term and connect them sequentially.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "Types of security incidents"
+    },
+    {
+      "level": "conceptual",
+      "question": "Describe the role of an incident response plan in guiding responders from initial detection to resolution.",
+      "model_answer": "Award 1 mark for describing the incident response plan as a detailed map or documentation that guides responders through the phases of initial detection, assessment, triage, containment, and resolution of a security incident.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        2,
+        4,
+        5
+      ],
+      "section": "What is an incident response plan"
+    },
+    {
+      "level": "conceptual",
+      "question": "Distinguish between incident response and incident management.",
+      "model_answer": "Award 1 mark for explaining that incident response is a subset of incident management, focusing specifically on the technical cybersecurity tasks and considerations of a cyber attack, while incident management is a broader enterprise-wide approach involving diverse stakeholders.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "Introduction"
+    },
+    {
+      "level": "conceptual",
+      "question": "Why is establishing an incident remediation and response policy considered an important first step in developing incident response strategies?",
+      "model_answer": "Award 1 mark for explaining that a policy empowers incident responders and guides them in making sound decisions during a crisis by describing high-level incident-handling priorities.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "section": "How to create an incident response plan"
+    },
+    {
+      "level": "deep",
+      "question": "Imagine an organization has experienced a denial-of-service (DoS) attack. Based on the provided incident response framework phases, outline the steps that would likely be taken during the 'Containment' and 'Eradication' phases.",
+      "model_answer": "Award 1 mark for correctly identifying actions for Containment (e.g., stopping the attack from worsening, blocking malicious traffic, regaining control of affected resources) AND actions for Eradication (e.g., eliminating the DoS threat activity, identifying how the attack was launched or the vulnerabilities exploited).",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        3,
+        4
+      ],
+      "section": "Incident response frameworks: Phases of incident response"
+    },
+    {
+      "level": "deep",
+      "question": "A company discovers that a sensitive customer database has been accessed without authorization. In the context of incident response, how would this situation be classified, and what would be the primary goal during the 'Recovery' phase?",
+      "model_answer": "Award 1 mark for classifying the situation as a data breach (due to successful compromise of sensitive information) AND stating that the primary goal during the Recovery phase is to restore normal operations and mitigate relevant vulnerabilities.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        2,
+        3,
+        4
+      ],
+      "section": "What is an incident response plan"
+    },
+    {
+      "level": "deep",
+      "question": "Consider the 'Preparation/planning' phase of incident response. Beyond building an incident response team and creating policies, what are two other crucial activities that fall under this phase to ensure effective response when an incident occurs?",
+      "model_answer": "Award 1 mark for listing any two of the following: Creating processes, Creating playbooks, Deploying tools and services to support incident response.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        2,
+        3,
+        4
+      ],
+      "section": "How to create an incident response plan"
+    }
+  ]
+}

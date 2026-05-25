@@ -1,0 +1,138 @@
+{
+  "questions": [
+    {
+      "level": "surface",
+      "question": "What are the primary components that comprise software?",
+      "model_answer": "Award 1 mark for any two of the following: Instructions (or computer programs), Data structures, Documents (or system manuals).",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "The Term Software"
+    },
+    {
+      "level": "surface",
+      "question": "Identify two types of documents that are considered part of software.",
+      "model_answer": "Award 1 mark for any two of the following: Software manual, User's guide, User manual, Technical manual, Complete system manual, Design documents (e.g., input design, output design, UML, use case design, class diagrams, software architecture).",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "section": "The Term Software"
+    },
+    {
+      "level": "surface",
+      "question": "What does the term 'platform' refer to in the context of software development?",
+      "model_answer": "Award 1 mark for stating that the platform refers to the hardware and operating system considerations required to run the software.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "Today’s software is comprised of"
+    },
+    {
+      "level": "conceptual",
+      "question": "Explain the role of instructions within the definition of software.",
+      "model_answer": "Award 1 mark for explaining that instructions are computer programs that, when executed, provide the desired functions and performance for the user.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "Today’s software is comprised of"
+    },
+    {
+      "level": "conceptual",
+      "question": "Describe the significance of design documents in the software development process.",
+      "model_answer": "Award 1 mark for stating that design documents are necessary for developing software and can include various types of designs such as input, output, UML, use cases, class diagrams, and software architecture.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "section": "Today’s software is comprised of"
+    },
+    {
+      "level": "conceptual",
+      "question": "How does Software Engineering differ from Computer Science in terms of focus?",
+      "model_answer": "Award 1 mark for explaining that Software Engineering focuses on the practical, hands-on approach to building and maintaining software systems throughout their lifecycle, while Computer Science often focuses on the theoretical and mathematical aspects of how computers work.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        4,
+        5
+      ],
+      "section": "Computer Science VS Software Engineering"
+    },
+    {
+      "level": "conceptual",
+      "question": "What is the purpose of executable code in software?",
+      "model_answer": "Award 1 mark for explaining that executable codes are compiled programs that can run independently of the source code and can be shared with other users.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "Today’s software is comprised of"
+    },
+    {
+      "level": "deep",
+      "question": "Given the pervasive impact of software on modern life, as described in the material, what are the implications for the development of high-quality computer programs?",
+      "model_answer": "Award 1 mark for inferring that the growing importance and impact of software necessitate continuous development of technologies and methods to build high-quality computer programs more easily, faster, and less expensively.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        5
+      ],
+      "section": "Importance of Software"
+    },
+    {
+      "level": "deep",
+      "question": "Consider the definition of engineering as an action word and a way of approaching problems. How does this perspective apply to the practice of Software Engineering?",
+      "model_answer": "Award 1 mark for explaining that Software Engineering, like general engineering, involves actively applying knowledge and principles to solve problems, in this case, the problems related to designing, constructing, operating, and maintaining software systems.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        3,
+        4
+      ],
+      "section": "The Term Software Engineering"
+    },
+    {
+      "level": "deep",
+      "question": "If an organization needs to implement a new software system that must not disrupt its current operations, what implementation technique might be most suitable and why?",
+      "model_answer": "Award 1 mark for suggesting a technique such as pilot, phased, or parallel implementation AND justifying it by its ability to minimize disruption to existing systems. (Accept any of these techniques with a valid justification related to low disruption).",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "Today’s software is comprised of"
+    }
+  ]
+}

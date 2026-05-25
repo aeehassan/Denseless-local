@@ -1,0 +1,4 @@
+{
+    "summary": "The student asked how to set a Recovery Time Objective (RTO) for a payroll processing system. The assistant explained that an RTO is the maximum acceptable downtime and outlined a six-step process for setting one:\n1. Identify critical payroll functions.\n2. Quantify the business impact of downtime.\n3. Analyze system dependencies.\n4. Evaluate recovery capabilities.\n5. Set a realistic target (often measured in hours or minutes for critical systems like payroll).\n6. Document and communicate the RTO to stakeholders, noting that it informs DR and BC plans.",
+    "turn_count": 1
+}

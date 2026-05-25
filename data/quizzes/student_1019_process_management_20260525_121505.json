@@ -1,0 +1,128 @@
+{
+  "questions": [
+    {
+      "level": "surface",
+      "question": "What is the term used to refer to a program in execution?",
+      "model_answer": "Award 1 mark for 'A process'.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        2,
+        3
+      ],
+      "section": "PROCESSTERMINATION"
+    },
+    {
+      "level": "surface",
+      "question": "What are the two primary types of processes that may operate concurrently?",
+      "model_answer": "Award 1 mark for any two of the following: Independent Processes, Cooperating Processes.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        8,
+        9
+      ],
+      "section": "INTER-PROCESSCOMMUNICATION"
+    },
+    {
+      "level": "surface",
+      "question": "What integer identifier is assigned to each process?",
+      "model_answer": "Award 1 mark for 'Process Identifier' or 'PID'.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        6
+      ],
+      "section": "ProcessCreation"
+    },
+    {
+      "level": "conceptual",
+      "question": "Describe the function of the stack within a process's memory.",
+      "model_answer": "Award 1 mark for explaining that the stack is used for local variables and function return values, with space reserved upon declaration and freed when variables go out of scope.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": []
+    },
+    {
+      "level": "conceptual",
+      "question": "Explain the relationship between a parent process and a child process.",
+      "model_answer": "Award 1 mark for explaining that a parent process creates a child process using system calls like fork or spawn, and the creator is termed the parent while the created entity is termed the child.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        6
+      ],
+      "section": "ProcessCreation"
+    },
+    {
+      "level": "conceptual",
+      "question": "Differentiate between Shared Memory and Message Passing systems for inter-process communication.",
+      "model_answer": "Award 1 mark for explaining that Shared Memory is faster but more complex and less suited for multiple computers, while Message Passing requires system calls, is slower but simpler and works well across multiple computers. Accept explanations referencing setup complexity, speed, and cross-computer compatibility.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        8,
+        9
+      ],
+      "section": "INTER-PROCESSCOMMUNICATION"
+    },
+    {
+      "level": "conceptual",
+      "question": "What is a 'zombie' process, and how is it typically resolved?",
+      "model_answer": "Award 1 mark for explaining that a zombie process is one that is trying to terminate but cannot because its parent is not waiting for it, and it is eventually inherited by init as an orphan and killed off.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": []
+    },
+    {
+      "level": "deep",
+      "question": "If a process requires sharing a large amount of data rapidly with another process on the same computer, which inter-process communication method would be preferable and why?",
+      "model_answer": "Award 1 mark for selecting Shared Memory AND justifying it by stating it is faster for large data transfers on the same computer because it avoids system calls and operates at normal memory speeds.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        8,
+        9
+      ],
+      "section": "INTER-PROCESSCOMMUNICATION"
+    },
+    {
+      "level": "deep",
+      "question": "Consider a scenario where a parent process creates multiple child processes and then performs some of its own work before waiting for the children. Describe the parent's behavior in this situation.",
+      "model_answer": "Award 1 mark for describing that the parent process runs concurrently with the child processes, continuing its processing without immediately waiting, and later makes a wait() system call to block until the children terminate. Accept any description that includes concurrent execution followed by a wait.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        6,
+        7,
+        8
+      ],
+      "section": "AtreeofprocessesonatypicalLinuxsystem"
+    },
+    {
+      "level": "deep",
+      "question": "A process is unable to execute because it is waiting for keyboard input. What process state does this describe, and what are two other common reasons for a process to be in this state?",
+      "model_answer": "Award 1 mark for identifying the state as 'Waiting' AND providing two valid reasons from the text for this state, such as waiting for disk access requests, inter-process messages, a timer to go off, or another child process to finish.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        3,
+        4,
+        5,
+        7,
+        8
+      ],
+      "section": "PROCESSSTATE"
+    }
+  ]
+}

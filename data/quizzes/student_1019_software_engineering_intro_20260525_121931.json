@@ -1,0 +1,138 @@
+{
+  "questions": [
+    {
+      "level": "surface",
+      "question": "What are the primary components that constitute software, as described in the material?",
+      "model_answer": "Award 1 mark for listing any two of the following: Instructions (computer programs), Data structures, Documents (or system manuals).",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "The Term Software"
+    },
+    {
+      "level": "surface",
+      "question": "Identify two types of documents that are considered part of a software system.",
+      "model_answer": "Award 1 mark for any of the following: Software manual, User's guide, User manual, Technical manual, Complete system manual, Design Documents (input design, output design, UML, use case design, class diagrams, software architecture).",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "section": "The Term Software"
+    },
+    {
+      "level": "surface",
+      "question": "What does the term 'platform' refer to in the context of software development?",
+      "model_answer": "Award 1 mark for stating that platform refers to hardware and operating system considerations required to run software.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "Today’s software is comprised of"
+    },
+    {
+      "level": "conceptual",
+      "question": "Explain the difference between source code and executable code.",
+      "model_answer": "Award 1 mark for explaining that source code is written by programmers in a specific language (e.g., Java, Python) and executable code (or compiled codes) can run independently without the source code.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "Today’s software is comprised of"
+    },
+    {
+      "level": "conceptual",
+      "question": "Describe the fundamental purpose of software engineering as a discipline.",
+      "model_answer": "Award 1 mark for explaining that software engineering applies scientific knowledge and engineering principles to develop cost-effective, practical, and systematic solutions for building, operating, and maintaining software artifacts that satisfy user needs.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        3,
+        4
+      ],
+      "section": "The Term Software Engineering"
+    },
+    {
+      "level": "conceptual",
+      "question": "How does software engineering differ from computer science in terms of focus and curriculum?",
+      "model_answer": "Award 1 mark for stating that computer science focuses on the theoretical and mathematical aspects of how computers work, while software engineering focuses on the practical, hands-on approach to building and maintaining software systems throughout their lifecycle, with more emphasis on fundamentals like testing, design, and requirements specification.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        4,
+        5
+      ],
+      "section": "Computer Science VS Software Engineering"
+    },
+    {
+      "level": "conceptual",
+      "question": "What are the key considerations when installing software on a user's computer system?",
+      "model_answer": "Award 1 mark for mentioning that installation depends on the hardware and the operating system.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "Today’s software is comprised of"
+    },
+    {
+      "level": "deep",
+      "question": "If an organization requires software that must be delivered quickly and with minimal budget, what aspects of software engineering principles would be most critical to emphasize during development?",
+      "model_answer": "Award 1 mark for identifying and explaining the importance of cost-effectiveness, systematic approaches, and potentially efficient development processes (like using design patterns or focusing on core requirements) to meet the time and budget constraints. Accept any justification that links to the definitions of software engineering emphasizing cost-effectiveness and practical solutions.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        3,
+        4,
+        5
+      ],
+      "section": "The Term Software Engineering"
+    },
+    {
+      "level": "deep",
+      "question": "Consider a scenario where a software system needs to be adaptable to future changes and potentially integrated with other systems. Which aspect of software design, mentioned in the course material, would be most crucial to prioritize?",
+      "model_answer": "Award 1 mark for identifying 'Design for re-use' and explaining that it enables adaptability and integration by creating modular components that can be used in multiple contexts or systems.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "section": "Course Contents"
+    },
+    {
+      "level": "deep",
+      "question": "When developing software for a critical system, such as in transportation or medical fields, what is the primary goal of software engineering that becomes paramount, and why?",
+      "model_answer": "Award 1 mark for identifying the goal of producing 'fault-free software' (or similar phrasing like 'high-quality', 'reliable', 'satisfies user needs') AND justifying its importance by referencing the critical nature of the application domain (transportation, medical) where failures can have severe consequences.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        5
+      ],
+      "section": "Importance of Software"
+    }
+  ]
+}

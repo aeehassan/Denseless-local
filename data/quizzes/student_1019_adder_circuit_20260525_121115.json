@@ -1,0 +1,140 @@
+{
+  "questions": [
+    {
+      "level": "surface",
+      "question": "What are the two types of adders mentioned?",
+      "model_answer": "Award 1 mark for mentioning both 'half adders' and 'full adders'.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        3
+      ],
+      "section": "Half Adders"
+    },
+    {
+      "level": "surface",
+      "question": "What does the 'S' represent in a half adder diagram?",
+      "model_answer": "Award 1 mark for 'Sum'.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        3
+      ],
+      "section": "Half Adders"
+    },
+    {
+      "level": "surface",
+      "question": "What logic gate can be used to generate the carried bit in a half adder?",
+      "model_answer": "Award 1 mark for 'AND gate'.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        3
+      ],
+      "section": "Half Adders"
+    },
+    {
+      "level": "conceptual",
+      "question": "Explain the function of a half adder in adding two bits.",
+      "model_answer": "Award 1 mark for explaining that a half adder adds two bits together and produces a two-bit output (sum and carry-out). Accept descriptions of the sum as modulo-2 or the carry-out as occurring when both inputs are 1.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        3
+      ],
+      "section": "Half Adders"
+    },
+    {
+      "level": "conceptual",
+      "question": "Describe the primary limitation of a half adder when adding multiple-bit numbers.",
+      "model_answer": "Award 1 mark for stating that a half adder cannot handle a carry-in signal. Accept explanations that this prevents them from being used to add multiple-bit numbers or that they can only be stand-alone units.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        3
+      ],
+      "section": "Half Adders"
+    },
+    {
+      "level": "conceptual",
+      "question": "How does a full adder differ from a half adder in terms of its inputs?",
+      "model_answer": "Award 1 mark for stating that a full adder accepts a carry-in input in addition to the two addends, whereas a half adder only accepts two addends.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        2,
+        3
+      ],
+      "section": "Full Adders"
+    },
+    {
+      "level": "conceptual",
+      "question": "Explain what is meant by the 'sum' being the modulo-2 sum of the addends.",
+      "model_answer": "Award 1 mark for explaining that modulo-2 sum means the result loops back to zero after one. Accept descriptions that the sum is 1 only when the addends are different, and 0 when they are the same.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "Half Adders"
+    },
+    {
+      "level": "deep",
+      "question": "Given the problem of adding two binary numbers of arbitrary length, explain why a simple series of half adders is insufficient and how full adders overcome this limitation.",
+      "model_answer": "Award 1 mark for explaining that half adders cannot handle carry-ins, which are essential for propagating carries between bits in multi-bit addition. Accept that full adders include a carry-in input to address this, allowing them to be cascaded for multi-bit addition.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        2,
+        3
+      ],
+      "section": "Full Adders"
+    },
+    {
+      "level": "deep",
+      "question": "Describe how a full adder can be constructed using two half adders and an OR gate, detailing the connections and the purpose of each component.",
+      "model_answer": "Award 1 mark for correctly describing the construction: A and B are inputs to the first half adder. Its sum output is an input to the second half adder along with the carry-in (Cin). The carry outputs of both half adders are ORed to produce the final carry-out (Cout).",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        2,
+        3
+      ],
+      "section": "Full Adders"
+    },
+    {
+      "level": "deep",
+      "question": "Considering the truth table for a half adder, if the inputs A and B are both 1, what are the outputs for the sum and the carry bit, and what logic gates produce these outputs?",
+      "model_answer": "Award 1 mark for stating the sum is 0 (produced by XOR) and the carry bit is 1 (produced by AND).",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        3
+      ],
+      "section": "Half Adders"
+    }
+  ]
+}

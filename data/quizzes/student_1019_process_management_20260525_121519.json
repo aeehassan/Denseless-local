@@ -1,0 +1,128 @@
+{
+  "questions": [
+    {
+      "level": "surface",
+      "question": "What is the fundamental definition of a process as presented in the material?",
+      "model_answer": "Award 1 mark for stating that a process is an instance of a program in execution.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": []
+    },
+    {
+      "level": "surface",
+      "question": "Identify one of the four sections into which process memory is divided.",
+      "model_answer": "Award 1 mark for any one of the following: text section, data section, heap, stack.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        6
+      ],
+      "section": "PROCESSMANAGEMENT"
+    },
+    {
+      "level": "surface",
+      "question": "What is the integer identifier assigned to each process called?",
+      "model_answer": "Award 1 mark for Process Identifier (or PID).",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        6
+      ],
+      "section": "ProcessCreation"
+    },
+    {
+      "level": "conceptual",
+      "question": "Explain the relationship between the stack and the heap in terms of their memory allocation and growth direction.",
+      "model_answer": "Award 1 mark for explaining that the stack and heap start at opposite ends of the process's free space and grow towards each other.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": []
+    },
+    {
+      "level": "conceptual",
+      "question": "Describe the role of the `fork()` system call in process creation.",
+      "model_answer": "Award 1 mark for stating that `fork()` is the system call used to achieve process creation.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        6
+      ],
+      "section": "ProcessCreation"
+    },
+    {
+      "level": "conceptual",
+      "question": "What are the primary reasons a process might voluntarily terminate its execution?",
+      "model_answer": "Award 1 mark for mentioning either 'Normal exit (voluntary)' because it has completed its work, or 'Errorexit (voluntary)' because it discovers a fatal error.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        2,
+        3
+      ],
+      "section": "PROCESSTERMINATION"
+    },
+    {
+      "level": "conceptual",
+      "question": "Differentiate between independent and cooperating processes.",
+      "model_answer": "Award 1 mark for stating that independent processes cannot affect or be affected by other processes, while cooperating processes can affect or be affected by other processes (e.g., by sharing data).",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        8,
+        9
+      ],
+      "section": "INTER-PROCESSCOMMUNICATION"
+    },
+    {
+      "level": "deep",
+      "question": "If a process needs to share a large amount of data rapidly with another process on the same computer, which inter-process communication method would be generally preferable, and why?",
+      "model_answer": "Award 1 mark for choosing Shared Memory AND justifying it by stating it is faster once set up because no system calls are required and access occurs at normal memory speeds, making it preferable for large amounts of information shared quickly on the same computer.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        8,
+        9
+      ],
+      "section": "INTER-PROCESSCOMMUNICATION"
+    },
+    {
+      "level": "deep",
+      "question": "Consider a scenario where a parent process creates multiple child processes. Describe two distinct strategies the parent process can employ after the `fork()` system call regarding its interaction with the child processes.",
+      "model_answer": "Award 1 mark for describing either: 1. Waiting for the child process to terminate before proceeding (using a `wait()` system call), OR 2. Running concurrently with the child, continuing to process without waiting (like a background task).",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        6,
+        7
+      ],
+      "section": "ProcessCreation"
+    },
+    {
+      "level": "deep",
+      "question": "A process is in the 'Waiting' state. Provide two distinct examples of events or conditions that could cause a process to enter this state.",
+      "model_answer": "Award 1 mark for any two of the following examples: waiting for some resource to become available, waiting for some event to occur, waiting for keyboard input, waiting for disk access request, waiting for inter-process messages, waiting for a timer to go off, waiting for a child process to finish.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        3,
+        4,
+        5,
+        7,
+        8
+      ],
+      "section": "PROCESSSTATE"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+{
+    "summary": "The student asked for a definition of RTO. The assistant explained that the Recovery Time Objective (RTO) is the maximum acceptable duration that systems and applications can be offline after a disruptive event, emphasizing that it defines the business's tolerance for downtime. The assistant provided an example, noting that some applications can tolerate an hour of downtime, while others need to be recovered within minutes.",
+    "turn_count": 1
+}

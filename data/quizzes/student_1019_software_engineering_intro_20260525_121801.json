@@ -1,0 +1,138 @@
+{
+  "questions": [
+    {
+      "level": "surface",
+      "question": "What are the two primary categories of items that constitute software, as described in the material?",
+      "model_answer": "Award 1 mark for mentioning both 'Instructions (computer programs)' and 'Documents'. Accept paraphrased versions like 'code' and 'manuals'.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "The Term Software"
+    },
+    {
+      "level": "surface",
+      "question": "Identify two types of documents that are part of software.",
+      "model_answer": "Award 1 mark for any two of the following: software manual, user's guide, user manual, technical manual, complete system manual, design documents (input design, output design, UML, use case design, class diagrams, software architecture).",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "section": "The Term Software"
+    },
+    {
+      "level": "surface",
+      "question": "What is the term used to describe the hardware and operating system considerations required for software to run?",
+      "model_answer": "Award 1 mark for 'platform'.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "Today’s software is comprised of"
+    },
+    {
+      "level": "conceptual",
+      "question": "Explain the relationship between engineering and the development of software.",
+      "model_answer": "Award 1 mark for stating that software engineering applies engineering principles to software development, aiming for systematic, disciplined, and cost-effective solutions. Accept explanations referencing the application of scientific knowledge, best practices, or systematic approaches to building software artifacts.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        3,
+        4
+      ],
+      "section": "The Term Software Engineering"
+    },
+    {
+      "level": "conceptual",
+      "question": "Contrast the primary focus of Computer Science with that of Software Engineering as presented in the material.",
+      "model_answer": "Award 1 mark for correctly stating that Computer Science focuses on the theoretical and mathematical aspects of how computers work, while Software Engineering focuses on the practical, hands-on process of building and maintaining software systems throughout their lifecycle.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        4,
+        5
+      ],
+      "section": "Computer Science VS Software Engineering"
+    },
+    {
+      "level": "conceptual",
+      "question": "Describe the purpose of executable code in the context of software distribution.",
+      "model_answer": "Award 1 mark for explaining that executable code can run independently of the source code and can be shared with other users without requiring them to have the original source program.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "Today’s software is comprised of"
+    },
+    {
+      "level": "conceptual",
+      "question": "Why is the 'Implementation' phase considered important after software development and installation?",
+      "model_answer": "Award 1 mark for explaining that implementation is crucial for the real-life use of the software within an organization and ensuring it integrates without negatively affecting existing systems. Accept mention of various implementation techniques (direct, pilot, phased, parallel) as part of the justification.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        5
+      ],
+      "section": "Today’s software is comprised of"
+    },
+    {
+      "level": "deep",
+      "question": "A team is developing a critical medical device software that must be highly reliable and operate within strict budget and time constraints. Based on the definitions of Software Engineering, which approach would you advocate for and why?",
+      "model_answer": "Award 1 mark for advocating for a systematic, disciplined, and quantifiable approach (Software Engineering) AND justifying it by referencing the need for fault-free software, satisfying user needs, and meeting delivery deadlines and budget constraints as stated in the material.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        3,
+        4
+      ],
+      "section": "The Term Software Engineering"
+    },
+    {
+      "level": "deep",
+      "question": "Consider a scenario where a company needs to manage a large inventory system. If the goal is to build software that can effectively manipulate this information to produce desired outputs, what fundamental component of software, beyond just instructions, would be essential for efficient data handling?",
+      "model_answer": "Award 1 mark for identifying 'Data structures' and explaining that they enable programs to adequately manipulate information, which is crucial for managing large datasets like inventories.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "Today’s software is comprised of"
+    },
+    {
+      "level": "deep",
+      "question": "If you were tasked with creating a user-friendly application that requires users to understand its functionality and features, what specific component of software, in addition to the executable code, would be indispensable for user comprehension and effective operation?",
+      "model_answer": "Award 1 mark for identifying 'Documents' (or specifically 'System Manuals' or 'user manuals'/'user guides') and explaining their role in helping users understand the software system, its operation, and use.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        5
+      ],
+      "section": "The Term Software"
+    }
+  ]
+}

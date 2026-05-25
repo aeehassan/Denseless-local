@@ -1,0 +1,138 @@
+{
+  "questions": [
+    {
+      "level": "surface",
+      "question": "What is the primary definition of incident response?",
+      "model_answer": "Award 1 mark for defining incident response as an organized, strategic approach to detecting and managing cyber attacks in ways that minimize damage, recovery time and total costs.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        4,
+        5
+      ],
+      "section": "Introduction"
+    },
+    {
+      "level": "surface",
+      "question": "List three types of security incidents.",
+      "model_answer": "Award 1 mark for listing any three of the following: Privilege escalation attacks, Man-in-the-middle attacks, Malware attacks, Unauthorized attempts to access systems or data, Advanced persistent threats, Web application attacks, Insider threats, Phishing attacks, Password attacks, Denial-of-service (DoS) attacks.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "Types of security incidents"
+    },
+    {
+      "level": "surface",
+      "question": "What is the purpose of a playbook in incident response?",
+      "model_answer": "Award 1 mark for stating that playbooks outline standardized, step-by-step actions responders should take in specific scenarios.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "section": "What is an incident response plan"
+    },
+    {
+      "level": "conceptual",
+      "question": "Explain the relationship between a vulnerability, a threat, and an incident.",
+      "model_answer": "Award 1 mark for explaining that a vulnerability is a weakness, a threat is an entity that exploits that weakness, and an incident occurs when an attack using a threat against a vulnerability succeeds in accessing or putting enterprise resources at risk.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "Types of security incidents"
+    },
+    {
+      "level": "conceptual",
+      "question": "Describe the core function of the 'Detection/Identification' phase within incident response frameworks.",
+      "model_answer": "Award 1 mark for describing that this phase involves using IT monitoring to detect, evaluate, validate, and triage security incidents.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        3,
+        4
+      ],
+      "section": "Incident response frameworks: Phases of incident response"
+    },
+    {
+      "level": "conceptual",
+      "question": "How does a well-documented incident response plan contribute to legal and regulatory compliance?",
+      "model_answer": "Award 1 mark for explaining that a documented plan helps organizations demonstrate their commitment to compliance with data protection and cybersecurity regulations, thereby avoiding potential penalties.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        4,
+        5
+      ],
+      "section": "Why is an Incident Response Plan Important"
+    },
+    {
+      "level": "conceptual",
+      "question": "Differentiate between incident management and incident response.",
+      "model_answer": "Award 1 mark for explaining that incident response is a subset of incident management, focusing on the technical cybersecurity tasks, while incident management is a broader enterprise approach involving diverse stakeholders.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "Introduction"
+    },
+    {
+      "level": "deep",
+      "question": "Imagine a scenario where a critical system experiences a denial-of-service attack. According to the incident response framework, what immediate steps should be taken during the 'Containment' phase?",
+      "model_answer": "Award 1 mark for stating that steps should be taken to stop the incident from worsening and regain control of IT resources.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        3,
+        4
+      ],
+      "section": "Incident response frameworks: Phases of incident response"
+    },
+    {
+      "level": "deep",
+      "question": "If an organization has limited resources and needs to prioritize its incident response planning, which element is described as the 'lifeblood' and why is it crucial?",
+      "model_answer": "Award 1 mark for identifying playbooks as the 'lifeblood' and explaining that they are crucial for outlining standardized, step-by-step actions in specific scenarios, leading to greater consistency, efficiency, and effectiveness.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        2,
+        3
+      ],
+      "section": "How to create an incident response plan"
+    },
+    {
+      "level": "deep",
+      "question": "After a security incident has been resolved, what is the purpose of the 'Lessons Learned' phase, and what specific outcomes should be identified?",
+      "model_answer": "Award 1 mark for stating that the purpose is to review the incident to establish what happened, when, and how, and to identify security controls, policies, and procedures that functioned sub-optimally for improvement, along with ways to update the incident response plan.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        2,
+        3,
+        4
+      ],
+      "section": "What is an incident response plan"
+    }
+  ]
+}

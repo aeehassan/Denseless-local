@@ -1,0 +1,132 @@
+{
+  "questions": [
+    {
+      "level": "surface",
+      "question": "What is an instance of a program in execution called?",
+      "model_answer": "Award 1 mark for 'process'.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "PROCESSCONCEPT"
+    },
+    {
+      "level": "surface",
+      "question": "What integer identifier is given to each process?",
+      "model_answer": "Award 1 mark for 'process identifier' or 'PID'.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        6
+      ],
+      "section": "ProcessCreation"
+    },
+    {
+      "level": "surface",
+      "question": "Name one of the four sections that process memory is divided into.",
+      "model_answer": "Award 1 mark for any one of the following: 'text section', 'data section', 'heap', 'stack'.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": []
+    },
+    {
+      "level": "conceptual",
+      "question": "Describe the purpose of the stack section within a process's memory.",
+      "model_answer": "Award 1 mark for explaining that the stack is used for local variables and function return values. Accept any description involving storage for temporary data during function calls or variable scope.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1
+      ],
+      "section": "THEPROCESS"
+    },
+    {
+      "level": "conceptual",
+      "question": "Explain the relationship between a parent process and a child process.",
+      "model_answer": "Award 1 mark for explaining that a parent process creates a child process using system calls like fork or spawn, and that the child is dependent on the parent for certain resources or termination handling. Accept any description of the creator-created relationship and potential dependencies.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        6
+      ],
+      "section": "ProcessCreation"
+    },
+    {
+      "level": "conceptual",
+      "question": "What is the primary function of a Process Control Block (PCB)?",
+      "model_answer": "Award 1 mark for stating that the PCB stores all information required to maintain track of a process, acting as a data structure managed by the operating system. Accept any description of its role in holding process state, scheduling information, memory management details, etc.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        5
+      ],
+      "section": "Processcontrolblock(PCB) OPERATIONSONPROCESSES"
+    },
+    {
+      "level": "conceptual",
+      "question": "Distinguish between independent processes and cooperating processes.",
+      "model_answer": "Award 1 mark for correctly stating that independent processes cannot affect or be affected by other processes, while cooperating processes can affect or be affected by other processes, often requiring inter-process communication.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        8,
+        9
+      ],
+      "section": "INTER-PROCESSCOMMUNICATION"
+    },
+    {
+      "level": "deep",
+      "question": "If a process needs to share large amounts of data very quickly with another process on the same computer, which inter-process communication method would be more suitable and why?",
+      "model_answer": "Award 1 mark for choosing 'Shared Memory' AND justifying it by stating it is faster once set up because no system calls are required and access occurs at normal memory speeds, or that it's preferable for large amounts of information shared quickly on the same computer.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        8,
+        9
+      ],
+      "section": "INTER-PROCESSCOMMUNICATION"
+    },
+    {
+      "level": "deep",
+      "question": "Consider a scenario where a process is waiting for keyboard input. What state is this process in, and what event must occur for it to transition to a runnable state?",
+      "model_answer": "Award 1 mark for identifying the state as 'Waiting' AND stating that the event required for transition is the availability of the keyboard input or the occurrence of the event it is waiting for.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        3,
+        4,
+        5,
+        7,
+        8
+      ],
+      "section": "PROCESSSTATE"
+    },
+    {
+      "level": "deep",
+      "question": "A parent process creates a child process using fork(). If the parent process then immediately exits without waiting for the child, what might happen to the child process, and what is the term for a process that cannot be terminated because its parent is not waiting for it?",
+      "model_answer": "Award 1 mark for correctly stating that the child process may continue running without a parent (or be killed, depending on the system) AND identifying the term as 'zombie'.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        2,
+        3,
+        6,
+        7,
+        8
+      ],
+      "section": "PROCESSTERMINATION"
+    }
+  ]
+}

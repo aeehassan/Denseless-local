@@ -1,0 +1,132 @@
+{
+  "questions": [
+    {
+      "level": "surface",
+      "question": "What are the three distinct elements addressed by an effective Disaster Recovery Plan for recovery?",
+      "model_answer": "Award 1 mark for any two of the following: Detective, Corrective, Preventive.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        4
+      ],
+      "section": "How disaster recovery works"
+    },
+    {
+      "level": "surface",
+      "question": "List any three categories of hazards that can be considered disasters.",
+      "model_answer": "Award 1 mark for any three of the following: Technological hazards, Pandemics and epidemics, Cyber attacks, Machine and hardware failure, Intentional human-caused threats, Natural disasters.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1
+      ],
+      "section": "What is considered a disaster"
+    },
+    {
+      "level": "surface",
+      "question": "What is the primary focus of Disaster Recovery (DR) in relation to business continuity?",
+      "model_answer": "Award 1 mark for stating that DR explicitly focuses on ensuring IT systems that support critical business functions are operational as soon as possible after a disruptive event.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "What is a Disaster Recovery Plan"
+    },
+    {
+      "level": "conceptual",
+      "question": "Explain the purpose of 'Preventive' measures in the context of disaster recovery.",
+      "model_answer": "Award 1 mark for explaining that preventive measures aim to ensure systems are secure and reliable to stop disasters from happening in the first place, citing examples like backing up data or monitoring for errors.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "How disaster recovery works"
+    },
+    {
+      "level": "conceptual",
+      "question": "Describe the relationship between a Disaster Recovery Plan (DRP) and a Business Continuity Plan (BCP).",
+      "model_answer": "Award 1 mark for stating that a DRP is a documented, structured approach to resume work after an incident and is an essential part of a BCP, or that DR is a subset of business continuity focusing on IT systems.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1
+      ],
+      "section": "What is a Disaster Recovery Plan"
+    },
+    {
+      "level": "conceptual",
+      "question": "How does the Recovery Point Objective (RPO) influence backup procedures?",
+      "model_answer": "Award 1 mark for explaining that the RPO helps define the frequency of backups by specifying the maximum age of data that needs to be recovered to resume operations.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        2,
+        3
+      ],
+      "section": "Here is the typical structure of a DR plan"
+    },
+    {
+      "level": "conceptual",
+      "question": "Contrast the characteristics of a Cold Computing Site and a Hot Computing Site.",
+      "model_answer": "Award 1 mark for explaining that a Cold Site primarily provides power, networking, and cooling but lacks hardware like servers and storage, requiring data and hardware to be sent and installed before use, whereas a Hot Site is fully functional with mirrored data, allowing for immediate switchover.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        3
+      ],
+      "section": "Types of Disaster Recovery Sites"
+    },
+    {
+      "level": "deep",
+      "question": "A small e-commerce startup has limited resources and is concerned about losing customer order data. They need to be able to resume operations quickly after a system failure. Which type of disaster recovery site would be most appropriate, and why?",
+      "model_answer": "Award 1 mark for selecting a Cold or Warm site AND justifying the choice by referencing cost-effectiveness for a startup or the need for rapid recovery of critical data, acknowledging that a Hot site might be too expensive. (Selection and justification required).",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        3
+      ],
+      "section": "Types of Disaster Recovery Sites"
+    },
+    {
+      "level": "deep",
+      "question": "Imagine a scenario where a critical business application has a Recovery Time Objective (RTO) of 30 minutes. If a disaster occurs and the primary data center is completely destroyed, what kind of disaster recovery site would be essential to meet this RTO, and what are the implications for its setup?",
+      "model_answer": "Award 1 mark for identifying a Hot Disaster Recovery Site AND explaining that it must have critical systems ready and data replicated/frequently backed up, allowing for rapid switchover within the 30-minute RTO. (Site type and implication required).",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        2,
+        3
+      ],
+      "section": "Here is the typical structure of a DR plan"
+    },
+    {
+      "level": "deep",
+      "question": "Consider a financial institution that handles sensitive transactions. If a ransomware attack occurs, what specific 'Disaster recovery procedures' would be most critical to implement immediately to limit damages and ensure data integrity?",
+      "model_answer": "Award 1 mark for identifying 'last-minute backups' and 'eradication (for cybersecurity threats)' as critical procedures. Accept also 'emergency response to limit damages'. (At least two specific procedures are required).",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        4
+      ],
+      "section": "What is a Disaster Recovery Plan"
+    }
+  ]
+}

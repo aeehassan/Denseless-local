@@ -1,0 +1,4 @@
+{
+    "summary": "The student asked why a cold site is limiting to a business during recovery. The assistant explained that a cold site only provides basic infrastructure (power, networking, cooling) but lacks necessary hardware like servers and storage. This means that before it can be used for recovery, backup data and hardware must be transported and installed, which delays the recovery process.",
+    "turn_count": 1
+}

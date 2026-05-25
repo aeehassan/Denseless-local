@@ -1,0 +1,4 @@
+{
+    "summary": "The student asked about the difference between cold and hot sites regarding recovery readiness. The assistant explained that a cold site has only basic infrastructure and requires substantial setup time for data and hardware, hindering workflow. In contrast, a hot site is a fully equipped backup with mirrored data, offering the highest level of readiness for disaster recovery.",
+    "turn_count": 1
+}

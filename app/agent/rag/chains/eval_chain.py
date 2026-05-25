@@ -31,20 +31,21 @@ logging.basicConfig(level=logging.INFO)
 # MODULE-LEVEL CONFIG
 # ─────────────────────────────────────────────────────────────────────────────
 
-USE_GEMINI: bool = False  # False → local Ollama, no delays, retry loop runs once
-                          # True  → Gemini API, inter-call delays + RPM backoff active
+USE_GEMINI: bool = True  # False → local Ollama, no delays, retry loop runs once
+# True  → Gemini API, inter-call delays + RPM backoff active
 
-_REQUEST_DELAY_SECONDS  = 5
-_RPM_BACKOFF_SECONDS    = [15, 30, 60]
+_REQUEST_DELAY_SECONDS = 5
+_RPM_BACKOFF_SECONDS = [15, 30, 60]
 _MAX_RATE_LIMIT_RETRIES = 3
 
 PASS_THRESHOLD = 0.7
-PROFILES_DIR   = Path(__file__).parent.parent.parent.parent.parent / "data" / "profiles"
+PROFILES_DIR = Path(__file__).parent.parent.parent.parent.parent / "data" / "profiles"
 
 
 # ─────────────────────────────────────────────────────────────────────────────
 # CUSTOM EXCEPTION
 # ─────────────────────────────────────────────────────────────────────────────
+
 
 class RateLimitExhaustedError(RuntimeError):
     """
@@ -64,6 +65,7 @@ class RateLimitExhaustedError(RuntimeError):
 # HELPERS
 # ─────────────────────────────────────────────────────────────────────────────
 
+
 class _SyntheticResponse:
     """
     Wraps eval_chain output for token_guard compatibility.
@@ -76,7 +78,7 @@ class _SyntheticResponse:
     """
 
     def __init__(self, content: dict, usage_metadata: dict):
-        self.content        = content
+        self.content = content
         self.usage_metadata = usage_metadata
 
 
@@ -191,6 +193,7 @@ def _save_profile(student_id: str, profile: dict) -> None:
             f"to {profile_path}. OS error: {e}"
         ) from e
 
+
 def _save_quiz(quiz_path: Path, quiz: dict) -> None:
     """
     Writes the fully graded quiz dict back to its JSON file.
@@ -215,14 +218,16 @@ def _save_quiz(quiz_path: Path, quiz: dict) -> None:
             f"Failed to write graded quiz to {quiz_path}. OS error: {e}"
         ) from e
 
+
 # ─────────────────────────────────────────────────────────────────────────────
 # PROMPTS
 # ─────────────────────────────────────────────────────────────────────────────
 
-_GRADING_PROMPT = ChatPromptTemplate.from_messages([
-    (
-        "system",
-        """You are a strict but fair academic examiner grading a student's open-ended answer.
+_GRADING_PROMPT = ChatPromptTemplate.from_messages(
+    [
+        (
+            "system",
+            """You are a strict but fair academic examiner grading a student's open-ended answer.
 
 You will receive:
 - A question
@@ -259,23 +264,25 @@ Format:
 {{
     "score": <float 0.0–1.0>,
     "explanation": "<one-sentence grader note>"
-}}"""
-    ),
-    (
-        "human",
-        """Question: {question}
+}}""",
+        ),
+        (
+            "human",
+            """Question: {question}
 
 Marking Scheme: {model_answer}
 
-Student Answer: {student_answer}"""
-    ),
-])
+Student Answer: {student_answer}""",
+        ),
+    ]
+)
 
 
-_FEEDBACK_PROMPT = ChatPromptTemplate.from_messages([
-    (
-        "system",
-        """You are an academic coach providing personalised post-quiz feedback to a student.
+_FEEDBACK_PROMPT = ChatPromptTemplate.from_messages(
+    [
+        (
+            "system",
+            """You are an academic coach providing personalised post-quiz feedback to a student.
 
 You will receive:
 - The topic of the quiz
@@ -300,27 +307,29 @@ Respond ONLY with a valid JSON object. No preamble, no markdown, no extra text.
 Format:
 {{
     "feedback": "<five-sentence feedback string>"
-}}"""
-    ),
-    (
-        "human",
-        """Topic: {topic}
+}}""",
+        ),
+        (
+            "human",
+            """Topic: {topic}
 Total Score: {total_score} / 10
 Strong Sections: {strong_sections}
-Weak Sections: {weak_sections}"""
-    ),
-])
+Weak Sections: {weak_sections}""",
+        ),
+    ]
+)
 
 
 # ─────────────────────────────────────────────────────────────────────────────
 # INTERNAL — SINGLE QUESTION GRADER
 # ─────────────────────────────────────────────────────────────────────────────
 
+
 def _grade_question(
-    question:       str,
-    model_answer:   str,
+    question: str,
+    model_answer: str,
     student_answer: str,
-    llm:            BaseChatModel,
+    llm: BaseChatModel,
 ) -> tuple[dict, dict]:
     """
     Grades a single question via the LLM grader using the double retry loop.
@@ -354,25 +363,26 @@ accept 'n log n' without Big-O notation.",
         {"score": 1.0, "explanation": "Correct — you identified n log n complexity accurately."}
     """
     parser = JsonOutputParser()
-    chain  = _GRADING_PROMPT | llm
+    chain = _GRADING_PROMPT | llm
 
     rpm_attempt = 0
 
     while rpm_attempt <= _MAX_RATE_LIMIT_RETRIES:
-
         parse_attempt = 0
-        raw_response  = None
+        raw_response = None
 
         while parse_attempt < 3:
             try:
-                raw_response   = chain.invoke({
-                    "question":       question,
-                    "model_answer":   model_answer,
-                    "student_answer": student_answer,
-                })
+                raw_response = chain.invoke(
+                    {
+                        "question": question,
+                        "model_answer": model_answer,
+                        "student_answer": student_answer,
+                    }
+                )
                 # print(f"[DEBUG] usage_metadata raw: {raw_response.usage_metadata}")
                 usage_metadata = raw_response.usage_metadata or {}
-                
+
                 # Primary parse attempt
                 try:
                     result = parser.parse(raw_response.content)
@@ -387,8 +397,10 @@ accept 'n log n' without Big-O notation.",
                     # Fallback parse attempt
                     try:
                         repaired = repair_json(raw_response.content)
-                        result   = json.loads(repaired)
-                        print(f"[eval_chain] json_repair succeeded. Score: {result.get('score')}")
+                        result = json.loads(repaired)
+                        print(
+                            f"[eval_chain] json_repair succeeded. Score: {result.get('score')}"
+                        )
                         return result, usage_metadata
                     except Exception as repair_err:
                         print(
@@ -454,12 +466,13 @@ accept 'n log n' without Big-O notation.",
 # INTERNAL — SESSION FEEDBACK GENERATOR
 # ─────────────────────────────────────────────────────────────────────────────
 
+
 def _generate_session_feedback(
-    topic:               str,
-    total_score:         float,
+    topic: str,
+    total_score: float,
     new_strong_sections: set,
-    new_weak_sections:   set,
-    llm:                 BaseChatModel,
+    new_weak_sections: set,
+    llm: BaseChatModel,
 ) -> tuple[str, dict]:
     """
     Generates a five-sentence personalised feedback string for the student.
@@ -500,32 +513,39 @@ You are clearly building momentum — sharpening your analytical skills here wil
 the rest of your understanding together."
     """
     parser = JsonOutputParser()
-    chain  = _FEEDBACK_PROMPT | llm
+    chain = _FEEDBACK_PROMPT | llm
 
     # Format sets as readable strings for the prompt
-    strong_str = ", ".join(sorted(new_strong_sections)) if new_strong_sections else "none identified"
-    weak_str   = ", ".join(sorted(new_weak_sections))   if new_weak_sections   else "none identified"
+    strong_str = (
+        ", ".join(sorted(new_strong_sections))
+        if new_strong_sections
+        else "none identified"
+    )
+    weak_str = (
+        ", ".join(sorted(new_weak_sections)) if new_weak_sections else "none identified"
+    )
 
     rpm_attempt = 0
 
     while rpm_attempt <= _MAX_RATE_LIMIT_RETRIES:
-
         parse_attempt = 0
-        raw_response  = None
+        raw_response = None
 
         while parse_attempt < 3:
             try:
-                raw_response   = chain.invoke({
-                    "topic":           topic,
-                    "total_score":     total_score,
-                    "strong_sections": strong_str,
-                    "weak_sections":   weak_str,
-                })
+                raw_response = chain.invoke(
+                    {
+                        "topic": topic,
+                        "total_score": total_score,
+                        "strong_sections": strong_str,
+                        "weak_sections": weak_str,
+                    }
+                )
                 usage_metadata = raw_response.usage_metadata or {}
 
                 # Primary parse attempt
                 try:
-                    result   = parser.parse(raw_response.content)
+                    result = parser.parse(raw_response.content)
                     feedback = result["feedback"]
                     print(f"[eval_chain] Session feedback generated.")
                     return feedback, usage_metadata
@@ -538,7 +558,7 @@ the rest of your understanding together."
                     # Fallback parse attempt
                     try:
                         repaired = repair_json(raw_response.content)
-                        result   = json.loads(repaired)
+                        result = json.loads(repaired)
                         feedback = result["feedback"]
                         print(f"[eval_chain] Feedback json_repair succeeded.")
                         return feedback, usage_metadata
@@ -604,13 +624,14 @@ the rest of your understanding together."
 # PUBLIC ENTRY POINT
 # ─────────────────────────────────────────────────────────────────────────────
 
+
 @token_guard
 def run_eval_chain(
     student_id: str,
-    topic:      str,
+    topic: str,
     quiz_phase: str,
-    quiz_path:  str | Path, 
-    llm:        BaseChatModel,
+    quiz_path: str | Path,
+    llm: BaseChatModel,
     simulated_date: str = None,
 ) -> Any:
     """
@@ -658,6 +679,8 @@ def run_eval_chain(
         ... )
         >>> response.content["questions"][0]["score"]
         0.8
+        >>> response.content["feedback"]
+        "..."
         >>> response.content["questions"][0]["explanation"]
         "Correct — you identified merge sort's divide-and-conquer structure accurately."
         >>> response.usage_metadata
@@ -672,15 +695,12 @@ def run_eval_chain(
         )
 
     if not topic or not isinstance(topic, str):
-        raise ValueError(
-            f"'topic' must be a non-empty string. Got: {repr(topic)}"
-        )
+        raise ValueError(f"'topic' must be a non-empty string. Got: {repr(topic)}")
 
     valid_phases = {"pre_test", "post_test", "revision"}
     if quiz_phase not in valid_phases:
         raise ValueError(
-            f"'quiz_phase' must be one of {valid_phases}. "
-            f"Got: {repr(quiz_phase)}"
+            f"'quiz_phase' must be one of {valid_phases}. Got: {repr(quiz_phase)}"
         )
 
     quiz_path = Path(quiz_path)
@@ -693,8 +713,7 @@ def run_eval_chain(
 
     if quiz_path.suffix != ".json":
         raise ValueError(
-            f"'quiz_path' must point to a .json file. "
-            f"Got: '{quiz_path.suffix}'"
+            f"'quiz_path' must point to a .json file. Got: '{quiz_path.suffix}'"
         )
 
     # ── Load quiz from path (replaces the quiz dict parameter) ────────────
@@ -705,8 +724,7 @@ def run_eval_chain(
         print(f"[eval_chain] Quiz loaded from {quiz_path}")
     except json.JSONDecodeError as e:
         raise ValueError(
-            f"Quiz file at '{quiz_path}' contains invalid JSON. "
-            f"Parser error: {e}"
+            f"Quiz file at '{quiz_path}' contains invalid JSON. Parser error: {e}"
         ) from e
 
     if not isinstance(quiz, dict) or "questions" not in quiz:
@@ -718,8 +736,7 @@ def run_eval_chain(
     questions = quiz["questions"]
     if not isinstance(questions, list) or len(questions) == 0:
         raise ValueError(
-            f"'quiz[\"questions\"]' must be a non-empty list. "
-            f"Got: {repr(questions)}"
+            f"'quiz[\"questions\"]' must be a non-empty list. Got: {repr(questions)}"
         )
 
     required_keys = ("question", "model_answer", "student_answer", "section")
@@ -748,14 +765,14 @@ def run_eval_chain(
             time.sleep(_REQUEST_DELAY_SECONDS)
 
         result, usage = _grade_question(
-            question=       question["question"],
-            model_answer=   question["model_answer"],
-            student_answer= question["student_answer"] or "",
-            llm=            llm,
+            question=question["question"],
+            model_answer=question["model_answer"],
+            student_answer=question["student_answer"] or "",
+            llm=llm,
         )
 
         # Mutate score and explanation in place on the question dict
-        question["score"]       = result["score"]
+        question["score"] = result["score"]
         question["explanation"] = result["explanation"]
 
         accumulated_usage = _accumulate_tokens(accumulated_usage, usage)
@@ -769,7 +786,7 @@ def run_eval_chain(
 
     # ── Step 3 — Classify sections ────────────────────────────────────────────
 
-    new_weak_sections:   set = set()
+    new_weak_sections: set = set()
     new_strong_sections: set = set()
 
     for q in questions:
@@ -779,14 +796,18 @@ def run_eval_chain(
         else:
             new_strong_sections.add(section)
 
-    print(f"[eval_chain] Pre-resolution — strong: {new_strong_sections} | weak: {new_weak_sections}")
+    print(
+        f"[eval_chain] Pre-resolution — strong: {new_strong_sections} | weak: {new_weak_sections}"
+    )
 
     # ── Step 4 — Weakest-link rule ────────────────────────────────────────────
 
     # One failed question in a section disqualifies it from being marked strong
     new_strong_sections = new_strong_sections - new_weak_sections
 
-    print(f"[eval_chain] Post-resolution — strong: {new_strong_sections} | weak: {new_weak_sections}")
+    print(
+        f"[eval_chain] Post-resolution — strong: {new_strong_sections} | weak: {new_weak_sections}"
+    )
 
     # ── Step 5 — Generate session feedback ────────────────────────────────────
 
@@ -794,55 +815,62 @@ def run_eval_chain(
         time.sleep(_REQUEST_DELAY_SECONDS)
 
     session_feedback, feedback_usage = _generate_session_feedback(
-        topic=               topic,
-        total_score=         total_score,
-        new_strong_sections= new_strong_sections,
-        new_weak_sections=   new_weak_sections,
-        llm=                 llm,
+        topic=topic,
+        total_score=total_score,
+        new_strong_sections=new_strong_sections,
+        new_weak_sections=new_weak_sections,
+        llm=llm,
     )
+    # Store feedback as part of the response object
+    quiz["feedback"] = session_feedback
     accumulated_usage = _accumulate_tokens(accumulated_usage, feedback_usage)
 
     # ── Step 6 — Update learner profile ──────────────────────────────────────
 
     profile = _load_profile(student_id)
-    today   = date.today().isoformat()  # "YYYY-MM-DD"
-    
+    today = date.today().isoformat()  # "YYYY-MM-DD"
+
     if simulated_date:
         today = simulated_date
-    
 
     # 6a — Overwrite section classifications for this topic
     if topic not in profile.get("topics", {}):
         profile.setdefault("topics", {})[topic] = {
-            "weak_areas":   [],
+            "weak_areas": [],
             "strong_areas": [],
         }
 
-    profile["topics"][topic]["weak_areas"]   = list(new_weak_sections)
+    profile["topics"][topic]["weak_areas"] = list(new_weak_sections)
     profile["topics"][topic]["strong_areas"] = list(new_strong_sections)
 
     print(f"[eval_chain] Section classifications updated for topic '{topic}'.")
 
     # 6b — Route score into comprehension / retention arrays by quiz_phase
     if quiz_phase == "pre_test":
-        profile["scores"]["comprehension"].append({
-            "attempt": 0,
-            "score":   total_score,
-            "date":    today,
-        })
+        profile["scores"]["comprehension"].append(
+            {
+                "attempt": 0,
+                "score": total_score,
+                "date": today,
+            }
+        )
         print(f"[eval_chain] Pre-test score → comprehension (attempt 0).")
 
     elif quiz_phase == "post_test":
-        profile["scores"]["comprehension"].append({
-            "attempt": 1,
-            "score":   total_score,
-            "date":    today,
-        })
-        profile["scores"]["retention"].append({
-            "attempt": 0,
-            "score":   total_score,
-            "date":    today,
-        })
+        profile["scores"]["comprehension"].append(
+            {
+                "attempt": 1,
+                "score": total_score,
+                "date": today,
+            }
+        )
+        profile["scores"]["retention"].append(
+            {
+                "attempt": 0,
+                "score": total_score,
+                "date": today,
+            }
+        )
         print(
             f"[eval_chain] Post-test score → comprehension (attempt 1) "
             f"and retention (attempt 0)."
@@ -850,11 +878,13 @@ def run_eval_chain(
 
     elif quiz_phase == "revision":
         retention_attempt = len(profile["scores"]["retention"])
-        profile["scores"]["retention"].append({
-            "attempt": retention_attempt,
-            "score":   total_score,
-            "date":    today,
-        })
+        profile["scores"]["retention"].append(
+            {
+                "attempt": retention_attempt,
+                "score": total_score,
+                "date": today,
+            }
+        )
         print(f"[eval_chain] Revision score → retention (attempt {retention_attempt}).")
 
     # 6c — Mark today's revision_dates entry as completed with feedback
@@ -863,18 +893,18 @@ def run_eval_chain(
     for entry in revision_dates_for_topic:
         if entry.get("date") == today:
             entry["feedback"] = session_feedback
-            entry["status"]   = "completed"
+            entry["status"] = "completed"
             print(f"[eval_chain] Revision date entry for {today} marked completed.")
             break
 
     # ── Step 7 — Save quiz, save profile, and return ──────────────────────
 
-    _save_quiz(quiz_path, quiz)       # ← save graded quiz back to its file
-    _save_profile(student_id, profile)
+    _save_quiz(quiz_path, quiz)  # ← save graded quiz back to its file
+    # _save_profile(student_id, profile)
 
     print(f"[eval_chain] Eval chain complete for student '{student_id}'.")
 
     return _SyntheticResponse(
-        content=        quiz,
-        usage_metadata= accumulated_usage,
+        content=quiz,
+        usage_metadata=accumulated_usage,
     )

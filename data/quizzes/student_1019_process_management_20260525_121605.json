@@ -1,0 +1,118 @@
+{
+  "questions": [
+    {
+      "level": "surface",
+      "question": "What integer identifier is assigned to each process?",
+      "model_answer": "Award 1 mark for 'process identifier' or 'PID'.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        6
+      ],
+      "section": "ProcessCreation"
+    },
+    {
+      "level": "surface",
+      "question": "Name one of the four sections that process memory is divided into.",
+      "model_answer": "Award 1 mark for any one of the following: 'text section', 'data section', 'stack', or 'heap'.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": []
+    },
+    {
+      "level": "surface",
+      "question": "What system call is primarily used for process creation?",
+      "model_answer": "Award 1 mark for 'fork()'.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        2,
+        6
+      ],
+      "section": "PROCESSCREATION"
+    },
+    {
+      "level": "conceptual",
+      "question": "Describe the purpose of the stack in a process's memory.",
+      "model_answer": "Award 1 mark for explaining that the stack is used for local variables and function return values, and that space is reserved when variables are declared and freed when they go out of scope. Accept explanations that mention it stores local variables and function call information.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": []
+    },
+    {
+      "level": "conceptual",
+      "question": "Explain the relationship between a parent process and a child process.",
+      "model_answer": "Award 1 mark for explaining that a parent process creates a child process through system calls like fork() or spawn(), and that the parent is the creator of the child. Accept any description that highlights the creator-child dynamic established by process creation.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        6
+      ],
+      "section": "ProcessCreation"
+    },
+    {
+      "level": "conceptual",
+      "question": "Contrast the characteristics of Shared Memory systems and Message Passing systems for inter-process communication.",
+      "model_answer": "Award 1 mark for contrasting at least two aspects. Accept any of the following: Shared Memory is faster once set up but more complicated and less effective across multiple computers, while Message Passing requires system calls for each transfer (slower) but is simpler and works well across multiple computers. Accept explanations referencing speed, setup complexity, and multi-computer compatibility.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        8,
+        9
+      ],
+      "section": "INTER-PROCESSCOMMUNICATION"
+    },
+    {
+      "level": "conceptual",
+      "question": "What does it mean for a process to be in the 'Waiting' state?",
+      "model_answer": "Award 1 mark for explaining that a process in the waiting state cannot run because it is awaiting a resource or an event, such as keyboard input, disk access, inter-process messages, a timer, or a child process to finish. Accept any description that focuses on the inability to execute due to pending external conditions.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        3,
+        4,
+        5,
+        7
+      ],
+      "section": "PROCESSSTATE"
+    },
+    {
+      "level": "deep",
+      "question": "If a system is experiencing severe memory pressure, what implications does this have for the relative placement and growth of the stack and heap?",
+      "model_answer": "Award 1 mark for explaining that the stack and heap grow towards each other from opposite ends of the process's free space, and if they meet, a stack overflow error or a failed memory allocation (new/malloc) will occur. Accept any explanation that describes their opposing growth and the consequence of them colliding due to insufficient memory.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": []
+    },
+    {
+      "level": "deep",
+      "question": "Consider a scenario where a parent process has terminated before its child process. What is the likely fate of the child process, and what is the role of 'init' in this situation?",
+      "model_answer": "Award 1 mark for explaining that if the parent exits, the system may or may not allow the child to continue without a parent, and if it does, the child may become an orphan. The 'init' process (PID 1) will then typically inherit these orphan processes and eventually terminate them. Accept any description that includes the concept of orphans, inheritance by init, and eventual termination.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": []
+    },
+    {
+      "level": "deep",
+      "question": "When a process is swapped out of memory and later restored, what critical pieces of information must be saved and reloaded to ensure its execution can resume correctly?",
+      "model_answer": "Award 1 mark for identifying both the program counter and the values of all program registers. Accept any phrasing that clearly indicates these two categories of information are essential for resuming execution.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        4,
+        5
+      ],
+      "section": "Diagramofprocessstate"
+    }
+  ]
+}

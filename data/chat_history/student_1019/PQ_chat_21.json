@@ -1,0 +1,4 @@
+{
+    "summary": "The student asked about the difference between a warm site and a hot site. The assistant explained that the primary difference is data readiness. A warm site has hardware and infrastructure but requires data to be transported for recovery, while a hot site is fully functional and has mirrored data, making it immediately ready for use.",
+    "turn_count": 1
+}

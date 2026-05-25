@@ -1,0 +1,115 @@
+{
+  "questions": [
+    {
+      "level": "surface",
+      "question": "What is the integer identifier given to each process?",
+      "model_answer": "Award 1 mark for 'process identifier' or 'PID'.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": []
+    },
+    {
+      "level": "surface",
+      "question": "Name one section of process memory that stores global and static variables.",
+      "model_answer": "Award 1 mark for 'data section'.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1
+      ],
+      "section": "THEPROCESS"
+    },
+    {
+      "level": "surface",
+      "question": "What is the term for the process that creates another process?",
+      "model_answer": "Award 1 mark for 'parent'.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        6
+      ],
+      "section": "ProcessCreation"
+    },
+    {
+      "level": "conceptual",
+      "question": "Describe the purpose of the stack within a process's memory.",
+      "model_answer": "Award 1 mark for explaining that the stack is used for local variables and function return values, and that space is reserved when variables are declared and freed when they go out of scope. Accept any phrasing that captures these core functions.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": []
+    },
+    {
+      "level": "conceptual",
+      "question": "Explain the relationship between a parent process and a child process.",
+      "model_answer": "Award 1 mark for describing that a parent process creates a child process using system calls like fork or spawn, and that the parent is responsible for the child. Accept any description that highlights the creation relationship and parental role.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        6
+      ],
+      "section": "ProcessCreation"
+    },
+    {
+      "level": "conceptual",
+      "question": "Differentiate between cooperating processes and independent processes.",
+      "model_answer": "Award 1 mark for stating that independent processes cannot affect or be affected by other processes, while cooperating processes can affect or be affected by other processes, often requiring inter-process communication. Accept any explanation that captures this distinction.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        8,
+        9
+      ],
+      "section": "INTER-PROCESSCOMMUNICATION"
+    },
+    {
+      "level": "conceptual",
+      "question": "What is a 'zombie' process, and how is it typically resolved?",
+      "model_answer": "Award 1 mark for explaining that a zombie process is one that is trying to terminate but cannot because its parent is not waiting for it, and that it is eventually inherited by 'init' as an orphan and killed off. Accept any phrasing that captures these two key aspects.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": []
+    },
+    {
+      "level": "deep",
+      "question": "If a system is experiencing frequent 'stack overflow' errors, what area of process memory management might be a primary focus for investigation, and why?",
+      "model_answer": "Award 1 mark for identifying the stack and the heap as the areas that grow towards each other, and explaining that if they meet, a stack overflow error can occur. Accept any explanation that links the stack's growth and potential collision with the heap to stack overflow errors.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": []
+    },
+    {
+      "level": "deep",
+      "question": "Consider a scenario where a parent process creates multiple child processes and then immediately continues its own execution without waiting for them. What are the implications for the parent's state and the child processes' potential resource consumption?",
+      "model_answer": "Award 1 mark for stating that the parent process would continue running concurrently with the children, without blocking, and for mentioning that child processes may be limited to a subset of the parent's resources to prevent uncontrolled consumption. Accept any response that addresses both concurrent execution and resource limitations for children.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        6,
+        7
+      ],
+      "section": "AtreeofprocessesonatypicalLinuxsystem"
+    },
+    {
+      "level": "deep",
+      "question": "A process needs to share large amounts of data quickly with another process on the same computer. Which inter-process communication method would be preferable, and what is the primary advantage of this method in this context?",
+      "model_answer": "Award 1 mark for choosing 'Shared Memory' and stating that it is faster because it does not require system calls and occurs at normal memory speeds. Accept any phrasing that highlights the speed advantage of shared memory for large data transfers on a single machine.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        8,
+        9
+      ],
+      "section": "INTER-PROCESSCOMMUNICATION"
+    }
+  ]
+}

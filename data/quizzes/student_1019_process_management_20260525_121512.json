@@ -1,0 +1,129 @@
+{
+  "questions": [
+    {
+      "level": "surface",
+      "question": "What is a process?",
+      "model_answer": "Award 1 mark for stating a process is an instance of a program in execution.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        2,
+        6
+      ],
+      "section": "PROCESSCREATION"
+    },
+    {
+      "level": "surface",
+      "question": "What are the four sections of process memory?",
+      "model_answer": "Award 1 mark for naming any two of the following four sections: text section, data section, heap, stack.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1
+      ],
+      "section": "PROCESSMANAGEMENT"
+    },
+    {
+      "level": "surface",
+      "question": "What is the primary function of the stack in process memory?",
+      "model_answer": "Award 1 mark for stating the stack is used for local variables.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": []
+    },
+    {
+      "level": "conceptual",
+      "question": "Describe how the stack and heap memory sections interact.",
+      "model_answer": "Award 1 mark for explaining that the stack and heap start at opposite ends of the process's free space and grow towards each other.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": []
+    },
+    {
+      "level": "conceptual",
+      "question": "Explain the relationship between a parent process and a child process.",
+      "model_answer": "Award 1 mark for explaining that a parent process creates a child process through system calls like fork or spawn, and the creator is termed the parent while the created is termed the child.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        6
+      ],
+      "section": "ProcessCreation"
+    },
+    {
+      "level": "conceptual",
+      "question": "What are the two primary types of inter-process communication?",
+      "model_answer": "Award 1 mark for naming the two primary types: Shared Memory systems and Message Passing systems.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        8,
+        9
+      ],
+      "section": "INTER-PROCESSCOMMUNICATION"
+    },
+    {
+      "level": "conceptual",
+      "question": "Describe the 'waiting' state of a process.",
+      "model_answer": "Award 1 mark for explaining that a process in the waiting state cannot run because it is awaiting a resource or event, such as keyboard input, disk access, inter-process messages, a timer, or a child process to finish.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        3,
+        4,
+        5,
+        7
+      ],
+      "section": "PROCESSSTATE"
+    },
+    {
+      "level": "deep",
+      "question": "If a process requires sharing large amounts of information quickly on a single computer, which inter-process communication method would be preferable and why?",
+      "model_answer": "Award 1 mark for choosing Shared Memory AND justifying it by stating it is faster once set up because no system calls are required and access occurs at normal memory speeds, making it preferable for large amounts of information shared quickly on the same computer.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        8,
+        9
+      ],
+      "section": "INTER-PROCESSCOMMUNICATION"
+    },
+    {
+      "level": "deep",
+      "question": "Consider a scenario where a parent process creates multiple child processes. What are the two main options for the parent process's behavior after creating the children, and what are the implications of each?",
+      "model_answer": "Award 1 mark for identifying the two options: 1. Wait for the child processes to terminate before proceeding (parent blocks until wait() returns). 2. Run concurrently with the child processes without waiting (parent continues processing).",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        6,
+        7,
+        8
+      ],
+      "section": "AtreeofprocessesonatypicalLinuxsystem"
+    },
+    {
+      "level": "deep",
+      "question": "A process is terminated because its parent process has exited, and the system does not allow the child to continue without a parent. What term is used for processes that are trying to terminate but cannot because their parent is not waiting for them, and what eventually happens to them?",
+      "model_answer": "Award 1 mark for identifying the term 'zombies' AND stating that they are eventually inherited by init as orphans and killed off.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        2,
+        3,
+        7,
+        8
+      ],
+      "section": "PROCESSTERMINATION"
+    }
+  ]
+}

@@ -1,0 +1,134 @@
+{
+  "questions": [
+    {
+      "level": "surface",
+      "question": "What is a disaster recovery plan (DRP)?",
+      "model_answer": "Award 1 mark for stating that a DRP is a documented, structured approach describing how an organization can quickly resume work after an unplanned incident.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "What is a Disaster Recovery Plan"
+    },
+    {
+      "level": "surface",
+      "question": "List three types of events that can be considered disasters.",
+      "model_answer": "Award 1 mark for any three of the following: Technological hazards (power outages, pipeline explosions, transportation accidents), Pandemics and epidemics, Cyber attacks (malware, DDoS, ransomware), Machine and hardware failure, Intentional human-caused threats (terrorist or biochemical attacks), Natural disasters (earthquakes, floods, tornados, hurricanes, wildfires).",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1
+      ],
+      "section": "What is considered a disaster"
+    },
+    {
+      "level": "surface",
+      "question": "What is the primary focus of disaster recovery (DR) as a subset of business continuity?",
+      "model_answer": "Award 1 mark for stating that DR explicitly focuses on ensuring that IT systems supporting critical business functions are operational as soon as possible after a disruptive event.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "What is a Disaster Recovery Plan"
+    },
+    {
+      "level": "conceptual",
+      "question": "Explain the purpose of detective measures within a disaster recovery plan.",
+      "model_answer": "Award 1 mark for explaining that detective measures are for rapid recovery by focusing on detecting or discovering unwanted events as they happen in real time, thus indicating when a response is necessary.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        4,
+        5
+      ],
+      "section": "How disaster recovery works"
+    },
+    {
+      "level": "conceptual",
+      "question": "Describe the role of preventive measures in disaster recovery planning.",
+      "model_answer": "Award 1 mark for describing that preventive measures ensure systems are secure and reliable to prevent disasters, including backing up data or monitoring for errors and compliance violations.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "What is a Disaster Recovery Plan"
+    },
+    {
+      "level": "conceptual",
+      "question": "Differentiate between a Recovery Time Objective (RTO) and a Recovery Point Objective (RPO).",
+      "model_answer": "Award 1 mark for correctly defining RTO as the maximum acceptable downtime for systems/applications and RPO as the maximum acceptable age of data loss to resume operations.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        2,
+        3
+      ],
+      "section": "Here is the typical structure of a DR plan"
+    },
+    {
+      "level": "conceptual",
+      "question": "Explain the concept of a 'hot disaster recovery site' and its advantage.",
+      "model_answer": "Award 1 mark for explaining that a hot site is a fully functional backup site in a remote location with all critical systems and data replicated or frequently backed up, allowing operations to be switched over quickly when disaster strikes.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        2,
+        3
+      ],
+      "section": "Here is the typical structure of a DR plan"
+    },
+    {
+      "level": "deep",
+      "question": "If an organization's critical payroll processing must resume within minutes of a system failure, what specific metric from a DRP is being prioritized, and what type of DR site would best support this requirement?",
+      "model_answer": "Award 1 mark for identifying that the Recovery Time Objective (RTO) is being prioritized and that a hot computing site is the most suitable DR site due to its readiness and data mirroring.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        2,
+        3
+      ],
+      "section": "Here is the typical structure of a DR plan"
+    },
+    {
+      "level": "deep",
+      "question": "Consider a scenario where a business experiences a ransomware attack. How would the corrective and preventive elements of a DR plan work together to mitigate and recover from this specific threat?",
+      "model_answer": "Award 1 mark for explaining that preventive measures would involve secure systems and monitoring to potentially stop the attack, while corrective measures would focus on procedures like last-minute backups, mitigation, and eradication to restore data and systems after the attack occurs.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "How disaster recovery works"
+    },
+    {
+      "level": "deep",
+      "question": "An organization is deciding between a cold and a warm computing site for disaster recovery. Based on the provided material, what are the key limitations of a cold site that a warm site addresses, and what is the primary trade-off for this improvement?",
+      "model_answer": "Award 1 mark for stating that a cold site lacks hardware like servers and storage, requiring data and hardware to be sent and installed, which impedes workflow; a warm site adds these elements. The primary trade-off is likely increased cost and complexity for the warm site compared to the cold site.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        3
+      ],
+      "section": "Types of Disaster Recovery Sites"
+    }
+  ]
+}

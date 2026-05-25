@@ -1,0 +1,133 @@
+{
+  "questions": [
+    {
+      "level": "surface",
+      "question": "What is the primary purpose of a disaster recovery plan?",
+      "model_answer": "Award 1 mark for stating that it describes how an organization can quickly resume work after an unplanned incident.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "What is a Disaster Recovery Plan"
+    },
+    {
+      "level": "surface",
+      "question": "Name one type of technological hazard that can necessitate a disaster recovery response.",
+      "model_answer": "Accept any one of the following: power outages, pipeline explosions, transportation accidents.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1
+      ],
+      "section": "What is a Disaster Recovery Plan"
+    },
+    {
+      "level": "surface",
+      "question": "What does RPO stand for in the context of disaster recovery planning?",
+      "model_answer": "Award 1 mark for stating Recovery Point Object.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        2,
+        3
+      ],
+      "section": "Here is the typical structure of a DR plan"
+    },
+    {
+      "level": "conceptual",
+      "question": "Explain the function of detective measures within a disaster recovery plan.",
+      "model_answer": "Award 1 mark for explaining that these measures focus on detecting or discovering unwanted events as they happen in real time to enable rapid recovery.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        4
+      ],
+      "section": "How disaster recovery works"
+    },
+    {
+      "level": "conceptual",
+      "question": "How does a hot disaster recovery site differ from a cold disaster recovery site?",
+      "model_answer": "Award 1 mark for stating that a hot site is fully functional and has critical data mirrored, while a cold site only provides basic infrastructure like power and cooling, requiring hardware and data to be transported and installed before use.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        3
+      ],
+      "section": "Types of Disaster Recovery Sites"
+    },
+    {
+      "level": "conceptual",
+      "question": "Describe the role of corrective measures in disaster recovery.",
+      "model_answer": "Award 1 mark for describing that these measures involve planning for potential DR scenarios, ensuring backup operations to reduce impact, and implementing recovery procedures to restore data and systems quickly when needed.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "What is a Disaster Recovery Plan"
+    },
+    {
+      "level": "conceptual",
+      "question": "Why is it important to define Recovery Time Objectives (RTO) and Recovery Point Objectives (RPO) when planning for disaster recovery?",
+      "model_answer": "Award 1 mark for explaining that RTO defines the maximum acceptable downtime to avoid significant business damage, and RPO defines the maximum acceptable data loss, both of which help in determining recovery strategies and backup frequency.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        2,
+        3
+      ],
+      "section": "Here is the typical structure of a DR plan"
+    },
+    {
+      "level": "deep",
+      "question": "An organization experiences a critical server failure that impacts its primary customer-facing application, which must be operational within 15 minutes to avoid significant financial loss. If the DRP includes a warm disaster recovery site, what would be the likely steps to restore service, and what is a potential challenge?",
+      "model_answer": "Award 1 mark for identifying that service would be restored by transporting data to the warm site's existing hardware (servers, switches) and then bringing systems online. A potential challenge is the time required for data transport and system configuration, potentially exceeding the 15-minute RTO.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        2,
+        3
+      ],
+      "section": "Here is the typical structure of a DR plan"
+    },
+    {
+      "level": "deep",
+      "question": "Imagine a scenario where a ransomware attack encrypts all of an organization's critical data. If the organization has implemented preventive measures such as regular backups to an off-site location and continuous monitoring for configuration errors, how would these measures contribute to a faster and more effective recovery?",
+      "model_answer": "Award 1 mark for explaining that preventive measures like regular off-site backups provide clean data to restore from, bypassing the need to deal with encrypted data, and continuous monitoring helps in early detection of unusual activity, potentially mitigating the spread of the ransomware before it impacts all systems.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "What is a Disaster Recovery Plan"
+    },
+    {
+      "level": "deep",
+      "question": "Consider an organization that relies heavily on real-time data processing for its operations. If a disaster strikes, what type of disaster recovery site would be most suitable to minimize data loss, and why?",
+      "model_answer": "Award 1 mark for selecting a hot computing site AND justifying it by stating it is a fully functional backup site with important data already mirrored, which is ideal for minimizing data loss in real-time processing scenarios.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        2,
+        3
+      ],
+      "section": "Here is the typical structure of a DR plan"
+    }
+  ]
+}

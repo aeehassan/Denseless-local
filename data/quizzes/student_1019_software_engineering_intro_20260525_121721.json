@@ -1,0 +1,132 @@
+{
+  "questions": [
+    {
+      "level": "surface",
+      "question": "What are the primary components that comprise modern software?",
+      "model_answer": "Award 1 mark for any two of the following: Instructions (computer programs), Data structures, Documents (or manuals).",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "Today’s software is comprised of"
+    },
+    {
+      "level": "surface",
+      "question": "What is the term used to describe the hardware and operating system considerations for running software?",
+      "model_answer": "Award 1 mark for 'platform'.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "Today’s software is comprised of"
+    },
+    {
+      "level": "surface",
+      "question": "What are compiled codes that can run independently of the source code called?",
+      "model_answer": "Award 1 mark for 'Executable' or 'Executable codes'.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "Today’s software is comprised of"
+    },
+    {
+      "level": "conceptual",
+      "question": "Explain the role of documentation within the definition of software.",
+      "model_answer": "Award 1 mark for explaining that documents are included to help users understand the software system (or similar phrasing).",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        3,
+        4,
+        5
+      ],
+      "section": "The Term Software"
+    },
+    {
+      "level": "conceptual",
+      "question": "Describe the fundamental difference between Computer Science and Software Engineering in terms of their focus.",
+      "model_answer": "Award 1 mark for stating Computer Science focuses on theoretical/mathematical aspects of how computers work, while Software Engineering focuses on the practical, systematic process of building and maintaining software systems.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        4,
+        5
+      ],
+      "section": "Computer Science VS Software Engineering"
+    },
+    {
+      "level": "conceptual",
+      "question": "What does the term 'engineering' generally imply according to Roger (2005)?",
+      "model_answer": "Award 1 mark for stating that engineering is a verb, an action word, or a way of approaching a problem, rather than just a discipline or body of knowledge.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        2,
+        3
+      ],
+      "section": "The Term Engineering"
+    },
+    {
+      "level": "conceptual",
+      "question": "How does Software Engineering aim to address practical problems?",
+      "model_answer": "Award 1 mark for explaining that Software Engineering applies scientific knowledge and systematic, disciplined approaches to create cost-effective solutions for building, operating, and maintaining software artifacts.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        3,
+        4
+      ],
+      "section": "The Term Software Engineering"
+    },
+    {
+      "level": "deep",
+      "question": "If an organization requires a software solution that guarantees consistent performance regardless of the initial state of the data, what aspect of software development would be most critical to focus on during the design phase, and why?",
+      "model_answer": "Award 1 mark for identifying 'efficiency' or 'performance' as critical, and justifying it by stating that inconsistent performance implies varying execution times based on input, which is undesirable for this requirement.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": []
+    },
+    {
+      "level": "deep",
+      "question": "Consider a scenario where a software development team is tasked with creating a large, complex system. Which definition of Software Engineering best emphasizes the need for a structured and methodical approach to ensure success?",
+      "model_answer": "Award 1 mark for selecting the IEEE Comprehensive Definition (or paraphrasing its core idea) which states: 'the application of a systematic, disciplined, quantifiable approach to the development, operation and maintenance of software'.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        3,
+        4
+      ],
+      "section": "The Term Software Engineering"
+    },
+    {
+      "level": "deep",
+      "question": "A software engineer is designing a system that will be used by a wide range of users with varying technical proficiencies. What type of documentation would be most crucial to ensure user understanding and effective use of the software?",
+      "model_answer": "Award 1 mark for identifying 'System Manuals' or 'User Manuals' or 'User's Guide' and explaining that these are specifically for users to understand and operate the software.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        3,
+        4
+      ],
+      "section": "The Term Software Engineering"
+    }
+  ]
+}

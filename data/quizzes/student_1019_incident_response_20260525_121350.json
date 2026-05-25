@@ -1,0 +1,139 @@
+{
+  "questions": [
+    {
+      "level": "surface",
+      "question": "What are the three most common types of incident response teams mentioned?",
+      "model_answer": "Award 1 mark for any two of the following: Computer incident response team (CIRT), Computer security incident response team (CSIRT), Computer emergency response team (CERT).",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        4
+      ],
+      "section": "Types of incident response teams"
+    },
+    {
+      "level": "surface",
+      "question": "Name any two types of security incidents listed.",
+      "model_answer": "Award 1 mark for any two of the following: Privilege escalation attacks, Man-in-the-middle attacks, Malware attacks, Unauthorized attempts to access systems or data, Advanced persistent threats, Web application attacks, Insider threats, Phishing attacks, Password attacks, Denial-of-service (DoS) attacks.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "Types of security incidents"
+    },
+    {
+      "level": "surface",
+      "question": "What does a vulnerability represent in the context of cybersecurity?",
+      "model_answer": "Award 1 mark for stating that a vulnerability is a weakness in the IT or business environment.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "Types of security incidents"
+    },
+    {
+      "level": "conceptual",
+      "question": "Explain the distinction between incident response and incident management.",
+      "model_answer": "Award 1 mark for explaining that incident response is a subset of incident management, specifically handling the technical cybersecurity tasks and considerations, while incident management is a broader enterprise-wide approach involving diverse stakeholders.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "Introduction"
+    },
+    {
+      "level": "conceptual",
+      "question": "Describe the purpose of playbooks within an incident response plan.",
+      "model_answer": "Award 1 mark for explaining that playbooks outline standardized, step-by-step actions responders should take in specific scenarios, providing greater consistency, efficiency, and effectiveness.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "section": "How to create an incident response plan"
+    },
+    {
+      "level": "conceptual",
+      "question": "How do playbooks contribute to the effectiveness of incident response and responder training?",
+      "model_answer": "Award 1 mark for stating that playbooks provide greater consistency, efficiency, and effectiveness in both incident response actions and in the training of incident responders.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        2,
+        3
+      ],
+      "section": "How to create an incident response plan"
+    },
+    {
+      "level": "conceptual",
+      "question": "What is the role of the 'Lessons Learned' phase in the incident response framework?",
+      "model_answer": "Award 1 mark for explaining that the 'Lessons Learned' phase involves reviewing an incident to determine what happened, when, and how, identifying sub-optimal security controls, policies, or procedures, and suggesting improvements to update the incident response plan.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        3,
+        4
+      ],
+      "section": "Incident response frameworks: Phases of incident response"
+    },
+    {
+      "level": "deep",
+      "question": "If an organization experiences a significant data breach involving sensitive customer information, which phase of incident response would be most critical for preventing further compromise and regaining control?",
+      "model_answer": "Award 1 mark for identifying the Containment phase AND explaining that its purpose is to stop the incident from worsening and regain control of IT resources, which is crucial during a data breach.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        3,
+        4,
+        5
+      ],
+      "section": "Incident response frameworks: Phases of incident response"
+    },
+    {
+      "level": "deep",
+      "question": "Consider a scenario where a company's website is being flooded with traffic, making it inaccessible to legitimate users. Which type of security incident is this, and what is the primary objective of the incident response during this event?",
+      "model_answer": "Award 1 mark for identifying the incident as a Denial-of-service (DoS) attack AND stating the primary objective of response is to stop the incident from worsening and regain control of IT resources (Containment).",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2,
+        4,
+        5
+      ],
+      "section": "Types of security incidents"
+    },
+    {
+      "level": "deep",
+      "question": "An organization has just detected suspicious activity on its network that might indicate unauthorized access. Based on the incident response framework, what are the immediate next steps after detection?",
+      "model_answer": "Award 1 mark for stating that the immediate next steps after detection involve evaluating, validating, and triaging the security incidents.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        3,
+        4,
+        5
+      ],
+      "section": "Incident response frameworks: Phases of incident response"
+    }
+  ]
+}

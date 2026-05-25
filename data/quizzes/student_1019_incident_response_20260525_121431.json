@@ -1,0 +1,143 @@
+{
+  "questions": [
+    {
+      "level": "surface",
+      "question": "Identify three specific types of security incidents listed in the material.",
+      "model_answer": "Award 1 mark for any three of the following: Privilege escalation attacks, Man-in-the-middle attacks, Malware attacks, Unauthorized attempts to access systems or data, Advanced persistent threats, Web application attacks, Insider threats, Phishing attacks, Password attacks, Denial-of-service (DoS) attacks.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "Types of security incidents"
+    },
+    {
+      "level": "surface",
+      "question": "What is the primary difference between incident response and incident management?",
+      "model_answer": "Award 1 mark for stating that incident response is a subset of incident management focused on technical cybersecurity tasks and considerations, while incident management is a broader enterprise approach involving diverse stakeholders.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        4,
+        5
+      ],
+      "section": "Introduction"
+    },
+    {
+      "level": "surface",
+      "question": "Name two benefits of creating incident response playbooks.",
+      "model_answer": "Award 1 mark for any two of the following: Greater consistency, efficiency, effectiveness (in incident response), effectiveness (in incident responder training).",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "section": "How to create an incident response plan"
+    },
+    {
+      "level": "conceptual",
+      "question": "Explain the relationship between vulnerabilities, threats, and incidents as described in the material.",
+      "model_answer": "Award 1 mark for explaining that a vulnerability is a weakness, a threat is an entity that exploits a vulnerability, and an incident occurs when an attack succeeds in accessing enterprise resources or putting them at risk.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        1,
+        2
+      ],
+      "section": "Types of security incidents"
+    },
+    {
+      "level": "conceptual",
+      "question": "Describe the purpose of an incident response plan.",
+      "model_answer": "Award 1 mark for describing that an incident response plan serves as a detailed guide or map for responders, from initial detection and assessment to containment and resolution of a security incident.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        2,
+        4,
+        5
+      ],
+      "section": "What is an incident response plan"
+    },
+    {
+      "level": "conceptual",
+      "question": "What are the six phases of incident response according to common frameworks?",
+      "model_answer": "Award 1 mark for listing all six phases in any order: Preparation/planning, Detection/identification, Containment, Eradication, Recovery, Lessons learned.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        3,
+        4
+      ],
+      "section": "Incident response frameworks: Phases of incident response"
+    },
+    {
+      "level": "conceptual",
+      "question": "Explain why building an incident response team is a critical step in developing an incident response plan.",
+      "model_answer": "Award 1 mark for explaining that an incident response plan's effectiveness is dependent on the people involved, and establishing roles, responsibilities, and adequate training ensures tasks are handled properly.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "section": "How to create an incident response plan"
+    },
+    {
+      "level": "deep",
+      "question": "Imagine an organization has experienced a successful phishing attack that led to unauthorized access to sensitive customer data. Describe how the 'Lessons Learned' phase of incident response would be applied in this scenario.",
+      "model_answer": "Award 1 mark for describing that the 'Lessons Learned' phase would involve reviewing the phishing attack to determine precisely how it occurred (e.g., which employees clicked malicious links, what vulnerabilities were exploited), flagging any sub-optimal security controls or policies (e.g., insufficient user training, weak email filtering), and identifying specific improvements to the incident response plan to prevent recurrence.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        3,
+        4
+      ],
+      "section": "Incident response frameworks: Phases of incident response"
+    },
+    {
+      "level": "deep",
+      "question": "A company discovers an active malware infection on a critical server. Using the incident response framework, outline the immediate actions that should be taken during the 'Containment' phase.",
+      "model_answer": "Award 1 mark for outlining actions that stop the incident from worsening and regain control, such as isolating the infected server from the network, disabling compromised user accounts, blocking malicious IP addresses, or taking system snapshots for forensic analysis.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        3,
+        4,
+        5
+      ],
+      "section": "Incident response frameworks: Phases of incident response"
+    },
+    {
+      "level": "deep",
+      "question": "Consider a scenario where an insider threat leads to the deletion of crucial business data. How would the 'Preparation/Planning' phase of incident response ideally equip an organization to handle such an event more effectively?",
+      "model_answer": "Award 1 mark for explaining that the 'Preparation/Planning' phase would have ideally involved establishing clear policies and procedures for data access and deletion, building a well-trained incident response team with defined roles for insider threats, creating playbooks for data recovery scenarios, and deploying monitoring tools to detect unusual user activity or large-scale data deletions.",
+      "student_answer": null,
+      "score": null,
+      "explanation": null,
+      "source_pages": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "section": "How to create an incident response plan"
+    }
+  ]
+}

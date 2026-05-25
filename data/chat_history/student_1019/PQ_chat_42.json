@@ -1,0 +1,4 @@
+{
+    "summary": "The student asked when an organization would choose a warm site over a hot site for disaster recovery. The assistant explained that a warm site is chosen when the cost and complexity of a hot site are not justified by the business's recovery needs. A warm site has hardware, power, networking, and cooling, making it more prepared than a cold site, but it does not have mirrored data like a hot site. This makes it suitable for organizations that can tolerate a longer recovery time (RTO) as data transfer and setup are required. The decision depends on balancing recovery speed with the investment in the disaster recovery site.",
+    "turn_count": 1
+}
