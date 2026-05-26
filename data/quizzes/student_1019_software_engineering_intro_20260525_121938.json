@@ -1,137 +1,138 @@
 {
-  "questions": [
-    {
-      "level": "surface",
-      "question": "What are the distinct components that comprise software, besides computer programs?",
-      "model_answer": "Award 1 mark for any two of the following: Data structures, Documents (or manuals).",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        1,
-        2
-      ],
-      "section": "The Term Software"
-    },
-    {
-      "level": "surface",
-      "question": "What is the primary purpose of system manuals for software users?",
-      "model_answer": "Award 1 mark for stating that manuals are important for users to understand or use the software system (e.g., user's guide, technical manual).",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        1,
-        2,
-        5
-      ],
-      "section": "Today’s software is comprised of"
-    },
-    {
-      "level": "surface",
-      "question": "What does the term 'platform' refer to in the context of software development?",
-      "model_answer": "Award 1 mark for stating that the platform refers to hardware and operating system considerations required to run the software.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        1,
-        2
-      ],
-      "section": "Today’s software is comprised of"
-    },
-    {
-      "level": "conceptual",
-      "question": "Explain the relationship between software and its platform.",
-      "model_answer": "Award 1 mark for explaining that software is developed with specific hardware and operating system considerations (the platform) in mind, which are necessary for its execution.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        1,
-        2
-      ],
-      "section": "Today’s software is comprised of"
-    },
-    {
-      "level": "conceptual",
-      "question": "Describe the fundamental difference between source code and executable code.",
-      "model_answer": "Award 1 mark for explaining that source code is written in a programming language by programmers, while executable code is compiled and can run independently without the source code.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        1,
-        2
-      ],
-      "section": "Today’s software is comprised of"
-    },
-    {
-      "level": "conceptual",
-      "question": "How does Software Engineering apply engineering principles to software development?",
-      "model_answer": "Award 1 mark for explaining that Software Engineering applies systematic, disciplined, and quantifiable approaches (engineering principles) to the development, operation, and maintenance of software to create cost-effective solutions.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        3,
-        4
-      ],
-      "section": "The Term Software Engineering"
-    },
-    {
-      "level": "conceptual",
-      "question": "What is the core distinction between Computer Science and Software Engineering from a study perspective?",
-      "model_answer": "Award 1 mark for stating that Computer Science focuses on the theoretical and mathematical aspects of how computers work, while Software Engineering focuses on the practical, hands-on approach to building and maintaining software systems.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        4,
-        5
-      ],
-      "section": "Computer Science VS Software Engineering"
-    },
-    {
-      "level": "deep",
-      "question": "Imagine a scenario where a software project faces significant budget and time constraints, but the client demands high reliability. Which aspect of Software Engineering principles would be most critical to emphasize, and why?",
-      "model_answer": "Award 1 mark for identifying a critical aspect like 'disciplined approach', 'quantifiable approach', or 'quality assurance' AND justifying it by explaining how it helps achieve fault-free software, user satisfaction, and delivery within budget/time.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        3,
-        4,
-        5
-      ],
-      "section": "The Term Software Engineering"
-    },
-    {
-      "level": "deep",
-      "question": "If a software application requires extensive manipulation of large datasets and complex transformations, which two components of software, as described, would be most crucial for efficient operation and why?",
-      "model_answer": "Award 1 mark for identifying 'Instructions (computer programs)' and 'Data structures' AND justifying that instructions define the logic for manipulation, while data structures enable efficient organization and access to large amounts of information.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        1,
-        2
-      ],
-      "section": "Today’s software is comprised of"
-    },
-    {
-      "level": "deep",
-      "question": "Consider the definition of engineering as 'the profession and activity of designing the way, roads, bridges, machines etc.' How does this definition relate to the development of complex software systems?",
-      "model_answer": "Award 1 mark for relating the definition by explaining that complex software systems, like physical structures, require systematic design, planning, and construction based on knowledge and principles to achieve a specific function or goal.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        2,
-        3,
-        4
-      ],
-      "section": "The Term Engineering"
-    }
-  ]
+    "questions": [
+        {
+            "level": "surface",
+            "question": "What are the distinct components that comprise software, besides computer programs?",
+            "model_answer": "Award 1 mark for any two of the following: Data structures, Documents (or manuals).",
+            "student_answer": "Data structures and documents.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately identified both data structures and documents as distinct components of software.",
+            "source_pages": [
+                1,
+                2
+            ],
+            "section": "The Term Software"
+        },
+        {
+            "level": "surface",
+            "question": "What is the primary purpose of system manuals for software users?",
+            "model_answer": "Award 1 mark for stating that manuals are important for users to understand or use the software system (e.g., user's guide, technical manual).",
+            "student_answer": "System manuals help users understand how to use the software system.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately identified that manuals help users understand how to use the software system.",
+            "source_pages": [
+                1,
+                2,
+                5
+            ],
+            "section": "Today's software is comprised of"
+        },
+        {
+            "level": "surface",
+            "question": "What does the term 'platform' refer to in the context of software development?",
+            "model_answer": "Award 1 mark for stating that the platform refers to hardware and operating system considerations required to run the software.",
+            "student_answer": "Platform refers to the hardware and OS requirements for the software to run.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately identified that the platform refers to hardware and operating system considerations for running software.",
+            "source_pages": [
+                1,
+                2
+            ],
+            "section": "Today's software is comprised of"
+        },
+        {
+            "level": "conceptual",
+            "question": "Explain the relationship between software and its platform.",
+            "model_answer": "Award 1 mark for explaining that software is developed with specific hardware and operating system considerations (the platform) in mind, which are necessary for its execution.",
+            "student_answer": "Software is always designed with a specific platform in mind. The platform, which includes the hardware and OS, determines whether and how the software runs.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately described that software is designed with platform considerations (hardware and OS) in mind, which are essential for its execution.",
+            "source_pages": [
+                1,
+                2
+            ],
+            "section": "Today's software is comprised of"
+        },
+        {
+            "level": "conceptual",
+            "question": "Describe the fundamental difference between source code and executable code.",
+            "model_answer": "Award 1 mark for explaining that source code is written in a programming language by programmers, while executable code is compiled and can run independently without the source code.",
+            "student_answer": "Source code is written in a programming language. Executable code is the compiled version that runs independently without needing the source.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately described source code as being written in a programming language and executable code as the compiled, independently runnable version.",
+            "source_pages": [
+                1,
+                2
+            ],
+            "section": "Today's software is comprised of"
+        },
+        {
+            "level": "conceptual",
+            "question": "How does Software Engineering apply engineering principles to software development?",
+            "model_answer": "Award 1 mark for explaining that Software Engineering applies systematic, disciplined, and quantifiable approaches (engineering principles) to the development, operation, and maintenance of software to create cost-effective solutions.",
+            "student_answer": "Software engineering applies systematic, disciplined, and quantifiable approaches to developing, operating, and maintaining software to produce cost-effective, reliable solutions.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately described the application of systematic, disciplined, and quantifiable approaches to produce cost-effective and reliable software solutions.",
+            "source_pages": [
+                3,
+                4
+            ],
+            "section": "The Term Software Engineering"
+        },
+        {
+            "level": "conceptual",
+            "question": "What is the core distinction between Computer Science and Software Engineering from a study perspective?",
+            "model_answer": "Award 1 mark for stating that Computer Science focuses on the theoretical and mathematical aspects of how computers work, while Software Engineering focuses on the practical, hands-on approach to building and maintaining software systems.",
+            "student_answer": "Computer Science is theoretical and mathematical. Software Engineering is practical and focuses on building and maintaining systems.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately captured the theoretical focus of Computer Science and the practical focus of Software Engineering.",
+            "source_pages": [
+                4,
+                5
+            ],
+            "section": "Computer Science VS Software Engineering"
+        },
+        {
+            "level": "deep",
+            "question": "Imagine a scenario where a software project faces significant budget and time constraints, but the client demands high reliability. Which aspect of Software Engineering principles would be most critical to emphasize, and why?",
+            "model_answer": "Award 1 mark for identifying a critical aspect like 'disciplined approach', 'quantifiable approach', or 'quality assurance' AND justifying it by explaining how it helps achieve fault-free software, user satisfaction, and delivery within budget/time.",
+            "student_answer": "A disciplined, systematic approach would be most critical. It helps avoid rework and ensures quality so the software is fault-free and delivered within the given constraints.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately identified a disciplined approach and explained how it leads to fault-free software and delivery within constraints.",
+            "source_pages": [
+                3,
+                4,
+                5
+            ],
+            "section": "The Term Software Engineering"
+        },
+        {
+            "level": "deep",
+            "question": "If a software application requires extensive manipulation of large datasets and complex transformations, which two components of software, as described, would be most crucial for efficient operation and why?",
+            "model_answer": "Award 1 mark for identifying 'Instructions (computer programs)' and 'Data structures' AND justifying that instructions define the logic for manipulation, while data structures enable efficient organization and access to large amounts of information.",
+            "student_answer": "Instructions and data structures. Instructions carry out the manipulation logic and data structures organize the data efficiently to make those manipulations possible.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately identified both crucial components and explained their roles in data manipulation and organization.",
+            "source_pages": [
+                1,
+                2
+            ],
+            "section": "Today's software is comprised of"
+        },
+        {
+            "level": "deep",
+            "question": "Consider the definition of engineering as 'the profession and activity of designing the way, roads, bridges, machines etc.' How does this definition relate to the development of complex software systems?",
+            "model_answer": "Award 1 mark for relating the definition by explaining that complex software systems, like physical structures, require systematic design, planning, and construction based on knowledge and principles to achieve a specific function or goal.",
+            "student_answer": "Just like designing a bridge requires systematic planning and expertise, developing complex software requires the same structured design, planning, and engineering knowledge to achieve the desired functionality.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately related the definition by highlighting the shared need for systematic design, planning, and expertise in both physical structures and complex software systems.",
+            "source_pages": [
+                2,
+                3,
+                4
+            ],
+            "section": "The Term Engineering"
+        }
+    ],
+    "feedback": "Congratulations on achieving a perfect score of 10/10 on the Software Engineering Intro quiz, which demonstrates a comprehensive understanding of the core concepts. You excelled in identifying the distinctions between Computer Science and Software Engineering, as well as grasping the fundamental definitions of 'Engineering,' 'Software,' and 'Software Engineering,' and understanding the composition of modern software. With no weak sections identified, your mastery of this introductory material is clear. Continue to build on this strong foundation as you delve deeper into more complex software engineering topics. Your excellent performance indicates you are well-prepared for the next steps in your learning journey."
 }

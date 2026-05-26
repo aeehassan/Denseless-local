@@ -1,139 +1,140 @@
 {
-  "questions": [
-    {
-      "level": "surface",
-      "question": "What are the three most common types of incident response teams mentioned?",
-      "model_answer": "Award 1 mark for any two of the following: Computer incident response team (CIRT), Computer security incident response team (CSIRT), Computer emergency response team (CERT).",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        4
-      ],
-      "section": "Types of incident response teams"
-    },
-    {
-      "level": "surface",
-      "question": "Name any two types of security incidents listed.",
-      "model_answer": "Award 1 mark for any two of the following: Privilege escalation attacks, Man-in-the-middle attacks, Malware attacks, Unauthorized attempts to access systems or data, Advanced persistent threats, Web application attacks, Insider threats, Phishing attacks, Password attacks, Denial-of-service (DoS) attacks.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        1,
-        2
-      ],
-      "section": "Types of security incidents"
-    },
-    {
-      "level": "surface",
-      "question": "What does a vulnerability represent in the context of cybersecurity?",
-      "model_answer": "Award 1 mark for stating that a vulnerability is a weakness in the IT or business environment.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        1,
-        2
-      ],
-      "section": "Types of security incidents"
-    },
-    {
-      "level": "conceptual",
-      "question": "Explain the distinction between incident response and incident management.",
-      "model_answer": "Award 1 mark for explaining that incident response is a subset of incident management, specifically handling the technical cybersecurity tasks and considerations, while incident management is a broader enterprise-wide approach involving diverse stakeholders.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        1,
-        2
-      ],
-      "section": "Introduction"
-    },
-    {
-      "level": "conceptual",
-      "question": "Describe the purpose of playbooks within an incident response plan.",
-      "model_answer": "Award 1 mark for explaining that playbooks outline standardized, step-by-step actions responders should take in specific scenarios, providing greater consistency, efficiency, and effectiveness.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        2,
-        3,
-        4,
-        5
-      ],
-      "section": "How to create an incident response plan"
-    },
-    {
-      "level": "conceptual",
-      "question": "How do playbooks contribute to the effectiveness of incident response and responder training?",
-      "model_answer": "Award 1 mark for stating that playbooks provide greater consistency, efficiency, and effectiveness in both incident response actions and in the training of incident responders.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        2,
-        3
-      ],
-      "section": "How to create an incident response plan"
-    },
-    {
-      "level": "conceptual",
-      "question": "What is the role of the 'Lessons Learned' phase in the incident response framework?",
-      "model_answer": "Award 1 mark for explaining that the 'Lessons Learned' phase involves reviewing an incident to determine what happened, when, and how, identifying sub-optimal security controls, policies, or procedures, and suggesting improvements to update the incident response plan.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        3,
-        4
-      ],
-      "section": "Incident response frameworks: Phases of incident response"
-    },
-    {
-      "level": "deep",
-      "question": "If an organization experiences a significant data breach involving sensitive customer information, which phase of incident response would be most critical for preventing further compromise and regaining control?",
-      "model_answer": "Award 1 mark for identifying the Containment phase AND explaining that its purpose is to stop the incident from worsening and regain control of IT resources, which is crucial during a data breach.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        3,
-        4,
-        5
-      ],
-      "section": "Incident response frameworks: Phases of incident response"
-    },
-    {
-      "level": "deep",
-      "question": "Consider a scenario where a company's website is being flooded with traffic, making it inaccessible to legitimate users. Which type of security incident is this, and what is the primary objective of the incident response during this event?",
-      "model_answer": "Award 1 mark for identifying the incident as a Denial-of-service (DoS) attack AND stating the primary objective of response is to stop the incident from worsening and regain control of IT resources (Containment).",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        1,
-        2,
-        4,
-        5
-      ],
-      "section": "Types of security incidents"
-    },
-    {
-      "level": "deep",
-      "question": "An organization has just detected suspicious activity on its network that might indicate unauthorized access. Based on the incident response framework, what are the immediate next steps after detection?",
-      "model_answer": "Award 1 mark for stating that the immediate next steps after detection involve evaluating, validating, and triaging the security incidents.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        3,
-        4,
-        5
-      ],
-      "section": "Incident response frameworks: Phases of incident response"
-    }
-  ]
+    "questions": [
+        {
+            "level": "surface",
+            "question": "What are the three most common types of incident response teams mentioned?",
+            "model_answer": "Award 1 mark for any two of the following: Computer incident response team (CIRT), Computer security incident response team (CSIRT), Computer emergency response team (CERT).",
+            "student_answer": "CIRT, CSIRT, and CERT.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately listed the three most common types of incident response teams.",
+            "source_pages": [
+                4
+            ],
+            "section": "Types of incident response teams"
+        },
+        {
+            "level": "surface",
+            "question": "Name any two types of security incidents listed.",
+            "model_answer": "Award 1 mark for any two of the following: Privilege escalation attacks, Man-in-the-middle attacks, Malware attacks, Unauthorized attempts to access systems or data, Advanced persistent threats, Web application attacks, Insider threats, Phishing attacks, Password attacks, Denial-of-service (DoS) attacks.",
+            "student_answer": "Insider threats and phishing attacks.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately identified two types of security incidents from the list provided.",
+            "source_pages": [
+                1,
+                2
+            ],
+            "section": "Types of security incidents"
+        },
+        {
+            "level": "surface",
+            "question": "What does a vulnerability represent in the context of cybersecurity?",
+            "model_answer": "Award 1 mark for stating that a vulnerability is a weakness in the IT or business environment.",
+            "student_answer": "A vulnerability is a weakness in the IT or business environment that can be exploited.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately identified that a vulnerability is a weakness in the IT or business environment.",
+            "source_pages": [
+                1,
+                2
+            ],
+            "section": "Types of security incidents"
+        },
+        {
+            "level": "conceptual",
+            "question": "Explain the distinction between incident response and incident management.",
+            "model_answer": "Award 1 mark for explaining that incident response is a subset of incident management, specifically handling the technical cybersecurity tasks and considerations, while incident management is a broader enterprise-wide approach involving diverse stakeholders.",
+            "student_answer": "Incident management is the umbrella term covering all aspects of handling a cyber attack across the whole enterprise. Incident response is the technical cybersecurity part of it.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately described incident management as the broader term and incident response as the technical cybersecurity component.",
+            "source_pages": [
+                1,
+                2
+            ],
+            "section": "Introduction"
+        },
+        {
+            "level": "conceptual",
+            "question": "Describe the purpose of playbooks within an incident response plan.",
+            "model_answer": "Award 1 mark for explaining that playbooks outline standardized, step-by-step actions responders should take in specific scenarios, providing greater consistency, efficiency, and effectiveness.",
+            "student_answer": "Playbooks provide step-by-step guidance for specific scenarios, helping responders act consistently and efficiently.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately described that playbooks offer step-by-step guidance for specific scenarios, ensuring consistency and efficiency.",
+            "source_pages": [
+                2,
+                3,
+                4,
+                5
+            ],
+            "section": "How to create an incident response plan"
+        },
+        {
+            "level": "conceptual",
+            "question": "How do playbooks contribute to the effectiveness of incident response and responder training?",
+            "model_answer": "Award 1 mark for stating that playbooks provide greater consistency, efficiency, and effectiveness in both incident response actions and in the training of incident responders.",
+            "student_answer": "Playbooks make responses more consistent and help train responders since they know exactly what to do in each scenario.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately identified that playbooks provide consistency and aid training by defining clear actions for responders.",
+            "source_pages": [
+                2,
+                3
+            ],
+            "section": "How to create an incident response plan"
+        },
+        {
+            "level": "conceptual",
+            "question": "What is the role of the 'Lessons Learned' phase in the incident response framework?",
+            "model_answer": "Award 1 mark for explaining that the 'Lessons Learned' phase involves reviewing an incident to determine what happened, when, and how, identifying sub-optimal security controls, policies, or procedures, and suggesting improvements to update the incident response plan.",
+            "student_answer": "In lessons learned you review the incident to understand what happened and identify weaknesses in your controls or procedures, then update the plan accordingly.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately described the review of the incident, identification of weaknesses, and subsequent plan updates.",
+            "source_pages": [
+                3,
+                4
+            ],
+            "section": "Incident response frameworks: Phases of incident response"
+        },
+        {
+            "level": "deep",
+            "question": "If an organization experiences a significant data breach involving sensitive customer information, which phase of incident response would be most critical for preventing further compromise and regaining control?",
+            "model_answer": "Award 1 mark for identifying the Containment phase AND explaining that its purpose is to stop the incident from worsening and regain control of IT resources, which is crucial during a data breach.",
+            "student_answer": "Containment would be most critical because you need to stop the breach from spreading and regain control of the compromised resources as fast as possible.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately identified the Containment phase and explained its critical role in stopping the spread and regaining control during a data breach.",
+            "source_pages": [
+                3,
+                4,
+                5
+            ],
+            "section": "Incident response frameworks: Phases of incident response"
+        },
+        {
+            "level": "deep",
+            "question": "Consider a scenario where a company's website is being flooded with traffic, making it inaccessible to legitimate users. Which type of security incident is this, and what is the primary objective of the incident response during this event?",
+            "model_answer": "Award 1 mark for identifying the incident as a Denial-of-service (DoS) attack AND stating the primary objective of response is to stop the incident from worsening and regain control of IT resources (Containment).",
+            "student_answer": "This is a DoS attack. The primary objective would be to contain it by stopping the flooding and restoring access to legitimate users.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately identified the incident as a DoS attack and stated the primary objective of containment to stop the flooding and restore access.",
+            "source_pages": [
+                1,
+                2,
+                4,
+                5
+            ],
+            "section": "Types of security incidents"
+        },
+        {
+            "level": "deep",
+            "question": "An organization has just detected suspicious activity on its network that might indicate unauthorized access. Based on the incident response framework, what are the immediate next steps after detection?",
+            "model_answer": "Award 1 mark for stating that the immediate next steps after detection involve evaluating, validating, and triaging the security incidents.",
+            "student_answer": "After detection, the next steps are to evaluate and validate the suspicious activity and then triage it to determine severity and response priority.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately described the immediate next steps as evaluating, validating, and triaging the security incidents.",
+            "source_pages": [
+                3,
+                4,
+                5
+            ],
+            "section": "Incident response frameworks: Phases of incident response"
+        }
+    ],
+    "feedback": "Congratulations on achieving a perfect score of 10.0 out of 10 on the Incident Response quiz; this demonstrates a comprehensive and excellent understanding of the topic. You demonstrated exceptional mastery in areas such as creating an incident response plan, understanding the phases within incident response frameworks, and identifying different types of security incidents and response teams. Since no weak sections were identified, you can be confident in your current knowledge base regarding incident response. Continue to build on this strong foundation by seeking out real-world case studies to see these concepts in action. Your performance indicates you are very well-prepared to handle challenges in incident response."
 }

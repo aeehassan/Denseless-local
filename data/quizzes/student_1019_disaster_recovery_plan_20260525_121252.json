@@ -1,133 +1,134 @@
 {
-  "questions": [
-    {
-      "level": "surface",
-      "question": "What is the primary purpose of a disaster recovery plan (DRP)?",
-      "model_answer": "Award 1 mark for stating that a DRP describes how an organization can quickly resume work after an unplanned incident.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        1,
-        2
-      ],
-      "section": "What is a Disaster Recovery Plan"
-    },
-    {
-      "level": "surface",
-      "question": "List three types of hazards that can trigger a disaster.",
-      "model_answer": "Award 1 mark for any three of the following: Technological hazards (e.g., power outages, pipeline explosions, transportation accidents), Pandemics and epidemics, Cyber attacks (e.g., malware, DDoS, ransomware attacks), Machine and hardware failure, Other intentional, human-caused threats (e.g., terrorist or biochemical attacks), Natural disasters (e.g., earthquakes, floods, tornados, hurricanes, wildfires).",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        1
-      ],
-      "section": "What is considered a disaster"
-    },
-    {
-      "level": "surface",
-      "question": "What is the Recovery Time Objective (RTO)?",
-      "model_answer": "Award 1 mark for defining RTO as the maximum acceptable length of time that systems and applications can be down without causing significant damage to the business.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        2,
-        3
-      ],
-      "section": "Here is the typical structure of a DR plan"
-    },
-    {
-      "level": "conceptual",
-      "question": "Explain the role of detective measures within a disaster recovery plan.",
-      "model_answer": "Award 1 mark for explaining that detective measures focus on detecting or discovering unwanted events as they happen in real time to enable rapid recovery.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        1,
-        2,
-        4,
-        5
-      ],
-      "section": "How disaster recovery works"
-    },
-    {
-      "level": "conceptual",
-      "question": "How does a hot disaster recovery site differ from a cold site?",
-      "model_answer": "Award 1 mark for stating that a hot site is a fully functional backup site with important data mirrored to it, allowing immediate switchover, while a cold site only provides basic infrastructure like power and cooling, requiring hardware and data to be transported and installed before use.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        3
-      ],
-      "section": "Types of Disaster Recovery Sites"
-    },
-    {
-      "level": "conceptual",
-      "question": "Describe the purpose of the 'IT inventory' section in a disaster recovery plan.",
-      "model_answer": "Award 1 mark for explaining that the IT inventory section lists hardware and software assets, their criticality, and their ownership/usage status (leased, owned, service) to inform recovery priorities.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        2,
-        4
-      ],
-      "section": "7 Chapters of an IT Disaster Recovery Plan"
-    },
-    {
-      "level": "conceptual",
-      "question": "Explain the relationship between a Disaster Recovery Plan (DRP) and a Business Continuity Plan (BCP).",
-      "model_answer": "Award 1 mark for stating that a DRP is an essential part of a BCP, with DR explicitly focusing on restoring IT infrastructure and systems after a disaster, while BCP is broader.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        1
-      ],
-      "section": "What is a Disaster Recovery Plan"
-    },
-    {
-      "level": "deep",
-      "question": "Imagine an organization experiences a ransomware attack that encrypts all its critical data. How would the detective, corrective, and preventive elements of their disaster recovery plan be utilized in this scenario?",
-      "model_answer": "Award 1 mark for describing how: 1. Detective measures would identify the ransomware activity in real-time. 2. Corrective measures would involve initiating recovery procedures from backups to restore data and systems. 3. Preventive measures would include security tools and practices that were in place to block or mitigate the ransomware attack initially.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        1,
-        2
-      ],
-      "section": "How disaster recovery works"
-    },
-    {
-      "level": "deep",
-      "question": "An organization's core e-commerce platform has an RTO of 15 minutes and an RPO of 1 hour. If a disaster occurs at 2:00 PM, what is the latest time the system must be operational, and what is the maximum amount of data that could be lost?",
-      "model_answer": "Award 1 mark for correctly stating that the system must be operational by 2:15 PM, and the maximum amount of data that could be lost is data from the hour between 1:00 PM and 2:00 PM.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        2,
-        3
-      ],
-      "section": "Here is the typical structure of a DR plan"
-    },
-    {
-      "level": "deep",
-      "question": "Consider a scenario where a company relies heavily on a single, outdated server for all its operations. If this server experiences a catastrophic hardware failure, how would the absence of a robust disaster recovery plan, including off-site backups and alternative sites, impact the organization's ability to resume operations?",
-      "model_answer": "Award 1 mark for explaining that without a DRP, the organization would face significant downtime, potentially complete data loss, inability to resume core operations, and severe economic impact due to the lack of immediate access to functional systems or data, leading to prolonged interruptions.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        1,
-        2
-      ],
-      "section": "What is a Disaster Recovery Plan"
-    }
-  ]
+    "questions": [
+        {
+            "level": "surface",
+            "question": "What is the primary purpose of a disaster recovery plan (DRP)?",
+            "model_answer": "Award 1 mark for stating that a DRP describes how an organization can quickly resume work after an unplanned incident.",
+            "student_answer": "It describes how an organization can resume work quickly after an unplanned event.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately described the primary purpose of a disaster recovery plan.",
+            "source_pages": [
+                1,
+                2
+            ],
+            "section": "What is a Disaster Recovery Plan"
+        },
+        {
+            "level": "surface",
+            "question": "List three types of hazards that can trigger a disaster.",
+            "model_answer": "Award 1 mark for any three of the following: Technological hazards (e.g., power outages, pipeline explosions, transportation accidents), Pandemics and epidemics, Cyber attacks (e.g., malware, DDoS, ransomware attacks), Machine and hardware failure, Other intentional, human-caused threats (e.g., terrorist or biochemical attacks), Natural disasters (e.g., earthquakes, floods, tornados, hurricanes, wildfires).",
+            "student_answer": "Pandemics, cyber attacks, and natural disasters like floods or hurricanes.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately identified three distinct types of hazards that can trigger a disaster.",
+            "source_pages": [
+                1
+            ],
+            "section": "What is considered a disaster"
+        },
+        {
+            "level": "surface",
+            "question": "What is the Recovery Time Objective (RTO)?",
+            "model_answer": "Award 1 mark for defining RTO as the maximum acceptable length of time that systems and applications can be down without causing significant damage to the business.",
+            "student_answer": "RTO is how long systems can be offline without causing major damage to the business.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately defined RTO as the maximum acceptable downtime without significant business damage.",
+            "source_pages": [
+                2,
+                3
+            ],
+            "section": "Here is the typical structure of a DR plan"
+        },
+        {
+            "level": "conceptual",
+            "question": "Explain the role of detective measures within a disaster recovery plan.",
+            "model_answer": "Award 1 mark for explaining that detective measures focus on detecting or discovering unwanted events as they happen in real time to enable rapid recovery.",
+            "student_answer": "Detective measures detect unwanted events as they happen so the team knows when to act.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately described that detective measures identify unwanted events in real time to prompt action.",
+            "source_pages": [
+                1,
+                2,
+                4,
+                5
+            ],
+            "section": "How disaster recovery works"
+        },
+        {
+            "level": "conceptual",
+            "question": "How does a hot disaster recovery site differ from a cold site?",
+            "model_answer": "Award 1 mark for stating that a hot site is a fully functional backup site with important data mirrored to it, allowing immediate switchover, while a cold site only provides basic infrastructure like power and cooling, requiring hardware and data to be transported and installed before use.",
+            "student_answer": "A hot site is fully operational with data already mirrored so you can switch instantly. A cold site only provides the bare basics like power and networking, you have to bring hardware and data yourself.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately described the key differences between a hot site and a cold site, including data mirroring and immediate switchover for the hot site, and the need for hardware and data transport for the cold site.",
+            "source_pages": [
+                3
+            ],
+            "section": "Types of Disaster Recovery Sites"
+        },
+        {
+            "level": "conceptual",
+            "question": "Describe the purpose of the 'IT inventory' section in a disaster recovery plan.",
+            "model_answer": "Award 1 mark for explaining that the IT inventory section lists hardware and software assets, their criticality, and their ownership/usage status (leased, owned, service) to inform recovery priorities.",
+            "student_answer": "The IT inventory section just lists all the hardware and software the organization has along with whether each is owned, leased or used as a service.",
+            "score": 0.5,
+            "explanation": "Partial credit is awarded because the answer correctly identifies that the IT inventory lists hardware, software, and their ownership/usage status, but it omits the crucial aspect of asset criticality and its role in informing recovery priorities.",
+            "source_pages": [
+                2,
+                4
+            ],
+            "section": "7 Chapters of an IT Disaster Recovery Plan"
+        },
+        {
+            "level": "conceptual",
+            "question": "Explain the relationship between a Disaster Recovery Plan (DRP) and a Business Continuity Plan (BCP).",
+            "model_answer": "Award 1 mark for stating that a DRP is an essential part of a BCP, with DR explicitly focusing on restoring IT infrastructure and systems after a disaster, while BCP is broader.",
+            "student_answer": "DRP is part of the BCP. DR is specifically about IT systems while BCP is the whole business.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately stated that the DRP is a component of the BCP, with DR focusing on IT and BCP on the overall business.",
+            "source_pages": [
+                1
+            ],
+            "section": "What is a Disaster Recovery Plan"
+        },
+        {
+            "level": "deep",
+            "question": "Imagine an organization experiences a ransomware attack that encrypts all its critical data. How would the detective, corrective, and preventive elements of their disaster recovery plan be utilized in this scenario?",
+            "model_answer": "Award 1 mark for describing how: 1. Detective measures would identify the ransomware activity in real-time. 2. Corrective measures would involve initiating recovery procedures from backups to restore data and systems. 3. Preventive measures would include security tools and practices that were in place to block or mitigate the ransomware attack initially.",
+            "student_answer": "Detective measures would identify the attack in real time. Corrective would kick in to restore from backups. Preventive measures like monitoring should have tried to stop it from happening in the first place.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately identified the role of detective, corrective, and preventive measures in the context of a ransomware attack.",
+            "source_pages": [
+                1,
+                2
+            ],
+            "section": "How disaster recovery works"
+        },
+        {
+            "level": "deep",
+            "question": "An organization's core e-commerce platform has an RTO of 15 minutes and an RPO of 1 hour. If a disaster occurs at 2:00 PM, what is the latest time the system must be operational, and what is the maximum amount of data that could be lost?",
+            "model_answer": "Award 1 mark for correctly stating that the system must be operational by 2:15 PM, and the maximum amount of data that could be lost is data from the hour between 1:00 PM and 2:00 PM.",
+            "student_answer": "The system needs to be running by 2:15 PM. Data loss could go back as far as 1:00 PM, so up to 1 hour of transactions could be lost.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately identified both the system's recovery time and the maximum potential data loss.",
+            "source_pages": [
+                2,
+                3
+            ],
+            "section": "Here is the typical structure of a DR plan"
+        },
+        {
+            "level": "deep",
+            "question": "Consider a scenario where a company relies heavily on a single, outdated server for all its operations. If this server experiences a catastrophic hardware failure, how would the absence of a robust disaster recovery plan, including off-site backups and alternative sites, impact the organization's ability to resume operations?",
+            "model_answer": "Award 1 mark for explaining that without a DRP, the organization would face significant downtime, potentially complete data loss, inability to resume core operations, and severe economic impact due to the lack of immediate access to functional systems or data, leading to prolonged interruptions.",
+            "student_answer": "Without a DRP, the company would likely face total data loss and extended downtime with no way to quickly resume operations, causing serious financial damage.",
+            "score": 1.0,
+            "explanation": "Correct - you accurately described the significant consequences of lacking a disaster recovery plan, including data loss, downtime, and financial impact.",
+            "source_pages": [
+                1,
+                2
+            ],
+            "section": "What is a Disaster Recovery Plan"
+        }
+    ],
+    "feedback": "You've achieved an excellent score of 9.5 out of 10 on this quiz, demonstrating a strong understanding of Disaster Recovery principles. Your mastery of the typical DR plan structure, how disaster recovery functions, different site types, the definition of a DR plan, and what constitutes a disaster is commendable. The section on the 7 chapters of an IT Disaster Recovery Plan is an area where you can focus your attention for even greater expertise. To strengthen this, I recommend reviewing the specific content and purpose of each of the seven chapters, perhaps by creating a flowchart or summary table for each. With your current strong foundation, refining this specific area will undoubtedly lead to complete mastery of the topic."
 }

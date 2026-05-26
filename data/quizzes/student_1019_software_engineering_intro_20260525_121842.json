@@ -1,132 +1,134 @@
 {
-  "questions": [
-    {
-      "level": "surface",
-      "question": "What are the primary types of documents that are included as part of software?",
-      "model_answer": "Award 1 mark for any two of the following: software manual, design documents, system manuals. Accept paraphrases like 'user guides' or 'technical documentation'.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        1,
-        2,
-        3,
-        4
-      ],
-      "section": "The Term Software"
-    },
-    {
-      "level": "surface",
-      "question": "What is the term for compiled code that can run independently of the source program?",
-      "model_answer": "Award 1 mark for 'Executable' or 'Executable codes'.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        1,
-        2
-      ],
-      "section": "Today’s software is comprised of"
-    },
-    {
-      "level": "surface",
-      "question": "What are programs or code written by programmers in a specific programming language called?",
-      "model_answer": "Award 1 mark for 'Source Code'.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        1,
-        2
-      ],
-      "section": "Today’s software is comprised of"
-    },
-    {
-      "level": "conceptual",
-      "question": "Explain the role of data structures within software.",
-      "model_answer": "Award 1 mark for stating that data structures enable programs to adequately manipulate information. Accept any explanation that links data structures to the organization and processing of data within a program.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        1,
-        2
-      ],
-      "section": "Today’s software is comprised of"
-    },
-    {
-      "level": "conceptual",
-      "question": "Describe the concept of a 'platform' as it relates to software.",
-      "model_answer": "Award 1 mark for explaining that a platform refers to the specific hardware and operating system considerations for which software is developed. Accept any definition that includes both hardware and OS requirements.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        1,
-        2
-      ],
-      "section": "Today’s software is comprised of"
-    },
-    {
-      "level": "conceptual",
-      "question": "How does Software Engineering differ from Computer Science in terms of focus?",
-      "model_answer": "Award 1 mark for stating that Software Engineering focuses on the practical, hands-on approach to building and maintaining software systems throughout their lifecycle, while Computer Science focuses on the theoretical and mathematical aspects of how computers work. Accept any comparison that highlights the practical vs. theoretical distinction.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        4,
-        5
-      ],
-      "section": "Computer Science VS Software Engineering"
-    },
-    {
-      "level": "conceptual",
-      "question": "What does the term 'engineering' generally mean in the context of problem-solving?",
-      "model_answer": "Award 1 mark for any of the following: to make, achieve, or get through contrivance or guile; to design ways, roads, bridges, machines, etc.; or to apply knowledge to develop machinery and equipment. Accept descriptions that emphasize problem-solving through systematic methods or invention.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        2,
-        3
-      ],
-      "section": "The Term Engineering"
-    },
-    {
-      "level": "deep",
-      "question": "Imagine you are tasked with developing a new software system for a financial institution that requires extremely high reliability and security. Based on the provided definitions, which definition of Software Engineering best aligns with these requirements and why?",
-      "model_answer": "Award 1 mark for selecting a definition that emphasizes systematic, disciplined, quantifiable approaches, fault-free production, user satisfaction, and adherence to time/budget constraints (e.g., IEEE definition [29] or the definition emphasizing fault-free software [38]). The justification must link the chosen definition's keywords (e.g., 'systematic', 'disciplined', 'fault-free') to the need for reliability and security in a financial context.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        3,
-        4
-      ],
-      "section": "The Term Software Engineering"
-    },
-    {
-      "level": "deep",
-      "question": "If a software development project is facing significant budget constraints and tight deadlines, which aspect of Software Engineering, as described, would be most critical to address to ensure successful delivery?",
-      "model_answer": "Award 1 mark for identifying 'cost-effective solutions' [26, 37] or 'delivered on time and within budget' [38] as the most critical aspect. The justification should explain how focusing on these elements directly addresses the stated constraints of budget and deadlines.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": []
-    },
-    {
-      "level": "deep",
-      "question": "Consider the description of software including 'instructions' and 'data structures'. If a user reports that a software application is performing calculations incorrectly but the user interface appears functional, where in the software's composition would a developer primarily investigate the issue?",
-      "model_answer": "Award 1 mark for indicating that the developer would investigate the 'instructions' (computer programs) or 'data structures'. The justification must explain that incorrect calculations stem from the logic of the instructions or how data is manipulated by the data structures, rather than the user interface components.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        1,
-        2
-      ],
-      "section": "Today’s software is comprised of"
-    }
-  ]
+    "questions": [
+        {
+            "level": "surface",
+            "question": "What are the primary types of documents that are included as part of software?",
+            "model_answer": "Award 1 mark for any two of the following: software manual, design documents, system manuals. Accept paraphrases like 'user guides' or 'technical documentation'.",
+            "student_answer": "User manuals and design documents like UML diagrams.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately identified two primary types of documents included as part of software: user manuals and design documents.",
+            "source_pages": [
+                1,
+                2,
+                3,
+                4
+            ],
+            "section": "The Term Software"
+        },
+        {
+            "level": "surface",
+            "question": "What is the term for compiled code that can run independently of the source program?",
+            "model_answer": "Award 1 mark for 'Executable' or 'Executable codes'.",
+            "student_answer": "Executable code.",
+            "score": 1.0,
+            "explanation": "Correct - you accurately identified the term 'Executable code'.",
+            "source_pages": [
+                1,
+                2
+            ],
+            "section": "Today's software is comprised of"
+        },
+        {
+            "level": "surface",
+            "question": "What are programs or code written by programmers in a specific programming language called?",
+            "model_answer": "Award 1 mark for 'Source Code'.",
+            "student_answer": "Source code.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately identified the term 'Source Code'.",
+            "source_pages": [
+                1,
+                2
+            ],
+            "section": "Today's software is comprised of"
+        },
+        {
+            "level": "conceptual",
+            "question": "Explain the role of data structures within software.",
+            "model_answer": "Award 1 mark for stating that data structures enable programs to adequately manipulate information. Accept any explanation that links data structures to the organization and processing of data within a program.",
+            "student_answer": "Data structures allow programs to organize and manipulate information efficiently, which is essential for producing the right outputs.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately identified that data structures enable programs to organize and manipulate information efficiently.",
+            "source_pages": [
+                1,
+                2
+            ],
+            "section": "Today's software is comprised of"
+        },
+        {
+            "level": "conceptual",
+            "question": "Describe the concept of a 'platform' as it relates to software.",
+            "model_answer": "Award 1 mark for explaining that a platform refers to the specific hardware and operating system considerations for which software is developed. Accept any definition that includes both hardware and OS requirements.",
+            "student_answer": "A platform refers to the hardware and operating system requirements that the software is designed to run on.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately defined a platform as the hardware and operating system requirements for which software is designed.",
+            "source_pages": [
+                1,
+                2
+            ],
+            "section": "Today's software is comprised of"
+        },
+        {
+            "level": "conceptual",
+            "question": "How does Software Engineering differ from Computer Science in terms of focus?",
+            "model_answer": "Award 1 mark for stating that Software Engineering focuses on the practical, hands-on approach to building and maintaining software systems throughout their lifecycle, while Computer Science focuses on the theoretical and mathematical aspects of how computers work. Accept any comparison that highlights the practical vs. theoretical distinction.",
+            "student_answer": "Software Engineering focuses on practically building and maintaining software. Computer Science focuses more on theory and math behind how computers work.",
+            "score": 1.0,
+            "explanation": "Correct - you accurately captured the practical focus of Software Engineering and the theoretical focus of Computer Science.",
+            "source_pages": [
+                4,
+                5
+            ],
+            "section": "Computer Science VS Software Engineering"
+        },
+        {
+            "level": "conceptual",
+            "question": "What does the term 'engineering' generally mean in the context of problem-solving?",
+            "model_answer": "Award 1 mark for any of the following: to make, achieve, or get through contrivance or guile; to design ways, roads, bridges, machines, etc.; or to apply knowledge to develop machinery and equipment. Accept descriptions that emphasize problem-solving through systematic methods or invention.",
+            "student_answer": "Engineering means applying knowledge and processes to design solutions to problems, whether machines, structures, or in our case, software.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately described engineering as applying knowledge and processes to design solutions to problems.",
+            "source_pages": [
+                2,
+                3
+            ],
+            "section": "The Term Engineering"
+        },
+        {
+            "level": "deep",
+            "question": "Imagine you are tasked with developing a new software system for a financial institution that requires extremely high reliability and security. Based on the provided definitions, which definition of Software Engineering best aligns with these requirements and why?",
+            "model_answer": "Award 1 mark for selecting a definition that emphasizes systematic, disciplined, quantifiable approaches, fault-free production, user satisfaction, and adherence to time/budget constraints (e.g., IEEE definition [29] or the definition emphasizing fault-free software [38]). The justification must link the chosen definition's keywords (e.g., 'systematic', 'disciplined', 'fault-free') to the need for reliability and security in a financial context.",
+            "student_answer": "The definition that says software engineering aims to produce fault-free software that satisfies user needs and is delivered on time and within budget fits best. Financial software must be fault-free given the consequences of failure.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately selected the definition emphasizing fault-free production and correctly justified its relevance to the high reliability and security needs of financial software.",
+            "source_pages": [
+                3,
+                4
+            ],
+            "section": "The Term Software Engineering"
+        },
+        {
+            "level": "deep",
+            "question": "If a software development project is facing significant budget constraints and tight deadlines, which aspect of Software Engineering, as described, would be most critical to address to ensure successful delivery?",
+            "model_answer": "Award 1 mark for identifying 'cost-effective solutions' [26, 37] or 'delivered on time and within budget' [38] as the most critical aspect. The justification should explain how focusing on these elements directly addresses the stated constraints of budget and deadlines.",
+            "student_answer": "Cost-effectiveness and delivering on time and within budget would be most critical. Software engineering practices help manage these constraints through disciplined development processes.",
+            "score": 1.0,
+            "explanation": "Correct - you accurately identified both cost-effectiveness and delivering on time/within budget as the most critical aspects, and your justification aligns with managing the stated constraints.",
+            "source_pages": [],
+            "section": ""
+        },
+        {
+            "level": "deep",
+            "question": "Consider the description of software including 'instructions' and 'data structures'. If a user reports that a software application is performing calculations incorrectly but the user interface appears functional, where in the software's composition would a developer primarily investigate the issue?",
+            "model_answer": "Award 1 mark for indicating that the developer would investigate the 'instructions' (computer programs) or 'data structures'. The justification must explain that incorrect calculations stem from the logic of the instructions or how data is manipulated by the data structures, rather than the user interface components.",
+            "student_answer": "The developer would look at the instructions and data structures since that's where calculation logic lives. The UI being fine means the problem is in the underlying program logic or how data is being manipulated.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately identified that the developer would investigate the instructions and data structures and explained that this is where calculation logic resides.",
+            "source_pages": [
+                1,
+                2
+            ],
+            "section": "Today's software is comprised of"
+        }
+    ],
+    "feedback": "Congratulations on a perfect score of 10/10 on the Software Engineering Intro quiz, demonstrating a comprehensive understanding of the material. You excelled in all areas, particularly in differentiating Computer Science from Software Engineering, understanding the core terms like 'Engineering' and 'Software', and grasping the composition of modern software. Since no weak sections were identified, you can continue building on this strong foundation. Keep up the excellent work as you move forward in your studies, your thorough preparation is clearly paying off. This outstanding performance indicates you're well-prepared for more advanced topics."
 }

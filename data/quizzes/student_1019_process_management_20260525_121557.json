@@ -1,137 +1,139 @@
 {
-  "questions": [
-    {
-      "level": "surface",
-      "question": "What is the term used to identify a process that has finished execution but is waiting for removal from main memory?",
-      "model_answer": "Award 1 mark for 'terminated state'.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        3,
-        4,
-        7,
-        8
-      ],
-      "section": "PROCESSSTATE"
-    },
-    {
-      "level": "surface",
-      "question": "What system call is typically used to create a new process?",
-      "model_answer": "Award 1 mark for 'fork()'.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        6,
-        7,
-        8
-      ],
-      "section": "ProcessCreation"
-    },
-    {
-      "level": "surface",
-      "question": "What are the two main types of processes that can execute concurrently on an operating system?",
-      "model_answer": "Award 1 mark for any two of the following: independent processes, cooperating processes.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        8,
-        9
-      ],
-      "section": "INTER-PROCESSCOMMUNICATION"
-    },
-    {
-      "level": "conceptual",
-      "question": "Describe the purpose of the stack in process memory management.",
-      "model_answer": "Award 1 mark for explaining that the stack is used for local variables and function return values. Accept explanations referencing space reservation upon declaration and freeing when out of scope.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": []
-    },
-    {
-      "level": "conceptual",
-      "question": "Explain the relationship between a parent process and a child process, including how they are identified.",
-      "model_answer": "Award 1 mark for explaining that a process that creates another is the parent, and the created process is the child. Accept mention of parent PID (PPID) being stored for each process.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        4,
-        5,
-        6
-      ],
-      "section": "Diagramofprocessstate"
-    },
-    {
-      "level": "conceptual",
-      "question": "Contrast the mechanisms of Shared Memory systems and Message Passing systems for inter-process communication.",
-      "model_answer": "Award 1 mark for describing that Shared Memory is faster but more complex to set up and typically for the same computer, while Message Passing requires system calls, is slower, but simpler and works across multiple computers.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        8,
-        9
-      ],
-      "section": "INTER-PROCESSCOMMUNICATION"
-    },
-    {
-      "level": "conceptual",
-      "question": "What is a process control block (PCB), and what essential information does it store?",
-      "model_answer": "Award 1 mark for defining the PCB as a data structure managed by the OS to store information for tracking a process. Accept any two of the following pieces of information: Process ID, parent process ID, process state, CPU scheduling information, memory management information, I/O status, accounting information, process privileges, program counter, CPU registers.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        4,
-        5
-      ],
-      "section": "Diagramofprocessstate"
-    },
-    {
-      "level": "deep",
-      "question": "If a process requires frequent, large data transfers to other concurrently running processes on the same machine, which inter-process communication method would be more suitable, and why?",
-      "model_answer": "Award 1 mark for choosing Shared Memory AND justifying it by stating it is faster for large data transfers and works well on the same computer, as opposed to Message Passing which is slower due to system calls.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        8,
-        9
-      ],
-      "section": "INTER-PROCESSCOMMUNICATION"
-    },
-    {
-      "level": "deep",
-      "question": "Consider a scenario where a parent process creates a child process using `fork()`. Describe two distinct approaches the parent process can take after the child creation, and the implications of each.",
-      "model_answer": "Award 1 mark for describing two of the following options with their implications: 1. Parent waits for the child to terminate (using `wait()`), blocking its own execution until the child finishes. 2. Parent runs concurrently with the child, continuing its own processing without waiting (e.g., background task in a shell).",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        6,
-        7
-      ],
-      "section": "ProcessCreation"
-    },
-    {
-      "level": "deep",
-      "question": "A process is in a 'Waiting' state. What are at least three specific events or resource availabilities that could cause it to transition to the 'Ready' or 'Running' state?",
-      "model_answer": "Award 1 mark for listing any three of the following potential transitions from the 'Waiting' state: waiting for keyboard input, disk access request, inter-process messages, a timer to go off, or a child process to finish.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        3,
-        4,
-        5,
-        7,
-        8
-      ],
-      "section": "PROCESSSTATE"
-    }
-  ]
+    "questions": [
+        {
+            "level": "surface",
+            "question": "What is the term used to identify a process that has finished execution but is waiting for removal from main memory?",
+            "model_answer": "Award 1 mark for 'terminated state'.",
+            "student_answer": "Terminated.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you correctly identified the 'terminated state' as the process that has finished execution but is waiting for removal from main memory.",
+            "source_pages": [
+                3,
+                4,
+                7,
+                8
+            ],
+            "section": "PROCESSSTATE"
+        },
+        {
+            "level": "surface",
+            "question": "What system call is typically used to create a new process?",
+            "model_answer": "Award 1 mark for 'fork()'.",
+            "student_answer": "fork().",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you identified the 'fork()' system call as the typical method for creating a new process.",
+            "source_pages": [
+                6,
+                7,
+                8
+            ],
+            "section": "ProcessCreation"
+        },
+        {
+            "level": "surface",
+            "question": "What are the two main types of processes that can execute concurrently on an operating system?",
+            "model_answer": "Award 1 mark for any two of the following: independent processes, cooperating processes.",
+            "student_answer": "Independent and cooperating processes.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately identified the two main types of processes as independent and cooperating.",
+            "source_pages": [
+                8,
+                9
+            ],
+            "section": "INTER-PROCESSCOMMUNICATION"
+        },
+        {
+            "level": "conceptual",
+            "question": "Describe the purpose of the stack in process memory management.",
+            "model_answer": "Award 1 mark for explaining that the stack is used for local variables and function return values. Accept explanations referencing space reservation upon declaration and freeing when out of scope.",
+            "student_answer": "The stack is for local variables and function return values. Space is reserved when variables are declared and freed when they go out of scope.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately described the stack's purpose for local variables and function return values, including its allocation and deallocation behavior.",
+            "source_pages": [],
+            "section": ""
+        },
+        {
+            "level": "conceptual",
+            "question": "Explain the relationship between a parent process and a child process, including how they are identified.",
+            "model_answer": "Award 1 mark for explaining that a process that creates another is the parent, and the created process is the child. Accept mention of parent PID (PPID) being stored for each process.",
+            "student_answer": "The creating process is the parent and the new process is the child. Each process has a PID and the parent's PID, the PPID, is also stored.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately described the parent-child relationship and the identification of processes using PIDs and PPIDs.",
+            "source_pages": [
+                4,
+                5,
+                6
+            ],
+            "section": "Diagramofprocessstate"
+        },
+        {
+            "level": "conceptual",
+            "question": "Contrast the mechanisms of Shared Memory systems and Message Passing systems for inter-process communication.",
+            "model_answer": "Award 1 mark for describing that Shared Memory is faster but more complex to set up and typically for the same computer, while Message Passing requires system calls, is slower, but simpler and works across multiple computers.",
+            "student_answer": "Shared memory is faster but complex to set up and works better on the same computer. Message passing is slower since it needs system calls for each transfer but is simpler and works across multiple computers.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately contrasted the speed, complexity, and typical deployment environments of both shared memory and message passing systems.",
+            "source_pages": [
+                8,
+                9
+            ],
+            "section": "INTER-PROCESSCOMMUNICATION"
+        },
+        {
+            "level": "conceptual",
+            "question": "What is a process control block (PCB), and what essential information does it store?",
+            "model_answer": "Award 1 mark for defining the PCB as a data structure managed by the OS to store information for tracking a process. Accept any two of the following pieces of information: Process ID, parent process ID, process state, CPU scheduling information, memory management information, I/O status, accounting information, process privileges, program counter, CPU registers.",
+            "student_answer": "PCB is a data structure managed by the OS to track a process. It stores things like the process state, PID, program counter, and CPU registers.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately defined the PCB and listed multiple essential pieces of information it stores.",
+            "source_pages": [
+                4,
+                5
+            ],
+            "section": "Diagramofprocessstate"
+        },
+        {
+            "level": "deep",
+            "question": "If a process requires frequent, large data transfers to other concurrently running processes on the same machine, which inter-process communication method would be more suitable, and why?",
+            "model_answer": "Award 1 mark for choosing Shared Memory AND justifying it by stating it is faster for large data transfers and works well on the same computer, as opposed to Message Passing which is slower due to system calls.",
+            "student_answer": "Shared memory because it's faster for large data and avoids the overhead of system calls that message passing requires.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you identified shared memory and accurately justified its suitability for large data transfers due to its speed and avoidance of system call overhead.",
+            "source_pages": [
+                8,
+                9
+            ],
+            "section": "INTER-PROCESSCOMMUNICATION"
+        },
+        {
+            "level": "deep",
+            "question": "Consider a scenario where a parent process creates a child process using `fork()`. Describe two distinct approaches the parent process can take after the child creation, and the implications of each.",
+            "model_answer": "Award 1 mark for describing two of the following options with their implications: 1. Parent waits for the child to terminate (using `wait()`), blocking its own execution until the child finishes. 2. Parent runs concurrently with the child, continuing its own processing without waiting (e.g., background task in a shell).",
+            "student_answer": "The parent can use wait() to block until the child finishes, or it can run concurrently and continue its own processing without waiting.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately described both the parent waiting for the child and the parent running concurrently, along with their implications.",
+            "source_pages": [
+                6,
+                7
+            ],
+            "section": "ProcessCreation"
+        },
+        {
+            "level": "deep",
+            "question": "A process is in a 'Waiting' state. What are at least three specific events or resource availabilities that could cause it to transition to the 'Ready' or 'Running' state?",
+            "model_answer": "Award 1 mark for listing any three of the following potential transitions from the 'Waiting' state: waiting for keyboard input, disk access request, inter-process messages, a timer to go off, or a child process to finish.",
+            "student_answer": "The process could transition when keyboard input arrives, when disk access completes, or when a timer goes off.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately identified three distinct events (keyboard input, disk access completion, and timer expiration) that can transition a process from a 'Waiting' state.",
+            "source_pages": [
+                3,
+                4,
+                5,
+                7,
+                8
+            ],
+            "section": "PROCESSSTATE"
+        }
+    ],
+    "feedback": "You achieved a perfect score of 10.0 out of 10 on this quiz, demonstrating a comprehensive understanding of process management concepts. Your mastery of Diagram of Process State, Inter-Process Communication, Process State, and Process Creation is particularly commendable. Since no weak sections were identified, continue to build upon this strong foundation. Consider exploring advanced topics or real-world case studies to deepen your knowledge even further. Your excellent performance indicates you are well-prepared to tackle more complex challenges in this area."
 }

@@ -1,0 +1,302 @@
+{
+    "001": {
+        "topic_title": "ADDER CIRCUIT",
+        "quiz_file": "student_1019_adder_circuit_20260525_121048.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "You've achieved an excellent score of 9.75 out of 10 on the ADDER CIRCUIT quiz, demonstrating a strong grasp of the core concepts. Your performance in COMPUTER ARCHITECTURE ADDER CIRCUIT, Full Adders, and Half Adders is particularly commendable, reflecting a deep understanding of these foundational elements. As there are no weak sections identified, this indicates a comprehensive mastery of the quiz material. To maintain this high level of performance, consider exploring more complex adder architectures like carry-lookahead adders or ripple-carry adders in your future studies. Your strong performance here is a great foundation for further exploration of digital logic design."
+    },
+    "002": {
+        "topic_title": "ADDER CIRCUIT",
+        "quiz_file": "student_1019_adder_circuit_20260525_121056.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "You've demonstrated a strong understanding of adder circuits with a score of 9.2 out of 10, indicating a solid grasp of the core concepts. Your mastery of Computer Architecture Adder Circuits and Full Adders is particularly commendable, showcasing excellent performance in these key areas. The section on Half Adders is an area where you can focus for even greater proficiency. To improve in this area, I recommend reviewing the fundamental logic and truth table for Half Adders, perhaps by working through a few more practice problems specifically on their implementation. Keep up the great work; refining your understanding of Half Adders will make your overall knowledge of adder circuits truly comprehensive."
+    },
+    "003": {
+        "topic_title": "ADDER CIRCUIT",
+        "quiz_file": "student_1019_adder_circuit_20260525_121108.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "You achieved a strong score of 8.7 out of 10 on the ADDER CIRCUIT quiz, indicating a solid understanding of the core concepts. Your mastery of COMPUTER ARCHITECTURE ADDER CIRCUIT and Full Adders is particularly commendable, showcasing excellent application of knowledge in these areas. The section on Half Adders is an area where you can further refine your understanding. To strengthen your grasp on Half Adders, I recommend reviewing their truth tables and logic diagrams, focusing on how they form the basis for more complex adder circuits. With a little more focus on this specific component, you're well on your way to mastering all aspects of adder circuits."
+    },
+    "004": {
+        "topic_title": "ADDER CIRCUIT",
+        "quiz_file": "student_1019_adder_circuit_20260525_121115.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "You've achieved a score of 8.5 out of 10 on the ADDER CIRCUIT quiz, indicating a strong grasp of most of the concepts covered. While no specific strong sections were identified, your overall performance suggests a solid foundational understanding. The areas that require a bit more attention are Full Adders and Half Adders, where a few more details could be solidified. To improve in these areas, I recommend reviewing the truth tables and logic diagrams for both Half Adders and Full Adders, paying close attention to how the carry-in and carry-out signals function in Full Adders. With focused review on these specific components, you're well-positioned to master adder circuits completely."
+    },
+    "005": {
+        "topic_title": "ADDER CIRCUIT",
+        "quiz_file": "student_1019_adder_circuit_20260525_121122.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "You've demonstrated a strong grasp of adder circuits with a score of 8.95 out of 10, indicating a solid understanding of the core concepts. Your mastery of computer architecture adder circuits and half adders is particularly commendable. The area that requires a bit more focus is full adders. To strengthen your understanding of full adders, I recommend working through additional practice problems that specifically involve their logic and truth tables, paying close attention to how they handle the carry-in bit. Keep up the excellent work; your performance shows you're well on your way to mastering this topic!"
+    },
+    "006": {
+        "topic_title": "ADDER CIRCUIT",
+        "quiz_file": "student_1019_adder_circuit_20260525_121129.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "You've achieved a solid score of 8/10 on the ADDER CIRCUIT quiz, indicating a good grasp of the fundamental concepts. It's great that you performed so well on Half Adders; this foundational knowledge is crucial. The areas that require a bit more focus are COMPUTER ARCHITECTURE ADDER CIRCUIT and Full Adders. To strengthen your understanding of Full Adders, I recommend working through a few more practice problems that illustrate how they are constructed from Half Adders and how they handle the carry-in bit. For the COMPUTER ARCHITECTURE aspect, reviewing how different adder designs (like ripple-carry and look-ahead carry) impact performance would be beneficial. Keep up the great work; with a little targeted practice on these specific areas, you'll be mastering adders completely in no time!"
+    },
+    "007": {
+        "topic_title": "ADDER CIRCUIT",
+        "quiz_file": "student_1019_adder_circuit_20260525_121137.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "You've achieved a strong score of 9/10 on the ADDER CIRCUIT quiz, indicating a solid understanding of the core concepts. Your mastery of COMPUTER ARCHITECTURE ADDER CIRCUIT principles and Half Adders is particularly commendable. The area that requires a bit more focus is your understanding of Full Adders. To strengthen this, I recommend reviewing the truth tables and logic diagrams for Full Adders, paying close attention to how they incorporate the carry-in bit. With this targeted review, you'll be able to confidently tackle Full Adders in your next assessment."
+    },
+    "008": {
+        "topic_title": "ADDER CIRCUIT",
+        "quiz_file": "student_1019_adder_circuit_20260525_121143.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "You've achieved an excellent score of 9.75 out of 10 on the ADDER CIRCUIT quiz, demonstrating a very strong grasp of the topic. Your mastery of COMPUTER ARCHITECTURE ADDER CIRCUIT, Full Adders, and Half Adders is particularly commendable. Since no weak sections were identified, you can focus on solidifying your existing knowledge by exploring more complex adder designs or their real-world applications. Consider reviewing advanced topics like carry-lookahead adders or ripple-carry adders to deepen your understanding further. This high level of performance indicates you are well-prepared to tackle more challenging concepts in digital logic design."
+    },
+    "009": {
+        "topic_title": "ADDER CIRCUIT",
+        "quiz_file": "student_1019_adder_circuit_20260525_121201.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "You achieved an excellent score of 9.5 out of 10 on the ADDER CIRCUIT quiz, demonstrating a strong grasp of the core concepts. Your performance in the Half Adders section was particularly outstanding, highlighting a solid understanding of their functionality. The Full Adders section is an area where you can further refine your knowledge. To improve in this area, I recommend reviewing the truth tables and logic diagrams for full adders, focusing on how the carry-in bit affects the sum and carry-out. With continued focus on these details, you'll be able to master full adders just as effectively as half adders."
+    },
+    "010": {
+        "topic_title": "ADDER CIRCUIT",
+        "quiz_file": "student_1019_adder_circuit_20260525_121208.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "You've achieved a strong score of 8.7 out of 10 on the ADDER CIRCUIT quiz, indicating a solid understanding of the core concepts. Your mastery of Full Adders is particularly impressive and shows you've grasped complex logic well. The area that would benefit from a little more focus is Half Adders. To strengthen your understanding here, I recommend revisiting the truth tables and logic diagrams for Half Adders, perhaps by working through a few practice problems that specifically isolate their function. With a bit more targeted practice on Half Adders, you'll be able to tackle all aspects of adder circuits with even greater confidence."
+    },
+    "011": {
+        "topic_title": "Disaster Recovery Plan",
+        "quiz_file": "student_1019_disaster_recovery_plan_20260525_121220.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "You've achieved a strong score of 8.7 out of 10 on this quiz, indicating a solid understanding of Disaster Recovery Plans. It's excellent that you've mastered the core concepts, including how disaster recovery operates, the different types of recovery sites, the definition of a DR plan itself, and what constitutes a disaster. The section on the typical structure of a DR plan is an area where you can focus your attention for further improvement. To strengthen this, try creating a template or outline of a DR plan and filling in the key components for each section. With your current grasp of the fundamentals, refining this structural knowledge will undoubtedly lead to even greater expertise."
+    },
+    "012": {
+        "topic_title": "Disaster Recovery Plan",
+        "quiz_file": "student_1019_disaster_recovery_plan_20260525_121228.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "You achieved a perfect score of 10/10 on this quiz, demonstrating an excellent grasp of the Disaster Recovery Plan topic. Your understanding is particularly strong in areas such as the typical structure of a DR plan, how disaster recovery works, the different types of DR sites, the definition of a DR plan, and what constitutes a disaster. Since no weak sections were identified, you can confidently move forward with your current knowledge base. Continue to build on this solid foundation as you explore more advanced concepts in this area. This outstanding performance indicates you are well-prepared for future challenges in disaster recovery planning."
+    },
+    "013": {
+        "topic_title": "Disaster Recovery Plan",
+        "quiz_file": "student_1019_disaster_recovery_plan_20260525_121236.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "You've achieved a perfect score of 10/10 on this quiz, demonstrating a comprehensive understanding of the Disaster Recovery Plan topic. Your mastery of all assessed areas, including the typical structure of a DR plan, how disaster recovery works, planning strategies, types of sites, and the fundamental definition of a DR plan and what constitutes a disaster, is truly commendable. Since no weak sections were identified, you can confidently move forward, knowing you have a strong foundation. To maintain this excellent level of knowledge, consider exploring advanced DR concepts like cloud-based DR solutions or specific regulatory compliance requirements. Congratulations on this outstanding performance; your dedication to mastering this subject is clearly evident!"
+    },
+    "014": {
+        "topic_title": "Disaster Recovery Plan",
+        "quiz_file": "student_1019_disaster_recovery_plan_20260525_121246.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "Congratulations on achieving a perfect score of 10/10 on the Disaster Recovery Plan quiz, demonstrating a comprehensive understanding of the subject. You excelled in all areas, particularly in identifying the typical structure of a DR plan, understanding how disaster recovery works, defining what a Disaster Recovery Plan is, and recognizing what constitutes a disaster. Your mastery across all sections is commendable and shows you have a very strong grasp of these fundamental concepts. Keep up this excellent momentum as you continue your studies in this important area. Your thorough understanding sets a fantastic foundation for future learning."
+    },
+    "015": {
+        "topic_title": "Disaster Recovery Plan",
+        "quiz_file": "student_1019_disaster_recovery_plan_20260525_121252.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "You've achieved an excellent score of 9.5 out of 10 on this quiz, demonstrating a strong understanding of Disaster Recovery principles. Your mastery of the typical DR plan structure, how disaster recovery functions, different site types, the definition of a DR plan, and what constitutes a disaster is commendable. The section on the 7 chapters of an IT Disaster Recovery Plan is an area where you can focus your attention for even greater expertise. To strengthen this, I recommend reviewing the specific content and purpose of each of the seven chapters, perhaps by creating a flowchart or summary table for each. With your current strong foundation, refining this specific area will undoubtedly lead to complete mastery of the topic."
+    },
+    "016": {
+        "topic_title": "Disaster Recovery Plan",
+        "quiz_file": "student_1019_disaster_recovery_plan_20260525_121259.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "Congratulations on achieving a perfect score of 10.0 out of 10 on the Disaster Recovery Plan quiz, demonstrating a comprehensive understanding of the topic. You've excelled in identifying the typical structure of a DR plan, understanding how disaster recovery works, differentiating between types of disaster recovery sites, and defining what a disaster recovery plan is. With no weak sections identified, you are in an excellent position to continue building on this strong foundation. Keep up the fantastic work and continue to explore advanced concepts in this area. Your mastery of these fundamentals is a great sign for future success in understanding and implementing DR strategies."
+    },
+    "017": {
+        "topic_title": "Disaster Recovery Plan",
+        "quiz_file": "student_1019_disaster_recovery_plan_20260525_121305.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "You've achieved a score of 7.7 out of 10 on the Disaster Recovery Plan quiz, indicating a solid understanding of the core concepts. It's great that you have a strong grasp of how disaster recovery works, the different types of recovery sites, and the fundamental purpose of a DR plan. The area that requires a bit more focus is understanding the typical structure of a DR plan. To improve in this area, I recommend reviewing sample DR plans and identifying common sections like the executive summary, roles and responsibilities, and activation procedures. Keep up the good work; with a little targeted practice on DR plan structure, you'll be able to solidify your knowledge across the entire topic."
+    },
+    "018": {
+        "topic_title": "Disaster Recovery Plan",
+        "quiz_file": "student_1019_disaster_recovery_plan_20260525_121310.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "Congratulations on achieving a perfect score of 10/10 on the Disaster Recovery Plan quiz, which demonstrates a comprehensive understanding of the topic. You excelled in identifying the typical structure of a DR plan, understanding how disaster recovery works, differentiating between types of disaster recovery sites, defining what a disaster recovery plan is, and recognizing what constitutes a disaster. Since all sections were identified as strong, continue to build on this excellent foundation by seeking out more complex scenarios or case studies to apply your knowledge. This perfect score is a fantastic indicator of your readiness to tackle more advanced material in this area."
+    },
+    "019": {
+        "topic_title": "Disaster Recovery Plan",
+        "quiz_file": "student_1019_disaster_recovery_plan_20260525_121321.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "Congratulations on a perfect score of 10/10 on the Disaster Recovery Plan quiz, demonstrating a comprehensive understanding of the topic. You excelled in all areas, particularly in identifying the typical structure of a DR plan, understanding how disaster recovery works, and defining the various types of disaster recovery sites. Since no weak sections were identified, you have a very strong foundation in this subject. Continue to build on this excellent knowledge by exploring real-world case studies of successful disaster recovery implementation. Your mastery of these core concepts positions you well for future success in this area."
+    },
+    "020": {
+        "topic_title": "Disaster Recovery Plan",
+        "quiz_file": "student_1019_disaster_recovery_plan_20260525_121327.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "Congratulations on achieving a perfect score of 10/10 on the Disaster Recovery Plan quiz, demonstrating a comprehensive understanding of the topic. You excelled in identifying the typical structure of a DR plan, understanding how disaster recovery works, differentiating between types of DR sites, defining what a DR plan is, and recognizing what constitutes a disaster. Since no weak sections were identified, continue to build on this strong foundation by exploring real-world case studies of successful and unsuccessful disaster recovery implementations. This will further solidify your knowledge and prepare you for practical application. Your mastery of these core concepts is an excellent starting point for further exploration in this critical area."
+    },
+    "021": {
+        "topic_title": "Incident Response",
+        "quiz_file": "student_1019_incident_response_20260525_121344.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "You achieved a perfect score of 10/10 on this quiz, demonstrating a comprehensive understanding of the core concepts of incident response. Your mastery of creating an incident response plan, understanding the phases within frameworks, and the foundational elements like definitions and importance is truly commendable. Since no weak sections were identified, you can continue to build on this excellent foundation. To further solidify your knowledge, consider exploring real-world case studies of successful incident responses and how the frameworks you've learned were applied. Congratulations on this outstanding performance; your dedication to understanding incident response is clearly paying off."
+    },
+    "022": {
+        "topic_title": "Incident Response",
+        "quiz_file": "student_1019_incident_response_20260525_121350.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "Congratulations on achieving a perfect score of 10.0 out of 10 on the Incident Response quiz; this demonstrates a comprehensive and excellent understanding of the topic. You demonstrated exceptional mastery in areas such as creating an incident response plan, understanding the phases within incident response frameworks, and identifying different types of security incidents and response teams. Since no weak sections were identified, you can be confident in your current knowledge base regarding incident response. Continue to build on this strong foundation by seeking out real-world case studies to see these concepts in action. Your performance indicates you are very well-prepared to handle challenges in incident response."
+    },
+    "023": {
+        "topic_title": "Incident Response",
+        "quiz_file": "student_1019_incident_response_20260525_121358.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "Congratulations on achieving a perfect score of 10/10 on the Incident Response quiz, demonstrating an excellent grasp of the material. You demonstrated a strong understanding across all the topics covered, including the creation of incident response plans, various frameworks, and the fundamental importance of such plans. Since no weak sections were identified, you've clearly mastered the current scope of this topic. Continue to build on this solid foundation by seeking out real-world case studies to see these concepts in action. Your excellent performance indicates you are well-prepared to tackle more advanced aspects of cybersecurity incident management."
+    },
+    "024": {
+        "topic_title": "Incident Response",
+        "quiz_file": "student_1019_incident_response_20260525_121404.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "You achieved a strong score of 9.5 out of 10 on this quiz, indicating a very good understanding of incident response principles. Your mastery of creating an incident response plan, the introduction to the topic, different team structures, types of security incidents, and the importance of having a plan is commendable. The area that would benefit from a bit more focus is understanding the specific phases within incident response frameworks. To strengthen your grasp on this, I recommend reviewing the NIST Incident Response Lifecycle or the SANS Incident Handler's Handbook, paying close attention to the detailed activities within each phase. With this focused review, you'll be well-equipped to tackle all aspects of incident response comprehensively."
+    },
+    "025": {
+        "topic_title": "Incident Response",
+        "quiz_file": "student_1019_incident_response_20260525_121410.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "Congratulations on achieving a perfect score of 10/10 on the Incident Response quiz, demonstrating a comprehensive understanding of the material. You excelled in all areas, particularly in understanding the creation of incident response plans, the various frameworks and phases, team types, incident types, and the overall importance of planning. With no weak sections identified, your grasp of this topic is excellent. Continue to build on this strong foundation by seeking out real-world case studies to see these concepts in action. Your mastery of this quiz is a fantastic indicator of your readiness to tackle more complex cybersecurity challenges."
+    },
+    "026": {
+        "topic_title": "Incident Response",
+        "quiz_file": "student_1019_incident_response_20260525_121425.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "Congratulations on achieving a perfect score of 10/10 on the Incident Response quiz, demonstrating a comprehensive understanding of the topic. You excelled in all areas, particularly in understanding the creation, importance, and various components of an incident response plan, as well as identifying different types of security incidents and teams. Since no weak sections were identified, your mastery of the material is evident. Continue to build on this strong foundation by seeking out real-world case studies to see these concepts in action. Your excellent performance indicates you are well-prepared to tackle more advanced incident response challenges."
+    },
+    "027": {
+        "topic_title": "Incident Response",
+        "quiz_file": "student_1019_incident_response_20260525_121431.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "Your score of 9.75 out of 10 demonstrates an excellent and comprehensive understanding of incident response. You performed exceptionally well in understanding the creation of incident response plans, the different phases and frameworks of incident response, and the foundational concepts including types of security incidents and the definition of an incident response plan. Since no weak sections were identified, continue to build on this strong foundation by exploring advanced incident response scenarios and real-world case studies. This level of mastery is a fantastic achievement and sets you up very well for future success in cybersecurity."
+    },
+    "028": {
+        "topic_title": "Incident Response",
+        "quiz_file": "student_1019_incident_response_20260525_121436.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "Congratulations on achieving a perfect score of 10/10 on the Incident Response quiz, demonstrating a comprehensive understanding of the material. You excelled in all areas, particularly in understanding the creation of incident response plans, the various frameworks and phases, and the fundamental concepts of incident response. With no weak sections identified, your grasp of this topic is excellent. Continue to build on this strong foundation by seeking out real-world case studies to see these concepts in action. Your mastery of this quiz is a fantastic indicator of your readiness to tackle more complex cybersecurity challenges."
+    },
+    "029": {
+        "topic_title": "Incident Response",
+        "quiz_file": "student_1019_incident_response_20260525_121442.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "Congratulations on achieving a perfect score of 10/10 on the Incident Response quiz, demonstrating a comprehensive understanding of the material. You excelled in all areas, particularly in creating incident response plans, understanding the various frameworks and phases, and identifying different types of security incidents and response teams. Since no weak sections were identified, you can continue to build upon this strong foundation. To maintain your expertise, consider exploring advanced incident response scenarios or case studies to deepen your practical knowledge. Your mastery of this topic is excellent, and you're well-prepared for future challenges in incident response."
+    },
+    "030": {
+        "topic_title": "Incident Response",
+        "quiz_file": "student_1019_incident_response_20260525_121448.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "A perfect score of 10/10 demonstrates a thorough and comprehensive understanding of Incident Response. You've excelled in all areas, particularly in grasping the creation of incident response plans, understanding the various frameworks and phases, and identifying different team types and security incidents. Your mastery of the foundational concepts and practical applications is evident. Continue to build on this strong foundation as you move forward in your studies. This outstanding performance sets a fantastic benchmark for future assessments."
+    },
+    "031": {
+        "topic_title": "PROCESS MANAGEMENT",
+        "quiz_file": "student_1019_process_management_20260525_121456.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "You've achieved an excellent score of 9.2 out of 10 on this Process Management quiz, demonstrating a strong grasp of most key concepts. Your performance in areas like Inter-Process Communication, the Process Concept, Process States, Process Creation, and PCB operations is particularly commendable. The area that requires a bit more focus is Process Termination. To strengthen your understanding here, I recommend reviewing the different scenarios that lead to process termination and the specific system calls involved. Keep up the great work; this strong performance indicates you're well on your way to mastering process management."
+    },
+    "032": {
+        "topic_title": "PROCESS MANAGEMENT",
+        "quiz_file": "student_1019_process_management_20260525_121505.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "Congratulations on achieving a perfect score of 10/10 on the Process Management quiz, demonstrating a comprehensive understanding of the topic. You excelled in all areas, particularly in your grasp of process creation, termination, states, inter-process communication, and the tree structure of processes on a Linux system. Since no weak sections were identified, you are in an excellent position to continue building on this strong foundation. To maintain this high level of performance, consider exploring advanced process management techniques or delving into real-world case studies where these concepts are applied. Your mastery of this material indicates a strong readiness to tackle more complex operating system concepts."
+    },
+    "033": {
+        "topic_title": "PROCESS MANAGEMENT",
+        "quiz_file": "student_1019_process_management_20260525_121512.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "You've achieved a perfect score of 10/10 on this Process Management quiz, demonstrating a comprehensive and excellent understanding of the topic. Your mastery of key areas including process creation, inter-process communication, and process state transitions is particularly commendable. Since no weak sections were identified, you can be confident in your current knowledge base. To maintain this high level of understanding, continue to explore advanced concepts or real-world applications of process management in operating systems. Your outstanding performance indicates you are well-prepared to tackle more complex challenges in this subject."
+    },
+    "034": {
+        "topic_title": "PROCESS MANAGEMENT",
+        "quiz_file": "student_1019_process_management_20260525_121519.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "Congratulations on achieving a perfect score of 10/10 on the Process Management quiz, demonstrating an excellent grasp of the topic. You excelled in all areas, including Inter-Process Communication, Process Management, Process State, Process Termination, and Process Creation, which is a significant accomplishment. Since no weak sections were identified, you have a very strong foundation in this subject. Continue to build on this success by exploring more advanced topics or real-world applications of process management to deepen your understanding. Your performance indicates you are well-prepared to tackle more complex concepts in operating systems."
+    },
+    "035": {
+        "topic_title": "PROCESS MANAGEMENT",
+        "quiz_file": "student_1019_process_management_20260525_121526.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "You achieved an excellent score of 9.4 out of 10 on the Process Management quiz, demonstrating a very strong understanding of the core concepts. Your mastery of Atree of processes on a typical Linux system, INTER-PROCESS COMMUNICATION, Process Creation, and THE PROCESS sections is particularly commendable. Since there were no weak sections identified, you can feel confident in your current grasp of this material. Continue to review your notes periodically to reinforce this knowledge and stay ahead. This high level of performance shows you are well-prepared to tackle more advanced topics in operating systems."
+    },
+    "036": {
+        "topic_title": "PROCESS MANAGEMENT",
+        "quiz_file": "student_1019_process_management_20260525_121540.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "You've achieved a perfect score of 10.0 out of 10 on this Process Management quiz, demonstrating a comprehensive and excellent understanding of the topic. Your mastery of Inter-Process Communication, Process Creation, Process Management, Process State, and Process Termination is particularly commendable. Since no weak sections were identified, continue to build on this strong foundation by exploring more complex scenarios or advanced topics within process management. Consider researching real-world operating system implementations to see these concepts in action. Your excellent performance indicates you are well-prepared to tackle more challenging material in this area."
+    },
+    "037": {
+        "topic_title": "PROCESS MANAGEMENT",
+        "quiz_file": "student_1019_process_management_20260525_121549.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "Congratulations on achieving a perfect score of 10/10 on the Process Management quiz, demonstrating a comprehensive and excellent understanding of the topic. You excelled in all areas, particularly in Inter-Process Communication, Process Management, Process Creation, and Process Termination, which is a fantastic achievement. Since no weak sections were identified, you can continue to build on this strong foundation. To maintain your momentum, consider exploring advanced topics or real-world case studies related to process management to deepen your practical knowledge. Your performance indicates you are very well-prepared in this area, so keep up the great work!"
+    },
+    "038": {
+        "topic_title": "PROCESS MANAGEMENT",
+        "quiz_file": "student_1019_process_management_20260525_121557.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "You achieved a perfect score of 10.0 out of 10 on this quiz, demonstrating a comprehensive understanding of process management concepts. Your mastery of Diagram of Process State, Inter-Process Communication, Process State, and Process Creation is particularly commendable. Since no weak sections were identified, continue to build upon this strong foundation. Consider exploring advanced topics or real-world case studies to deepen your knowledge even further. Your excellent performance indicates you are well-prepared to tackle more complex challenges in this area."
+    },
+    "039": {
+        "topic_title": "PROCESS MANAGEMENT",
+        "quiz_file": "student_1019_process_management_20260525_121605.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "You achieved an excellent score of 9.7 out of 10 on this process management quiz, demonstrating a very strong understanding of the core concepts. Your mastery of Diagram of Process State, Inter-Process Communication, Process Creation, and Process State is particularly commendable. Since no weak sections were identified, you can continue to build on this solid foundation. To further solidify your knowledge, consider exploring advanced topics in process management, such as scheduling algorithms or real-time operating systems. Your current performance indicates you are well-prepared to tackle more complex challenges in this area."
+    },
+    "040": {
+        "topic_title": "PROCESS MANAGEMENT",
+        "quiz_file": "student_1019_process_management_20260525_121612.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "Congratulations on achieving a perfect score of 10/10 on the Process Management quiz, demonstrating a comprehensive understanding of the topic. You excelled in all areas, particularly showcasing strong knowledge in Diagram of process state, Inter-process communication, Process creation, Process management, Process termination, Process control block (PCB) operations, and general operations on processes. Since no weak sections were identified, continue to build on this excellent foundation. To further solidify your mastery, consider exploring real-world examples of how these process management concepts are implemented in operating systems. Your outstanding performance indicates a strong grasp of the material, and you are well-positioned to tackle more advanced topics."
+    },
+    "041": {
+        "topic_title": "Software Engineering Intro",
+        "quiz_file": "student_1019_software_engineering_intro_20260525_121721.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "You've achieved an excellent score of 9.9 out of 10, demonstrating a very strong grasp of the introductory concepts in Software Engineering. Your understanding of the distinctions between Computer Science and Software Engineering, the core definitions of 'Engineering,' 'Software,' and 'Software Engineering,' and the composition of modern software is particularly commendable. Since no specific weak sections were identified, continue to build upon this solid foundation. To maintain your momentum, perhaps explore a few advanced topics or real-world case studies that apply these foundational principles. Your performance indicates you are well-prepared to delve deeper into more complex software engineering topics."
+    },
+    "042": {
+        "topic_title": "Software Engineering Intro",
+        "quiz_file": "student_1019_software_engineering_intro_20260525_121801.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "Congratulations on achieving a perfect score of 10/10 on the Software Engineering Intro quiz, which indicates a strong and comprehensive understanding of the fundamental concepts. You demonstrated excellent mastery in distinguishing Computer Science from Software Engineering, defining the terms 'software' and 'software engineering,' and understanding the composition of modern software. Since no weak sections were identified, you can continue to build upon this solid foundation. Focus on exploring more advanced software engineering topics or real-world case studies to deepen your knowledge further. Your performance shows you are well-prepared to tackle more complex challenges in this field."
+    },
+    "043": {
+        "topic_title": "Software Engineering Intro",
+        "quiz_file": "student_1019_software_engineering_intro_20260525_121842.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "Congratulations on a perfect score of 10/10 on the Software Engineering Intro quiz, demonstrating a comprehensive understanding of the material. You excelled in all areas, particularly in differentiating Computer Science from Software Engineering, understanding the core terms like 'Engineering' and 'Software', and grasping the composition of modern software. Since no weak sections were identified, you can continue building on this strong foundation. Keep up the excellent work as you move forward in your studies, your thorough preparation is clearly paying off. This outstanding performance indicates you're well-prepared for more advanced topics."
+    },
+    "044": {
+        "topic_title": "Software Engineering Intro",
+        "quiz_file": "student_1019_software_engineering_intro_20260525_121852.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "Congratulations on achieving a perfect score of 10.0 out of 10 on the Software Engineering Intro quiz, demonstrating a comprehensive understanding of the material. You excelled in areas such as differentiating Computer Science from Software Engineering, understanding course contents, and defining the terms 'software' and 'software engineering,' as well as grasping the composition of modern software. Since no weak sections were identified, you are in an excellent position to build upon this strong foundation. Continue to engage with the course material actively, perhaps by exploring advanced topics or real-world case studies related to software development. Your strong performance indicates a great aptitude for this subject, and I'm excited to see how you continue to develop your skills."
+    },
+    "045": {
+        "topic_title": "Software Engineering Intro",
+        "quiz_file": "student_1019_software_engineering_intro_20260525_121901.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "Congratulations on achieving a perfect score of 10/10 on the Software Engineering Intro quiz, demonstrating a comprehensive understanding of the topic. You excelled in identifying the distinctions between Computer Science and Software Engineering, understanding the importance and definition of software, and recognizing the components of modern software. As there were no weak sections identified, you can continue building upon this strong foundation. Keep up the excellent work as you delve deeper into the principles of software development. Your mastery of these foundational concepts sets you up for continued success in this field."
+    },
+    "046": {
+        "topic_title": "Software Engineering Intro",
+        "quiz_file": "student_1019_software_engineering_intro_20260525_121931.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "You've achieved a perfect score of 10/10 on this quiz, demonstrating a comprehensive understanding of the introductory concepts in Software Engineering. Your mastery of topics such as the distinctions between Computer Science and Software Engineering, course contents, the importance and definition of software, and the composition of modern software is excellent. Since no weak sections were identified, you've clearly grasped all the material covered in this quiz. Continue to build on this strong foundation by exploring more advanced software engineering principles and practices in our upcoming modules. This outstanding performance sets a fantastic precedent for the rest of the course!"
+    },
+    "047": {
+        "topic_title": "Software Engineering Intro",
+        "quiz_file": "student_1019_software_engineering_intro_20260525_121938.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "Congratulations on achieving a perfect score of 10/10 on the Software Engineering Intro quiz, which demonstrates a comprehensive understanding of the core concepts. You excelled in identifying the distinctions between Computer Science and Software Engineering, as well as grasping the fundamental definitions of 'Engineering,' 'Software,' and 'Software Engineering,' and understanding the composition of modern software. With no weak sections identified, your mastery of this introductory material is clear. Continue to build on this strong foundation as you delve deeper into more complex software engineering topics. Your excellent performance indicates you are well-prepared for the next steps in your learning journey."
+    },
+    "048": {
+        "topic_title": "Software Engineering Intro",
+        "quiz_file": "student_1019_software_engineering_intro_20260525_121946.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "Congratulations on a perfect score of 10/10 on the Software Engineering Introduction quiz, demonstrating a comprehensive understanding of the core concepts. You excelled in all areas, particularly in distinguishing between Computer Science and Software Engineering, and understanding the foundational elements of software and the engineering principles behind it. With no weak sections identified, your grasp of the material is excellent. Continue to build upon this strong foundation by seeking out more complex case studies in software development to deepen your practical understanding. Your mastery of this introductory material sets you up for continued success in your software engineering studies."
+    },
+    "049": {
+        "topic_title": "Software Engineering Intro",
+        "quiz_file": "student_1019_software_engineering_intro_20260525_122002.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "You've achieved a score of 6.7 out of 10 on the Software Engineering Intro quiz, indicating a solid foundational understanding of the core concepts. Your performance was particularly strong in differentiating Computer Science from Software Engineering and understanding the basic definition of software. The areas that would benefit from further review are the specific definition of software engineering itself and the components that make up today's software. To improve in these areas, I recommend revisiting the readings on the definition of software engineering and looking for examples of modern software composition. Keep building on your strong start; with a little focused effort on these specific topics, you'll solidify your knowledge further."
+    },
+    "050": {
+        "topic_title": "Software Engineering Intro",
+        "quiz_file": "student_1019_software_engineering_intro_20260525_122010.json",
+        "overall_quiz_score": 100.0,
+        "feedback_given": "You've achieved a score of 7.15 out of 10 on the Software Engineering Intro quiz, indicating a solid foundational understanding of the core concepts. It's great to see you excelled in understanding the course contents and defining key terms like 'Engineering', 'Software', and 'Software Engineering'. Your quiz highlighted that the distinctions between Computer Science and Software Engineering, as well as the composition of modern software, are areas that could benefit from further exploration. To strengthen these areas, I recommend reviewing the specific lecture slides or readings that compare and contrast Computer Science with Software Engineering, and looking for examples of how today's complex software systems are built. You're well on your way to mastering this material, and focusing on these specific points will help solidify your knowledge."
+    }
+}

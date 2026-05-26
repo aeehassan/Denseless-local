@@ -1,139 +1,140 @@
 {
-  "questions": [
-    {
-      "level": "surface",
-      "question": "What are the two main components that software comprises, besides instructions?",
-      "model_answer": "Award 1 mark for any two of the following: Data structures, Documents (or system manuals).",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        1,
-        2
-      ],
-      "section": "The Term Software"
-    },
-    {
-      "level": "surface",
-      "question": "What are compiled codes that can run independently of the source program called?",
-      "model_answer": "Award 1 mark for 'Executable' or 'Executable codes'.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        1,
-        2
-      ],
-      "section": "Today’s software is comprised of"
-    },
-    {
-      "level": "surface",
-      "question": "What is the term for the hardware and operating system considerations that software is developed with?",
-      "model_answer": "Award 1 mark for 'Platform' or 'Platform specifications'.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        1,
-        2
-      ],
-      "section": "Today’s software is comprised of"
-    },
-    {
-      "level": "conceptual",
-      "question": "Describe the role of design documents in software development.",
-      "model_answer": "Award 1 mark for describing that design documents specify necessary designs for developing software. Accept examples such as input design, output design, UML, use case design, class diagrams, or software architecture.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        1,
-        2,
-        3,
-        4
-      ],
-      "section": "Course Contents"
-    },
-    {
-      "level": "conceptual",
-      "question": "Explain the fundamental difference between Computer Science and Software Engineering.",
-      "model_answer": "Award 1 mark for stating that Computer Science focuses on the theoretical and mathematical perspective of how computers work, while Software Engineering focuses on the practical application of engineering principles to build and maintain software systems.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        4,
-        5
-      ],
-      "section": "Computer Science VS Software Engineering"
-    },
-    {
-      "level": "conceptual",
-      "question": "How does the concept of 'engineering' as described in the material relate to the development of software?",
-      "model_answer": "Award 1 mark for explaining that engineering involves applying scientific knowledge, systematic approaches, and processes to achieve goals, control constraints, and produce products or services, which directly applies to building software artifacts cost-effectively and systematically.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        2,
-        3,
-        4
-      ],
-      "section": "The Term Engineering"
-    },
-    {
-      "level": "conceptual",
-      "question": "What is the purpose of system manuals in the context of software?",
-      "model_answer": "Award 1 mark for stating that system manuals are important for users, providing guidance such as a user's guide, technical manual, or complete system manual to help them understand and use the software.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        1,
-        2,
-        5
-      ],
-      "section": "Today’s software is comprised of"
-    },
-    {
-      "level": "deep",
-      "question": "Imagine a scenario where a software project is facing significant budget constraints and a tight deadline. Based on the principles of Software Engineering, what approach would be emphasized to ensure a cost-effective and timely delivery of a quality product?",
-      "model_answer": "Award 1 mark for mentioning the application of a systematic, disciplined, and quantifiable approach to development, focusing on cost-effective solutions, best practices, and engineering processes to manage constraints and deliver within budget and on time.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        3,
-        4
-      ],
-      "section": "The Term Software Engineering"
-    },
-    {
-      "level": "deep",
-      "question": "If a software system is intended for widespread distribution and use across various user setups, what aspect of software development, as described in the material, becomes particularly crucial for its successful operation?",
-      "model_answer": "Award 1 mark for identifying 'Platform specifications' or 'Platform' as crucial, explaining that software is developed with specific hardware and operating system considerations in mind, which must be met for the software to run correctly.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        1,
-        2,
-        5
-      ],
-      "section": "Today’s software is comprised of"
-    },
-    {
-      "level": "deep",
-      "question": "Consider a situation where a user needs to modify a software program's functionality but only has access to the compiled version. Based on the definitions provided, can this user modify the program's core logic, and why or why not?",
-      "model_answer": "Award 1 mark for stating that the user cannot modify the core logic because they only have the 'Executable' (compiled code), which runs independently of the 'Source Code' (written by programmers) and cannot be directly altered.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        1,
-        2
-      ],
-      "section": "Today’s software is comprised of"
-    }
-  ]
+    "questions": [
+        {
+            "level": "surface",
+            "question": "What are the two main components that software comprises, besides instructions?",
+            "model_answer": "Award 1 mark for any two of the following: Data structures, Documents (or system manuals).",
+            "student_answer": "Data structures and documents.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately identified data structures and documents as the two main components of software besides instructions.",
+            "source_pages": [
+                1,
+                2
+            ],
+            "section": "The Term Software"
+        },
+        {
+            "level": "surface",
+            "question": "What are compiled codes that can run independently of the source program called?",
+            "model_answer": "Award 1 mark for 'Executable' or 'Executable codes'.",
+            "student_answer": "Executable codes.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately identified compiled codes that can run independently as 'Executable codes'.",
+            "source_pages": [
+                1,
+                2
+            ],
+            "section": "Today\u2019s software is comprised of"
+        },
+        {
+            "level": "surface",
+            "question": "What is the term for the hardware and operating system considerations that software is developed with?",
+            "model_answer": "Award 1 mark for 'Platform' or 'Platform specifications'.",
+            "student_answer": "Platform specifications.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately identified 'Platform specifications' as the term for hardware and operating system considerations for software development.",
+            "source_pages": [
+                1,
+                2
+            ],
+            "section": "Today\u2019s software is comprised of"
+        },
+        {
+            "level": "conceptual",
+            "question": "Describe the role of design documents in software development.",
+            "model_answer": "Award 1 mark for describing that design documents specify necessary designs for developing software. Accept examples such as input design, output design, UML, use case design, class diagrams, or software architecture.",
+            "student_answer": "They help guide the software design process like UML and class diagrams.",
+            "score": 0.75,
+            "explanation": "Partial \u2014 you correctly identified that design documents guide the software design process and provided valid examples.",
+            "source_pages": [
+                1,
+                2,
+                3,
+                4
+            ],
+            "section": "Course Contents"
+        },
+        {
+            "level": "conceptual",
+            "question": "Explain the fundamental difference between Computer Science and Software Engineering.",
+            "model_answer": "Award 1 mark for stating that Computer Science focuses on the theoretical and mathematical perspective of how computers work, while Software Engineering focuses on the practical application of engineering principles to build and maintain software systems.",
+            "student_answer": "Computer Science is more practical while Software Engineering focuses more on theories",
+            "score": 0.0,
+            "explanation": "Incorrect \u2014 your answer reverses the core focus of Computer Science and Software Engineering as described in the marking scheme.",
+            "source_pages": [
+                4,
+                5
+            ],
+            "section": "Computer Science VS Software Engineering"
+        },
+        {
+            "level": "conceptual",
+            "question": "How does the concept of 'engineering' as described in the material relate to the development of software?",
+            "model_answer": "Award 1 mark for explaining that engineering involves applying scientific knowledge, systematic approaches, and processes to achieve goals, control constraints, and produce products or services, which directly applies to building software artifacts cost-effectively and systematically.",
+            "student_answer": "It means using systematic methods and processes to solve software problems.",
+            "score": 0.7,
+            "explanation": "Partial credit is awarded because the answer correctly identifies the use of systematic methods and processes, but omits the application of scientific knowledge and the control of constraints in software development.",
+            "source_pages": [
+                2,
+                3,
+                4
+            ],
+            "section": "The Term Engineering"
+        },
+        {
+            "level": "conceptual",
+            "question": "What is the purpose of system manuals in the context of software?",
+            "model_answer": "Award 1 mark for stating that system manuals are important for users, providing guidance such as a user's guide, technical manual, or complete system manual to help them understand and use the software.",
+            "student_answer": "They are used to help users understand and use the software properly.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately stated that system manuals help users understand and use the software.",
+            "source_pages": [
+                1,
+                2,
+                5
+            ],
+            "section": "Today\u2019s software is comprised of"
+        },
+        {
+            "level": "deep",
+            "question": "Imagine a scenario where a software project is facing significant budget constraints and a tight deadline. Based on the principles of Software Engineering, what approach would be emphasized to ensure a cost-effective and timely delivery of a quality product?",
+            "model_answer": "Award 1 mark for mentioning the application of a systematic, disciplined, and quantifiable approach to development, focusing on cost-effective solutions, best practices, and engineering processes to manage constraints and deliver within budget and on time.",
+            "student_answer": "Using proper software engineering processes and best practices to manage the project well.",
+            "score": 0.7,
+            "explanation": "Partial \u2014 you correctly identified the need for software engineering processes and best practices but did not explicitly mention the systematic, disciplined, and quantifiable approach or the focus on cost-effectiveness and timely delivery.",
+            "source_pages": [
+                3,
+                4
+            ],
+            "section": "The Term Software Engineering"
+        },
+        {
+            "level": "deep",
+            "question": "If a software system is intended for widespread distribution and use across various user setups, what aspect of software development, as described in the material, becomes particularly crucial for its successful operation?",
+            "model_answer": "Award 1 mark for identifying 'Platform specifications' or 'Platform' as crucial, explaining that software is developed with specific hardware and operating system considerations in mind, which must be met for the software to run correctly.",
+            "student_answer": "The installation process.",
+            "score": 0.0,
+            "explanation": "Incorrect - your answer focuses on the installation process rather than the underlying platform specifications required for the software to run.",
+            "source_pages": [
+                1,
+                2,
+                5
+            ],
+            "section": "Today\u2019s software is comprised of"
+        },
+        {
+            "level": "deep",
+            "question": "Consider a situation where a user needs to modify a software program's functionality but only has access to the compiled version. Based on the definitions provided, can this user modify the program's core logic, and why or why not?",
+            "model_answer": "Award 1 mark for stating that the user cannot modify the core logic because they only have the 'Executable' (compiled code), which runs independently of the 'Source Code' (written by programmers) and cannot be directly altered.",
+            "student_answer": "No, because the user only has the executable file and not the source code.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately stated that the user cannot modify the core logic because they only have the executable and not the source code.",
+            "source_pages": [
+                1,
+                2
+            ],
+            "section": "Today\u2019s software is comprised of"
+        }
+    ],
+    "feedback": "You've achieved a score of 7.15 out of 10 on the Software Engineering Intro quiz, indicating a solid foundational understanding of the core concepts. It's great to see you excelled in understanding the course contents and defining key terms like 'Engineering', 'Software', and 'Software Engineering'. Your quiz highlighted that the distinctions between Computer Science and Software Engineering, as well as the composition of modern software, are areas that could benefit from further exploration. To strengthen these areas, I recommend reviewing the specific lecture slides or readings that compare and contrast Computer Science with Software Engineering, and looking for examples of how today's complex software systems are built. You're well on your way to mastering this material, and focusing on these specific points will help solidify your knowledge."
 }

@@ -1,132 +1,133 @@
 {
-  "questions": [
-    {
-      "level": "surface",
-      "question": "What is a Disaster Recovery Plan (DRP)?",
-      "model_answer": "Award 1 mark for defining a DRP as a documented, structured approach describing how an organization can quickly resume work after an unplanned incident. Accept any mention of it being an essential part of a business continuity plan.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        1,
-        2
-      ],
-      "section": "What is a Disaster Recovery Plan"
-    },
-    {
-      "level": "surface",
-      "question": "List three types of disasters that can occur.",
-      "model_answer": "Award 1 mark for naming any three from the following: Natural disasters (earthquakes, floods, tornados, hurricanes, wildfires), Technological hazards (power outages, pipeline explosions, transportation accidents), Pandemics and epidemics, Cyber attacks (malware, DDoS, ransomware), Machine and hardware failure, Intentional human-caused threats (terrorist or biochemical attacks).",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        1
-      ],
-      "section": "What is considered a disaster"
-    },
-    {
-      "level": "surface",
-      "question": "What is the primary focus of disaster recovery (DR)?",
-      "model_answer": "Award 1 mark for stating that DR focuses on restoring access and functionality to IT infrastructure after a disaster event, or ensuring IT systems supporting critical business functions are operational as soon as possible after a disruptive event.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        1,
-        2
-      ],
-      "section": "What is a Disaster Recovery Plan"
-    },
-    {
-      "level": "conceptual",
-      "question": "Explain the purpose of detective measures within a DR plan.",
-      "model_answer": "Award 1 mark for explaining that detective measures are for rapid recovery by focusing on detecting or discovering unwanted events as they happen in real time, to know when a response is necessary.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        1,
-        2
-      ],
-      "section": "How disaster recovery works"
-    },
-    {
-      "level": "conceptual",
-      "question": "Describe the difference between a Recovery Time Objective (RTO) and a Recovery Point Objective (RPO).",
-      "model_answer": "Award 1 mark for correctly stating that RTO is the maximum acceptable downtime for systems and applications, while RPO is the maximum acceptable age of data to recover. Accept any explanation that highlights the time aspect for RTO and the data loss aspect for RPO.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        2,
-        3
-      ],
-      "section": "Here is the typical structure of a DR plan"
-    },
-    {
-      "level": "conceptual",
-      "question": "Contrast the characteristics of a cold computing site and a hot computing site.",
-      "model_answer": "Award 1 mark for explaining that a cold site only provides basic infrastructure like power, networking, and cooling, requiring additional hardware and data to be sent for use, whereas a hot site is a fully functional backup site with important data already mirrored to it and ready for immediate use. Accept any clear distinction between the readiness and infrastructure provided by each type.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        3
-      ],
-      "section": "Types of Disaster Recovery Sites"
-    },
-    {
-      "level": "conceptual",
-      "question": "Why is it important to regularly test and maintain a Disaster Recovery Plan?",
-      "model_answer": "Award 1 mark for explaining that testing and maintenance are crucial because disaster risks and business processes evolve, ensuring the plan's documented procedures remain effective and appropriate. Accept any answer that references the dynamic nature of risks and the need for ongoing relevance.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        1,
-        4
-      ],
-      "section": "What is a Disaster Recovery Plan"
-    },
-    {
-      "level": "deep",
-      "question": "If an organization's core business relies on real-time transaction processing where even a few minutes of downtime results in significant financial loss, what type of disaster recovery site would be most suitable and why?",
-      "model_answer": "Award 1 mark for selecting a hot computing site AND justifying it by explaining that it is fully functional with data mirrored, allowing for immediate switchover and minimal downtime, which is critical for real-time transaction processing where even brief interruptions cause significant loss.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        2,
-        3
-      ],
-      "section": "Here is the typical structure of a DR plan"
-    },
-    {
-      "level": "deep",
-      "question": "Consider a scenario where a cyber attack encrypts all critical data. Based on the elements of a DR plan, which section would primarily guide the immediate actions to limit damage and which measures would be employed?",
-      "model_answer": "Award 1 mark for identifying 'Disaster recovery procedures' as the relevant section AND mentioning 'emergency response to limit damages' and 'mitigation and eradication (for cybersecurity threats)' as the measures employed. Accept any specific mention of these procedures and their purpose in limiting damage from encryption.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        1,
-        2
-      ],
-      "section": "How disaster recovery works"
-    },
-    {
-      "level": "deep",
-      "question": "An organization needs to ensure that the maximum amount of data loss after a disaster is no more than one hour of transactional data. What key metric from a DR plan directly addresses this requirement, and what does it imply about backup frequency?",
-      "model_answer": "Award 1 mark for identifying the Recovery Point Objective (RPO) AND stating that it implies backups must occur at least hourly, or more frequently if acceptable data loss is less than one hour. Accept any explanation connecting RPO to the acceptable data loss window and its impact on backup scheduling.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        2,
-        3
-      ],
-      "section": "Here is the typical structure of a DR plan"
-    }
-  ]
+    "questions": [
+        {
+            "level": "surface",
+            "question": "What is a Disaster Recovery Plan (DRP)?",
+            "model_answer": "Award 1 mark for defining a DRP as a documented, structured approach describing how an organization can quickly resume work after an unplanned incident. Accept any mention of it being an essential part of a business continuity plan.",
+            "student_answer": "A DRP is a documented plan that shows how an organization can resume work after an unplanned incident.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately defined a Disaster Recovery Plan as a documented approach for resuming work after an unplanned incident.",
+            "source_pages": [
+                1,
+                2
+            ],
+            "section": "What is a Disaster Recovery Plan"
+        },
+        {
+            "level": "surface",
+            "question": "List three types of disasters that can occur.",
+            "model_answer": "Award 1 mark for naming any three from the following: Natural disasters (earthquakes, floods, tornados, hurricanes, wildfires), Technological hazards (power outages, pipeline explosions, transportation accidents), Pandemics and epidemics, Cyber attacks (malware, DDoS, ransomware), Machine and hardware failure, Intentional human-caused threats (terrorist or biochemical attacks).",
+            "student_answer": "Cyber attacks, hardware failure, and pandemics.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately listed three distinct types of disasters from the provided categories.",
+            "source_pages": [
+                1
+            ],
+            "section": "What is considered a disaster"
+        },
+        {
+            "level": "surface",
+            "question": "What is the primary focus of disaster recovery (DR)?",
+            "model_answer": "Award 1 mark for stating that DR focuses on restoring access and functionality to IT infrastructure after a disaster event, or ensuring IT systems supporting critical business functions are operational as soon as possible after a disruptive event.",
+            "student_answer": "DR is focused on restoring IT systems and infrastructure as quickly as possible after a disaster.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately stated that DR focuses on restoring IT systems and infrastructure as quickly as possible after a disaster.",
+            "source_pages": [
+                1,
+                2
+            ],
+            "section": "What is a Disaster Recovery Plan"
+        },
+        {
+            "level": "conceptual",
+            "question": "Explain the purpose of detective measures within a DR plan.",
+            "model_answer": "Award 1 mark for explaining that detective measures are for rapid recovery by focusing on detecting or discovering unwanted events as they happen in real time, to know when a response is necessary.",
+            "student_answer": "Detective measures are for identifying unwanted events in real time so the response team knows when to act.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately identified that detective measures are for identifying unwanted events in real time to inform the response team's actions.",
+            "source_pages": [
+                1,
+                2
+            ],
+            "section": "How disaster recovery works"
+        },
+        {
+            "level": "conceptual",
+            "question": "Describe the difference between a Recovery Time Objective (RTO) and a Recovery Point Objective (RPO).",
+            "model_answer": "Award 1 mark for correctly stating that RTO is the maximum acceptable downtime for systems and applications, while RPO is the maximum acceptable age of data to recover. Accept any explanation that highlights the time aspect for RTO and the data loss aspect for RPO.",
+            "student_answer": "RTO is the max amount of time systems can be offline. RPO is the max age of data you can recover, basically how much data loss is acceptable.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately identified RTO as the maximum acceptable downtime and RPO as the maximum acceptable data loss in terms of age.",
+            "source_pages": [
+                2,
+                3
+            ],
+            "section": "Here is the typical structure of a DR plan"
+        },
+        {
+            "level": "conceptual",
+            "question": "Contrast the characteristics of a cold computing site and a hot computing site.",
+            "model_answer": "Award 1 mark for explaining that a cold site only provides basic infrastructure like power, networking, and cooling, requiring additional hardware and data to be sent for use, whereas a hot site is a fully functional backup site with important data already mirrored to it and ready for immediate use. Accept any clear distinction between the readiness and infrastructure provided by each type.",
+            "student_answer": "A cold site just has power, cooling, and networking. A hot site already has all the hardware and mirrored data, so its ready to go immediately.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately contrasted the basic infrastructure of a cold site with the fully functional, mirrored data of a hot site.",
+            "source_pages": [
+                3
+            ],
+            "section": "Types of Disaster Recovery Sites"
+        },
+        {
+            "level": "conceptual",
+            "question": "Why is it important to regularly test and maintain a Disaster Recovery Plan?",
+            "model_answer": "Award 1 mark for explaining that testing and maintenance are crucial because disaster risks and business processes evolve, ensuring the plan's documented procedures remain effective and appropriate. Accept any answer that references the dynamic nature of risks and the need for ongoing relevance.",
+            "student_answer": "Because risks, technology, and business processes keep changing so the plan must be updated to stay relevant and effective.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately identified that changing risks, technology, and business processes necessitate regular updates to maintain the plan's relevance and effectiveness.",
+            "source_pages": [
+                1,
+                4
+            ],
+            "section": "What is a Disaster Recovery Plan"
+        },
+        {
+            "level": "deep",
+            "question": "If an organization's core business relies on real-time transaction processing where even a few minutes of downtime results in significant financial loss, what type of disaster recovery site would be most suitable and why?",
+            "model_answer": "Award 1 mark for selecting a hot computing site AND justifying it by explaining that it is fully functional with data mirrored, allowing for immediate switchover and minimal downtime, which is critical for real-time transaction processing where even brief interruptions cause significant loss.",
+            "student_answer": "Hot site. It already has all systems running with mirrored data so there's minimal downtime when switching over which is critical for real-time transactions.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately identified the hot site as the most suitable option and provided a clear explanation of why its immediate switchover capability is essential for real-time transaction processing.",
+            "source_pages": [
+                2,
+                3
+            ],
+            "section": "Here is the typical structure of a DR plan"
+        },
+        {
+            "level": "deep",
+            "question": "Consider a scenario where a cyber attack encrypts all critical data. Based on the elements of a DR plan, which section would primarily guide the immediate actions to limit damage and which measures would be employed?",
+            "model_answer": "Award 1 mark for identifying 'Disaster recovery procedures' as the relevant section AND mentioning 'emergency response to limit damages' and 'mitigation and eradication (for cybersecurity threats)' as the measures employed. Accept any specific mention of these procedures and their purpose in limiting damage from encryption.",
+            "student_answer": "The disaster recovery procedures section would guide the response. Emergency response to limit damage and eradication procedures would be the key measures used.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately identified the 'Disaster recovery procedures' section and the relevant measures of 'emergency response to limit damage' and 'eradication procedures'.",
+            "source_pages": [
+                1,
+                2
+            ],
+            "section": "How disaster recovery works"
+        },
+        {
+            "level": "deep",
+            "question": "An organization needs to ensure that the maximum amount of data loss after a disaster is no more than one hour of transactional data. What key metric from a DR plan directly addresses this requirement, and what does it imply about backup frequency?",
+            "model_answer": "Award 1 mark for identifying the Recovery Point Objective (RPO) AND stating that it implies backups must occur at least hourly, or more frequently if acceptable data loss is less than one hour. Accept any explanation connecting RPO to the acceptable data loss window and its impact on backup scheduling.",
+            "student_answer": "RPO directly addresses this. An RPO of 1 hour means backups must happen at least every hour to ensure no more than that much data is lost.",
+            "score": 1.0,
+            "explanation": "Correct - you accurately identified the Recovery Point Objective (RPO) and correctly explained its implication for backup frequency.",
+            "source_pages": [
+                2,
+                3
+            ],
+            "section": "Here is the typical structure of a DR plan"
+        }
+    ],
+    "feedback": "Congratulations on a perfect score of 10/10 on the Disaster Recovery Plan quiz, demonstrating a comprehensive understanding of the topic. You excelled in all areas, particularly in identifying the typical structure of a DR plan, understanding how disaster recovery works, and defining the various types of disaster recovery sites. Since no weak sections were identified, you have a very strong foundation in this subject. Continue to build on this excellent knowledge by exploring real-world case studies of successful disaster recovery implementation. Your mastery of these core concepts positions you well for future success in this area."
 }

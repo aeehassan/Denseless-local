@@ -1,122 +1,126 @@
 {
-  "questions": [
-    {
-      "level": "surface",
-      "question": "What is a process, as defined in the context of program execution?",
-      "model_answer": "Award 1 mark for stating that a process is an instance of a program in execution.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": []
-    },
-    {
-      "level": "surface",
-      "question": "Identify one of the four sections into which process memory is divided.",
-      "model_answer": "Award 1 mark for any one of the following: Text section, Data section, Stack, Heap.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        1,
-        2,
-        6
-      ],
-      "section": "PROCESSMANAGEMENT"
-    },
-    {
-      "level": "surface",
-      "question": "What integer identifier is assigned to each process?",
-      "model_answer": "Award 1 mark for stating that each process is given a process identifier, or PID.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        6
-      ],
-      "section": "ProcessCreation"
-    },
-    {
-      "level": "conceptual",
-      "question": "Explain the purpose of the stack within a process's memory.",
-      "model_answer": "Award 1 mark for explaining that the stack is used for local variables, with space reserved when declared and freed when variables go out of scope. Accept mention of function return values.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": []
-    },
-    {
-      "level": "conceptual",
-      "question": "Describe the relationship between a parent process and a child process.",
-      "model_answer": "Award 1 mark for stating that a parent process creates a child process through system calls like fork or spawn. Accept mention that the creating process is the parent and the created process is the child.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        6
-      ],
-      "section": "ProcessCreation"
-    },
-    {
-      "level": "conceptual",
-      "question": "What occurs when a process terminates, regarding its system resources?",
-      "model_answer": "Award 1 mark for stating that when a process terminates, all of its system resources are freed up, and open files are flushed and closed.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        7,
-        8
-      ],
-      "section": "ProcessTermination"
-    },
-    {
-      "level": "conceptual",
-      "question": "Differentiate between independent and cooperating processes.",
-      "model_answer": "Award 1 mark for explaining that independent processes cannot affect or be affected by other processes, while cooperating processes can affect or be affected by other processes, often requiring inter-process communication.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        8,
-        9
-      ],
-      "section": "INTER-PROCESSCOMMUNICATION"
-    },
-    {
-      "level": "deep",
-      "question": "If a process needs to share large amounts of information quickly on the same computer, which inter-process communication method would be generally preferable and why?",
-      "model_answer": "Award 1 mark for choosing Shared Memory AND justifying it by stating it is faster once set up because no system calls are required and access occurs at normal memory speeds, making it suitable for large amounts of information shared quickly on the same computer.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        8,
-        9
-      ],
-      "section": "INTER-PROCESSCOMMUNICATION"
-    },
-    {
-      "level": "deep",
-      "question": "Consider a scenario where a parent process creates multiple child processes. Describe two distinct ways the parent process can manage its execution relative to these child processes after creation.",
-      "model_answer": "Award 1 mark for describing any two of the following: 1. Wait for the child process to terminate before proceeding (using a wait() system call). 2. Run concurrently with the child, continuing processing without waiting (similar to a background task). Accept variations that capture the core concept of waiting vs. concurrent execution.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        6,
-        7,
-        8
-      ],
-      "section": "ProcessCreation"
-    },
-    {
-      "level": "deep",
-      "question": "A system is experiencing frequent stack overflow errors. Based on the memory structure of a process, what is the most likely cause of this issue and how do the stack and heap interact in this scenario?",
-      "model_answer": "Award 1 mark for identifying that the stack is growing too large and is likely colliding with the heap. Accept explanation that the stack and heap start at opposite ends of the process's free space and grow toward each other, and if they meet, a stack overflow error occurs.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": []
-    }
-  ]
+    "questions": [
+        {
+            "level": "surface",
+            "question": "What is a process, as defined in the context of program execution?",
+            "model_answer": "Award 1 mark for stating that a process is an instance of a program in execution.",
+            "student_answer": "An instance of a program in execution.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately defined a process as an instance of a program in execution.",
+            "source_pages": [],
+            "section": ""
+        },
+        {
+            "level": "surface",
+            "question": "Identify one of the four sections into which process memory is divided.",
+            "model_answer": "Award 1 mark for any one of the following: Text section, Data section, Stack, Heap.",
+            "student_answer": "Data section.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you identified the Data section as one of the four main memory divisions.",
+            "source_pages": [
+                1,
+                2,
+                6
+            ],
+            "section": "PROCESSMANAGEMENT"
+        },
+        {
+            "level": "surface",
+            "question": "What integer identifier is assigned to each process?",
+            "model_answer": "Award 1 mark for stating that each process is given a process identifier, or PID.",
+            "student_answer": "Process identifier or PID.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you identified the integer identifier as the process identifier or PID.",
+            "source_pages": [
+                6
+            ],
+            "section": "ProcessCreation"
+        },
+        {
+            "level": "conceptual",
+            "question": "Explain the purpose of the stack within a process's memory.",
+            "model_answer": "Award 1 mark for explaining that the stack is used for local variables, with space reserved when declared and freed when variables go out of scope. Accept mention of function return values.",
+            "student_answer": "The stack is for local variables. Space is reserved when a variable is declared and freed when it goes out of scope.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately described the stack's purpose for local variables and their scope management.",
+            "source_pages": [],
+            "section": ""
+        },
+        {
+            "level": "conceptual",
+            "question": "Describe the relationship between a parent process and a child process.",
+            "model_answer": "Award 1 mark for stating that a parent process creates a child process through system calls like fork or spawn. Accept mention that the creating process is the parent and the created process is the child.",
+            "student_answer": "A parent process creates a child using fork or spawn. The creating process is the parent and the created process is the child.",
+            "score": 1.0,
+            "explanation": "Correct - you accurately described the creation of a child process by a parent process using system calls like fork or spawn, and identified which is which.",
+            "source_pages": [
+                6
+            ],
+            "section": "ProcessCreation"
+        },
+        {
+            "level": "conceptual",
+            "question": "What occurs when a process terminates, regarding its system resources?",
+            "model_answer": "Award 1 mark for stating that when a process terminates, all of its system resources are freed up, and open files are flushed and closed.",
+            "student_answer": "When a process terminates, all its system resources are freed up and any open files are flushed and closed.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately stated that upon termination, all system resources are freed and open files are flushed and closed.",
+            "source_pages": [
+                7,
+                8
+            ],
+            "section": "ProcessTermination"
+        },
+        {
+            "level": "conceptual",
+            "question": "Differentiate between independent and cooperating processes.",
+            "model_answer": "Award 1 mark for explaining that independent processes cannot affect or be affected by other processes, while cooperating processes can affect or be affected by other processes, often requiring inter-process communication.",
+            "student_answer": "Independent processes don't affect each other. Cooperating processes do and require IPC to share data or communicate.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately differentiated between independent processes that do not affect each other and cooperating processes that do, mentioning the need for inter-process communication.",
+            "source_pages": [
+                8,
+                9
+            ],
+            "section": "INTER-PROCESSCOMMUNICATION"
+        },
+        {
+            "level": "deep",
+            "question": "If a process needs to share large amounts of information quickly on the same computer, which inter-process communication method would be generally preferable and why?",
+            "model_answer": "Award 1 mark for choosing Shared Memory AND justifying it by stating it is faster once set up because no system calls are required and access occurs at normal memory speeds, making it suitable for large amounts of information shared quickly on the same computer.",
+            "student_answer": "Shared memory is best for this. No system calls are needed so access is at normal memory speed, which is ideal for large fast data sharing on the same computer.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you identified shared memory and accurately explained its speed advantage due to bypassing system calls for direct memory access.",
+            "source_pages": [
+                8,
+                9
+            ],
+            "section": "INTER-PROCESSCOMMUNICATION"
+        },
+        {
+            "level": "deep",
+            "question": "Consider a scenario where a parent process creates multiple child processes. Describe two distinct ways the parent process can manage its execution relative to these child processes after creation.",
+            "model_answer": "Award 1 mark for describing any two of the following: 1. Wait for the child process to terminate before proceeding (using a wait() system call). 2. Run concurrently with the child, continuing processing without waiting (similar to a background task). Accept variations that capture the core concept of waiting vs. concurrent execution.",
+            "student_answer": "The parent can call wait() to block until children are done, or it can run concurrently with the children doing its own processing without waiting.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately described both the wait() mechanism and concurrent execution as distinct management strategies.",
+            "source_pages": [
+                6,
+                7,
+                8
+            ],
+            "section": "ProcessCreation"
+        },
+        {
+            "level": "deep",
+            "question": "A system is experiencing frequent stack overflow errors. Based on the memory structure of a process, what is the most likely cause of this issue and how do the stack and heap interact in this scenario?",
+            "model_answer": "Award 1 mark for identifying that the stack is growing too large and is likely colliding with the heap. Accept explanation that the stack and heap start at opposite ends of the process's free space and grow toward each other, and if they meet, a stack overflow error occurs.",
+            "student_answer": "The stack is probably colliding with the heap. They grow toward each other from opposite ends of free space, so if they meet, a stack overflow or failed allocation results.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately identified the stack colliding with the heap as the cause and described their interaction and growth direction.",
+            "source_pages": [],
+            "section": ""
+        }
+    ],
+    "feedback": "Congratulations on achieving a perfect score of 10/10 on the Process Management quiz, demonstrating a comprehensive and excellent understanding of the topic. You excelled in all areas, particularly in Inter-Process Communication, Process Management, Process Creation, and Process Termination, which is a fantastic achievement. Since no weak sections were identified, you can continue to build on this strong foundation. To maintain your momentum, consider exploring advanced topics or real-world case studies related to process management to deepen your practical knowledge. Your performance indicates you are very well-prepared in this area, so keep up the great work!"
 }

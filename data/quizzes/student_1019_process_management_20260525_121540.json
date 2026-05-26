@@ -1,133 +1,135 @@
 {
-  "questions": [
-    {
-      "level": "surface",
-      "question": "What is a process?",
-      "model_answer": "Award 1 mark for defining a process as an instance of a program in execution.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        2,
-        6
-      ],
-      "section": "PROCESSCREATION"
-    },
-    {
-      "level": "surface",
-      "question": "What are the four sections of process memory?",
-      "model_answer": "Award 1 mark for listing any two of the following: text section, data section, heap, stack.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        1
-      ],
-      "section": "PROCESSMANAGEMENT"
-    },
-    {
-      "level": "surface",
-      "question": "What is the primary identifier given to each process?",
-      "model_answer": "Award 1 mark for stating that each process is given a process identifier, or PID.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        6
-      ],
-      "section": "ProcessCreation"
-    },
-    {
-      "level": "conceptual",
-      "question": "Explain the role of the stack and the heap in process memory management.",
-      "model_answer": "Award 1 mark for explaining that the stack is used for local variables and function return values, while the heap is used for dynamic memory allocation. Accept any mention of their growth towards each other from opposite ends of free space.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": []
-    },
-    {
-      "level": "conceptual",
-      "question": "Describe the relationship between a parent process and a child process.",
-      "model_answer": "Award 1 mark for explaining that a parent process creates a child process using system calls like fork or spawn, and that the parent is the creator of the child.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        6
-      ],
-      "section": "ProcessCreation"
-    },
-    {
-      "level": "conceptual",
-      "question": "What are the two main types of inter-process communication systems?",
-      "model_answer": "Award 1 mark for identifying Shared Memory systems and Message Passing systems as the two main types of inter-process communication.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        8,
-        9
-      ],
-      "section": "INTER-PROCESSCOMMUNICATION"
-    },
-    {
-      "level": "conceptual",
-      "question": "Explain why a process might enter the 'Waiting' state.",
-      "model_answer": "Award 1 mark for explaining that a process enters the waiting state because it is waiting for a resource to become available or for an event to occur, such as keyboard input, disk access, inter-process messages, a timer, or a child process to finish.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        3,
-        4,
-        5,
-        7,
-        8
-      ],
-      "section": "PROCESSSTATE"
-    },
-    {
-      "level": "deep",
-      "question": "If a system has extremely limited memory, which inter-process communication method would generally be preferable and why?",
-      "model_answer": "Award 1 mark for choosing Message Passing AND justifying it by stating it is simpler to set up and works well across multiple computers, implying lower initial resource overhead compared to Shared Memory which is more complicated to set up. Accept any reasoning that highlights Message Passing's advantages in resource-constrained or distributed environments.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        8,
-        9
-      ],
-      "section": "INTER-PROCESSCOMMUNICATION"
-    },
-    {
-      "level": "deep",
-      "question": "Consider a scenario where a parent process creates multiple child processes. Describe two distinct options for the parent process's behavior after initiating the child processes.",
-      "model_answer": "Award 1 mark for describing either: 1. The parent process waiting for the child process to terminate before proceeding (using a wait() system call). OR 2. The parent process running concurrently with the child, continuing its own processing without waiting (like a background task).",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        6,
-        7,
-        8
-      ],
-      "section": "ProcessCreation"
-    },
-    {
-      "level": "deep",
-      "question": "A process is terminated due to a fatal error, such as attempting to divide by zero. What is the typical outcome for the process's system resources, and where might its termination status be returned?",
-      "model_answer": "Award 1 mark for stating that when a process terminates, all of its system resources are freed up (e.g., open files flushed and closed), AND that its termination status and execution times are returned to the parent if the parent is waiting, or eventually to init if the process becomes an orphan.",
-      "student_answer": null,
-      "score": null,
-      "explanation": null,
-      "source_pages": [
-        2,
-        3,
-        7,
-        8
-      ],
-      "section": "PROCESSTERMINATION"
-    }
-  ]
+    "questions": [
+        {
+            "level": "surface",
+            "question": "What is a process?",
+            "model_answer": "Award 1 mark for defining a process as an instance of a program in execution.",
+            "student_answer": "A process is an instance of a program in execution.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately defined a process as an instance of a program in execution.",
+            "source_pages": [
+                2,
+                6
+            ],
+            "section": "PROCESSCREATION"
+        },
+        {
+            "level": "surface",
+            "question": "What are the four sections of process memory?",
+            "model_answer": "Award 1 mark for listing any two of the following: text section, data section, heap, stack.",
+            "student_answer": "Text section, data section, heap, and stack.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately listed all four sections of process memory.",
+            "source_pages": [
+                1
+            ],
+            "section": "PROCESSMANAGEMENT"
+        },
+        {
+            "level": "surface",
+            "question": "What is the primary identifier given to each process?",
+            "model_answer": "Award 1 mark for stating that each process is given a process identifier, or PID.",
+            "student_answer": "Process identifier or PID.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately identified the primary identifier as the process identifier or PID.",
+            "source_pages": [
+                6
+            ],
+            "section": "ProcessCreation"
+        },
+        {
+            "level": "conceptual",
+            "question": "Explain the role of the stack and the heap in process memory management.",
+            "model_answer": "Award 1 mark for explaining that the stack is used for local variables and function return values, while the heap is used for dynamic memory allocation. Accept any mention of their growth towards each other from opposite ends of free space.",
+            "student_answer": "The stack handles local variables and function return values. The heap is for dynamic memory allocation. They both grow toward each other from opposite ends of free space.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately described the roles of both the stack and the heap and how they grow towards each other.",
+            "source_pages": [],
+            "section": ""
+        },
+        {
+            "level": "conceptual",
+            "question": "Describe the relationship between a parent process and a child process.",
+            "model_answer": "Award 1 mark for explaining that a parent process creates a child process using system calls like fork or spawn, and that the parent is the creator of the child.",
+            "student_answer": "A parent creates a child process using fork or spawn. The parent is the creator and the child may share some of its resources.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately described that a parent process creates a child process using system calls like fork or spawn and that the parent is the creator.",
+            "source_pages": [
+                6
+            ],
+            "section": "ProcessCreation"
+        },
+        {
+            "level": "conceptual",
+            "question": "What are the two main types of inter-process communication systems?",
+            "model_answer": "Award 1 mark for identifying Shared Memory systems and Message Passing systems as the two main types of inter-process communication.",
+            "student_answer": "Shared memory systems and message passing systems.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately identified both shared memory systems and message passing systems as the two main types of inter-process communication.",
+            "source_pages": [
+                8,
+                9
+            ],
+            "section": "INTER-PROCESSCOMMUNICATION"
+        },
+        {
+            "level": "conceptual",
+            "question": "Explain why a process might enter the 'Waiting' state.",
+            "model_answer": "Award 1 mark for explaining that a process enters the waiting state because it is waiting for a resource to become available or for an event to occur, such as keyboard input, disk access, inter-process messages, a timer, or a child process to finish.",
+            "student_answer": "A process enters the waiting state when it needs something that isn't available yet, like keyboard input or a disk access request.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately identified that a process enters the waiting state when it requires an unavailable resource or event, providing valid examples.",
+            "source_pages": [
+                3,
+                4,
+                5,
+                7,
+                8
+            ],
+            "section": "PROCESSSTATE"
+        },
+        {
+            "level": "deep",
+            "question": "If a system has extremely limited memory, which inter-process communication method would generally be preferable and why?",
+            "model_answer": "Award 1 mark for choosing Message Passing AND justifying it by stating it is simpler to set up and works well across multiple computers, implying lower initial resource overhead compared to Shared Memory which is more complicated to set up. Accept any reasoning that highlights Message Passing's advantages in resource-constrained or distributed environments.",
+            "student_answer": "Message passing, because shared memory requires more complex setup and larger memory regions. Message passing is simpler and has lower overhead.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you identified message passing and accurately justified its preference due to simpler setup and lower overhead compared to shared memory.",
+            "source_pages": [
+                8,
+                9
+            ],
+            "section": "INTER-PROCESSCOMMUNICATION"
+        },
+        {
+            "level": "deep",
+            "question": "Consider a scenario where a parent process creates multiple child processes. Describe two distinct options for the parent process's behavior after initiating the child processes.",
+            "model_answer": "Award 1 mark for describing either: 1. The parent process waiting for the child process to terminate before proceeding (using a wait() system call). OR 2. The parent process running concurrently with the child, continuing its own processing without waiting (like a background task).",
+            "student_answer": "The parent can wait for the children to terminate using wait(), or it can continue running concurrently without waiting for them.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately described both distinct options for the parent process's behavior after initiating child processes.",
+            "source_pages": [
+                6,
+                7,
+                8
+            ],
+            "section": "ProcessCreation"
+        },
+        {
+            "level": "deep",
+            "question": "A process is terminated due to a fatal error, such as attempting to divide by zero. What is the typical outcome for the process's system resources, and where might its termination status be returned?",
+            "model_answer": "Award 1 mark for stating that when a process terminates, all of its system resources are freed up (e.g., open files flushed and closed), AND that its termination status and execution times are returned to the parent if the parent is waiting, or eventually to init if the process becomes an orphan.",
+            "student_answer": "All its system resources are freed and open files are closed. The termination status is returned to the parent if it's waiting, or to init if the process is an orphan.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately described the freeing of system resources and the return of termination status to the parent or init process.",
+            "source_pages": [
+                2,
+                3,
+                7,
+                8
+            ],
+            "section": "PROCESSTERMINATION"
+        }
+    ],
+    "feedback": "You've achieved a perfect score of 10.0 out of 10 on this Process Management quiz, demonstrating a comprehensive and excellent understanding of the topic. Your mastery of Inter-Process Communication, Process Creation, Process Management, Process State, and Process Termination is particularly commendable. Since no weak sections were identified, continue to build on this strong foundation by exploring more complex scenarios or advanced topics within process management. Consider researching real-world operating system implementations to see these concepts in action. Your excellent performance indicates you are well-prepared to tackle more challenging material in this area."
 }
