@@ -1,6 +1,7 @@
 # DenseLess
 
 > A student-centric, web-based Generative AI learning platform designed to improve comprehension and long-term retention through Cognitive Load Adaptation and Spaced Repetition.
+I used this project for generating the eval dataset
 
 ## Tech Stack
 
