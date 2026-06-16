@@ -231,4 +231,4 @@ def process_and_load_file(
             )
 
     print(f"  → Parsed into {len(documents)} document(s)")
-    return documents
+    return documents 
