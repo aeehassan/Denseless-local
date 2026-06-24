@@ -18,7 +18,6 @@ After generation, the quiz is saved to:
     data/quizzes/{student_id}_{topic_slug}_{timestamp}.json
 
 This mirrors the notes_chain pattern where notes are saved to data/notes/.
-For production, disk persistence is swapped for Supabase — chain unchanged.
 
 Rate-limit architecture mirrors notes_chain.py and qa_chain.py:
     USE_GEMINI = False  →  local Ollama, no delays, outer retry loop inactive
