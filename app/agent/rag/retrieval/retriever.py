@@ -367,7 +367,7 @@ def get_topic_chunks(
     # Large top_k ensures nothing is missed. No score threshold —
     # we want every chunk, not just the most similar ones.
     try:
-        all_chunks = store.similarity_search(query=" ", k=10_000, filter={"$and": [{"course": course}, {"topic": topic}]})
+        all_chunks = store.similarity_search(query="", k=10_000, filter={"$and": [{"course": course}, {"topic": topic}]})
     except Exception as e:
         raise RuntimeError(
             f"Vector store sweep failed in get_topic_chunks(). "

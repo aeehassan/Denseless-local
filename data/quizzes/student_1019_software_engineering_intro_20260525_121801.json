@@ -19,7 +19,7 @@
             "model_answer": "Award 1 mark for any two of the following: software manual, user's guide, user manual, technical manual, complete system manual, design documents (input design, output design, UML, use case design, class diagrams, software architecture).",
             "student_answer": "User manual and software architecture design documents.",
             "score": 1.0,
-            "explanation": "Correct \u2014 you correctly identified two distinct types of documents that are part of software: a user manual and software architecture design documents.",
+            "explanation": "Correct \u2014 you accurately identified two distinct types of documents that are part of software.",
             "source_pages": [
                 1,
                 2,
@@ -34,7 +34,7 @@
             "model_answer": "Award 1 mark for 'platform'.",
             "student_answer": "Platform.",
             "score": 1.0,
-            "explanation": "Correct \u2014 you accurately identified the term 'platform' for the hardware and operating system considerations.",
+            "explanation": "Correct \u2014 you accurately identified the term 'platform'.",
             "source_pages": [
                 1,
                 2
@@ -47,7 +47,7 @@
             "model_answer": "Award 1 mark for stating that software engineering applies engineering principles to software development, aiming for systematic, disciplined, and cost-effective solutions. Accept explanations referencing the application of scientific knowledge, best practices, or systematic approaches to building software artifacts.",
             "student_answer": "Software engineering applies engineering principles to software development, using systematic and disciplined approaches to build cost-effective solutions.",
             "score": 1.0,
-            "explanation": "Correct \u2014 you accurately described how software engineering applies engineering principles to create systematic, disciplined, and cost-effective software solutions.",
+            "explanation": "Correct \u2014 you accurately described software engineering as applying engineering principles to software development for cost-effective solutions.",
             "source_pages": [
                 3,
                 4
@@ -73,7 +73,7 @@
             "model_answer": "Award 1 mark for explaining that executable code can run independently of the source code and can be shared with other users without requiring them to have the original source program.",
             "student_answer": "Executable code can be shared and run without needing the source code, so users can run the software without access to the original program.",
             "score": 1.0,
-            "explanation": "Correct \u2014 you accurately described that executable code can be run independently and shared without the source code.",
+            "explanation": "Correct \u2014 you accurately described that executable code can be run independently and shared without requiring the source code.",
             "source_pages": [
                 1,
                 2
@@ -86,7 +86,7 @@
             "model_answer": "Award 1 mark for explaining that implementation is crucial for the real-life use of the software within an organization and ensuring it integrates without negatively affecting existing systems. Accept mention of various implementation techniques (direct, pilot, phased, parallel) as part of the justification.",
             "student_answer": "Implementation ensures the software is actually used in the real organization and that it doesn't disrupt existing systems. Techniques like pilot or phased implementation help manage this.",
             "score": 1.0,
-            "explanation": "Correct \u2014 you accurately identified the importance of real-life use and integration without disruption, and mentioned valid implementation techniques.",
+            "explanation": "Correct \u2014 you accurately identified that implementation is crucial for real-life use and integration without disrupting existing systems, and mentioned valid implementation techniques.",
             "source_pages": [
                 1,
                 2,
@@ -100,7 +100,7 @@
             "model_answer": "Award 1 mark for advocating for a systematic, disciplined, and quantifiable approach (Software Engineering) AND justifying it by referencing the need for fault-free software, satisfying user needs, and meeting delivery deadlines and budget constraints as stated in the material.",
             "student_answer": "A systematic, disciplined software engineering approach is essential here. For medical software, it must be fault-free and satisfy user needs, which requires rigorous engineering practices delivered on time and within budget.",
             "score": 1.0,
-            "explanation": "Correct - you accurately advocated for a systematic, disciplined approach and justified it by referencing fault-free operation, user needs, and delivery constraints.",
+            "explanation": "Correct \u2014 you accurately advocated for a systematic, disciplined approach and justified it by referencing the need for fault-free software, user needs, and delivery constraints.",
             "source_pages": [
                 3,
                 4
@@ -113,7 +113,7 @@
             "model_answer": "Award 1 mark for identifying 'Data structures' and explaining that they enable programs to adequately manipulate information, which is crucial for managing large datasets like inventories.",
             "student_answer": "Data structures, because they enable the program to efficiently organize and manipulate the large amounts of inventory information.",
             "score": 1.0,
-            "explanation": "Correct \u2014 you accurately identified data structures and explained their essential role in organizing and manipulating large datasets.",
+            "explanation": "Correct \u2014 you accurately identified data structures and explained their essential role in organizing and manipulating large datasets for efficient management.",
             "source_pages": [
                 1,
                 2
@@ -126,7 +126,7 @@
             "model_answer": "Award 1 mark for identifying 'Documents' (or specifically 'System Manuals' or 'user manuals'/'user guides') and explaining their role in helping users understand the software system, its operation, and use.",
             "student_answer": "System manuals or a user guide would be indispensable. Users need documentation to understand how to use the features of the software.",
             "score": 1.0,
-            "explanation": "Correct \u2014 you accurately identified system manuals/user guides and explained their essential role in user comprehension and operation.",
+            "explanation": "Correct - you identified system manuals/user guides and accurately explained their role in user comprehension and effective operation.",
             "source_pages": [
                 1,
                 2,
@@ -135,5 +135,5 @@
             "section": "The Term Software"
         }
     ],
-    "feedback": "Congratulations on achieving a perfect score of 10/10 on the Software Engineering Intro quiz, which indicates a strong and comprehensive understanding of the fundamental concepts. You demonstrated excellent mastery in distinguishing Computer Science from Software Engineering, defining the terms 'software' and 'software engineering,' and understanding the composition of modern software. Since no weak sections were identified, you can continue to build upon this solid foundation. Focus on exploring more advanced software engineering topics or real-world case studies to deepen your knowledge further. Your performance shows you are well-prepared to tackle more complex challenges in this field."
+    "feedback": "Congratulations on achieving a perfect score of 10.0 out of 10 on the Software Engineering Intro quiz, demonstrating a comprehensive understanding of the material. You excelled in identifying the distinctions between Computer Science and Software Engineering, defining key terms like 'Software' and 'Software Engineering,' and understanding the components of modern software. With no weak sections identified, your grasp of this foundational topic is excellent. Continue to build on this strong start by exploring more advanced software engineering principles in future modules. Your mastery of these introductory concepts sets a fantastic precedent for your continued success in this field."
 }

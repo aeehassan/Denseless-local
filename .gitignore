@@ -9,13 +9,9 @@ build/
 # User data
 data/profiles/ 
 
-# ── Virtual environment ──────────
-.venv/
-venv/
-env/
-
 # ── Environment secrets ──────────
 .env
+nb_extractor.py
 
 # ── IDE / Editor ─────────────────
 .vscode/
