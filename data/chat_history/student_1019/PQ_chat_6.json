@@ -1,4 +1,0 @@
-{
-    "summary": "The student asked for a definition of a cold site. The assistant explained that a cold site is the most basic type of disaster recovery site, providing only essential infrastructure (power, networking, cooling) but lacking hardware. The assistant further elaborated that businesses would need to bring in their own hardware and data, leading to potential workflow disruption.",
-    "turn_count": 1
-}

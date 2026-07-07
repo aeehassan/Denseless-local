@@ -1,4 +1,0 @@
-{
-    "summary": "The student asked for the distinction between preventive and detective measures in Disaster Recovery (DR). The assistant explained that preventive measures aim to stop disruptive events or lessen their impact, providing examples like backups, redundant hardware, cybersecurity, and employee training. Detective measures, conversely, are designed to identify when an event has occurred or is occurring, with examples including intrusion detection systems, system monitoring, audits, and log analysis. The assistant used the analogy of locking doors (preventive) versus a burglar alarm (detective) to clarify the difference.",
-    "turn_count": 1
-}

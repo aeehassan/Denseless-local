@@ -1,4 +1,0 @@
-{
-    "summary": "The student asked about the difference between RPO and RTO. The assistant explained that RPO measures the maximum acceptable data loss (expressed as a time interval) and dictates backup frequency, while RTO measures the maximum acceptable downtime and dictates the time for system restoration. The assistant also noted that this information was not from the student's study material.",
-    "turn_count": 1
-}

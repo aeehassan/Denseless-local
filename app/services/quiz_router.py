@@ -6,25 +6,32 @@ Parent orchestrator for the adaptive quiz pipeline.
 Handles phase detection, notes_reviewed gating, spaced repetition schedule
 generation, and adaptive retrieval routing before delegating to run_quiz_chain.
 
-Pipeline phases (detected from learner profile array state):
+Pipeline phases (detected from learner profile state, all scoped per-topic):
 
     Phase 1 — Pre-Test:
-        scores.comprehension is empty.
+        scores.comprehension[topic] is empty.
         Broad retrieval. No history yet.
 
     Phase 2 — Post-Test:
-        scores.comprehension has exactly 1 entry AND notes_reviewed = True.
+        scores.comprehension[topic] has exactly 1 entry AND
+        topics[topic].notes_reviewed = True.
         Broad retrieval. Measures learning gain after notes intervention.
-        Blocked if notes_reviewed = False — student must read notes first.
+        Blocked if topics[topic].notes_reviewed = False — student must
+        read notes for THIS topic first.
 
     Phase 3 — Schedule Generation:
-        scores.retention has exactly 1 entry AND revision_dates[topic] is empty.
+        scores.retention[topic] has exactly 1 entry AND revision_dates[topic]
+        is empty.
         Spaced repetition schedule generated and saved now.
         First revision date is tomorrow — quiz not served immediately.
 
     Phase 4 — Revision Quiz:
         revision_dates[topic] exists AND today matches a pending date.
         Adaptive retrieval — targets weak sections only if any exist.
+
+Note: notes_reviewed is tracked per-topic (profile["topics"][topic]
+["notes_reviewed"]), not as a single global flag — a student may have
+reviewed notes for one topic while still needing to review another.
 
 This module is a plain Python callable (no FastAPI) for local dev and testing.
 When FastAPI is integrated, wrap handle_quiz_request() in a POST route handler
@@ -147,10 +154,19 @@ def _save_profile(student_id: str, profile: dict) -> None:
 
 def _ensure_topic(profile: dict, topic: str) -> dict:
     """
-    Ensures the topic key exists in the profile with all required fields.
+    Ensures the topic key exists in the profile with all required fields,
+    and ensures profile-level score containers are nested-by-topic dicts.
 
     Initialises the topic structure if this is the first time the student
     is taking a quiz on this topic. Mutates profile in place.
+
+    Topic sub-dict fields (in order):
+        weak_areas      (list[str]): sections currently below PASS_THRESHOLD.
+        strong_areas    (list[str]): sections currently at/above PASS_THRESHOLD.
+        notes_reviewed  (bool):      whether THIS topic's notes have been
+                                     read. Gates the post_test phase. Lives
+                                     here (not at profile root) because
+                                     review status is per-topic, not global.
 
     Args:
         profile (dict): Learner profile dict.
@@ -161,29 +177,34 @@ def _ensure_topic(profile: dict, topic: str) -> dict:
 
     Example:
         topic_data = _ensure_topic(profile, "Sorting Algorithms")
-        # topic_data → {"weak_areas": [], "strong_areas": []}
+        # topic_data → {"weak_areas": [], "strong_areas": [], "notes_reviewed": False}
     """
     if "topics" not in profile:
         profile["topics"] = {}
 
     if topic not in profile["topics"]:
         profile["topics"][topic] = {
-            "weak_areas":  [],
-            "strong_areas": [],
+            "weak_areas":     [],
+            "strong_areas":   [],
+            "notes_reviewed": False,
         }
         print(f"[quiz_router] New topic initialised in profile: '{topic}'")
+    else:
+        # Backfill for topics created before notes_reviewed was per-topic
+        profile["topics"][topic].setdefault("notes_reviewed", False)
 
     if "scores" not in profile:
-        profile["scores"] = {"comprehension": [], "retention": []}
+        profile["scores"] = {"comprehension": {}, "retention": {}}
+
+    profile["scores"].setdefault("comprehension", {})
+    profile["scores"].setdefault("retention", {})
+    profile["scores"]["comprehension"].setdefault(topic, [])
+    profile["scores"]["retention"].setdefault(topic, [])
 
     if "revision_dates" not in profile:
         profile["revision_dates"] = {}
 
-    if "notes_reviewed" not in profile:
-        profile["notes_reviewed"] = False
-
     return profile["topics"][topic]
-
 
 def _generate_revision_schedule(anchor: date) -> list[dict]:
     """
@@ -229,14 +250,17 @@ def _detect_phase(
     current_date: date,
 ) -> tuple[str, str | None]:
     """
-    Inspects learner profile array state to determine the current quiz phase.
+    Inspects learner profile state (scoped to `topic`) to determine the
+    current quiz phase.
 
     Phase detection order (evaluated top to bottom — first match wins):
 
-        "pre_test"           comprehension is empty
-        "blocked"            comprehension has 1 entry, notes_reviewed = False
-        "post_test"          comprehension has 1 entry, notes_reviewed = True
-        "schedule_pending"   retention has 1 entry, revision_dates[topic] empty
+        "pre_test"           comprehension[topic] is empty
+        "blocked"            comprehension[topic] has 1 entry,
+                              topics[topic].notes_reviewed = False
+        "post_test"          comprehension[topic] has 1 entry,
+                              topics[topic].notes_reviewed = True
+        "schedule_pending"   retention[topic] has 1 entry, revision_dates[topic] empty
         "revision"           revision_dates[topic] exists, today matches pending date
         "no_quiz_due"        revision_dates[topic] exists, today does not match
         "series_complete"    all revision dates completed
@@ -244,7 +268,8 @@ def _detect_phase(
     Args:
         profile (dict): Loaded learner profile.
         topic   (str):  Topic name being requested.
-        current_date (date): ...
+        current_date (date): The date to evaluate phase logic against
+                              (supports simulated-date testing).
 
     Returns:
         tuple[str, str | None]:
@@ -252,14 +277,14 @@ def _detect_phase(
             message — human-readable string for non-ok phases, None for ok phases
 
     Example:
-        phase, msg = _detect_phase(profile, "Sorting Algorithms")
+        phase, msg = _detect_phase(profile, "Sorting Algorithms", date.today())
         # ("pre_test", None)
         # ("blocked", "Please complete your study notes before taking the post-test.")
         # ("no_quiz_due", "Your next revision is in 3 day(s), on 2025-05-07.")
     """
-    comprehension  = profile.get("scores", {}).get("comprehension", [])
-    retention      = profile.get("scores", {}).get("retention", [])
-    notes_reviewed = profile.get("notes_reviewed", False)
+    comprehension  = profile.get("scores", {}).get("comprehension", {}).get(topic, [])
+    retention      = profile.get("scores", {}).get("retention", {}).get(topic, [])
+    notes_reviewed = profile.get("topics", {}).get(topic, {}).get("notes_reviewed", False)
     revision_dates = profile.get("revision_dates", {}).get(topic, [])
     today = current_date.isoformat()
 
@@ -267,7 +292,7 @@ def _detect_phase(
     if not comprehension:
         return "pre_test", None
 
-    # Phase 2 — Post-Test (gated by notes_reviewed)
+    # Phase 2 — Post-Test (gated by per-topic notes_reviewed)
     if len(comprehension) == 1:
         if not notes_reviewed:
             return (
@@ -284,12 +309,10 @@ def _detect_phase(
 
     # Phase 4 — Revision
     if revision_dates:
-        # Check for a pending date matching today
         for entry in revision_dates:
             if entry["date"] == today and entry["status"] == "pending":
                 return "revision", None
 
-        # Check if all dates are completed
         if all(e["status"] == "completed" for e in revision_dates):
             return (
                 "series_complete",
@@ -297,7 +320,6 @@ def _detect_phase(
                 "Well done."
             )
 
-        # Find next pending date
         for entry in revision_dates:
             if entry["status"] == "pending":
                 target        = date.fromisoformat(entry["date"])
@@ -309,7 +331,6 @@ def _detect_phase(
                     f"{days_remaining} day(s), on {entry['date']}."
                 )
 
-    # Fallback — should not reach here under normal flow
     return (
         "no_quiz_due",
         "No quiz is currently scheduled. Complete the pre-test to begin."
@@ -320,15 +341,13 @@ def _is_revision_already_done(profile: dict, topic: str, current_date: date) -> 
     Checks if a retention (revision) quiz has already been completed today
     for the specific topic.
     """
-    retention_scores = profile.get("scores", {}).get("retention", [])
+    retention_scores = profile.get("scores", {}).get("retention", {}).get(topic, [])
     if not retention_scores:
         return False
 
     today_str = current_date.isoformat()
-    
-    # Check the date of the very last retention attempt
     last_attempt_date = retention_scores[-1].get("date")
-    
+
     return last_attempt_date == today_str
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -397,6 +416,10 @@ def handle_quiz_request(
                     "message": "Descriptive error message."
                 }
 
+    Note:
+        `notes_reviewed` is stored per-topic in profile["topics"][topic]
+        ["notes_reviewed"], no longer at the profile root.
+        
     Example:
         result = handle_quiz_request(
             student_id = "student_42",

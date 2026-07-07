@@ -1,4 +1,0 @@
-{
-    "summary": "The student asked about the difference between a cold site and a warm site. The assistant explained that a disaster recovery (DR) site is a secondary location for data storage. A cold site offers basic infrastructure like power, networking, and cooling but requires the user to bring their own backup data and hardware, which can slow down recovery. A warm site includes all the features of a cold site, plus the necessary storage hardware, servers, and switches, making it quicker to bring online, though data still needs to be transported for full recovery.",
-    "turn_count": 1
-}

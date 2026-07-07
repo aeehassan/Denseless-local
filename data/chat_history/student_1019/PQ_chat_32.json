@@ -1,4 +1,0 @@
-{
-    "summary": "The student asked how Recovery Point Objective (RPO) defines backup frequency. The assistant explained that RPO is the maximum acceptable age of data that can be lost. To meet a given RPO, backups must be performed at a frequency that ensures the data lost is no older than the RPO. For example, an RPO of one hour necessitates backups at least every hour.",
-    "turn_count": 1
-}

@@ -1,4 +1,4 @@
 {
-    "summary": "The student asked for a definition of disaster recovery. The assistant explained that disaster recovery (DR) is an organization's ability to restore IT infrastructure functionality after a disaster. The assistant further clarified that DR is part of business continuity, focusing on the quick restoration of IT systems for critical business operations. The assistant also defined a disaster recovery plan (DRP) as a structured, documented approach to resuming operations after an incident and noted that a DRP is a key part of a business continuity plan (BCP).",
+    "summary": "The student asked about incident response, to which the assistant explained that it is a specific part of incident management within an organization focusing on technical cybersecurity tasks. Incident response aims to detect and manage cyber attacks in ways that minimize damage, recovery time, and total costs. An incident response plan is a detailed guide outlining the steps to be taken when a security incident occurs.",
     "turn_count": 1
 }

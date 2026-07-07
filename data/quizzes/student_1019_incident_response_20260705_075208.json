@@ -1,0 +1,141 @@
+{
+    "questions": [
+        {
+            "level": "surface",
+            "question": "What is Incident Response?",
+            "model_answer": "Incident response is an organized, strategic approach to detecting and managing cyber attacks.",
+            "source_pages": [
+                1,
+                4,
+                5
+            ],
+            "section": "Introduction",
+            "student_answer": null,
+            "score": 1.0,
+            "explanation": "Correct \u2014 you identified incident response as a strategic approach for managing cyber attacks."
+        },
+        {
+            "level": "surface",
+            "question": "What is an Advanced Persistent Threat (APT)?",
+            "model_answer": "An advanced persistent threat is a type of security incident.",
+            "source_pages": [
+                1,
+                2
+            ],
+            "section": "Types of security incidents",
+            "student_answer": null,
+            "score": 1.0,
+            "explanation": "Correct \u2014 you identified the definition accurately."
+        },
+        {
+            "level": "conceptual",
+            "question": "Explain the relationship between vulnerability, threat, and incident in the context of incident response.",
+            "model_answer": "A vulnerability is a weakness in the IT or business environment. A threat is an entity that aims to exploit a vulnerability in an attack. To qualify as an incident, an attack must succeed in accessing enterprise resources or putting them at risk.",
+            "source_pages": [
+                1,
+                2
+            ],
+            "section": "Introduction",
+            "student_answer": null,
+            "score": 0.5,
+            "explanation": "Partially correct \u2014 you acknowledged the relationship between vulnerabilities and threats but missed mentioning that an incident occurs when a threat successfully exploits a vulnerability."
+        },
+        {
+            "level": "conceptual",
+            "question": "What is the role of an Incident Response team?",
+            "model_answer": "An Incident Response team handles technical cybersecurity tasks and considerations as part of incident management.",
+            "source_pages": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ],
+            "section": "Introduction",
+            "student_answer": null,
+            "score": 1.0,
+            "explanation": "Correct \u2014 you identified the role of an Incident Response team accurately."
+        },
+        {
+            "level": "deep",
+            "question": "Why is it important for an organization to have a well-documented Incident Response plan in place?",
+            "model_answer": "A well-structured incident response plan enables organizations to act quickly and efficiently when faced with a cyber threat, minimizing downtime, financial losses, and reputational damage. It also promotes a culture of security awareness within an organization and helps demonstrate commitment to legal and regulatory compliance.",
+            "source_pages": [
+                4,
+                5
+            ],
+            "section": "Why is an Incident Response Plan Important",
+            "student_answer": null,
+            "score": 1.0,
+            "explanation": "Correct \u2014 the student correctly identified that a well-documented incident response plan helps organizations minimize downtime, financial losses, reputational damage, and promotes a culture of security awareness while demonstrating commitment to legal and regulatory compliance."
+        },
+        {
+            "level": "deep",
+            "question": "What are the three main types of incident response teams mentioned in the material?",
+            "model_answer": "Computer incident response team (CIRT), Computer security incident response team (CSIRT), and Computer emergency response team (CERT)",
+            "source_pages": [
+                4
+            ],
+            "section": "Types of incident response teams",
+            "student_answer": null,
+            "score": 1.0,
+            "explanation": "Correct \u2014 you identified the three main types of incident response teams accurately."
+        },
+        {
+            "level": "deep",
+            "question": "Why is clear communication among all stakeholders crucial in any incident response plan?",
+            "model_answer": "Clear communication ensures that everyone is on the same page during an incident, reducing confusion and enabling a faster recovery.",
+            "source_pages": [
+                2,
+                3,
+                4,
+                5
+            ],
+            "section": "How to create an incident response plan",
+            "student_answer": null,
+            "score": 1.0,
+            "explanation": "Correct \u2014 clear communication among all stakeholders during an incident reduces confusion and enables a faster recovery."
+        },
+        {
+            "level": "surface",
+            "question": "What is a playbook in the context of incident response?",
+            "model_answer": "Playbooks are the lifeblood of incident response. While an incident response policy offers a high-level view, playbooks get into the weeds, outlining standardized, step-by-step actions responders should take in specific scenarios.",
+            "source_pages": [
+                1,
+                2,
+                3
+            ],
+            "section": "Introduction",
+            "student_answer": null,
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately described playbooks as detailed, step-by-step procedures for incident response."
+        },
+        {
+            "level": "surface",
+            "question": "What is the final phase of incident response as described in the material?",
+            "model_answer": "The final phase of incident response is Recovery. Restore normal operations and mitigate relevant vulnerabilities.",
+            "source_pages": [
+                3,
+                4
+            ],
+            "section": "Incident response frameworks: Phases of incident response",
+            "student_answer": null,
+            "score": 1.0,
+            "explanation": "Correct \u2014 you identified the final phase of incident response accurately."
+        },
+        {
+            "level": "conceptual",
+            "question": "Explain what a Data Breach is in the context of incident response.",
+            "model_answer": "A data breach is an incident in which attackers successfully compromise sensitive information, such as personally identifiable information or intellectual property.",
+            "source_pages": [
+                1,
+                2
+            ],
+            "section": "Introduction",
+            "student_answer": null,
+            "score": 1.0,
+            "explanation": "Correct \u2014 the student's answer accurately describes a data breach as an incident of unauthorized access to sensitive information."
+        }
+    ],
+    "feedback": "Your overall performance in the Incident Response quiz was impressive, reflecting a strong grasp of essential concepts. You demonstrated particular skill in creating an incident response plan, understanding incident response frameworks, recognizing various types of security incidents, and appreciating the importance of having such a plan. However, it appears there's room for improvement in the introduction section. To sharpen this area quickly, consider focusing on developing a clearer understanding of its purpose within the overall context of incident response. Keep up the great work!"
+}

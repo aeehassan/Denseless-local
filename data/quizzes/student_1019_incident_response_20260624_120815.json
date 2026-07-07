@@ -1,0 +1,140 @@
+{
+    "questions": [
+        {
+            "level": "surface",
+            "question": "Define what incident response is.",
+            "model_answer": "Incident response is an organized, strategic approach to detecting and managing cyber attacks in ways that minimize damage, recovery time and total costs.",
+            "source_pages": [
+                1,
+                4,
+                5
+            ],
+            "section": "Introduction",
+            "student_answer": "",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately defined incident response."
+        },
+        {
+            "level": "surface",
+            "question": "What are the two main types of security incidents mentioned in the material?",
+            "model_answer": "Privilege escalation attacks and Man-in-the-middle attacks.",
+            "source_pages": [
+                1,
+                2
+            ],
+            "section": "Types of security incidents",
+            "student_answer": "",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you identified both main types of security incidents mentioned."
+        },
+        {
+            "level": "surface",
+            "question": "Name three incident response teams mentioned in the material.",
+            "model_answer": "Computer incident response team (CIRT), Computer security incident response team (CSIRT), and Computer emergency response team (CERT).",
+            "source_pages": [
+                4
+            ],
+            "section": "Types of incident response teams",
+            "student_answer": "",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you listed three incident response teams mentioned in the material."
+        },
+        {
+            "level": "conceptual",
+            "question": "Explain the difference between incident management and incident response.",
+            "model_answer": "Incident management is an umbrella term for an enterprise's broad handling of cyber attacks, involving diverse stakeholders. Incident response is the part of incident management that handles technical cybersecurity tasks and considerations.",
+            "source_pages": [
+                1,
+                2
+            ],
+            "section": "Introduction",
+            "student_answer": "Incident management is a way for managing some incident or cyber attack that occurs and incident response simply refers to the set of strategies to recover from an incident, by a business",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately explained the difference between incident management and incident response."
+        },
+        {
+            "level": "conceptual",
+            "question": "Describe what a vulnerability and threat are in the context of incident response.",
+            "model_answer": "A vulnerability is a weakness in the IT or business environment. A threat is an entity that aims to exploit vulnerabilities in an attack.",
+            "source_pages": [
+                1,
+                2
+            ],
+            "section": "Introduction",
+            "student_answer": "A vulnerability is a weakness in an IT system that can be exploited by attackers and a threat is an event that aims to set a vulnerability in motion",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you correctly defined both 'vulnerability' and 'threat' in the context of incident response."
+        },
+        {
+            "level": "conceptual",
+            "question": "What constitutes an incident in cybersecurity?",
+            "model_answer": "An incident occurs when an attack successfully accesses enterprise resources or puts them at risk.",
+            "source_pages": [
+                1,
+                2
+            ],
+            "section": "Introduction",
+            "student_answer": "An incident is when an attack put business assets at risk",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you identified that an incident occurs when an attack puts enterprise resources at risk."
+        },
+        {
+            "level": "conceptual",
+            "question": "Explain the purpose of a communication plan in incident response.",
+            "model_answer": "A communication plan ensures clear and effective communication among all stakeholders during an incident, reducing confusion and enabling faster recovery.",
+            "source_pages": [
+                2,
+                3,
+                4,
+                5
+            ],
+            "section": "How to create an incident response plan",
+            "student_answer": "A communication plan ensures clear and effective communication among all stakeholders during an incident, reducing confusion and enabling faster recovery",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you identified the purpose of a communication plan in incident response accurately."
+        },
+        {
+            "level": "deep",
+            "question": "Why is it important to have an incident response plan in place?",
+            "model_answer": "A well-structured incident response plan enables organizations to act quickly and efficiently when faced with a cyber threat, minimizing downtime, financial losses, and reputational damage.",
+            "source_pages": [
+                4,
+                5
+            ],
+            "section": "Why is an Incident Response Plan Important",
+            "student_answer": "It enables quick and prompt response",
+            "score": 1.0,
+            "explanation": "Correct \u2014 your answer accurately describes the purpose of an incident response plan."
+        },
+        {
+            "level": "deep",
+            "question": "Why does an organization looking to build an incident response plan refer to established frameworks?",
+            "model_answer": "Established incident response frameworks provide high-level guidance and direction, helping organizations create effective incident response plans.",
+            "source_pages": [
+                3,
+                4,
+                5
+            ],
+            "section": "Incident response frameworks: Phases of incident response",
+            "student_answer": "",
+            "score": 1.0,
+            "explanation": "Correct \u2014 the student identified that established incident response frameworks help in creating effective incident response plans."
+        },
+        {
+            "level": "deep",
+            "question": "How does a well-drafted incident remediation and response policy empower incident responders?",
+            "model_answer": "A good incident remediation and response policy empowers incident responders by guiding them in making sound decisions during crisis situations.",
+            "source_pages": [
+                2,
+                3,
+                4,
+                5
+            ],
+            "section": "How to create an incident response plan",
+            "student_answer": "",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you identified the guiding aspect accurately."
+        }
+    ],
+    "feedback": "Your overall performance in the Incident Response quiz was exceptional, reflecting a comprehensive understanding of the topic. Well done for mastering key aspects such as creating an incident response plan, the phases of incident response, and the types of security incidents. However, it seems there were no weak areas identified in this instance. Continue to build upon your strengths by focusing on fine-tuning your approach to specific scenarios or advanced topics within incident response for even more impressive results."
+}

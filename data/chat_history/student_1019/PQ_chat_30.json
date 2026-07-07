@@ -1,4 +1,0 @@
-{
-    "summary": "The student asked how to test a Disaster Recovery Plan (DRP). The assistant explained that testing a DRP involves simulating a disaster to evaluate its effectiveness and identify areas for improvement. The assistant detailed four key testing methods: Walkthrough (Desk Check), Simulation Test, Parallel Test, and Full Interruption Test (Cutover Test), describing the nature and scope of each.",
-    "turn_count": 1
-}

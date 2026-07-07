@@ -1,4 +1,0 @@
-{
-    "summary": "The student asked for a definition of a business continuity plan. The assistant explained that disaster recovery (DR) is a subset of business continuity (BC), with DR focusing on IT restoration after a disaster. The assistant also noted that a disaster recovery plan (DRP) is a documented approach to resuming work after an incident and is part of a business continuity plan (BCP), but the provided material did not explicitly define BCP itself.",
-    "turn_count": 1
-}

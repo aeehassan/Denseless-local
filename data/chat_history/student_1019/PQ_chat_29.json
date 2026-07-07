@@ -1,4 +1,0 @@
-{
-    "summary": "The student asked how to specify backup procedures in a DRP. The assistant explained that backup procedures detail the methods, locations, and recovery processes for data backups. Key aspects include identifying what to back up (critical applications, equipment, documents like financial statements, tax returns, employee contacts, etc.), who performs the backup, how it's done technically, where backups are stored (including off-site for critical documents and the DRP), and the frequency of backups.",
-    "turn_count": 1
-}

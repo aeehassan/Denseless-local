@@ -1,0 +1,37 @@
+{
+  "user_id": "student_1001",
+  "learning_pace": "average",
+  "tokens_remaining": 994338,
+  "tokens_used": 5662,
+  "token_history": [
+    {
+      "input_tokens": 695,
+      "output_tokens": 114,
+      "total_tokens": 809,
+      "chain": "run_qa_chain",
+      "timestamp": "2026-07-07T21:03:49"
+    },
+    {
+      "input_tokens": 695,
+      "output_tokens": 152,
+      "total_tokens": 847,
+      "chain": "run_qa_chain",
+      "timestamp": "2026-07-07T21:18:14"
+    },
+    {
+      "input_tokens": 2564,
+      "output_tokens": 1442,
+      "total_tokens": 4006,
+      "chain": "run_quiz_chain",
+      "timestamp": "2026-07-07T21:41:48"
+    }
+  ],
+  "weak_topics": [],
+  "strong_topics": [],
+  "topics": {},
+  "scores": {
+    "comprehension": {},
+    "retention": {}
+  },
+  "revision_dates": {}
+}

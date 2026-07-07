@@ -1,0 +1,140 @@
+{
+    "questions": [
+        {
+            "level": "surface",
+            "question": "What is an incident response plan?",
+            "model_answer": "Award 1 mark for 'An organization's go-to set of documentation that details how team members should complete tasks, when they should perform certain tasks, who is responsible for which tasks and how others can contact them, which threats, exploits and situations qualify as actionable security incidents, and what to do when they occur, and guides responders from initial detection, assessment and triage of an incident to its containment and resolution.'",
+            "student_answer": null,
+            "score": 1.0,
+            "explanation": "Correct \u2014 the student accurately described an incident response plan as a comprehensive guide for team members in handling security incidents.",
+            "source_pages": [
+                2
+            ],
+            "section": "What is an incident response plan"
+        },
+        {
+            "level": "surface",
+            "question": "List two main phases of incident response.",
+            "model_answer": "Award 1 mark for 'Detection/identification and Containment.' or 'Detection/identification, Containment.'",
+            "student_answer": null,
+            "score": 0.5,
+            "explanation": "Partially correct \u2014 you mentioned the Detection/identification phase but missed the Containment phase.",
+            "source_pages": [
+                3,
+                4
+            ],
+            "section": "Incident response frameworks: Phases of incident response"
+        },
+        {
+            "level": "surface",
+            "question": "Name an organization that provides an incident response framework.",
+            "model_answer": "Award 1 mark for 'NIST', 'SANS Institute', 'ISO' or 'ISACA'.",
+            "student_answer": null,
+            "score": 0.5,
+            "explanation": "Partially correct \u2014 you mentioned the ISA, which is a similar organization to ISACA.",
+            "source_pages": [
+                3,
+                4
+            ],
+            "section": "Incident response frameworks: Phases of incident response"
+        },
+        {
+            "level": "conceptual",
+            "question": "Explain why an incident response plan is crucial for an organization.",
+            "model_answer": "Award 1 mark for 'An incident response plan acts as a detailed, authoritative map, guiding responders from initial detection, assessment and triage of an incident to its containment and resolution, minimizing damage, recovery time, and total costs.'",
+            "student_answer": null,
+            "score": 1.0,
+            "explanation": "Correct \u2014 you identified the importance of incident response plans in providing a comprehensive guide for responding to incidents, ensuring efficient containment, reducing damage, recovery time, and overall costs.",
+            "source_pages": [
+                2,
+                4,
+                5
+            ],
+            "section": "What is an incident response plan"
+        },
+        {
+            "level": "conceptual",
+            "question": "Describe the role of the incident response team in an organization.",
+            "model_answer": "Award 1 mark for 'The incident response team handles technical cybersecurity tasks and considerations within incident management, which involves diverse stakeholders from the executive, legal, HR, communications and IT teams.'",
+            "student_answer": null,
+            "score": 0.5,
+            "explanation": "Partially correct \u2014 you mentioned incident management but missed the specific role of handling technical cybersecurity tasks and collaborating with various stakeholders.",
+            "source_pages": [
+                1,
+                4,
+                5
+            ],
+            "section": "Introduction"
+        },
+        {
+            "level": "conceptual",
+            "question": "What is the purpose of the 'Lessons learned' phase in incident response?",
+            "model_answer": "Award 1 mark for 'To review the incident to establish what happened, when it happened and how it happened; flag security controls, policies and procedures that functioned sub-optimally; and identify ways to improve them.'",
+            "student_answer": null,
+            "score": 1.0,
+            "explanation": "Correct \u2014 the student correctly identified the purpose of the 'Lessons learned' phase in incident response.",
+            "source_pages": [
+                3,
+                4,
+                5
+            ],
+            "section": "Incident response frameworks: Phases of incident response"
+        },
+        {
+            "level": "deep",
+            "question": "If a security incident occurs and your organization does not have an incident response plan in place, what are the potential consequences? Justify your answer.",
+            "model_answer": "Award 1 mark for 'The potential consequences are increased damage, recovery time and total costs, as well as a lack of guidance for responders on how to proceed from initial detection, assessment and triage to containment and resolution.'",
+            "student_answer": null,
+            "score": 0.5,
+            "explanation": "Partially correct \u2014 you mentioned potential consequences but did not include increased total costs or lack of guidance for responders.",
+            "source_pages": [
+                4,
+                5
+            ],
+            "section": "Why is an Incident Response Plan Important"
+        },
+        {
+            "level": "deep",
+            "question": "Propose an improvement to your organization's incident response plan based on a recent security incident. Justify your suggestion.",
+            "model_answer": "Award 1 mark for 'Incorporate more training and exercises to improve the team's ability to detect, respond, and recover from cyber attacks.' or similar suggestions justifying their effectiveness in improving incident response capabilities.",
+            "student_answer": null,
+            "score": 1.0,
+            "explanation": "Correct \u2014 you suggested incorporating more training and exercises for the team, enhancing their ability to detect, respond, and recover from cyber attacks.",
+            "source_pages": [
+                2,
+                4,
+                5
+            ],
+            "section": "What is an incident response plan"
+        },
+        {
+            "level": "deep",
+            "question": "A recent security incident has compromised sensitive data and affected multiple IT resources. Explain the steps you would take in the 'Containment' phase to minimize further damage.",
+            "model_answer": "Award 1 mark for 'Isolate the affected systems, terminate any malicious processes, secure network traffic to prevent lateral movement of threats, and ensure that no backdoors have been left open.'",
+            "student_answer": null,
+            "score": 0.5,
+            "explanation": "Partially correct \u2014 you mentioned the need to isolate systems and terminate malicious processes, but did not cover securing network traffic or checking for backdoors.",
+            "source_pages": [
+                1,
+                2,
+                3,
+                4
+            ],
+            "section": "Types of security incidents"
+        },
+        {
+            "level": "deep",
+            "question": "After a security incident has been contained and resolved, explain the importance of updating your organization's incident response plan.",
+            "model_answer": "Award 1 mark for 'Updating the incident response plan helps improve its effectiveness by incorporating lessons learned from the incident, addressing any deficiencies, and ensuring that the plan remains current with best practices.'",
+            "student_answer": null,
+            "score": 0.5,
+            "explanation": "Partially correct \u2014 you mentioned updating to incorporate lessons learned, but missed discussing addressing deficiencies and remaining current with best practices.",
+            "source_pages": [
+                4,
+                5
+            ],
+            "section": "Why is an Incident Response Plan Important"
+        }
+    ],
+    "feedback": "Your overall performance reflects a solid foundation in the concept of an incident response plan. Well done! However, it appears that there's room for improvement in understanding incident response frameworks, particularly the phases, introduction, types of security incidents, and the importance of an Incident Response Plan. I recommend focusing on reviewing specific case studies or examples to better grasp these concepts. Remember, every step you take in understanding these weak areas brings you closer to becoming a well-rounded incident responder."
+}

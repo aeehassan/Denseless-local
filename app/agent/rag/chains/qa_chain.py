@@ -28,6 +28,7 @@ NOTE on LangMem imports:
 """
 
 import json
+import textwrap
 import logging
 import time
 from pathlib import Path
@@ -588,7 +589,8 @@ def _update_ltm(
 
     except Exception as e:
         print(f"[qa_chain] LTM update failed (non-fatal). Error: {e}")
-        return {}
+        raise
+        # return {}
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -989,7 +991,7 @@ def run_qa_chain(
         llm:                  Language model instance.
         learning_pace:        "slow" | "average" | "fast" — controls explanation depth.
         current_topic:        Topic label injected into the QA prompt.
-        course:               ...
+        course:               Title of the course in the vector store.
 
     Returns:
         _SyntheticResponse:
@@ -1124,6 +1126,7 @@ def run_qa_chain(
     accumulated_usage = _accumulate_tokens(accumulated_usage, qa_usage)
 
     answer = result.get("answer", "").strip()
+    answer = textwrap.fill(answer, width=80)
     grounded = bool(result.get("grounded", False))
 
     # ── Step 7 — Update summary and save ────────────────────────────────────
@@ -1148,6 +1151,7 @@ def run_qa_chain(
 
     return _SyntheticResponse(
         content={
+            "question": question,
             "answer": answer,
             "source_pages": source_pages,
             "convo_name": convo_name,

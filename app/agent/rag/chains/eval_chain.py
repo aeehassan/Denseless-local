@@ -31,7 +31,7 @@ logging.basicConfig(level=logging.INFO)
 # MODULE-LEVEL CONFIG
 # ─────────────────────────────────────────────────────────────────────────────
 
-USE_GEMINI: bool = True  # False → local Ollama, no delays, retry loop runs once
+USE_GEMINI: bool = False  # False → local Ollama, no delays, retry loop runs once
 # True  → Gemini API, inter-call delays + RPM backoff active
 
 _REQUEST_DELAY_SECONDS = 5
@@ -772,7 +772,7 @@ def run_eval_chain(
         )
 
         # Mutate score and explanation in place on the question dict
-        question["score"] = result["score"]
+        question["score"] = float(result["score"])
         question["explanation"] = result["explanation"]
 
         accumulated_usage = _accumulate_tokens(accumulated_usage, usage)
@@ -833,12 +833,20 @@ def run_eval_chain(
     if simulated_date:
         today = simulated_date
 
-    # 6a — Overwrite section classifications for this topic
+    # 6a — Ensure topic + nested score containers exist
+    profile.setdefault("scores", {})
+    profile["scores"].setdefault("comprehension", {})
+    profile["scores"].setdefault("retention", {})
+
     if topic not in profile.get("topics", {}):
         profile.setdefault("topics", {})[topic] = {
             "weak_areas": [],
             "strong_areas": [],
         }
+
+    # Inject empty per-topic score arrays if this topic hasn't been seen before
+    profile["scores"]["comprehension"].setdefault(topic, [])
+    profile["scores"]["retention"].setdefault(topic, [])
 
     profile["topics"][topic]["weak_areas"] = list(new_weak_sections)
     profile["topics"][topic]["strong_areas"] = list(new_strong_sections)
@@ -847,45 +855,31 @@ def run_eval_chain(
 
     # 6b — Route score into comprehension / retention arrays by quiz_phase
     if quiz_phase == "pre_test":
-        profile["scores"]["comprehension"].append(
-            {
-                "attempt": 0,
-                "score": total_score,
-                "date": today,
-            }
+        profile["scores"]["comprehension"][topic].append(
+            {"attempt": 0, "score": total_score, "date": today}
         )
-        print(f"[eval_chain] Pre-test score → comprehension (attempt 0).")
+        print(f"[eval_chain] Pre-test score → comprehension[{topic}] (attempt 0).")
 
     elif quiz_phase == "post_test":
-        profile["scores"]["comprehension"].append(
-            {
-                "attempt": 1,
-                "score": total_score,
-                "date": today,
-            }
+        profile["scores"]["comprehension"][topic].append(
+            {"attempt": 1, "score": total_score, "date": today}
         )
-        profile["scores"]["retention"].append(
-            {
-                "attempt": 0,
-                "score": total_score,
-                "date": today,
-            }
+        profile["scores"]["retention"][topic].append(
+            {"attempt": 0, "score": total_score, "date": today}
         )
         print(
-            f"[eval_chain] Post-test score → comprehension (attempt 1) "
-            f"and retention (attempt 0)."
+            f"[eval_chain] Post-test score → comprehension[{topic}] (attempt {1}) "
+            f"and retention[{topic}] (attempt 0)."
         )
 
     elif quiz_phase == "revision":
-        retention_attempt = len(profile["scores"]["retention"])
-        profile["scores"]["retention"].append(
-            {
-                "attempt": retention_attempt,
-                "score": total_score,
-                "date": today,
-            }
+        retention_attempt = len(profile["scores"]["retention"][topic])
+        profile["scores"]["retention"][topic].append(
+            {"attempt": retention_attempt, "score": total_score, "date": today}
         )
-        print(f"[eval_chain] Revision score → retention (attempt {retention_attempt}).")
+        print(
+            f"[eval_chain] Revision score → retention[{topic}] (attempt {retention_attempt})."
+        )
 
     # 6c — Mark today's revision_dates entry as completed with feedback
     revision_dates_for_topic = profile.get("revision_dates", {}).get(topic, [])
@@ -900,7 +894,7 @@ def run_eval_chain(
     # ── Step 7 — Save quiz, save profile, and return ──────────────────────
 
     _save_quiz(quiz_path, quiz)  # ← save graded quiz back to its file
-    # _save_profile(student_id, profile)
+    _save_profile(student_id, profile)
 
     print(f"[eval_chain] Eval chain complete for student '{student_id}'.")
 

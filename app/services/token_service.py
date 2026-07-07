@@ -91,8 +91,12 @@ _DEFAULT_PROFILE = {
     "token_history": [],  # append-only log of every LLM call
     "weak_topics": [],
     "strong_topics": [],
-    "revision_dates": [],
     "topics": {},
+    "scores": {
+        "comprehension": {},
+        "retention": {}    
+    },
+    "revision_dates": {},
 }
 
 

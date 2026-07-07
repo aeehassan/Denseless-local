@@ -7,7 +7,7 @@ build/
 
 # ── Data ────────────────────────
 # User data
-data/profiles/ 
+# data/profiles/ 
 
 # ── Environment secrets ──────────
 .env
