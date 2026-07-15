@@ -1,0 +1,27 @@
+Article Title: Design and Implementation of a RAG-Based Adaptive Intelligent Tutoring System Targeting Comprehension and Retention in Higher Education
+Journal Name: Education and Information Technologies (Springer)
+
+Authors:
+
+1. Stephen Ebuka Iheagwara
+   Affiliation: Department of Computer Science, Air Force Institute of Technology, Kaduna, Nigeria
+   ORCID: [PLACEHOLDER — placeholder ORCID given, 0000-0000-0000-0000, replace with real ORCID]
+   Email: [PLACEHOLDER — replace with real email, "youremail@gmail.com" appears to be a placeholder itself]
+
+2. Abubakar Hassan Abdulkadir
+   Affiliation: Department of Computer Science, Air Force Institute of Technology, Kaduna, Nigeria
+   ORCID: 0009-0006-2599-9393
+   Email: [PLACEHOLDER — email not provided]
+
+3. Henry Mafua
+   Affiliation: Department of Computer Science, Air Force Institute of Technology, Kaduna, Nigeria
+   ORCID: [PLACEHOLDER — placeholder ORCID given, 0000-0000-0000-0000, replace with real ORCID]
+   Email: [PLACEHOLDER — email not provided]
+
+4. Auwal [PLACEHOLDER — full name incomplete, please provide surname/full name]
+   Affiliation: Department of Cyber Security, Air Force Institute of Technology, Kaduna, Nigeria
+   ORCID: [PLACEHOLDER — placeholder ORCID given, 0000-0000-0000-0000, replace with real ORCID]
+   Email: [PLACEHOLDER — email not provided]
+
+Corresponding Author: Stephen Ebuka Iheagwara
+Corresponding Author Email: [PLACEHOLDER — must match the corresponding author's email above]
