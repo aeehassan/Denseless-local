@@ -1,0 +1,145 @@
+{
+    "questions": [
+        {
+            "level": "surface",
+            "question": "What is the foundational document that outlines the general, high-level priorities for handling security incidents?",
+            "model_answer": "Award 1 mark for 'policy' or 'establish a policy'.",
+            "student_answer": "The foundational document is an incident remediation and response policy. It is designed to be an evergreen document that describes general, high-level incident-handling priorities, empowering responders to make sound decisions during a crisis.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately identified the foundational document as a policy that outlines high-level priorities.",
+            "source_pages": [
+                2,
+                3
+            ],
+            "section": "How to create an incident response plan"
+        },
+        {
+            "level": "surface",
+            "question": "What term describes detailed, step-by-step guides that provide standardized actions for specific types of security incidents?",
+            "model_answer": "Award 1 mark for 'playbooks'.",
+            "student_answer": "The term is playbooks. They outline standardized, step-by-step actions that responders should take in specific scenarios.  ",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately identified and defined the term 'playbooks'.",
+            "source_pages": [
+                1,
+                2,
+                3
+            ],
+            "section": "Types of security incidents"
+        },
+        {
+            "level": "surface",
+            "question": "According to the material, what is the primary purpose of the 'Lessons Learned' phase in incident response?",
+            "model_answer": "Award 1 mark for 'to review what happened' or 'to understand the timeline of events, how the incident occurred, and identify any security controls, policies, or procedures that didn't function optimally'. Accept any phrasing that indicates a review of the incident and its handling to identify improvements.",
+            "student_answer": "the primary purpose of the Lessons Learned phase is to review the incident to establish exactly what, when, and how it happened. This allows the team to flag any security controls, policies, or procedures that didn't work well, find ways to improve them, and update the incident response plan accordingly.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately described the purpose of the Lessons Learned phase as reviewing the incident to understand its occurrence and identify areas for improvement in controls, policies, and the response plan.",
+            "source_pages": [
+                3,
+                4,
+                5
+            ],
+            "section": "Incident response frameworks: Phases of incident response"
+        },
+        {
+            "level": "conceptual",
+            "question": "Explain the relationship between an incident response policy and incident response playbooks.",
+            "model_answer": "Award 1 mark for explaining that the policy provides the high-level 'what' and 'why' of incident response, while playbooks detail the step-by-step 'how' for specific scenarios. Accept any phrasing that differentiates the strategic overview of the policy from the tactical, detailed guidance of playbooks.",
+            "student_answer": "The relationship between an incident response policy and incident response playbooks is all about the level of detail\u2014moving from the big picture to the specific action steps.The Policy is the High-Level Foundation: The incident response policy is an evergreen, high-level document that outlines the organization's general priorities for handling incidents. It doesn't get into technical details; instead, it is designed to empower responders and guide them in making sound decisions when a crisis hits.  The Playbooks are the Standardized Action Steps: While the policy stays at a high level, playbooks \"get into the weeds\". They provide the actual standardized, step-by-step actions that responders must take during specific attack scenarios (like a phishing or malware attack).  How They Work Together: The policy gives the team the authority and general direction to act, while the playbooks turn that policy into consistent, efficient, and effective everyday action. ",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately described the policy as the high-level 'what' and 'why' and the playbooks as the detailed 'how' for specific scenarios.",
+            "source_pages": [
+                2,
+                3
+            ],
+            "section": "How to create an incident response plan"
+        },
+        {
+            "level": "conceptual",
+            "question": "Describe the significance of building an incident response team as part of creating a successful incident response plan.",
+            "model_answer": "Award 1 mark for stating that the effectiveness of the plan depends on the people involved, who must be clearly defined in terms of responsibilities and adequately trained to perform their roles. Accept any explanation focusing on the human element being critical for plan execution.",
+            "student_answer": "Clear Accountability: It establishes exactly who will handle which specific tasks before a crisis strikes, reducing confusion during an attack.  Operational Readiness: It ensures that everyone on the team receives adequate training to effectively fulfill their specific roles and responsibilities. ",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately described the significance of clear accountability and operational readiness provided by an incident response team.",
+            "source_pages": [
+                2,
+                3,
+                4,
+                5
+            ],
+            "section": "How to create an incident response plan"
+        },
+        {
+            "level": "conceptual",
+            "question": "What is the core objective of the 'Containment' phase in incident response?",
+            "model_answer": "Award 1 mark for stating the goal is to stop the incident from spreading and causing further damage, and/or to regain control of compromised IT resources. Accept any phrasing that captures the essence of preventing escalation and asserting control.",
+            "student_answer": "The core objective of the Containment phase is to take immediate steps to stop a security incident from worsening and to regain control of the organization's IT resources.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately identified the core objective of stopping the incident from worsening and regaining control of IT resources.",
+            "source_pages": [
+                3,
+                4,
+                5
+            ],
+            "section": "Incident response frameworks: Phases of incident response"
+        },
+        {
+            "level": "conceptual",
+            "question": "Why is a communication plan considered essential for a successful incident response?",
+            "model_answer": "Award 1 mark for explaining that clear communication is necessary for informing and coordinating diverse stakeholders, enabling the incident response to succeed. Accept any explanation emphasizing the need for coordinated information flow among internal teams, customers, partners, and potentially external entities.",
+            "student_answer": "Reducing Confusion: It ensures that everyone is on the same page during a crisis, which cuts down on panic and enables a much faster recovery.",
+            "score": 0.7,
+            "explanation": "Partial \u2014 you correctly identified that clear communication reduces confusion and aids faster recovery, but did not explicitly mention the coordination of diverse stakeholders as required.",
+            "source_pages": [
+                2,
+                3,
+                4,
+                5
+            ],
+            "section": "How to create an incident response plan"
+        },
+        {
+            "level": "deep",
+            "question": "Imagine a scenario where a critical system is experiencing intermittent failures due to an unknown cause. Which phase of the incident response framework would be the immediate priority to begin addressing the issue, and why?",
+            "model_answer": "Award 1 mark for identifying 'Detection/Identification' as the immediate priority AND explaining that it is necessary to first detect, evaluate, validate, and triage the incident to understand its nature and severity before other actions can be effectively taken. Accept any reasoning that prioritizes understanding the problem before attempting to solve it.",
+            "student_answer": "The immediate priority to begin addressing this issue would be the Detection/identification phase.  Here is why:The cause is unknown: Because the system is failing due to an \"unknown cause,\" you cannot effectively contain or fix the issue yet. You first need to use IT monitoring to evaluate, validate, and triage the situation to pinpoint exactly what is happening.  Determining if it's an actual incident: This phase is critical to verify whether the intermittent failures are being caused by a malicious cyber attack (which qualifies as a security incident) or if it is just a routine technical glitch.  Once the team successfully identifies the root cause during this phase, they can properly transition into the Containment phase to stop it from worsening. ",
+            "score": 1.0,
+            "explanation": "Correct - you accurately identified the Detection/Identification phase as the immediate priority and provided a sound explanation for why understanding the problem is essential before taking further action.",
+            "source_pages": [
+                3,
+                4,
+                5
+            ],
+            "section": "Incident response frameworks: Phases of incident response"
+        },
+        {
+            "level": "deep",
+            "question": "If an organization has a well-defined incident response policy and playbooks, but consistently struggles to effectively resolve incidents, what key component of the incident response plan might be lacking, and how would addressing it improve outcomes?",
+            "model_answer": "Award 1 mark for identifying 'building an incident response team' (or similar phrasing related to the people involved) as potentially lacking AND explaining that ensuring the team is adequately trained and responsible for tasks will lead to better decision-making and execution during a crisis. Accept any answer that points to the human element and its preparedness as crucial for plan effectiveness.",
+            "student_answer": "the missing key component is likely building a strong incident response team.\nAddressing this component would improve outcomes by focusing on two critical areas:Establishing Roles and Accountability: It ensures the organization defines exactly who will handle which tasks. Without this, having playbooks won't help because no one knows who is responsible for executing them during a chaotic attack.  Providing Adequate Training: It ensures that the team members actually have the training required to fulfill their roles and responsibilities effectively. Having the steps written down is useless if the responders lack the skills to carry them out under pressure.  ",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you identified the need for an incident response team and accurately explained how defined roles, accountability, and training improve execution during incidents.",
+            "source_pages": [
+                2,
+                3,
+                4,
+                5
+            ],
+            "section": "How to create an incident response plan"
+        },
+        {
+            "level": "deep",
+            "question": "Consider an incident where malware has been detected and removed. What is the next critical phase after eradication, and what specific actions are taken during this phase to ensure long-term security?",
+            "model_answer": "Award 1 mark for identifying 'Recovery' as the next phase AND explaining that it involves restoring normal operations AND mitigating relevant vulnerabilities that were exploited to prevent future attacks. Accept any answer that includes both restoring operations and addressing underlying security weaknesses.",
+            "student_answer": null,
+            "score": 0.0,
+            "explanation": "The student's answer is blank and therefore does not address any part of the question.",
+            "source_pages": [
+                3,
+                4
+            ],
+            "section": "Incident response frameworks: Phases of incident response"
+        }
+    ],
+    "feedback": "You've achieved a strong score of 8.7 out of 10 on this incident response quiz, indicating a solid understanding of the core concepts. Your mastery of creating an incident response plan and identifying different types of security incidents is particularly commendable. The area that would benefit from a bit more focus is understanding the specific phases within incident response frameworks. To strengthen your grasp of this, I recommend reviewing the NIST incident response lifecycle and practicing identifying which phase each hypothetical incident scenario falls into. With a little targeted review of these phases, you'll be well-equipped to tackle any incident response challenge."
+}

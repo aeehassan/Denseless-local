@@ -1,0 +1,140 @@
+{
+    "questions": [
+        {
+            "level": "surface",
+            "question": "What is the fundamental definition of an 'incidence' in the context of WEKK 5?",
+            "model_answer": "Award 1 mark for stating that an 'incidence' is an event or occurrence that disrupts normal operations.",
+            "student_answer": "To qualify as an incident, a cyber attack must successfully access enterprise resources or otherwise put those resources at risk",
+            "score": 0.0,
+            "explanation": "Incorrect \u2014 your answer describes a cyber security incident, not the general definition of an 'incidence' in the context of WEKK 5.",
+            "source_pages": [
+                1
+            ],
+            "section": "WEKK 5 INCIDENCE RESPONSE"
+        },
+        {
+            "level": "surface",
+            "question": "Name any three types of security incidents listed in the material.",
+            "model_answer": "Award 1 mark for any three of the following: Privilege escalation attacks, Man-in-the-middle attacks, Malware attacks, Unauthorized attempts to access systems or data, Advanced persistent threats, Web application attacks, Insider threats, Phishing attacks, Password attacks, Denial-of-service (DoS) attacks, Data breach.",
+            "student_answer": "Phishing attacks  Malware attacks  Denial-of-service (DoS) attacks ",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately listed three distinct types of security incidents from the provided material.",
+            "source_pages": [
+                1,
+                2
+            ],
+            "section": "Types of security incidents"
+        },
+        {
+            "level": "surface",
+            "question": "What are the three most common types of incident response teams mentioned?",
+            "model_answer": "Award 1 mark for any three of the following: Computer incident response team (CIRT), Computer security incident response team (CSIRT), Computer emergency response team (CERT).",
+            "student_answer": "Computer security incident response team (CSIRT)  Computer incident response team (CIRT)  Computer emergency response team (CERT) ",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately listed the three most common types of incident response teams as requested.",
+            "source_pages": [
+                4
+            ],
+            "section": "Types of incident response teams"
+        },
+        {
+            "level": "conceptual",
+            "question": "Explain the relationship between a vulnerability, a threat, and an incident.",
+            "model_answer": "Award 1 mark for explaining that a vulnerability is a weakness, a threat is an entity that exploits that weakness, and an incident occurs when the threat successfully exploits the vulnerability to put resources at risk or access them.",
+            "student_answer": "Think of it as a chain reaction: A vulnerability is a weak spot in the system. A threat is the bad actor (like a hacker) who wants to exploit that weak spot. When that threat successfully exploits the vulnerability and puts resources at risk, it officially becomes an incident.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately described vulnerability as a weakness, threat as an exploiter, and incident as the successful exploitation leading to risk.",
+            "source_pages": [
+                1,
+                2
+            ],
+            "section": "Types of security incidents"
+        },
+        {
+            "level": "conceptual",
+            "question": "Describe the primary goals of incident response.",
+            "model_answer": "Award 1 mark for stating that the main goals are to reduce damage caused by an attack, shorten recovery time, and minimize overall costs.",
+            "student_answer": "The main goals are to detect and manage cyber attacks in a strategic way so that the company can minimize overall damage, shorten recovery time, and keep total costs as low as possible.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately identified the primary goals of incident response, including reducing damage, shortening recovery time, and minimizing costs.",
+            "source_pages": [
+                3,
+                4,
+                5
+            ],
+            "section": "Incident response frameworks: Phases of incident response"
+        },
+        {
+            "level": "conceptual",
+            "question": "How does incident response differ from incident management?",
+            "model_answer": "Award 1 mark for stating that incident response is a subset of incident management and focuses specifically on the technical cybersecurity tasks and considerations, while incident management is a broader enterprise-wide approach involving diverse stakeholders.",
+            "student_answer": "Incident management is the big, company-wide umbrella that handles the entire situation, involving executives, legal, HR, PR, and IT teams.  Incident response is just a technical subset under that umbrella, focusing strictly on the technical cybersecurity tasks needed to handle the attack. ",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately described incident response as a technical subset of the broader, enterprise-wide incident management.",
+            "source_pages": [
+                1,
+                2,
+                3
+            ],
+            "section": "Introduction"
+        },
+        {
+            "level": "conceptual",
+            "question": "Explain the purpose of 'playbooks' within an incident response plan.",
+            "model_answer": "Award 1 mark for explaining that playbooks are detailed, step-by-step guides that provide standardized actions for specific types of security incidents, ensuring consistency, efficiency, and effectiveness.",
+            "student_answer": "Playbooks get \"into the weeds\" by providing standardized, step-by-step actions that responders must take during specific attack scenarios. Their purpose is to make sure the team's response is highly consistent, efficient, and effective, while also helping train new responders.",
+            "score": 1.0,
+            "explanation": "Correct \u2014 you accurately described playbooks as detailed, step-by-step guides that ensure consistent, efficient, and effective responses to specific incidents.",
+            "source_pages": [
+                2,
+                3,
+                4,
+                5
+            ],
+            "section": "How to create an incident response plan"
+        },
+        {
+            "level": "deep",
+            "question": "If an organization experiences a denial-of-service (DoS) attack, which phase of incident response would be most critical for immediate action, and why?",
+            "model_answer": "Award 1 mark for identifying 'Containment' as the critical phase AND justifying it by explaining its goal is to stop the incident from spreading and causing further damage by regaining control of IT resources.",
+            "student_answer": "nill",
+            "score": 0.0,
+            "explanation": "Incorrect \u2014 the student provided no answer, therefore no aspect of the question was addressed.",
+            "source_pages": [
+                3,
+                4,
+                5
+            ],
+            "section": "Incident response frameworks: Phases of incident response"
+        },
+        {
+            "level": "deep",
+            "question": "Why is establishing a policy considered a foundational step in creating an incident response plan?",
+            "model_answer": "Award 1 mark for explaining that the policy establishes the general, high-level priorities and outlines the 'why' and 'what' of incident response efforts, guiding responders in making sound decisions.",
+            "student_answer": "nill",
+            "score": 0.0,
+            "explanation": "Incorrect - the student provided no answer.",
+            "source_pages": [
+                2,
+                3,
+                4,
+                5
+            ],
+            "section": "How to create an incident response plan"
+        },
+        {
+            "level": "deep",
+            "question": "Consider a scenario where an organization has experienced a successful privilege escalation attack. Which phase of incident response would focus on removing the attacker's elevated access and identifying how they achieved it?",
+            "model_answer": "Award 1 mark for identifying the 'Eradication' phase and explaining that it focuses on eliminating threat activity, including malicious accounts, and identifying exploited vulnerabilities.",
+            "student_answer": "nill",
+            "score": 0.0,
+            "explanation": "Incorrect - The answer is blank and therefore does not address the question.",
+            "source_pages": [
+                3,
+                4
+            ],
+            "section": "Incident response frameworks: Phases of incident response"
+        }
+    ],
+    "feedback": "You achieved a score of 6/10 on this quiz, indicating a developing understanding of incident response concepts. It's great that you have a solid grasp of the introduction, different types of incident response teams, and the various categories of security incidents. To strengthen your performance, focus on understanding how to create an incident response plan and the phases outlined in common incident response frameworks. A good next step would be to map out the lifecycle of a hypothetical security incident, identifying the key actions and decisions at each stage of a framework like NIST or SANS. Keep up the effort; building on your current strengths will lead to further success in mastering incident response."
+}

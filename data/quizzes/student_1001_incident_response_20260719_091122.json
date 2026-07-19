@@ -1,0 +1,140 @@
+{
+    "questions": [
+        {
+            "level": "surface",
+            "question": "What is the primary purpose of an incident response plan?",
+            "model_answer": "Award 1 mark for stating it is an organization's essential guide to handling security incidents.",
+            "student_answer": null,
+            "score": 0.0,
+            "explanation": "Incorrect \u2014 your answer is blank and does not address the question about the primary purpose of an incident response plan.",
+            "source_pages": [
+                4,
+                5
+            ],
+            "section": "Why is an Incident Response Plan Important"
+        },
+        {
+            "level": "surface",
+            "question": "Name any two key elements detailed within an incident response plan regarding 'Who', 'What', 'How', or 'When'.",
+            "model_answer": "Award 1 mark for any two of the following: Who (responsibility and contact info), What (qualifying incidents and actions), How (task completion instructions), When (circumstances for tasks).",
+            "student_answer": null,
+            "score": 0.0,
+            "explanation": "Incorrect - your answer does not mention any of the key elements ('Who', 'What', 'How', or 'When') as required by the question.",
+            "source_pages": [
+                2,
+                3
+            ],
+            "section": "What is an incident response plan"
+        },
+        {
+            "level": "surface",
+            "question": "What is the role of playbooks within an incident response plan?",
+            "model_answer": "Award 1 mark for stating they provide detailed, step-by-step guides for specific types of security incidents.",
+            "student_answer": null,
+            "score": 0.0,
+            "explanation": "Incorrect - your answer does not describe the role of playbooks within an incident response plan.",
+            "source_pages": [
+                2,
+                3
+            ],
+            "section": "How to create an incident response plan"
+        },
+        {
+            "level": "conceptual",
+            "question": "Explain the relationship between an incident response policy and incident response playbooks.",
+            "model_answer": "Award 1 mark for explaining that the policy outlines general high-level priorities (the 'why' and 'what') while playbooks provide detailed, step-by-step instructions (the 'how') for specific scenarios.",
+            "student_answer": null,
+            "score": 0.0,
+            "explanation": "Your answer does not explain the relationship between an incident response policy and incident response playbooks.",
+            "source_pages": [
+                2,
+                3,
+                4,
+                5
+            ],
+            "section": "How to create an incident response plan"
+        },
+        {
+            "level": "conceptual",
+            "question": "Describe the purpose of the 'Detection/Identification' phase in an incident response framework.",
+            "model_answer": "Award 1 mark for stating it involves using IT monitoring to detect potential incidents, followed by evaluation, validation, and triage to determine severity and nature.",
+            "student_answer": null,
+            "score": 0.5,
+            "explanation": "Partial credit is awarded because you correctly identified the detection aspect but did not elaborate on the subsequent evaluation, validation, and triage steps.",
+            "source_pages": [
+                3,
+                4,
+                5
+            ],
+            "section": "Incident response frameworks: Phases of incident response"
+        },
+        {
+            "level": "conceptual",
+            "question": "Why is establishing an incident response team considered a critical component of a robust plan?",
+            "model_answer": "Award 1 mark for explaining that the plan's effectiveness depends on the people involved, who need clearly defined responsibilities and adequate training to perform their roles.",
+            "student_answer": null,
+            "score": 0.0,
+            "explanation": "Your answer does not address why an incident response team is critical to a robust plan, focusing instead on general security measures.",
+            "source_pages": [
+                4,
+                5
+            ],
+            "section": "Why is an Incident Response Plan Important"
+        },
+        {
+            "level": "conceptual",
+            "question": "What is the objective of the 'Containment' phase during incident response?",
+            "model_answer": "Award 1 mark for stating the goal is to stop the incident from spreading and causing further damage by taking immediate steps to regain control of compromised IT resources.",
+            "student_answer": null,
+            "score": 0.0,
+            "explanation": "Incorrect - your answer does not describe the objective of the containment phase during incident response.",
+            "source_pages": [
+                3,
+                4,
+                5
+            ],
+            "section": "Incident response frameworks: Phases of incident response"
+        },
+        {
+            "level": "deep",
+            "question": "Imagine a scenario where a critical system experiences an unknown security breach. How would the 'Lessons Learned' phase contribute to preventing future similar incidents?",
+            "model_answer": "Award 1 mark for describing that the 'Lessons Learned' phase involves reviewing the incident to understand what happened, how it occurred, identify underperforming security controls, policies, or procedures, and then update the incident response plan accordingly to improve these areas.",
+            "student_answer": null,
+            "score": 0.0,
+            "explanation": "Your answer did not address the 'Lessons Learned' phase or its contribution to preventing future incidents.",
+            "source_pages": [
+                3,
+                4,
+                5
+            ],
+            "section": "Incident response frameworks: Phases of incident response"
+        },
+        {
+            "level": "deep",
+            "question": "If an organization lacks an established incident response team, what are the immediate implications for handling a detected security exploit, considering the 'Who' and 'How' aspects of an incident response plan?",
+            "model_answer": "Award 1 mark for explaining that without a defined team, there would be ambiguity in who is responsible for tasks, leading to potential delays, confusion, and inefficient execution of 'how' to respond to the exploit, thus undermining the plan's effectiveness.",
+            "student_answer": null,
+            "score": 0.5,
+            "explanation": "Partial credit is awarded because you correctly identified the potential for confusion and delays but did not fully elaborate on the 'how' aspect of the response plan's execution.",
+            "source_pages": [
+                2,
+                3
+            ],
+            "section": "What is an incident response plan"
+        },
+        {
+            "level": "deep",
+            "question": "Consider a situation where an incident response team identifies a vulnerability exploited by an attacker. How would the 'Eradication' and 'Recovery' phases work in conjunction to fully address the threat?",
+            "model_answer": "Award 1 mark for explaining that Eradication focuses on eliminating the threat (e.g., removing malware, disabling accounts) and identifying the specific vulnerabilities exploited, while Recovery then focuses on restoring normal operations and mitigating those identified vulnerabilities to prevent recurrence.",
+            "student_answer": null,
+            "score": 0.0,
+            "explanation": "Your answer does not describe the Eradication or Recovery phases of incident response.",
+            "source_pages": [
+                3,
+                4
+            ],
+            "section": "Incident response frameworks: Phases of incident response"
+        }
+    ],
+    "feedback": "You scored 1 out of 10 on this incident response quiz, which indicates a foundational understanding is still developing. While no sections were identified as strong, focusing on the areas needing attention will be key to building your knowledge. Specifically, understanding the creation of an incident response plan, the different frameworks and phases, and the fundamental importance and definition of an incident response plan are areas to concentrate on. To improve these weaker areas, I recommend reviewing the core concepts of incident response planning by watching a short video tutorial on each of the identified weak sections and then attempting to outline the key steps involved in creating a plan. Building this foundational knowledge now will set you up for greater success on future assessments."
+}

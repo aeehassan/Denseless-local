@@ -12,6 +12,9 @@ build/
 # ── Environment secrets ──────────
 .env
 nb_extractor.py
+headers_and_outputs.txt
+adv_nb_extractor.py
+headers_code_and_outputs.txt
 
 # ── IDE / Editor ─────────────────
 .vscode/

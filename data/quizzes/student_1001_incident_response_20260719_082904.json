@@ -1,0 +1,141 @@
+{
+    "questions": [
+        {
+            "level": "surface",
+            "question": "What are the three most common types of incident response teams mentioned?",
+            "model_answer": "Award 1 mark for any two of the following: Computer Incident Response Team (CIRT), Computer Security Incident Response Team (CSIRT), Computer Emergency Response Team (CERT).",
+            "student_answer": "null",
+            "score": 0.0,
+            "explanation": "Incorrect \u2014 you did not provide any of the requested types of incident response teams.",
+            "source_pages": [
+                4
+            ],
+            "section": "Types of incident response teams"
+        },
+        {
+            "level": "surface",
+            "question": "List any four types of security incidents from the provided material.",
+            "model_answer": "Award 1 mark for any four of the following: Privilege escalation attacks, Man-in-the-middle attacks, Malware attacks, Unauthorized attempts to access systems or data, Advanced persistent threats (APTs), Web application attacks, Insider threats, Phishing attacks, Password attacks, Denial-of-service (DoS) attacks, Data breach.",
+            "student_answer": "null",
+            "score": 0.0,
+            "explanation": "Incorrect - your answer is blank and therefore does not list any security incidents.",
+            "source_pages": [
+                1,
+                2
+            ],
+            "section": "Types of security incidents"
+        },
+        {
+            "level": "surface",
+            "question": "What are the six general phases of incident response described in established frameworks?",
+            "model_answer": "Award 1 mark for listing all six phases in any order: Preparation/planning, Detection/identification, Containment, Eradication, Recovery, Lessons learned.",
+            "student_answer": "null",
+            "score": 0.0,
+            "explanation": "Incorrect \u2014 the answer is blank and does not list any of the required phases of incident response.",
+            "source_pages": [
+                3,
+                4
+            ],
+            "section": "Incident response frameworks: Phases of incident response"
+        },
+        {
+            "level": "conceptual",
+            "question": "Explain the relationship between a vulnerability, a threat, and an incident.",
+            "model_answer": "Award 1 mark for correctly explaining that a vulnerability is a weakness, a threat is an entity that exploits the weakness, and an incident occurs when the threat successfully exploits the vulnerability to put resources at risk or access them.",
+            "student_answer": "null",
+            "score": 0.0,
+            "explanation": "Incorrect - The student provided no answer.",
+            "source_pages": [
+                1,
+                2
+            ],
+            "section": "Types of security incidents"
+        },
+        {
+            "level": "conceptual",
+            "question": "How does incident response differ from incident management?",
+            "model_answer": "Award 1 mark for stating that incident response is a subset of incident management and focuses specifically on the technical cybersecurity tasks and considerations, while incident management is a broader enterprise-wide handling of cyber attacks involving diverse stakeholders.",
+            "student_answer": "null",
+            "score": 0.0,
+            "explanation": "Incorrect \u2014 the answer is blank and does not address the question.",
+            "source_pages": [
+                1,
+                2,
+                3
+            ],
+            "section": "Introduction"
+        },
+        {
+            "level": "conceptual",
+            "question": "Describe the purpose of 'playbooks' within an incident response plan.",
+            "model_answer": "Award 1 mark for explaining that playbooks provide detailed, step-by-step guides for standardized actions to be taken in specific types of security incidents, ensuring consistency, efficiency, and effectiveness.",
+            "student_answer": "null",
+            "score": 0.0,
+            "explanation": "Incorrect - the student did not provide any answer.",
+            "source_pages": [
+                2,
+                3,
+                4,
+                5
+            ],
+            "section": "How to create an incident response plan"
+        },
+        {
+            "level": "conceptual",
+            "question": "Why is it important to proactively develop response strategies for dealing with common security incidents?",
+            "model_answer": "Award 1 mark for explaining that proactive strategies help minimize damage, shorten recovery time, and reduce overall costs, embodying the principle that 'an ounce of prevention is worth a pound of cure'.",
+            "student_answer": "null",
+            "score": 0.0,
+            "explanation": "Incorrect \u2014 the answer is blank and therefore does not address the question.",
+            "source_pages": [
+                4,
+                5
+            ],
+            "section": "Why is an Incident Response Plan Important"
+        },
+        {
+            "level": "deep",
+            "question": "Imagine a scenario where a critical system is experiencing intermittent failures, but IT monitoring tools are not flagging specific anomalies. Which phase of incident response would be most challenging in this situation, and why?",
+            "model_answer": "Award 1 mark for identifying 'Detection/Identification' as the most challenging phase AND explaining that the lack of clear anomalies makes it difficult to detect, evaluate, validate, and triage the potential security incident.",
+            "student_answer": "null",
+            "score": 0.0,
+            "explanation": "Incorrect \u2014 the student did not provide an answer to the question.",
+            "source_pages": [
+                3,
+                4,
+                5
+            ],
+            "section": "Incident response frameworks: Phases of incident response"
+        },
+        {
+            "level": "deep",
+            "question": "A company has experienced a data breach where sensitive customer information was stolen. After the immediate containment and eradication of the threat, what are the critical activities that must occur during the 'Lessons Learned' phase to prevent recurrence?",
+            "model_answer": "Award 1 mark for stating that the 'Lessons Learned' phase requires reviewing the incident to establish what happened, when, and how; flagging sub-optimal security controls, policies, and procedures; and identifying ways to improve them and update the incident response plan accordingly.",
+            "student_answer": "null",
+            "score": 0.0,
+            "explanation": "Incorrect \u2014 the student provided no answer, therefore no elements of the marking scheme were addressed.",
+            "source_pages": [
+                3,
+                4,
+                5
+            ],
+            "section": "Incident response frameworks: Phases of incident response"
+        },
+        {
+            "level": "deep",
+            "question": "Consider an organization that has a policy outlining general incident-handling priorities. However, their incident response team struggles to act efficiently during actual cyber attacks. What component is likely missing or underdeveloped, and how would it improve their efficiency?",
+            "model_answer": "Award 1 mark for identifying 'playbooks' as the likely missing component AND explaining that playbooks provide detailed, step-by-step guides for standardized actions in specific scenarios, which improves consistency, efficiency, and effectiveness during an incident.",
+            "student_answer": "null",
+            "score": 0.0,
+            "explanation": "Incorrect - the student's answer is blank and therefore does not address the question.",
+            "source_pages": [
+                2,
+                3,
+                4,
+                5
+            ],
+            "section": "How to create an incident response plan"
+        }
+    ],
+    "feedback": "You scored 0 out of 10 on this incident response quiz, indicating a foundational understanding is still developing. While there were no specific areas of strength identified, this is a common starting point when learning a new subject. The quiz highlighted that all sections, including creating an incident response plan, understanding frameworks and phases, the introduction, types of teams and incidents, and the importance of a plan, need further attention. To improve, I recommend reviewing the core concepts of each phase of the incident response lifecycle and focusing on the key elements that make an incident response plan effective. Your journey in mastering incident response is just beginning, and with focused effort, you can build a solid understanding."
+}

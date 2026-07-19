@@ -1,0 +1,141 @@
+{
+    "questions": [
+        {
+            "level": "surface",
+            "question": "What is the initial phase of incident response where an organization prepares for potential incidents?",
+            "model_answer": "Award 1 mark for 'Preparation/planning'.",
+            "student_answer": null,
+            "score": 0.0,
+            "explanation": "Incorrect - your answer did not mention the preparation or planning phase of incident response.",
+            "source_pages": [
+                2,
+                3,
+                4
+            ],
+            "section": "How to create an incident response plan"
+        },
+        {
+            "level": "surface",
+            "question": "Which phase involves eliminating threat activity, such as malware or malicious user accounts?",
+            "model_answer": "Award 1 mark for 'Eradication'.",
+            "student_answer": null,
+            "score": 0.0,
+            "explanation": "Incorrect - your answer does not mention the term 'Eradication' which is the key phase for eliminating threat activity.",
+            "source_pages": [
+                3,
+                4
+            ],
+            "section": "Incident response frameworks: Phases of incident response"
+        },
+        {
+            "level": "surface",
+            "question": "What is the primary goal of the containment phase?",
+            "model_answer": "Award 1 mark for 'to stop the incident from spreading and causing further damage' or 'Take steps to stop an incident from worsening and regain control of IT resources'.",
+            "student_answer": null,
+            "score": 0.0,
+            "explanation": "Incorrect \u2014 your answer does not address the primary goal of the containment phase as described in the marking scheme.",
+            "source_pages": [
+                3,
+                4
+            ],
+            "section": "Incident response frameworks: Phases of incident response"
+        },
+        {
+            "level": "conceptual",
+            "question": "Explain the purpose of the 'Detection/Identification' phase in incident response.",
+            "model_answer": "Award 1 mark for describing the use of IT monitoring systems to detect potential security incidents, followed by evaluation, validation, and triage to determine severity and nature.",
+            "student_answer": null,
+            "score": 0.0,
+            "explanation": "The student's answer is blank and therefore does not address any part of the question.",
+            "source_pages": [
+                3,
+                4,
+                5
+            ],
+            "section": "Incident response frameworks: Phases of incident response"
+        },
+        {
+            "level": "conceptual",
+            "question": "Describe the activities involved in the 'Recovery' phase of incident response.",
+            "model_answer": "Award 1 mark for stating the restoration of normal operations and mitigation of relevant vulnerabilities that were exploited.",
+            "student_answer": null,
+            "score": 0.0,
+            "explanation": "Incorrect \u2014 your answer does not mention the restoration of normal operations or the mitigation of vulnerabilities.",
+            "source_pages": [
+                3,
+                4
+            ],
+            "section": "Incident response frameworks: Phases of incident response"
+        },
+        {
+            "level": "conceptual",
+            "question": "What is the significance of the 'Lessons Learned' phase in the incident response process?",
+            "model_answer": "Award 1 mark for explaining that this phase involves reviewing the incident to understand what happened, how it occurred, and identifying areas for improvement in security controls, policies, or procedures, leading to an updated incident response plan.",
+            "student_answer": null,
+            "score": 0.0,
+            "explanation": "Incorrect - your answer does not describe the purpose or significance of the 'Lessons Learned' phase in incident response.",
+            "source_pages": [
+                3,
+                4,
+                5
+            ],
+            "section": "Incident response frameworks: Phases of incident response"
+        },
+        {
+            "level": "conceptual",
+            "question": "How do established incident response frameworks aid organizations in developing their response plans?",
+            "model_answer": "Award 1 mark for explaining that these frameworks provide high-level guidance and direction, breaking down the complex process of handling cyber attacks into manageable stages with common phases.",
+            "student_answer": null,
+            "score": 0.5,
+            "explanation": "You correctly identified that frameworks provide guidance and break down the process into stages, but you did not elaborate on the common phases involved.",
+            "source_pages": [
+                3,
+                4
+            ],
+            "section": "Incident response frameworks: Phases of incident response"
+        },
+        {
+            "level": "deep",
+            "question": "Imagine a scenario where an incident has been contained but the threat actors have left behind a sophisticated piece of malware that is difficult to remove. Which phase would be most challenging, and why?",
+            "model_answer": "Award 1 mark for identifying 'Eradication' as the most challenging phase and justifying it by explaining the need to eliminate the threat activity, including removing malware, disabling malicious accounts, and identifying exploited vulnerabilities, which can be complex with sophisticated malware.",
+            "student_answer": null,
+            "score": 0.0,
+            "explanation": "Incorrect - your answer does not identify the most challenging phase or provide a justification for it.",
+            "source_pages": [
+                3,
+                4
+            ],
+            "section": "Incident response frameworks: Phases of incident response"
+        },
+        {
+            "level": "deep",
+            "question": "After an incident has been fully resolved and operations restored, an organization discovers that their incident response plan was not followed effectively due to a lack of clear roles. Which phase's outcome would directly highlight this deficiency, and what specific actions from that phase would be reviewed?",
+            "model_answer": "Award 1 mark for identifying 'Lessons Learned' as the phase that would highlight the deficiency and mentioning the review of what happened, how it happened, and identifying sub-optimal security controls, policies, or procedures (specifically related to team roles and responsibilities).",
+            "student_answer": null,
+            "score": 0.0,
+            "explanation": "The student did not identify the 'Lessons Learned' phase or describe the relevant review actions needed to uncover the deficiency in roles and responsibilities.",
+            "source_pages": [
+                2,
+                3,
+                4,
+                5
+            ],
+            "section": "What is an incident response plan"
+        },
+        {
+            "level": "deep",
+            "question": "Consider an organization that has just detected a potential security incident. They have a well-defined incident response team and playbooks in place. What are the immediate next steps they would take during the incident response process, and what is the overarching goal of these steps?",
+            "model_answer": "Award 1 mark for stating that the immediate next steps would involve evaluation, validation, and triage of the incident to determine its severity and nature (Detection/Identification), with the overarching goal of stopping the incident from spreading and causing further damage (Containment).",
+            "student_answer": null,
+            "score": 0.5,
+            "explanation": "Partial \u2014 you correctly identified the need to stop the incident from spreading as the overarching goal, but did not specify the immediate next steps of evaluation, validation, and triage.",
+            "source_pages": [
+                3,
+                4,
+                5
+            ],
+            "section": "Incident response frameworks: Phases of incident response"
+        }
+    ],
+    "feedback": "You scored 1 out of 10 on this incident response quiz, indicating a foundational understanding is still developing. While no sections were identified as strong, this is a starting point, and improvement is definitely achievable. The areas that require the most attention are understanding the purpose of an incident response plan, the different frameworks available, and the practical steps to create one. To improve, I recommend focusing your study on the core components of an incident response plan and then exploring a specific framework like NIST or SANS to see how those phases are applied. Keep working at it, and you'll build the necessary knowledge in these key areas."
+}

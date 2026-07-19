@@ -918,7 +918,7 @@ def _reingest_pdf(
             condensed=True,
             course=course,
             topic=current_topic,
-            file_name=pdf_path.name,
+            file_name=pdf_path,
         )
 
         print(f"[notes_chain] ✓ Condensed notes successfully ingested into Chroma.")
@@ -1238,8 +1238,9 @@ def run_notes_chain(
     )
 
     # ── Step 4: Re-ingest condensed PDF into Chroma ───────────────────────────
-    # Keep this idle for now
-    # _reingest_pdf(...)
+    filename = Path(pdf_path).name
+    clean_relative_path = f"data/notes/{filename}"
+    _reingest_pdf(clean_relative_path, student_id, current_topic, course, embedder, store)
 
     # ── Step 5: Build synthetic response for token_guard ─────────────────────
     total_tokens = total_input_tokens + total_output_tokens

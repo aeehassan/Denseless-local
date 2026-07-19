@@ -53,7 +53,7 @@ def extract_headers_and_outputs(notebook_path, output_path):
 # --- SAFE PATH USAGE ---
 # This ensures it always targets the 'app/agent' directory accurately
 script_dir = os.path.dirname(os.path.abspath(__file__))
-notebook_file = os.path.join(script_dir, 'llm.ipynb')
+notebook_file = os.path.join(script_dir, 'app\\agent\\Demo.ipynb')
 output_file = os.path.join(script_dir, 'headers_and_outputs.txt')
 
 extract_headers_and_outputs(notebook_file, output_file)

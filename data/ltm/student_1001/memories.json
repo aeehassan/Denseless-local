@@ -1,0 +1,18 @@
+[
+    {
+        "namespace": [
+            "ltm",
+            "student_1001"
+        ],
+        "key": "fd20ae6f-6843-471f-b521-2ef3b8b699c9",
+        "value": "The student asked for a definition of \"incident\". This does not provide any information about the student's learning state. No memory should be created."
+    },
+    {
+        "namespace": [
+            "ltm",
+            "student_1001"
+        ],
+        "key": "89db545f-6bff-4fc1-b7d8-a1bd41ce10b4",
+        "value": "The student prefers responses to be much briefer."
+    }
+]

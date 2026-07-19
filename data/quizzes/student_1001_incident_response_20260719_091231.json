@@ -1,0 +1,140 @@
+{
+    "questions": [
+        {
+            "level": "surface",
+            "question": "What is the primary purpose of an incident response plan?",
+            "model_answer": "Award 1 mark for stating it acts as a guide or document outlining how to handle security incidents.",
+            "student_answer": null,
+            "score": 0.0,
+            "explanation": "The student's answer is blank and therefore does not address the question asked.",
+            "source_pages": [
+                4,
+                5
+            ],
+            "section": "Why is an Incident Response Plan Important"
+        },
+        {
+            "level": "surface",
+            "question": "Name any two key benefits of having a well-structured incident response plan.",
+            "model_answer": "Award 1 mark for any two of the following: Minimizing Impact of Incidents, Improving Incident Detection, Streamlining Communication, Legal and Regulatory Compliance, Building Resilience.",
+            "student_answer": null,
+            "score": 0.0,
+            "explanation": "The student did not provide any benefits of having a well-structured incident response plan.",
+            "source_pages": [
+                4,
+                5
+            ],
+            "section": "Why is an Incident Response Plan Important"
+        },
+        {
+            "level": "surface",
+            "question": "What does the 'Preparation/Planning' phase of an incident response framework involve?",
+            "model_answer": "Award 1 mark for mentioning building a team, creating policies/processes/playbooks, or deploying tools/services.",
+            "student_answer": null,
+            "score": 0.0,
+            "explanation": "The student's answer is blank and therefore does not address any aspect of the preparation/planning phase.",
+            "source_pages": [
+                3,
+                4
+            ],
+            "section": "Incident response frameworks: Phases of incident response"
+        },
+        {
+            "level": "conceptual",
+            "question": "Explain the role of 'playbooks' within an incident response plan.",
+            "model_answer": "Award 1 mark for explaining that playbooks provide detailed, step-by-step guides for specific incident types, outlining standardized actions for responders.",
+            "student_answer": null,
+            "score": 0.0,
+            "explanation": "Incorrect - your answer does not describe the role of playbooks within an incident response plan.",
+            "source_pages": [
+                2,
+                3,
+                4,
+                5
+            ],
+            "section": "How to create an incident response plan"
+        },
+        {
+            "level": "conceptual",
+            "question": "How does continuous monitoring and regular review of security systems contribute to an effective incident response plan?",
+            "model_answer": "Award 1 mark for explaining that it helps detect threats earlier, enabling proactive measures to prevent breaches.",
+            "student_answer": null,
+            "score": 0.0,
+            "explanation": "The student's answer does not address how continuous monitoring and regular review contribute to an effective incident response plan.",
+            "source_pages": [
+                4,
+                5
+            ],
+            "section": "Why is an Incident Response Plan Important"
+        },
+        {
+            "level": "conceptual",
+            "question": "Describe the purpose of the 'Eradication' phase in incident response.",
+            "model_answer": "Award 1 mark for stating that the goal is to eliminate threat activity, including removing malware or malicious accounts, and identifying exploited vulnerabilities.",
+            "student_answer": null,
+            "score": 0.0,
+            "explanation": "Incorrect - your answer does not describe the purpose of the 'Eradication' phase in incident response.",
+            "source_pages": [
+                3,
+                4
+            ],
+            "section": "Incident response frameworks: Phases of incident response"
+        },
+        {
+            "level": "conceptual",
+            "question": "Why is clear communication among all stakeholders a crucial component of an incident response plan?",
+            "model_answer": "Award 1 mark for explaining that it ensures everyone is on the same page, reduces confusion, and enables faster recovery.",
+            "student_answer": null,
+            "score": 0.0,
+            "explanation": "The student did not provide any answer to the question.",
+            "source_pages": [
+                4,
+                5
+            ],
+            "section": "Why is an Incident Response Plan Important"
+        },
+        {
+            "level": "deep",
+            "question": "Imagine a scenario where a critical system is experiencing intermittent failures that are difficult to pinpoint. How would the 'Detection/Identification' phase of an incident response plan be applied in this situation?",
+            "model_answer": "Award 1 mark for describing the use of IT monitoring systems to detect potential incidents, followed by evaluation, validation, and triaging to determine the severity and nature of the problem.",
+            "student_answer": null,
+            "score": 0.0,
+            "explanation": "Incorrect - your answer does not describe how the 'Detection/Identification' phase would be applied to intermittent failures.",
+            "source_pages": [
+                2,
+                3,
+                4,
+                5
+            ],
+            "section": "What is an incident response plan"
+        },
+        {
+            "level": "deep",
+            "question": "If an organization faces a situation where a data breach has occurred, which phase of the incident response framework would be most critical for preventing further damage and regaining control, and what actions would be taken?",
+            "model_answer": "Award 1 mark for identifying 'Containment' as the critical phase and describing actions such as stopping the incident from spreading or taking immediate steps to regain control of compromised IT resources.",
+            "student_answer": null,
+            "score": 0.0,
+            "explanation": "Incorrect \u2014 your answer does not identify the containment phase or describe relevant actions for preventing further damage.",
+            "source_pages": [
+                3,
+                4
+            ],
+            "section": "Incident response frameworks: Phases of incident response"
+        },
+        {
+            "level": "deep",
+            "question": "Consider an organization that has just experienced a significant security incident. What is the value of the 'Lessons Learned' phase, and what specific outcomes should be sought from this process?",
+            "model_answer": "Award 1 mark for stating that the 'Lessons Learned' phase involves reviewing the incident to understand what happened and how, and identifying improvements for security controls, policies, or procedures to update the incident response plan.",
+            "student_answer": null,
+            "score": 0.0,
+            "explanation": "The student did not provide any answer, therefore no points can be awarded.",
+            "source_pages": [
+                3,
+                4,
+                5
+            ],
+            "section": "Incident response frameworks: Phases of incident response"
+        }
+    ],
+    "feedback": "You scored 0 out of 10 on this incident response quiz, indicating a foundational understanding is still developing. While no sections were identified as strong, this quiz has clearly highlighted the core areas needing your attention. Specifically, understanding the importance and creation of an incident response plan, as well as the phases within common frameworks, requires further focus. To improve, I recommend reviewing the basic definitions and purposes of incident response plans and then mapping these concepts to the standard phases like preparation, identification, containment, eradication, and recovery. Building a solid understanding of these fundamentals will set you up for success in future assessments."
+}

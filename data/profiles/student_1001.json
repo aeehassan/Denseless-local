@@ -1,37 +1,163 @@
 {
   "user_id": "student_1001",
-  "learning_pace": "average",
-  "tokens_remaining": 994338,
-  "tokens_used": 5662,
+  "learning_pace": "fast",
+  "tokens_remaining": 9949629,
+  "tokens_used": 50371,
   "token_history": [
     {
-      "input_tokens": 695,
-      "output_tokens": 114,
-      "total_tokens": 809,
-      "chain": "run_qa_chain",
-      "timestamp": "2026-07-07T21:03:49"
+      "input_tokens": 7782,
+      "output_tokens": 2559,
+      "total_tokens": 10341,
+      "chain": "run_notes_chain",
+      "timestamp": "2026-07-19T07:24:47"
     },
     {
-      "input_tokens": 695,
-      "output_tokens": 152,
-      "total_tokens": 847,
+      "input_tokens": 1617,
+      "output_tokens": 190,
+      "total_tokens": 1807,
       "chain": "run_qa_chain",
-      "timestamp": "2026-07-07T21:18:14"
+      "timestamp": "2026-07-19T07:27:30"
     },
     {
-      "input_tokens": 2564,
-      "output_tokens": 1442,
-      "total_tokens": 4006,
-      "chain": "run_quiz_chain",
-      "timestamp": "2026-07-07T21:41:48"
+      "input_tokens": 1663,
+      "output_tokens": 219,
+      "total_tokens": 1882,
+      "chain": "run_qa_chain",
+      "timestamp": "2026-07-19T07:28:01"
+    },
+    {
+      "input_tokens": 5390,
+      "output_tokens": 529,
+      "total_tokens": 5919,
+      "chain": "run_eval_chain",
+      "timestamp": "2026-07-19T07:30:08"
+    },
+    {
+      "input_tokens": 5542,
+      "output_tokens": 591,
+      "total_tokens": 6133,
+      "chain": "run_eval_chain",
+      "timestamp": "2026-07-19T07:35:55"
+    },
+    {
+      "input_tokens": 6091,
+      "output_tokens": 614,
+      "total_tokens": 6705,
+      "chain": "run_eval_chain",
+      "timestamp": "2026-07-19T07:44:06"
+    },
+    {
+      "input_tokens": 5294,
+      "output_tokens": 601,
+      "total_tokens": 5895,
+      "chain": "run_eval_chain",
+      "timestamp": "2026-07-19T08:11:02"
+    },
+    {
+      "input_tokens": 5308,
+      "output_tokens": 607,
+      "total_tokens": 5915,
+      "chain": "run_eval_chain",
+      "timestamp": "2026-07-19T08:12:08"
+    },
+    {
+      "input_tokens": 5231,
+      "output_tokens": 543,
+      "total_tokens": 5774,
+      "chain": "run_eval_chain",
+      "timestamp": "2026-07-19T08:13:08"
     }
   ],
   "weak_topics": [],
   "strong_topics": [],
-  "topics": {},
-  "scores": {
-    "comprehension": {},
-    "retention": {}
+  "topics": {
+    "Incident response": {
+      "weak_areas": [
+        "What is an incident response plan",
+        "Why is an Incident Response Plan Important",
+        "How to create an incident response plan",
+        "Incident response frameworks: Phases of incident response"
+      ],
+      "strong_areas": [],
+      "notes_reviewed": true,
+      "original_pdf_path": "app\\pdfs\\student_1001_Incident Response.pdf",
+      "condensed_pdf_path": "data/notes/student_1001_Incident_response_20260719_072437.pdf"
+    }
   },
-  "revision_dates": {}
+  "scores": {
+    "comprehension": {
+      "Incident response": [
+        {
+          "attempt": 0,
+          "score": 0.0,
+          "date": "2026-07-19",
+          "quiz_path": "data/quizzes/student_1001_incident_response_20260719_082904.json"
+        },
+        {
+          "attempt": 1,
+          "score": 6.0,
+          "date": "2026-07-19",
+          "quiz_path": "data/quizzes/student_1001_incident_response_20260719_083038.json"
+        }
+      ]
+    },
+    "retention": {
+      "Incident response": [
+        {
+          "attempt": 0,
+          "score": 6.0,
+          "date": "2026-07-19",
+          "quiz_path": "data/quizzes/student_1001_incident_response_20260719_083038.json"
+        },
+        {
+          "attempt": 1,
+          "score": 8.7,
+          "date": "2026-07-20",
+          "quiz_path": "data/quizzes/student_1001_incident_response_20260719_083843.json"
+        },
+        {
+          "attempt": 2,
+          "score": 1.0,
+          "date": "2026-07-22",
+          "quiz_path": "data/quizzes/student_1001_incident_response_20260719_091015.json"
+        },
+        {
+          "attempt": 3,
+          "score": 1.0,
+          "date": "2026-07-26",
+          "quiz_path": "data/quizzes/student_1001_incident_response_20260719_091122.json"
+        },
+        {
+          "attempt": 4,
+          "score": 0.0,
+          "date": "2026-08-02",
+          "quiz_path": "data/quizzes/student_1001_incident_response_20260719_091231.json"
+        }
+      ]
+    }
+  },
+  "revision_dates": {
+    "Incident response": [
+      {
+        "date": "2026-07-20",
+        "status": "completed",
+        "feedback": "You've achieved a strong score of 8.7 out of 10 on this incident response quiz, indicating a solid understanding of the core concepts. Your mastery of creating an incident response plan and identifying different types of security incidents is particularly commendable. The area that would benefit from a bit more focus is understanding the specific phases within incident response frameworks. To strengthen your grasp of this, I recommend reviewing the NIST incident response lifecycle and practicing identifying which phase each hypothetical incident scenario falls into. With a little targeted review of these phases, you'll be well-equipped to tackle any incident response challenge."
+      },
+      {
+        "date": "2026-07-22",
+        "status": "completed",
+        "feedback": "You scored 1 out of 10 on this incident response quiz, indicating a foundational understanding is still developing. While no sections were identified as strong, this is a starting point, and improvement is definitely achievable. The areas that require the most attention are understanding the purpose of an incident response plan, the different frameworks available, and the practical steps to create one. To improve, I recommend focusing your study on the core components of an incident response plan and then exploring a specific framework like NIST or SANS to see how those phases are applied. Keep working at it, and you'll build the necessary knowledge in these key areas."
+      },
+      {
+        "date": "2026-07-26",
+        "status": "completed",
+        "feedback": "You scored 1 out of 10 on this incident response quiz, which indicates a foundational understanding is still developing. While no sections were identified as strong, focusing on the areas needing attention will be key to building your knowledge. Specifically, understanding the creation of an incident response plan, the different frameworks and phases, and the fundamental importance and definition of an incident response plan are areas to concentrate on. To improve these weaker areas, I recommend reviewing the core concepts of incident response planning by watching a short video tutorial on each of the identified weak sections and then attempting to outline the key steps involved in creating a plan. Building this foundational knowledge now will set you up for greater success on future assessments."
+      },
+      {
+        "date": "2026-08-02",
+        "status": "completed",
+        "feedback": "You scored 0 out of 10 on this incident response quiz, indicating a foundational understanding is still developing. While no sections were identified as strong, this quiz has clearly highlighted the core areas needing your attention. Specifically, understanding the importance and creation of an incident response plan, as well as the phases within common frameworks, requires further focus. To improve, I recommend reviewing the basic definitions and purposes of incident response plans and then mapping these concepts to the standard phases like preparation, identification, containment, eradication, and recovery. Building a solid understanding of these fundamentals will set you up for success in future assessments."
+      }
+    ]
+  }
 }
